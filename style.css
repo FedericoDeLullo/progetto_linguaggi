@@ -9,7 +9,7 @@ h3{color: black; padding-bottom: 30px;}
 
 
 
-.big-text{font-size: 50px; font-weight: 700;}
+.big-text{font-size: 50px; }
 .med-text{font-size: 40px;}
 .normal-text{font-size: 30px;color:white;}
 .small-text{font-size: 14px;}
@@ -256,7 +256,7 @@ margin: 0 auto;
 .articoli
 {
 	display: grid;
-	border: 1px solid red;
+	height: 750px;
 	grid-template-rows: 200px 200px 200px;
 	text-align: center;
   background: url('img/33.png') no-repeat center center;
@@ -266,26 +266,42 @@ margin: 0 auto;
 
 .row
 {
-	border: 1px solid white;
 	display: grid;
 	grid-template-columns: 50% 50%;
-  
 }
 
 .column
 {
-  border: 1px solid white;
-	margin-top: 80px;
+	margin-top: 10px;
 }
     
 
 .button{
-  background: darkorange;
+  width: 110px;
+  height: 60px;
+background: #e81e25;
    color: black;
-  border-radius: 10px;
+ font-size: 20px;
+margin-top: 70px;
+margin-right: 200px;
+   border-radius: 10px;
  }
  
-    
+.button:hover{
+  background: orange;
+  color: black;
+  transition: 0.5s;
+}
+ 
+.text{
+  text-align: center center;
+  font-size: 32px;
+  font-weight: 100;
+}
+
+
+
+
 .grid {display: flex; ;
     width: 100%; 
     height: 600px; 
