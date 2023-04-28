@@ -10,11 +10,10 @@ p{line-height: 28px; color: white; font-weight: 300; float: left;}
 
 
 
-.big-text{font-size: 50px; }
-.med-text{font-size: 40px;}
 .normal-text{font-size: 30px;color:white;}
-.small-text{font-size: 14px;}
  
+*{scroll-behavior: smooth;}
+
 .logo4_{width: 40px; 
   margin-left: -40px;
   height: 40px;
@@ -246,7 +245,8 @@ margin: 0 auto;
 .row
 {
 	display: grid;
-	grid-template-columns: 50% 50%;
+	margin: auto 20px;
+  grid-template-columns: 50% 50%;
 }
 
 .column
