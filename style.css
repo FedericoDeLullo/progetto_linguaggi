@@ -7,6 +7,8 @@ h1{color: black; margin-left: 500px; margin-top: 1300px;font-size: 60px; margin-
 h2{color: black; margin-left: 500px; font-size: 60px}
 p{line-height: 28px; color: white; font-weight: 300; float: left;}
 
+
+
 ul#menu {
   position: absolute;
   font-family: Verdana, sans-serif;
@@ -43,7 +45,6 @@ ul#menu li a:hover{
 
 .normal-text{font-size: 30px;color:white;}
  
-*{scroll-behavior: smooth;}
 
 .logo4_{width: 40px; 
   margin-left: -40px;
@@ -220,12 +221,32 @@ background: #e81e25;
 margin-top: 70px;
 margin-right: 200px;
    border-radius: 10px;
+   cursor: pointer;
  }
  
 .button:hover{
   background: orange;
   color: black;
   transition: 0.5s;
+}
+
+
+.bottone{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  height: 60px;
+  width: 110px;
+  background: darkgrey;
+  color: white;
+  cursor: pointer;
+border-radius: 10px;
+margin-left: 700px;
+}
+
+.bottone:hover{
+  background: grey;
+color: lightgrey;
+transition: 0.5s;
 }
 
 .text{
@@ -239,9 +260,9 @@ margin-right: 200px;
 }
 
 
-.footer {display: flex; ;
+.footer {display: flex; 
     width: 100%; 
-    height: 700px; 
+    height: 650px; 
     background: url('img/26.png') no-repeat center center ; 
     background-size: cover;
   
