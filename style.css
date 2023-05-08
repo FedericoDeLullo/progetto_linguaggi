@@ -1,13 +1,44 @@
 body{font-family: 'Inter', sans-serif;font-size: 30px;}
-a{text-decoration: none;}
+a{text-decoration: none; }
 
 
 
 h1{color: black; margin-left: 500px; margin-top: 1300px;font-size: 60px; margin-bottom: -100px;} 
-h2{color: black; margin-left: 500px; margin-top: 800px; font-size: 60px;margin-bottom: -100px}
-h4{color: #000; margin-left: 500px; margin-top: 700px;font-size: 60px;margin-bottom: -100px}
+h2{color: black; margin-left: 500px; font-size: 60px}
 p{line-height: 28px; color: white; font-weight: 300; float: left;}
 
+ul#menu {
+  position: absolute;
+  font-family: Verdana, sans-serif;
+  font-size: 11px;
+  margin-left: 1000px;
+  padding: 0;
+  list-style: none;
+}
+ul#menu li {
+  background-color: gray;
+  display: block;
+  width: 150px;
+  height: 30px;
+  margin: 2px;
+  float: left;
+}
+ul#menu li a {
+  color: #fff;
+  display: block;
+  font-weight: bold;
+  line-height: 30px;
+  text-decoration: none;
+  width: 150px;
+  height: 30px;
+  text-align: center;
+}
+
+ul#menu li a:hover{
+  background-color: lightgray;
+  color: black;
+  transition: 0.5s;
+}
 
 
 .normal-text{font-size: 30px;color:white;}
@@ -60,86 +91,10 @@ p{line-height: 28px; color: white; font-weight: 300; float: left;}
   
 
 
-#menu__toggle {
-  opacity: 0;
-}
-#menu__toggle:checked + .menu__btn > span {
-  transform: rotate(45deg);
-}
-#menu__toggle:checked + .menu__btn > span::before {
-  top: 0;
-  transform: rotate(0deg);
-}
-#menu__toggle:checked + .menu__btn > span::after {
-  top: 0;
-  transform: rotate(90deg);
-}
-#menu__toggle:checked ~ .menu__box {
-  left: 0 !important;
-}
-#menu__tog:checked ~ .menu__box {
-  left: 0 !important;
-}
-
-
-
-.menu__btn {
-  position: absolute;
-  top: 65px;
-  left: 40px;
-  width: 26px;
-  height: 26px;
-  cursor: pointer;
-  z-index: 1;
-}
-.menu__btn > span,
-.menu__btn > span::before,
-.menu__btn > span::after {
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  background-color: black;
-  transition-duration: .25s;
-}
-.menu__btn > span::before {
-  content: '';
-  top: -8px;
-}
-.menu__btn > span::after {
-  content: '';
-  top: 8px;
-}
-.menu__box {  
- display: block;
-position: absolute;
-  top: 20px;
-  left: -100%;
-  width: 225px;
-  height: 610px;
-  margin: 0;
-  padding: 80px 0;
-  list-style: none;
-  background-color: lightgray;
-  transition-duration: .25s;
-}
-.menu__item {
-  display: block;
-  padding: 12px 24px;
-  color: black;
-  font-family: 'Roboto', sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  text-decoration: none;
-  transition-duration: 0.25s;
-
-}
-.menu__item:hover {
-  background-color: tomato;
-}
 
 
 .header{
+  margin-top: 50px;
   width: 100px; 
   position: absolute;
 margin-left: 100px;
@@ -154,7 +109,7 @@ display: flex;
   overflow: hidden;
   margin: 0px auto;
 margin-right: 500px;
-margin-top: -1550px;
+margin-top: -1450px;
 }
 
 .image-container
@@ -218,8 +173,8 @@ height: 300px;
 
 
 .hero{
-height: 800px;
-margin-top: -50px;
+  margin: 0%;
+height: 700px;
 display: flex; width: 100%; align-items: center;
 background: url('img/5.png') no-repeat center center;
 background-size: cover;
@@ -287,15 +242,14 @@ margin-right: 200px;
 .footer {display: flex; ;
     width: 100%; 
     height: 700px; 
-   margin-top: 800px;
     background: url('img/26.png') no-repeat center center ; 
     background-size: cover;
   
 }
 
 .container {
-  margin-top: 150px;
-  margin-left: -150px;
+  margin-top: 100px;
+  margin-left: -130px;
   position: absolute;
   height: 500px;
   width: 100%;
