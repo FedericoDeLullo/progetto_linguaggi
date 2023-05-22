@@ -1,6 +1,6 @@
 <?php
 // Configurazione del database
-$host = "localhost:3308";
+$host = "127.0.0.1";
 $username = "root";
 $password = "";
 $db = "GameStation";
@@ -92,7 +92,6 @@ if ($connessione->query($sql) === TRUE) {
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
-
 $sql = "INSERT INTO articoli (nome, categoria, path_foto, path_info) VALUES ('Wii', 'console', '../img/console_1.png', 'https://www.nintendo.it/Wii/Wii-94559.html')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
