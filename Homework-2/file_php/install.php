@@ -45,6 +45,18 @@ $sql = "CREATE TABLE IF NOT EXISTS articoli (
     path_foto VARCHAR(100),
     path_info VARCHAR(255)
 )";
+
+if ($connessione->query($sql) === TRUE) {
+    echo "Tabella 'articoli' creata correttamente\n";
+} else {
+    echo "Errore durante la creazione della tabella 'articoli': " . $connessione->error;
+}
+
+$sql = "INSERT INTO `utenti` (`username`, `email`, `passwd`) VALUES
+('Lollo', 'lorenzofrancescotti@gmail.com', '" . password_hash('lollo', PASSWORD_DEFAULT) . "'),
+('Federico', 'federico@gmail.com', '" . password_hash('roma', PASSWORD_DEFAULT) . "')";
+
+
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' creata correttamente\n";
 } else {
