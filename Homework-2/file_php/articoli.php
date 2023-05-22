@@ -33,14 +33,16 @@
     header("Location: ../file_html/login.html");
     }
      ?>
-
-    
-
+     
     <div id="contenuto">
-    <div class="bho">
-    <a href="../file_html/index1.html"><button type="button"  value="Home" class="button-home">Home</button></a>
+    <div class="title">
+    <a href="../file_html/index1.html"><img src="../img/home.png" alt="tasto_home" class="home"></a>
 
-    <h2>Articoli Disponibili</h2>
+    <h2 class="mod">Articoli Disponibili</h2>
+    <h3 class="mod1">GIOCHI</h2>
+    <h4 class="mod2">CONSOLE</h2>
+    <h5 class="mod3">MANGA</h2>
+
 </div>
 <video autoplay muted loop id="video_back">
     <source src="../video/video_sfondo.mp4" type="video/mp4"></source> 

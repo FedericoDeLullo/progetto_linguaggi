@@ -8,10 +8,8 @@ a{text-decoration: none; }
 
 ul{list-style-type: none;}
 h1{color: black; margin-left: 500px; margin-top: 1300px;font-size: 60px; margin-bottom: -100px;} 
-h2{color: black; margin-top:-40px; margin-left: 400px; font-size: 80px; margin-bottom: -100px; line-height: 110%; text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;}
+h2{color: black; margin-top:-80px; margin-left: 400px; font-size: 80px; }
 p{line-height: 28px; color:black; font-weight: 300;margin-left: 40px;}
-h5{color: lightgrey; margin-left: 150px; margin-top: 170px;} 
-
 
 .servizi{
   width: 300px;
@@ -65,6 +63,10 @@ ul.social_icon li{
   border-radius: 10px;
 }
 
+.articoli{
+  z-index: 1;
+  height: fit-content;
+}
 
 ul#menu {
   position: absolute;
@@ -176,6 +178,7 @@ ul#menu li a:hover{
   height: fit-content;
 }
 
+
 .hero {
   margin: 0%;
   height: 700px;
@@ -208,22 +211,61 @@ ul#menu li a:hover{
   transition: 0.5s;
 }
 
+.mod{
+  line-height: 110%;
+   text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+}
+
+
+.mod1{
+  font-size: 50px;
+margin-top: 150px;
+  margin-bottom: 100px;
+  margin-left: 650px;
+  position: relative;
+  width: fit-content;
+  line-height: 110%;
+   text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+}
+
+.mod2{
+  font-size: 50px;
+  line-height: 110%;
+  text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+  margin-left: 600px;
+  margin-top: 650px;
+  margin-bottom: 100px;
+  position: relative;
+  width: fit-content;
+}
+.mod3{
+  font-size: 50px;
+  line-height: 110%;
+  text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+  margin-left: 650px;
+  margin-top: 650px;  
+  margin-bottom: 100px;
+  position: relative;
+  width: fit-content;
+}
 
 #contenuto {
   border-radius: 15px;
 width:fit-content;
 
 }
-.bho{
+.title{
   position: relative;
   z-index: 1;
 }
 #video_back{
+  margin-bottom: 0px;
+  margin-top: -100px;
   position: absolute;
   top: 0%;
   left: 0%;
-  min-width: 100%;
-  min-height: 2800px;
+  width: 100%;
+  min-height: 2700px;
   z-index: 0;
 }
 
@@ -244,10 +286,6 @@ width:fit-content;
   display: flex;
 }
 
-.ciao {
-  width: 150px;
-  margin-left: 60px;
-}
 
 .card {
   display: flex;
@@ -275,19 +313,16 @@ width:fit-content;
   display: grid;
   grid-template-columns: auto auto auto auto auto;
  margin-left: 75px;
- margin-top: 500px;
+ margin-top: -1300px;
   row-gap: 2em;
 }
 
 
-.button-home{
-   width: 130px;
-   height: 60px;
-   background:lightgray;
-   color: black;
-   margin-left: 20px;
-   margin-top: 20px;
-   font-size: 30px;
+.home{
+  margin-top: 50px;
+   width: 50px;
+   height: 50px;
+   margin-left: 150px;
    border-radius: 10px;
    cursor: pointer;
  }

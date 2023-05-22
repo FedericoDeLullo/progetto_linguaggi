@@ -1,5 +1,6 @@
 body{
-    background: wheat;
+    background-image: url('../img/sfondo_login.png') center center;
+    background-size: cover;
     display: flex;
     justify-content: center;
 }
@@ -39,7 +40,7 @@ label{
     -o-box-shadow: 5px 5px 10px 0px #000000;
     box-shadow: 5px 5px 10px 0px #000000;
     text-align: center;
-    background: lightgrey;
+
     width: 300px;
     height: 350px;
     margin-top: 100px;
