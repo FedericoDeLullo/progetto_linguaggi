@@ -8,7 +8,7 @@ a{text-decoration: none; }
 
 ul{list-style-type: none;}
 h1{color: black; margin-left: 500px; margin-top: 1300px;font-size: 60px; margin-bottom: -100px;} 
-h2{color: black; margin-top: 0px; margin-left: 500px; font-size: 60px;}
+h2{color: black; margin-top:-40px; margin-left: 400px; font-size: 80px; margin-bottom: -100px; line-height: 110%; text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;}
 p{line-height: 28px; color:black; font-weight: 300;margin-left: 40px;}
 h5{color: lightgrey; margin-left: 150px; margin-top: 170px;} 
 
@@ -172,6 +172,9 @@ ul#menu li a:hover{
   margin-top: 250px;
 }
 
+.articoli{
+  height: fit-content;
+}
 
 .hero {
   margin: 0%;
@@ -208,11 +211,21 @@ ul#menu li a:hover{
 
 #contenuto {
   border-radius: 15px;
-background: #000;
-width: 100%;
-height: 1500px
-}
+width:fit-content;
 
+}
+.bho{
+  position: relative;
+  z-index: 1;
+}
+#video_back{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  min-width: 100%;
+  min-height: 2800px;
+  z-index: 0;
+}
 
 .footer {
   display: flex;
@@ -244,13 +257,10 @@ height: 1500px
   border-radius: 30px;
   box-shadow: -1rem 0 3rem #000;
   margin-left: 50px;
+  margin-bottom: 300px;
   transition: 0.4s ease-out;
   position: relative;
-  left: 0px;
-  -webkit-box-shadow: 10px 10px 15px 0px white;
-    -moz-box-shadow: 10px 10px 15px 0px white;
-    -o-box-shadow: 10px 10px 15px 0px white;
-    box-shadow:10px 10px 15px 0px white;
+
 }
 
 .card:hover {
@@ -260,10 +270,12 @@ height: 1500px
 
 
 #catalogo-articoli{
-  width: 100%;
-  height: 100%;
+  width: 100px;
+  height: 2000px;
   display: grid;
   grid-template-columns: auto auto auto auto auto;
+ margin-left: 75px;
+ margin-top: 500px;
   row-gap: 2em;
 }
 

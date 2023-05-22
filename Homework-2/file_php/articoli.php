@@ -37,8 +37,14 @@
     
 
     <div id="contenuto">
+    <div class="bho">
     <a href="../file_html/index1.html"><button type="button"  value="Home" class="button-home">Home</button></a>
+
     <h2>Articoli Disponibili</h2>
+</div>
+<video autoplay muted loop id="video_back">
+    <source src="../video/video_sfondo.mp4" type="video/mp4"></source> 
+</video>
     <div id="catalogo-articoli"> 
 
         <?php
