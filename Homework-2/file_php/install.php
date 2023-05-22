@@ -1,6 +1,6 @@
 <?php
 // Configurazione del database
-$host = "127.0.0.1";
+$host = "localhost:3308";
 $username = "root";
 $password = "";
 $db = "GameStation";
