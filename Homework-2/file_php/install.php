@@ -93,68 +93,66 @@ if ($connessione->query($sql) === TRUE) {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
 
-$sql = "INSERT INTO articoli (nome, categoria, path_foto, path_info) VALUES ('Wii', 'console', '../img/console_1.png', 'https://www.nintendo.it/Giochi/Universo-Nintendo/Portale-di-Super-Mario/Portale-di-Super-Mario-627604.html')";
+$sql = "INSERT INTO articoli (nome, categoria, path_foto, path_info) VALUES ('Wii', 'console', '../img/console_1.png', 'https://www.nintendo.it/Wii/Wii-94559.html')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
-$sql = "INSERT INTO articoli (nome, categoria, path_foto, path_info) VALUES ('Nintendo Switch', 'console', '../img/console_2.png', 'https://www.nintendo.it/Giochi/Universo-Nintendo/Portale-di-Super-Mario/Portale-di-Super-Mario-627604.html')";
+$sql = "INSERT INTO articoli (nome, categoria, path_foto, path_info) VALUES ('Nintendo Switch', 'console', '../img/console_2.png', 'https://www.nintendo.it/Console-e-accessori/Famiglia-Nintendo-Switch/Nintendo-Switch/Nintendo-Switch-1148779.html')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
-$sql = "INSERT INTO articoli (nome, categoria, path_foto, path_info) VALUES ('Playstation 5', 'console', '../img/console_3.png', 'https://www.nintendo.it/Giochi/Universo-Nintendo/Portale-di-Super-Mario/Portale-di-Super-Mario-627604.html')";
+$sql = "INSERT INTO articoli (nome, categoria, path_foto, path_info) VALUES ('Playstation 5', 'console', '../img/console_3.png', 'https://www.playstation.com/it-it/ps5/')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
-$sql = "INSERT INTO articoli (nome, categoria, path_foto, path_info) VALUES ('Playstation 4', 'console', '../img/console_4.png', 'https://www.nintendo.it/Giochi/Universo-Nintendo/Portale-di-Super-Mario/Portale-di-Super-Mario-627604.html')";
+$sql = "INSERT INTO articoli (nome, categoria, path_foto, path_info) VALUES ('Playstation 4', 'console', '../img/console_4.png', 'https://www.playstation.com/it-it/ps4/')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
-$sql = "INSERT INTO articoli (nome, categoria, path_foto, path_info) VALUES ('Xbox', 'console', '../img/console_5.png', 'https://www.nintendo.it/Giochi/Universo-Nintendo/Portale-di-Super-Mario/Portale-di-Super-Mario-627604.html')";
+$sql = "INSERT INTO articoli (nome, categoria, path_foto, path_info) VALUES ('Xbox', 'console', '../img/console_5.png', 'https://www.xbox.com/it-IT/consoles/xbox-series-x')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
-$sql = "INSERT INTO articoli (nome, categoria, path_foto, path_info) VALUES ('Dragon Ball', 'manga', '../img/manga_1.png', 'https://www.nintendo.it/Giochi/Universo-Nintendo/Portale-di-Super-Mario/Portale-di-Super-Mario-627604.html')";
+$sql = "INSERT INTO articoli (nome, categoria, path_foto, path_info) VALUES ('Dragon Ball', 'manga', '../img/manga_1.png', 'https://www.animeclick.it/manga/9542/dragonball')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
-$sql = "INSERT INTO articoli (nome, categoria, path_foto, path_info) VALUES ('One Piece', 'manga', '../img/manga_2.png', 'https://www.nintendo.it/Giochi/Universo-Nintendo/Portale-di-Super-Mario/Portale-di-Super-Mario-627604.html')";
+$sql = "INSERT INTO articoli (nome, categoria, path_foto, path_info) VALUES ('One Piece', 'manga', '../img/manga_2.png', 'https://www.animeclick.it/anime/1160/one-piece')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
-$sql = "INSERT INTO articoli (nome, categoria, path_foto, path_info) VALUES ('Attack on Titan', 'manga', '../img/manga_3.png', 'https://www.nintendo.it/Giochi/Universo-Nintendo/Portale-di-Super-Mario/Portale-di-Super-Mario-627604.html')";
+$sql = "INSERT INTO articoli (nome, categoria, path_foto, path_info) VALUES ('Attack on Titan', 'manga', '../img/manga_3.png', 'https://www.animeclick.it/manga/11470/shingeki-no-kyojin')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
-$sql = "INSERT INTO articoli (nome, categoria, path_foto, path_info) VALUES ('Demon Slayer', 'manga', '../img/manga_4.png', 'https://www.nintendo.it/Giochi/Universo-Nintendo/Portale-di-Super-Mario/Portale-di-Super-Mario-627604.html')";
+$sql = "INSERT INTO articoli (nome, categoria, path_foto, path_info) VALUES ('Demon Slayer', 'manga', '../img/manga_4.png', 'https://www.animeclick.it/manga/17678/kimetsu-no-yaiba')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
-$sql = "INSERT INTO articoli (nome, categoria, path_foto, path_info) VALUES ('Naruto', 'manga', '../img/manga_5.png', 'https://www.nintendo.it/Giochi/Universo-Nintendo/Portale-di-Super-Mario/Portale-di-Super-Mario-627604.html')";
+$sql = "INSERT INTO articoli (nome, categoria, path_foto, path_info) VALUES ('Naruto', 'manga', '../img/manga_5.png', 'https://www.animeclick.it/manga/9847/naruto')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
-
-
 
 
 // Chiusura della connessione
