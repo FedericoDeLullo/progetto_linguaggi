@@ -16,10 +16,19 @@ p{line-height: 28px; color:black; font-weight: 300;margin-left: 40px;}
   border-bottom: 1px solid black;
   font-weight: 700;
   margin-bottom: 10px;
-  margin-left: -40px;
+  margin-left: -50px;
   color: lightgray;
 }
 
+.servizi_social
+{
+  font-weight: 700;
+  height: fit-content;
+  width: fit-content;
+  margin-left: 150px;
+  margin-top: 170px;
+  color: lightgray;
+}
 
 .contatti{
   cursor: pointer;
