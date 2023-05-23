@@ -18,13 +18,13 @@
                 }
                 else{
                     //echo "la password non è corretta";
-                    header("Location: ../file_html/password_ko.html");
+                    header("Location: ../PHP/password_ko.php");
                     exit;
                 }
             }
             else{
                 //echo "non ci sono utenti registrati con questo user";
-                header("Location: ../file_html/username_ko.html");
+                header("Location: ../PHP/username_ko.php");
                 exit;
             }
 
