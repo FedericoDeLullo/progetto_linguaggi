@@ -11,6 +11,17 @@ h1{color: black; margin-left: 500px; margin-top: 1300px;font-size: 60px; margin-
 h2{color: black; margin-top:-80px; margin-left: 400px; font-size: 80px; }
 p{line-height: 28px; color:black; font-weight: 300;margin-left: 40px;}
 
+.dark{
+  border-radius: 20px;
+  width: 60px;
+  height: 40px;
+}
+
+.but{
+  border-radius: 20px;
+}
+
+
 .servizi{
   width: 300px;
   border-bottom: 1px solid black;
@@ -183,9 +194,6 @@ ul#menu li a:hover{
   margin-top: 250px;
 }
 
-.articoli{
-  height: fit-content;
-}
 
 
 .hero {
@@ -333,10 +341,10 @@ width:fit-content;
 
 
 .home{
-  margin-top: 30px;
-   width: 100px;
-   height: 100px;
-   margin-left: 30px;
+  margin-top: 50px;
+   width: 40px;
+   height: 40px;
+   margin-left: 150px;
    border-radius: 10px;
    cursor: pointer;
  }

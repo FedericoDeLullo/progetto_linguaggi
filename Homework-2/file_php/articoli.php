@@ -30,13 +30,13 @@
     <?php
 
     if(!isset($_SESSION['loggato'])) {
-    header("Location: ../file_html/login.html");
+    header("Location: ../PHP/login.php");
     }
      ?>
      
     <div id="contenuto">
     <div class="title">
-    <a href="../file_html/index1.html"><img src="../img/home.png" alt="tasto_home" class="home"></a>
+    <a href="../PHP/index1.php"><img src="../img/home.png" alt="tasto_home" class="home"></a>
 
     <h2 class="mod">Articoli Disponibili</h2>
     <h3 class="mod1">GIOCHI</h2>

@@ -10,11 +10,11 @@
 
     if($connessione->query($sql)=== true){
         echo "registrazione effettuata correttamente <br><br>";
-        echo "<a href='../file_html/login.html'>Torna al login</a>";
+        echo "<a href='../PHP/login.php'>Torna al login</a>";
     }
     else {
         //echo "Errore nella registrazione utente $sql. ". $connessione->error;
-        header("Location: ../file_html/registrazione_ko.html");
+        header("Location: ../PHP/registrazione_ko.html");
         exit;
     }
 ?>
