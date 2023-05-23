@@ -8,6 +8,7 @@
         echo "<link rel=\"stylesheet\" href=\"../file_css/style2.css\" type=\"text/css\" />";
     }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -18,9 +19,9 @@
     </head>
     <body>
         <div class=reg4>
-            <h1>Username inesistente!</h1>
+            <h1>Account creato correttamente!</h1>
 
-            <a href="../PHP/login.php"> <br>Ritorna al login</a>
+            <a href="../PHP/login.php"> <br>Vai al login</a>
         </div>
     </body>
 </html>

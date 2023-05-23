@@ -9,12 +9,10 @@
     $sql = "INSERT INTO utenti (email, username, passwd) VALUES ('$email','$username','$hashed_password')";
 
     if($connessione->query($sql)=== true){
-        echo "registrazione effettuata correttamente <br><br>";
-        echo "<a href='../PHP/login.php'>Torna al login</a>";
+        header("Location: ../PHP/registrazione_ok.php");
     }
     else {
-        //echo "Errore nella registrazione utente $sql. ". $connessione->error;
-        header("Location: ../PHP/registrazione_ko.html");
+        header("Location: ../PHP/registrazione_ko.php");
         exit;
     }
 ?>

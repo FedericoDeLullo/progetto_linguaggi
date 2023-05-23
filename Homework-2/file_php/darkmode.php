@@ -3,7 +3,7 @@
 session_start();
 
 
-$durata_cookie = time() + (86400*2); 
+$durata_cookie = time() + (3600*24); 
 setcookie('tema', '', $durata_cookie, '/'); 
 
 if (isset($_POST['light'])) {

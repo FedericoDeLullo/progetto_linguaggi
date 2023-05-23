@@ -8,7 +8,6 @@
         echo "<link rel=\"stylesheet\" href=\"../file_css/style2.css\" type=\"text/css\" />";
     }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -19,7 +18,7 @@
     </head>
     <body>
         <div class=reg4>
-            <h1>Password errata!</h1>
+            <h1>Errore in fase di login!</h1>
 
             <a href="../PHP/login.php"> <br>Ritorna al login</a>
         </div>

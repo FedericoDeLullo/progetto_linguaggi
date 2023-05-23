@@ -17,14 +17,12 @@
                     header("Location: private_area.php");
                 }
                 else{
-                    //echo "la password non è corretta";
-                    header("Location: ../PHP/password_ko.php");
+                    header("Location: ../PHP/account_ko.php");
                     exit;
                 }
             }
             else{
-                //echo "non ci sono utenti registrati con questo user";
-                header("Location: ../PHP/username_ko.php");
+                header("Location: ../PHP/account_ko.php");
                 exit;
             }
 
