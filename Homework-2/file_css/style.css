@@ -182,7 +182,8 @@ ul#menu li a:hover{
 .hero {
   margin: 0%;
   height: 700px;
-  display: flex; width: 100%; align-items: center;
+  display: flex; width: 100%; 
+  align-items: center;
   background: url('../img/home_sfondo.png') no-repeat center center;
   background-size: cover;
 }
@@ -212,15 +213,17 @@ ul#menu li a:hover{
 }
 
 .mod{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   line-height: 110%;
    text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
 }
 
 
 .mod1{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 50px;
-margin-top: 150px;
-  margin-bottom: 100px;
+  margin-top: 100px;
+  margin-bottom: 150px;
   margin-left: 650px;
   position: relative;
   width: fit-content;
@@ -229,6 +232,7 @@ margin-top: 150px;
 }
 
 .mod2{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 50px;
   line-height: 110%;
   text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
@@ -239,6 +243,7 @@ margin-top: 150px;
   width: fit-content;
 }
 .mod3{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 50px;
   line-height: 110%;
   text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
@@ -313,22 +318,16 @@ width:fit-content;
   display: grid;
   grid-template-columns: auto auto auto auto auto;
  margin-left: 75px;
- margin-top: -1300px;
+ margin-top: -1400px;
   row-gap: 2em;
 }
 
 
 .home{
   margin-top: 50px;
-   width: 50px;
-   height: 50px;
+   width: 40px;
+   height: 40px;
    margin-left: 150px;
    border-radius: 10px;
    cursor: pointer;
- }
-
- .button-home:hover{
-  background: black;
-  color: wheat;
-  transition: 0.5s;
  }
