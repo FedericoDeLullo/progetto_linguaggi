@@ -19,6 +19,7 @@
     </head>
     <body>
         <div class=reg4>
+            
             <h1>Utente gi&agrave; esistente!</h1>
 
             <a href="../PHP/register.php"> <br>Ritorna alla registrazione</a>
