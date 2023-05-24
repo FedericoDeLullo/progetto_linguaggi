@@ -1,4 +1,5 @@
 <?php
+    ini_set('display_errors', 1);
     require_once('connection.php');
 
     $email = $connessione->real_escape_string($_POST['email']);
@@ -6,19 +7,19 @@
     $password = $connessione->real_escape_string($_POST['password']);
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
+    if(empty($username) || empty($email) || empty($password)) {
+            header("Location:../PHP/registrazione_fallita.php");
+            exit;
+    }
+            
     $sql = "INSERT INTO utenti (email, username, passwd) VALUES ('$email','$username','$hashed_password')";
-
-    if(!empty($username) && !empty($email) && !empty($password) && $connessione->query($sql)=== true) {
-       
-        header("Location: ../PHP/registrazione_ok.php");
-    }
-    else
-    if(empty($username) || empty($email) || empty($password)){
-        header("Location:../PHP/registrazione_fallita.php");
-    }
-    else {
-        header("Location: ../PHP/registrazione_ko.php");
-        exit;
-    }
-
+    
+try {
+      $connessione->query($sql);
+      header("Location: ../PHP/registrazione_ok.php");
+} catch (Exception $e) {
+    header("Location: ../PHP/registrazione_ko.php");
+    exit;
+}
+    
 ?>
