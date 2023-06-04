@@ -14,7 +14,7 @@
                     $_SESSION['loggato'] = true;
                     $_SESSION['id']= $row['id'];
                     $_SESSION['username'] = $row['username'];
-                    header("Location: private_area.php");
+                    header("Location: ../PHP/index1.php");
                 }
                 else{
                     header("Location: ../PHP/account_ko.php");
