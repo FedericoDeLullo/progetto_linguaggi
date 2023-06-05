@@ -58,16 +58,18 @@
             }
  
             while ($row = mysqli_fetch_assoc($result)) {
-        ?>
-      
-        <div class="articoli">
-            <a href="<?php echo ($row['path_info']); ?>">
-            <img src="<?php echo ($row['path_foto']); ?>"  class="card" ></img></a>
-        </div>
-
-        <?php
-          }
-        ?>
+                ?>
+                      <div class="articoli">
+                        <img src="../img/<?php echo ($row['id_prodotto']); ?>.png" ></img>
+                        <p class="prezzo"><?php echo ($row['prezzo']); ?> &euro;</p>
+                        <form class="ca" action="articoli.php#articoli<?php echo ($row['id']); ?>" method="post">
+                          <input type="number" name="quantita" value="0" min="0" step="1" size="3" max="99" />
+                          <button type="submit" name="azione" value="aggiungi" class="button ml-8">Aggiungi</button>
+                        </form>
+                      </div>
+                <?php
+                  }
+                ?>
     </div>
 
     </body>

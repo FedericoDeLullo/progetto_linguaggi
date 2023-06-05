@@ -39,11 +39,11 @@ if ($connessione->query($sql) === TRUE) {
 
 // Creazione della tabella "articoli"
 $sql = "CREATE TABLE IF NOT EXISTS articoli (
-    id INT AUTO_INCREMENT PRIMARY KEY, 
+  id INT AUTO_INCREMENT PRIMARY KEY, 
     nome VARCHAR(50),
     categoria VARCHAR(10),
-    path_foto VARCHAR(100),
-    path_info VARCHAR(255)
+    id_prodotto INT (20),
+    prezzo INT (50)
 )";
 
 if ($connessione->query($sql) === TRUE) {
@@ -68,95 +68,95 @@ if ($connessione->query($sql) === TRUE) {
     echo "Errore durante lo svuotamento della tabella 'articoli': " . $connessione->error;
 }
 
-$sql = "INSERT INTO articoli (nome, categoria, path_foto, path_info) VALUES ('The Last of Us', 'giochi', '../img/gioco_1.png', 'https://it.wikipedia.org/wiki/The_Last_of_Us')";
+$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('The Last of Us', 'giochi', 'gioco_1', '19.99')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
 
-$sql = "INSERT INTO articoli (nome, categoria, path_foto, path_info) VALUES ('Gta 5', 'giochi', '../img/gioco_2.png', 'https://www.rockstargames.com/it/gta-v')";
+$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('Gta 5', 'giochi', 'gioco_2', '19.99')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
 
-$sql = "INSERT INTO articoli (nome, categoria,path_foto, path_info) VALUES ('Fifa 23', 'giochi', '../img/gioco_3.png','https://www.ea.com/it-it/games/fifa/fifa-23' )";
+$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('Fifa 23', 'giochi', 'gioco_3' , '19.99')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
 
-$sql = "INSERT INTO articoli (nome, categoria, path_foto, path_info) VALUES ('Rainbow Six Siege', 'giochi', '../img/gioco_4.png', 'https://www.ubisoft.com/it-it/game/rainbow-six/siege')";
+$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('Rainbow Six Siege', 'giochi','gioco_4', '19.99')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
 
-$sql = "INSERT INTO articoli (nome, categoria, path_foto, path_info) VALUES ('Super Mario Galaxy', 'giochi', '../img/gioco_5.png', 'https://www.nintendo.it/Giochi/Universo-Nintendo/Portale-di-Super-Mario/Portale-di-Super-Mario-627604.html')";
+$sql = "INSERT INTO articoli (nome, categoria,  id_articolo, prezzo) VALUES ('Super Mario Galaxy', 'giochi', 'gioco_5', '19.99')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
-$sql = "INSERT INTO articoli (nome, categoria, path_foto, path_info) VALUES ('Wii', 'console', '../img/console_1.png', 'https://www.nintendo.it/Wii/Wii-94559.html')";
+$sql = "INSERT INTO articoli (nome, categoria,  id_articolo, prezzo) VALUES ('Wii', 'console', 'console_1', '199.99')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
-$sql = "INSERT INTO articoli (nome, categoria, path_foto, path_info) VALUES ('Nintendo Switch', 'console', '../img/console_2.png', 'https://www.nintendo.it/Console-e-accessori/Famiglia-Nintendo-Switch/Nintendo-Switch/Nintendo-Switch-1148779.html')";
+$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('Nintendo Switch', 'console', 'console_2', '399.99' )";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
-$sql = "INSERT INTO articoli (nome, categoria, path_foto, path_info) VALUES ('Playstation 5', 'console', '../img/console_3.png', 'https://www.playstation.com/it-it/ps5/')";
+$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('Playstation 5', 'console', 'console_3', '499.99')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
-$sql = "INSERT INTO articoli (nome, categoria, path_foto, path_info) VALUES ('Playstation 4', 'console', '../img/console_4.png', 'https://www.playstation.com/it-it/ps4/')";
+$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('Playstation 4', 'console', 'console_4', '199.99')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
-$sql = "INSERT INTO articoli (nome, categoria, path_foto, path_info) VALUES ('Xbox', 'console', '../img/console_5.png', 'https://www.xbox.com/it-IT/consoles/xbox-series-x')";
+$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('Xbox', 'console', 'console_5', '249.99')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
-$sql = "INSERT INTO articoli (nome, categoria, path_foto, path_info) VALUES ('Dragon Ball', 'manga', '../img/manga_1.png', 'https://www.animeclick.it/manga/9542/dragonball')";
+$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('Dragon Ball', 'manga', 'manga_1', '19.99')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
-$sql = "INSERT INTO articoli (nome, categoria, path_foto, path_info) VALUES ('One Piece', 'manga', '../img/manga_2.png', 'https://www.animeclick.it/anime/1160/one-piece')";
+$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('One Piece', 'manga', 'manga_2', '19.99')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
-$sql = "INSERT INTO articoli (nome, categoria, path_foto, path_info) VALUES ('Attack on Titan', 'manga', '../img/manga_3.png', 'https://www.animeclick.it/manga/11470/shingeki-no-kyojin')";
+$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('Attack on Titan', 'manga', 'manga_3', '19.99')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
-$sql = "INSERT INTO articoli (nome, categoria, path_foto, path_info) VALUES ('Demon Slayer', 'manga', '../img/manga_4.png', 'https://www.animeclick.it/manga/17678/kimetsu-no-yaiba')";
+$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('Demon Slayer', 'manga', 'manga_4', '19.99')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
-$sql = "INSERT INTO articoli (nome, categoria, path_foto, path_info) VALUES ('Naruto', 'manga', '../img/manga_5.png', 'https://www.animeclick.it/manga/9847/naruto')";
+$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('Naruto', 'manga',  'manga_5', '19.99')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {

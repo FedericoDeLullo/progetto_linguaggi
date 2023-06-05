@@ -263,7 +263,7 @@ width:fit-content;
   border-radius: 30px;
   box-shadow: -1rem 0 3rem #000;
   margin-left: 50px;
-  margin-bottom: 300px;
+  margin-bottom: 270px;
   transition: 0.4s ease-out;
   position: relative;
 
@@ -294,3 +294,43 @@ width:fit-content;
    border-radius: 10px;
    cursor: pointer;
  }
+.cart{
+  border: 1px solid red;
+}
+
+.lista-carrello{
+  border: 1px solid red;
+}
+
+.risultato-carrello{
+  border: 1px solid red;
+}
+
+.carr{
+  cursor: pointer;
+  z-index: 1;
+  height: 50px;
+  width: 120px;
+  border-radius: 50px;
+}
+
+.carr:hover{
+  background: gray;
+  transition: .25s;
+}
+
+.ca{
+  margin-left: 100px;
+  margin-top: -250px;
+}
+
+.num{
+  margin-top: -200px;
+  margin-bottom: 150px;
+  margin-left: 130px;
+}
+
+.ca input {
+  margin-bottom: 10px;
+  margin-left: 30px;
+}
