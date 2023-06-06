@@ -312,6 +312,8 @@ width:fit-content;
   height: 50px;
   width: 120px;
   border-radius: 50px;
+  margin-top: 10px;
+  margin-left: 20px;
 }
 
 .carr:hover{
@@ -324,13 +326,13 @@ width:fit-content;
   margin-top: -250px;
 }
 
-.num{
-  margin-top: -200px;
-  margin-bottom: 150px;
-  margin-left: 130px;
-}
 
 .ca input {
-  margin-bottom: 10px;
-  margin-left: 30px;
+margin-top: 150px; 
+margin-left: 50px;
+}
+
+.prezzo{
+  width: fit-content;
+  margin-top: -200px;
 }

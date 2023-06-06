@@ -42,7 +42,7 @@ $sql = "CREATE TABLE IF NOT EXISTS articoli (
   id INT AUTO_INCREMENT PRIMARY KEY, 
     nome VARCHAR(50),
     categoria VARCHAR(10),
-    id_prodotto INT (20),
+    id_articolo VARCHAR (50),
     prezzo INT (50)
 )";
 
@@ -68,95 +68,95 @@ if ($connessione->query($sql) === TRUE) {
     echo "Errore durante lo svuotamento della tabella 'articoli': " . $connessione->error;
 }
 
-$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('The Last of Us', 'giochi', 'gioco_1', '19.99')";
+$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('The Last of Us', 'giochi', 'gioco_1', '20')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
 
-$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('Gta 5', 'giochi', 'gioco_2', '19.99')";
+$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('Gta 5', 'giochi', 'gioco_2', '20')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
 
-$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('Fifa 23', 'giochi', 'gioco_3' , '19.99')";
+$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('Fifa 23', 'giochi', 'gioco_3' , '20')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
 
-$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('Rainbow Six Siege', 'giochi','gioco_4', '19.99')";
+$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('Rainbow Six Siege', 'giochi','gioco_4', '20')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
 
-$sql = "INSERT INTO articoli (nome, categoria,  id_articolo, prezzo) VALUES ('Super Mario Galaxy', 'giochi', 'gioco_5', '19.99')";
+$sql = "INSERT INTO articoli (nome, categoria,  id_articolo, prezzo) VALUES ('Super Mario Galaxy', 'giochi', 'gioco_5', '20')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
-$sql = "INSERT INTO articoli (nome, categoria,  id_articolo, prezzo) VALUES ('Wii', 'console', 'console_1', '199.99')";
+$sql = "INSERT INTO articoli (nome, categoria,  id_articolo, prezzo) VALUES ('Wii', 'console', 'console_1', '200')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
-$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('Nintendo Switch', 'console', 'console_2', '399.99' )";
+$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('Nintendo Switch', 'console', 'console_2', '400' )";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
-$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('Playstation 5', 'console', 'console_3', '499.99')";
+$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('Playstation 5', 'console', 'console_3', '500')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
-$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('Playstation 4', 'console', 'console_4', '199.99')";
+$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('Playstation 4', 'console', 'console_4', '200')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
-$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('Xbox', 'console', 'console_5', '249.99')";
+$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('Xbox', 'console', 'console_5', '250')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
-$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('Dragon Ball', 'manga', 'manga_1', '19.99')";
+$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('Dragon Ball', 'manga', 'manga_1', '20')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
-$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('One Piece', 'manga', 'manga_2', '19.99')";
+$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('One Piece', 'manga', 'manga_2', '20')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
-$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('Attack on Titan', 'manga', 'manga_3', '19.99')";
+$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('Attack on Titan', 'manga', 'manga_3', '20')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
-$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('Demon Slayer', 'manga', 'manga_4', '19.99')";
+$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('Demon Slayer', 'manga', 'manga_4', '20')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
     echo "Errore durante il popolamento della tabella 'articoli': " . $connessione->error;
 }
-$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('Naruto', 'manga',  'manga_5', '19.99')";
+$sql = "INSERT INTO articoli (nome, categoria, id_articolo, prezzo) VALUES ('Naruto', 'manga',  'manga_5', '20')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' popolata correttamente\n";
 } else {
