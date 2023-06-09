@@ -32,7 +32,7 @@ $sql = "CREATE TABLE IF NOT EXISTS utenti (
 )";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'utenti' creata correttamente\n";
-    header("Location:PHP/index.php");
+    header("Location:HTML/index.html");
 } else {
     echo "Errore durante la creazione della tabella 'utenti': " . $connessione->error;
 }
@@ -46,26 +46,23 @@ $sql = "CREATE TABLE IF NOT EXISTS articoli (
     prezzo INT,
     quantita INT
 )";
-
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'articoli' creata correttamente\n";
 } else {
     echo "Errore durante la creazione della tabella 'articoli': " . $connessione->error;
 }
-
 $sql = "CREATE TABLE IF NOT EXISTS acquisti (
-    id INT AUTO_INCREMENT PRIMARY KEY, 
+  id INT AUTO_INCREMENT PRIMARY KEY, 
       username VARCHAR(50),
       id_articolo VARCHAR (50),
       quantita INT
-  )";
+)";
 
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'acquisti' creata correttamente\n";
 } else {
     echo "Errore durante la creazione della tabella 'articoli': " . $connessione->error;
 }
-
 $sql = "INSERT INTO `utenti` (`username`, `email`, `passwd`) VALUES
  ('Lollo', 'lorenzofrancescotti@gmail.com', '" . password_hash('lollo', PASSWORD_DEFAULT) . "'),
  ('Federico', 'federico@gmail.com', '" . password_hash('roma', PASSWORD_DEFAULT) . "')";

@@ -12,7 +12,7 @@
 
 <?php
     if(!isset($_SESSION['loggato']) || $_SESSION['loggato'] !== true){
-        header("location: ../PHP/login.php");
+        header("location: ../HTML/login.php");
         exit;
     }
 ?>
@@ -29,7 +29,7 @@
         <div class=reg4>
             <h1>Accesso eseguito correttamente!</h1>
         
-            <a href="../PHP/index1.php"> <br>Ritorna al sito</a>
+            <a href="../HTML/index1.html"> <br>Ritorna al sito</a>
         </div>
     </body>
 </html>

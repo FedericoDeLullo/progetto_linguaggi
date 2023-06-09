@@ -1,7 +1,6 @@
+
 <?php
 require_once("connection.php");
-
-
 session_start();
 
 if (!isset($_POST['azione'])) {
@@ -22,9 +21,9 @@ if (!isset($_POST['azione'])) {
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
 <head>
-  <title>Carrello</title>
+<link rel="stylesheet" href="../file_css/style.css" type="text/css">
 
-  <link rel="stylesheet" type="text/css" href="../file_css/style.css" />
+  <title>Carrello</title>
 </head>
 
 <body>
@@ -83,7 +82,11 @@ if (!isset($_POST['azione'])) {
     </div>
 
     <div class="centrato pt-64">
-        <a id="indietro-carrello" class="button" href="articoli.php">Indietro</a>
+        <a href="articoli.php"> <button class="btn">Indietro</button></a>
+        <form action="acquisto.php" method="post">
+  <input type="submit" name="conferma" value="Conferma acquisto" class="btn" />
+</form>
+
     </div>
   </div>
 </body>

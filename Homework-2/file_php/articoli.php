@@ -30,18 +30,18 @@
     <?php
 
     if(!isset($_SESSION['loggato'])) {
-    header("Location: ../PHP/login.php");
+    header("Location: ../HTML/login.html");
     }
      ?>
      
     <div id="contenuto">
     <div class="title">
-    <a href="../PHP/index1.php"><img src="../img/home.png" alt="tasto_home" class="home"></a>
+    <a href="../HTML/index1.html"><img src="../img/home.png" alt="tasto_home" class="home"></a>
 
     <h2 class="mod">Articoli Disponibili</h2>
-    <div class="bot">
-   <a href="cart.php"><button class="vai">Vai al carrello</button></a>
-</div>
+
+    <a href="cart.php"><img src="../img/cart_white.png" alt="tasto_cart" class="carrello"></a>
+
     <h3 class="mod1">GIOCHI</h2>
     <h4 class="mod2">CONSOLE</h2>
     <h5 class="mod3">MANGA</h2>

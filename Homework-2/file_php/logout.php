@@ -3,6 +3,6 @@
     session_unset();
     session_destroy();
 
-    header("Location: ../PHP/index.php");
+    header("Location: ../HTML/index.html");
     exit;
 ?>

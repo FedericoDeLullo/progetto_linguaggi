@@ -14,15 +14,15 @@
                     $_SESSION['loggato'] = true;
                     $_SESSION['id']= $row['id'];
                     $_SESSION['username'] = $row['username'];
-                    header("Location: ../PHP/index1.php");
+                    header("Location: ../HTML/index1.html");
                 }
                 else{
-                    header("Location: ../PHP/account_ko.php");
+                    header("Location: ../HTML/account_ko.html");
                     exit;
                 }
             }
             else{
-                header("Location: ../PHP/account_ko.php");
+                header("Location: ../HTML/account_ko.html");
                 exit;
             }
 

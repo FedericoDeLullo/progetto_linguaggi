@@ -70,3 +70,27 @@ p a{
     line-height: 110%;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
+
+.btn{
+    margin-left: 250px;
+    width: fit-content;
+    font-size: 25px;
+    border-radius: 8px;
+    background: lightgrey;
+  }
+  .btn:hover{
+    background: grey;
+    transition: 0.2s;
+  }
+
+  .btn1{
+    margin-left: 200px;
+    width: fit-content;
+    font-size: 25px;
+    border-radius: 8px;
+    background: lightgrey;
+  }
+  .btn1:hover{
+    background: grey;
+    transition: 0.2s;
+  }
