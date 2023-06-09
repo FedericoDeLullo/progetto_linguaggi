@@ -31,9 +31,5 @@ if (isset($_POST['conferma'])) {
   // Reindirizza l'utente a una pagina di conferma o a una pagina successiva
   header("Location: articoli.php");
   exit();
-} else {
-  // Se l'utente accede a questa pagina senza inviare il modulo di conferma, reindirizzalo altrove o visualizza un messaggio di errore.
-  header("Location: error.php");
-  exit();
-}
+} 
 ?>
