@@ -19,7 +19,6 @@ p{line-height: 28px; color:black; font-weight: 300;margin-left: 40px;}
 
 
 
-
 .but{
   border-radius: 20px;
 }
@@ -294,16 +293,21 @@ width:fit-content;
    border-radius: 10px;
    cursor: pointer;
  }
-.cart{
-  border: 1px solid red;
+.cart{ 
+    background: lightslategray;
+    text-align: center;
 }
+
+.cart ul {
+  text-decoration: none;
+}
+
 
 .lista-carrello{
-  border: 1px solid red;
-}
-
-.risultato-carrello{
-  border: 1px solid red;
+  margin: 0 auto;
+  text-align: center;
+width: fit-content;
+height: fit-content;
 }
 
 .carr{
@@ -314,6 +318,11 @@ width:fit-content;
   border-radius: 50px;
   margin-top: 10px;
   margin-left: 20px;
+  
+}
+
+.tot{
+  margin-top: 10px;
 }
 
 .carr:hover{
@@ -332,7 +341,51 @@ margin-top: 150px;
 margin-left: 50px;
 }
 
+.vai{
+  cursor: pointer;
+  font-size: 20px;
+  width: 150px;
+  height: 50px;
+  background: lightslategray;
+  margin-left: 150px;
+}
+.vai:hover{
+  background: lightgray;
+  transition: 0.2s;
+}
+
+
 .prezzo{
   width: fit-content;
   margin-top: -200px;
+}
+
+.c{
+  padding-bottom: 15px;
+  border-bottom: 1px solid black;
+}
+
+.tito{
+  margin-left: 30px;
+  padding-bottom: 20px;
+  margin-top: 0px;
+  font-size: 40px;
+}
+
+.tit{
+  margin-left: 10px;
+  margin-top: 100px;
+  font-size: 20px;
+}
+
+.cart-btn{
+  cursor: pointer;
+  width: 70px;
+  height: 30px;
+  border-radius: 10px;
+}
+
+.cart-btn:hover{
+  background: grey;
+  transition: 0.2s;
 }

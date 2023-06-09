@@ -39,6 +39,9 @@
     <a href="../PHP/index1.php"><img src="../img/home.png" alt="tasto_home" class="home"></a>
 
     <h2 class="mod">Articoli Disponibili</h2>
+    <div class="bot">
+   <a href="cart.php"><button class="vai">Vai al carrello</button></a>
+</div>
     <h3 class="mod1">GIOCHI</h2>
     <h4 class="mod2">CONSOLE</h2>
     <h5 class="mod3">MANGA</h2>
@@ -62,7 +65,8 @@
                       <div class="articoli">
                         <img src="../img/<?php echo ($row['id_articolo']); ?>.png" class="card"></img>
                         <p class="prezzo"><?php echo ($row['prezzo']); ?> &euro;</p>
-                        <form class="ca" action="articoli.php#articoli<?php echo ($row['id']); ?>" method="post">
+                        <form class="ca" action="articoli.php#articoli<?php echo ($row['id_articolo']); ?>" method="post">
+                        <input type="hidden" name="id_articolo" value="<?php echo ($row['id_articolo']); ?>" />
                           <input  type="number" name="quantita" value="0" min="0" step="1" size="3" max="99" />
                           <button type="submit" name="azione" value="aggiungi" class="carr">Aggiungi</button>
                         </form>
