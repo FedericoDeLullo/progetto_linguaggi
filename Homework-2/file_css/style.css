@@ -38,11 +38,12 @@ h5{color: #000; margin-left: 200px; font-size: 40px; padding-top: 100px;}
 
 .servizi_social
 {
+  font-size: 30px;
   font-weight: 700;
   height: fit-content;
   width: fit-content;
   margin-left: 150px;
-  margin-top: 170px;
+  margin-top: 65px;
   color: lightgray;
 }
 
@@ -356,6 +357,7 @@ margin-left: 1200px;
 }
 
 .prezzo{
+  color: white;
   width: fit-content;
   margin-top: -200px;
 }
@@ -412,4 +414,61 @@ margin-left: 1200px;
 .acquisto{margin-top: -50px;
   height: 700px;
   background: lightslategray;
+}
+
+.riga li
+{
+	flex-basis: 30%;
+}
+
+.prima
+{
+	background-color: #37555b;
+	color: white;
+}
+
+.riga
+{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	list-style: none;
+	display: flex;
+	box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.3);
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.tabella
+{
+	width: 550px;
+	display: block;
+	margin: 100px auto;
+}
+
+.miei-acq
+{
+	width: fit-content;
+	margin: 0 auto;
+}
+
+.no
+{
+	width: fit-content;
+	margin: 100px auto;
+	font-size: 30px;
+}
+.btn2{
+  font-size: 17px;
+  cursor: pointer;
+  margin-left: 200px;
+  width: 150px;
+  height: 50px;
+  border-radius: 10px;
+  background: #37555b;
+  color: white;
+}
+.btn2:hover{
+  color: #000;
+  background: grey;
+  transition: 0.2s;
 }
