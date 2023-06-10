@@ -10,6 +10,9 @@ ul{list-style-type: none;}
 h1{color: black; margin-left: 500px; margin-top: 1300px;font-size: 60px; margin-bottom: -100px;} 
 h2{color: black; margin-top:-80px; margin-left: 400px; font-size: 80px; }
 p{line-height: 28px; color:black; font-weight: 300;margin-left: 40px;}
+h4{color: #000; margin-left: 350px; font-size: 40px; padding-top: 100px;}
+h5{color: #000; margin-left: 200px; font-size: 40px; padding-top: 100px;}
+
 
 .dark{
   border-radius: 20px;
@@ -297,7 +300,7 @@ width:fit-content;
 }
 
 
-.lista-carrello{
+.elenco_articoli{
   margin: 0 auto;
   text-align: center;
 width: fit-content;
@@ -395,4 +398,18 @@ margin-left: 1200px;
 .btn:hover{
   background: grey;
   transition: 0.2s;
+}
+.btn1{
+  margin-left: 670px;
+  width: fit-content;
+  border-radius: 10px;
+  background: lightgrey;
+}
+.btn1:hover{
+  background: grey;
+  transition: 0.2s;
+}
+.acquisto{margin-top: -50px;
+  height: 700px;
+  background: lightslategray;
 }

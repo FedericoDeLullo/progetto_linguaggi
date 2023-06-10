@@ -4,7 +4,6 @@ require_once("connection.php");
 session_start();
 
 if (!isset($_POST['azione'])) {
-  // Non fa niente
 } else if ($_POST['azione'] === 'modifica') {
   $id_articolo = $_POST['id_articolo'];
   $quantita = $_POST['quantita'];
@@ -32,7 +31,7 @@ if (!isset($_POST['azione'])) {
     <h2 class="tito">CARRELLO</h2>
 
     <div>
-      <ul class="lista-carrello">
+      <ul class="elenco_articoli">
 <?php
   $totale = 0;
   if (isset($_SESSION['carrello'])) {
@@ -71,7 +70,7 @@ if (!isset($_POST['azione'])) {
 <?php
     if ($totale === 0) {
 ?>
-      <h2 class="tit">Carrello vuoto, non &egrave; possibile proseguire con l&rsquo;ordine!</h2>
+      <h2 class="tit">Carrello vuoto</h2>
 <?php
     }
 ?>
@@ -81,14 +80,14 @@ if (!isset($_POST['azione'])) {
       </p>
     </div>
 
-    <div class="centrato pt-64">
+    <div>
         <a href="articoli.php"> <button class="btn">Indietro</button></a>
-        <form action="acquisto.php" method="post">
+       
+        <form action="acquisto.php" method="post"> 
   <input type="submit" name="conferma" value="Conferma acquisto" class="btn" />
 </form>
 
-    </div>
-  </div>
+   
 </body>
 
 </html>

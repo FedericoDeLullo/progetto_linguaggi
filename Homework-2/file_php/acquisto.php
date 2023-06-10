@@ -3,14 +3,13 @@ require_once("connection.php");
 session_start();
 
 if (isset($_POST['conferma'])) {
-  // Controlla se l'utente è loggato
   if (!isset($_SESSION['username'])) {
-    // Reindirizza l'utente al login se non è loggato
     header("Location: login.php");
     exit();
   }
-
-  // Prendi l'ID dell'utente loggato
+  if (empty($_SESSION['carrello'])) {
+    header("Location: ../HTML/acquisto_ko.html");
+    exit();}
   $username = $_SESSION['username'];
 
 
@@ -25,11 +24,11 @@ if (isset($_POST['conferma'])) {
     mysqli_stmt_execute($stmt);
   }
 
-  // Svuota il carrello dopo aver completato l'acquisto
   $_SESSION['carrello'] = array();
 
-  // Reindirizza l'utente a una pagina di conferma o a una pagina successiva
-  header("Location: articoli.php");
+  header("Location: ../HTML/acquisto_ok.html");
   exit();
-} 
+} else {
+  header("Location: ../HTML/acquisto_ko.html");
+}
 ?>

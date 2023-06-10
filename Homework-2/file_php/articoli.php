@@ -3,7 +3,7 @@
         session_start();
 
         if (!isset($_POST['azione'])) {
-            // Non fa niente
+        
         }
         else if ($_POST['azione'] === 'aggiungi') {
             $id_articolo = $_POST['id_articolo'];

@@ -1,5 +1,4 @@
 <?php
-    // ini_set('display_errors', 1);     indica il tipo di errore
     require_once('connection.php');
 
     $email = $connessione->real_escape_string($_POST['email']);
