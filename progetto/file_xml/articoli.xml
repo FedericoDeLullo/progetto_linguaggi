@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<articoli xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="articoli.xsd">
+
+<prodotti PEGI="18">
+<nome>The Last of Us</nome>
+<publisher>Naughty Dog</publisher>
+<data_rilascio>2020-06-19</data_rilascio>
+<prezzo>20</prezzo>
+<id_articolo>1</id_articolo>
+</prodotti>
+
+
+<prodotti PEGI="18">
+<nome>Gta 5</nome>
+<publisher>Naughty Dog</publisher>
+<data_rilascio>2020-06-19</data_rilascio>
+<prezzo>20</prezzo>
+<id_articolo>2</id_articolo>
+</prodotti>
+</articoli>
