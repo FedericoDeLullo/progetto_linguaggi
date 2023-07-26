@@ -11,7 +11,6 @@ h1{color: black; margin-left: 500px; margin-top: 1300px;font-size: 60px; margin-
 h2{color: black; margin-top:-80px; margin-left: 400px; font-size: 80px; }
 p{line-height: 28px; color:black; font-weight: 300;margin-left: 40px;}
 h4{color: #000; margin-left: 350px; font-size: 40px; padding-top: 100px;}
-h5{color: #000; margin-left: 200px; font-size: 40px; padding-top: 100px;}
 
 
 .dark{
@@ -250,7 +249,7 @@ ul#menu li a:hover{
   line-height: 110%;
   text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
   margin-left: 600px;
-  margin-top: 650px;
+  margin-top: 600px;
   margin-bottom: 100px;
   position: relative;
   width: fit-content;
@@ -302,6 +301,7 @@ width:fit-content;
   border-radius: 30px;
   box-shadow: -1rem 0 3rem #000;
   margin-left: 50px;
+  margin-top: -50px;
   margin-bottom: 270px;
   transition: 0.4s ease-out;
   position: relative;
@@ -320,8 +320,8 @@ width:fit-content;
   display: grid;
   grid-template-columns: auto auto auto auto auto;
  margin-left: 75px;
- margin-top: -1400px;
-  row-gap: 2em;
+ margin-top: -1300px;
+  row-gap: 5em;
 }
 
 
@@ -364,8 +364,8 @@ height: fit-content;
 }
 
 .ca{
-  margin-left: 100px;
-  margin-top: -250px;
+  margin-left: 80px;
+  margin-top: -300px;
 }
 
 
@@ -392,9 +392,10 @@ margin-left: 1200px;
 }
 
 .prezzo{
-  color: black;
+  color: white;
   width: fit-content;
-  margin-top: -200px;
+  margin-top: -90px;
+  margin-left: 140px;
 }
 
 .c{
@@ -506,4 +507,12 @@ margin-left: 1200px;
   color: #000;
   background: grey;
   transition: 0.2s;
+}
+
+.pegi{
+  color: white;
+  margin-left: 100px;
+  width: fit-content;
+  height: fit-content;
+  margin-top:-100px;
 }

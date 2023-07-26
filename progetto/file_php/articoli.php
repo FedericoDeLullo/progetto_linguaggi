@@ -42,9 +42,9 @@
 
     <a href="cart.php"><img src="../img/cart_white.png" alt="tasto_cart" class="carrello"></a>
 
-    <h3 class="mod1">GIOCHI</h2>
-    <h4 class="mod2">CONSOLE</h2>
-    <h5 class="mod3">MANGA</h2>
+    <h5 class="mod1">GIOCHI</h5>
+    <h5 class="mod2">CONSOLE</h5>
+    <h5 class="mod3">MANGA</h5>
 
 </div>
 <video autoplay muted loop id="video_back">
@@ -72,12 +72,15 @@
                 $id_articolo = (string)$prodotti->id_articolo;
                 $prezzo = (integer)$prodotti->prezzo;
 
-               
+                $lunghezza = (string)$prodotti->attributes()->lunghezza;
+
                 $PEGI = (string)$prodotti->attributes()->PEGI;
 
             echo '<div class="articoli">';
-            echo '<img src="../img/' . $id_articolo . '.png" class="card"></img>';
-            echo '<p class="prezzo">' . $prezzo . ' &euro;</p>';
+            echo '<img src="../img/' . $id_articolo . '.png" class="card"></img>';           
+             echo '<p class="pegi">' .$PEGI; '</p>';
+             echo '<p class="pegi">' . $lunghezza; '</p>';
+             echo '<p class="prezzo">' . $prezzo . ' &euro;</p>';
             echo '<form class="ca" action="articoli.php#articoli' . $id_articolo . '" method="post">';
             echo '<input type="hidden" name="id_articolo" value="' . $id_articolo . '" />';
             echo '<input type="number" name="quantita" value="0" min="0" step="1" size="3" max="99" />';

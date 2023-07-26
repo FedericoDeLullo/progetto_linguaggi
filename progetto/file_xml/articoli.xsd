@@ -17,20 +17,18 @@
         <xsd:element ref="nome"/>
         <xsd:element ref="publisher" />
         <xsd:element ref="data_rilascio"/>
-        <xsd:element ref="img"/>
         <xsd:element ref="prezzo"/>
         <xsd:element ref="id_articolo"/>
 
 
       </xsd:sequence>
-      <xsd:attribute name="lunghezza" type="xsd:integer" use="optional"/>
-      <xsd:attribute name="PEGI" type="xsd:integer" use="optional"/>
+      <xsd:attribute name="lunghezza" type="xsd:string" use="optional"/>
+      <xsd:attribute name="PEGI" type="xsd:string" use="optional"/>
     </xsd:complexType>
   </xsd:element>
 
  <xsd:element name="nome" type="xsd:string"/>
   <xsd:element name="publisher" type="xsd:string"/>
   <xsd:element name="data_rilascio" type="xsd:date"/>
-  <xsd:element name="img" type="xsd:string"/>
 
 </xsd:schema>
