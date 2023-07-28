@@ -36,11 +36,12 @@
      
     <div id="contenuto">
     <div class="title">
+
     <a href="../HTML/index1.html"><img src="../img/home.png" alt="tasto_home" class="home"></a>
 
     <h2 class="mod">Articoli Disponibili</h2>
 
-    <a href="cart.php"><img src="../img/cart_white.png" alt="tasto_cart" class="carrello"></a>
+    <a class="ok" href="cart.php"><img src="../img/cart_white.png" alt="tasto_cart" class="carrello"></a>
 
     <h5 class="mod1">GIOCHI</h5>
     <h5 class="mod2">CONSOLE</h5>
@@ -51,24 +52,17 @@
     <source src="../video/video_sfondo.mp4" type="video/mp4"></source> 
 </video>
     <div id="catalogo-articoli"> 
-    
-
-
-<body>
+    <body>
 
 
 <?php
     
-    //Percorso del file XML
     $xmlFile = "../file_xml/articoli.xml";
 
-    //Carico il file XML prendendo come parametro il percorso del file XML voluto
     $xml = simplexml_load_file($xmlFile);
 
-    //Ciclo per ciascun elemento book
     foreach ($xml->prodotti as $prodotti) {
         
-                //Mi prendo il titolo del libro corrente 
                 $id_articolo = (string)$prodotti->id_articolo;
                 $prezzo = (integer)$prodotti->prezzo;
 

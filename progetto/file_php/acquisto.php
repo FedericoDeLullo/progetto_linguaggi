@@ -11,6 +11,8 @@ if (isset($_POST['conferma'])) {
     header("Location: ../HTML/acquisto_ko.html");
     exit();}
 
+    $_SESSION['carrello'] = array();
+
   header("Location: ../HTML/acquisto_ok.html");
   exit();
 } else {
