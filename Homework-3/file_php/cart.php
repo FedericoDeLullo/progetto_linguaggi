@@ -47,7 +47,6 @@ if (isset($_SESSION['crediti'])) {
       $nome = (string)$prodotti->nome;
       $prezzo = (integer)$prodotti->prezzo;
   
-    
       if (!isset($_SESSION['carrello'][$id_articolo])) {
         continue;
       }
@@ -57,9 +56,7 @@ if (isset($_SESSION['crediti'])) {
         continue;
       }
 
-
       $totale += $quantita * $prezzo;
-
      
 ?>
         <li><?php echo($nome); ?>, <?php echo($prezzo); ?> &euro;
@@ -99,7 +96,7 @@ if (isset($_SESSION['crediti'])) {
         <form action="acquisto.php" method="post"> 
   <input type="submit" name="conferma" value="Conferma acquisto" class="btn" />
 </form>
-
+  </div>
    
 </body>
 

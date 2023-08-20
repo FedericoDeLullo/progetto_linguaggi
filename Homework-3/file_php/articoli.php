@@ -32,7 +32,7 @@
     if(!isset($_SESSION['loggato'])) {
     header("Location: ../HTML/login.html");
     }
-     ?>
+    ?>
      
     <div id="contenuto">
     <div class="title">

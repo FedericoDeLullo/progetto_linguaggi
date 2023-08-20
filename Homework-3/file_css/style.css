@@ -430,6 +430,13 @@ margin-left: 50px;
   transition: 0.2s;
 }
 
+.home_acq{
+  width: fit-content;
+  border-radius: 10px;
+  background: lightgrey;
+  margin-top: 20px;
+}
+
 .btn{
   width: fit-content;
   border-radius: 10px;
