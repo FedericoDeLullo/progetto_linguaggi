@@ -30,6 +30,7 @@ body{
 }
 
 .form{
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -37,8 +38,9 @@ body{
 }
 
 .title{
-    font-size: 25px;
-    margin-left: -50px;
+    z-index: 99;
+    font-size: 35px;
+    margin-left: 50px;
 }
 
 .inp{
@@ -46,6 +48,53 @@ body{
     padding-bottom: 10px;
     border-bottom: 2px solid white;
 }
+
+.nome{
+    z-index: 99;
+    margin-left: -400px;
+}
+
+
+.cognome{
+    margin-top: -70px;
+    z-index: 99;
+    margin-left: 470px;
+}
+
+.dn{
+    margin-top: 50px;
+    margin-left: -400px;
+}
+
+.email{
+z-index: 99;
+margin-top: -73px;
+margin-left: 470px;
+}
+
+.indirizzo{
+margin-top: 55px;
+margin-left: -400px;
+}
+
+.cf{
+z-index: 99;
+margin-top: -75px;
+margin-left: 470px;
+}
+
+.cellulare{
+margin-top: 60px;
+margin-left: -400px;
+}
+
+.password{
+    z-index: 99;
+    margin-top: -74px;
+    margin-left: 470px;
+}
+
+
 
 .input{
     border: none;
@@ -58,7 +107,11 @@ body{
     color: #23c55e;
 }
 
+.col{
+    color:white;
+}
 .submit{
+    margin-left: 50px;
     border: none;
     outline: none;
     width: 288px;
@@ -73,6 +126,7 @@ body{
 
 
 .footer{
+    margin-left: 50px;
     margin-top: 30px;
     letter-spacing: 0.5px;
     font-size:14px;
@@ -119,8 +173,9 @@ body{
 }
 
 .data{
+    padding-top: 50px;
 margin-top: 20px;
-margin-bottom: -30px;
-margin-left: -210px;
+margin-bottom: -80px;
+margin-left: -560px;
 }
 
