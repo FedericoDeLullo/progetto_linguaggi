@@ -54,19 +54,22 @@ z-index: 2;
   
   @keyframes slide {
     0% {
-      background: url('../img/dove-comprare-maglie-calcio.png') center center/cover no-repeat;
+      background: url('../img/HZ9776_15_APPAREL_Photography_HeroMrktng-View-5_white_1.png') center center/cover no-repeat;
     }
     25% {
-      background: url('../img/img.png') center center/cover no-repeat;
+      background: url('../img/132715381-1f34508d-ec5a-43b1-a537-8d95c8f6eed4.png') center center/cover no-repeat;
     }
     50% {
-      background: url('../img/download.png') center center/cover no-repeat;
+      background: url('../img/maglia-benetton.png') center center/cover no-repeat;
     }
     75% {
-      background: url('../img/maglie-calcio-poco-prezzo.png') center center/cover no-repeat;
+      background: url('../img/portogallo-maglia-rwc.png') center center/cover no-repeat;
     }
     100% {
-      background: url('../img/dove-comprare-maglie-calcio-online-cover-8-1200x735_c-gallery.png') center center/cover no-repeat;
+      background: url('../img/unnamed-254.png') center center/cover no-repeat;
+    }
+    125% {
+      background: url('../img/rugby-divise.png') center center/cover no-repeat;
     }
   }
 
@@ -95,7 +98,7 @@ z-index: 2;
   }
   .cart_link{
     width: fit-content;
-  margin-left:0vw;
+    margin-left:0vw;
   }
 
   .stile {
@@ -109,7 +112,7 @@ z-index: 2;
     list-style: none;
     text-decoration: none;
     height: 4vh;
-width: fit-content;
+    width: fit-content;
     position: relative;
 }
 
@@ -127,4 +130,3 @@ width: fit-content;
 .stile:hover::after {
     width: 100%;
 }
-
