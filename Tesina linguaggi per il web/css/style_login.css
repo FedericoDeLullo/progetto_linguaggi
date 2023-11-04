@@ -30,6 +30,7 @@ body{
 }
 
 .form{
+    margin-top: 5vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -116,3 +117,6 @@ body{
     letter-spacing: 1px;
 }
 
+.home_link{
+    margin-top: -2vh;
+}

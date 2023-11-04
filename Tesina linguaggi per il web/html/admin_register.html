@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrazione</title>
-    <link rel="stylesheet" href="../css/style_register.css">
+    <link rel="stylesheet" href="../css/style_admin_register.css">
 </head>
 <body>
   
     <div class="wrapper">
-        <form action="../php/register.php" method="post" class="form">
+        <form action="../php/admin_register.php" method="post" class="form">
             <h1 class="title">REGISTRAZIONE</h1>
             <div class="inp nome">
                 <input type="text" name="nome" id="" class="input" placeholder="Nome">
@@ -43,8 +43,12 @@
             <input type="password" name="password" id="" class="input col" placeholder="Password">
             <i class="fa_solid fa_lock"></i>
         </div>
+        <div class="inp codice">
+            <input type="number" name="codice" id="" class="input col" placeholder="Codice Admin">
+            <i class="fa_solid fa_lock"></i>
+        </div>
     <button class="submit" type="submit">Crea Account</button>
-    <p class="footer">Hai già un account?<a href="login.html" class="link">Accedi!</a></p>    
+    <p class="footer">Hai già un account?<a href="admin_login.html" class="link">Accedi!</a></p>    
     </form>
     <p class="footer">
         <div class="home">

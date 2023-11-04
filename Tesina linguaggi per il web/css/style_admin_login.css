@@ -22,7 +22,7 @@ body{
     border-radius: 20px;
     position:relative;
     width: 800px;
-    height: 90vh;
+    height: 65vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
     border: 3px solid #23c55e;
@@ -30,7 +30,7 @@ body{
 }
 
 .form{
-    width: 100%;
+    margin-top: 5vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,64 +38,14 @@ body{
 }
 
 .title{
-    margin-top: 2vh;
-    z-index: 99;
+    margin-left: -5vh;
     font-size: 35px;
-    margin-left: 50px;
 }
 
 .inp{
-    margin-left: -50px;
     padding-bottom: 10px;
     border-bottom: 2px solid white;
 }
-
-.nome{
-    z-index: 99;
-    margin-left: -400px;
-}
-
-
-.cognome{
-    margin-top: -70px;
-    z-index: 99;
-    margin-left: 470px;
-}
-
-.dn{
-    margin-top: 50px;
-    margin-left: -400px;
-}
-
-.email{
-z-index: 99;
-margin-top: -73px;
-margin-left: 470px;
-}
-
-.indirizzo{
-margin-top: 55px;
-margin-left: -400px;
-}
-
-.cf{
-z-index: 99;
-margin-top: -75px;
-margin-left: 470px;
-}
-
-.cellulare{
-margin-top: 60px;
-margin-left: -400px;
-}
-
-.password{
-    z-index: 99;
-    margin-top: -74px;
-    margin-left: 470px;
-}
-
-
 
 .input{
     border: none;
@@ -108,15 +58,11 @@ margin-left: -400px;
     color: #23c55e;
 }
 
-.col{
-    color:white;
-}
 .submit{
-    margin-left: 50px;
     border: none;
     outline: none;
     width: 288px;
-    margin-top: 35px;
+    margin-top: 25px;
     padding: 10px 0;
     font-size: 20px;
     border-radius: 40px;
@@ -127,8 +73,7 @@ margin-left: -400px;
 
 
 .footer{
-    margin-left: 50px;
-    margin-top: 10px;
+    margin-top: 30px;
     letter-spacing: 0.5px;
     font-size:14px;
 }
@@ -173,27 +118,7 @@ margin-left: -400px;
     letter-spacing: 1px;
 }
 
-.data{
-    padding-top: 50px;
-margin-top: 20px;
-margin-bottom: -80px;
-margin-left: -560px;
+.home_link{
+    margin-left: -25vh;
+    margin-top: -60vh;
 }
-
-
-
-.home{
-    z-index: 99;
-    margin-top: -88vh;
-    margin-left: 90vh;
-    align-items:center;
-    display: flex;
-    flex-flow: row;
-    height: fit-content;
-    width: 3vw;
-    justify-content: center;
-  }
-  .home_link{
-    width: fit-content;
-    margin-left:0vw;
-  }

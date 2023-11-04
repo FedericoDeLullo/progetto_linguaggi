@@ -1,0 +1,61 @@
+.admin{
+    width: 20vw;
+    background: #228B22;
+    height: 7vh;
+    margin-left: 100vh;
+    margin-top: -47vh;
+    justify-content: center;
+    align-content: center;
+    display: grid;
+    text-decoration: none;
+    font-size:25px;
+    color: white;
+    border-radius: 50px;
+    border: 3px solid #23c55e;
+    box-shadow: 0 0 50px 0 #23c55e;
+}
+
+.client{
+    width: 20vw;
+    background: #228B22;
+    height: 7vh;
+    margin-left: 3vh;
+    margin-top: 45vh;
+    justify-content: center;
+    align-content: center;
+    display: grid;
+    text-decoration: none;
+    font-size:25px;
+    color: white;
+    border: 3px solid #23c55e;
+    box-shadow: 0 0 50px 0 #23c55e;
+    border-radius: 50px;
+}
+
+.admin:hover{
+    background: #23c55e;
+    transition: 0.5s;
+}
+
+
+.client:hover{
+    background: #23c55e;
+    transition: 0.5s;
+}
+
+body{
+   
+    background: #171d29;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+
+.sep{
+    margin-top: -45vh;
+    border: 1px solid #228B22;
+    margin-left: 73vh;
+    height: 85vh;
+    width: 0%;
+}
