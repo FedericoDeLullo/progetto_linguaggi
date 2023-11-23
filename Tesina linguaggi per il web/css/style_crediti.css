@@ -1,0 +1,91 @@
+
+body{
+    font-size: larger;
+    margin-top: 34vh;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    background: #171d29;
+    color: white;
+}
+
+.btn{
+    display: grid;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+    margin-left: 35vh;
+    width: 10vw;
+    margin-top: 0vh;
+    margin-bottom: 5vh;
+    padding: 10px 0;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #23c55e;
+}
+
+.btn1{
+    display: grid;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+    margin-left: 34vh;
+    width: 12vw;
+    margin-top: 5vh;
+    padding: 10px 0;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #23c55e;
+}
+
+
+
+.btn:hover{
+    background: #228B22;
+    transition: 0.5s;
+}
+
+.btn1:hover{
+    background: #228B22;
+    transition: 0.5s;
+}
+
+
+
+.btn3:hover{
+    background: #228B22;
+    transition: 0.5s;
+}
+
+.richiesta{
+    font-size: 50px;
+    margin-top: -30vh;
+    margin-left: 3vh;
+
+}
+
+.richiesta1{
+    margin-left: 12vh;
+}
+
+.richiesta2{
+margin-left: 17vh;
+}
+
+.btn3{
+    display: grid;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+    margin-left: 40vh;
+    width: 12vw;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    padding: 10px 0;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #23c55e;
+}

@@ -24,7 +24,20 @@ if ($connessione->query($sql) === TRUE) {
 // Selezione del database
 $connessione->select_db($db);
 
+$sql="CREATE TABLE if not exists richieste (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    email VARCHAR(255) NOT NULL,
+    importo int NOT NULL,
+    accettata BOOLEAN DEFAULT 0,
+    data_creazione DATETIME DEFAULT CURRENT_TIMESTAMP
+)";
 
+if ($connessione->query($sql) === TRUE) {
+    echo "Tabella 'richiesta' creata correttamente\n";
+    header("Location:html/index.html");
+} else {
+    echo "Errore durante la creazione della tabella 'richieste': " . $connessione->error;
+}
 // Creazione della tabella "utenti"
 $sql = "CREATE TABLE IF NOT EXISTS utenti (
     nome VARCHAR(50) PRIMARY KEY,
