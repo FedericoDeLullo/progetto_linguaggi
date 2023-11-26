@@ -14,8 +14,8 @@ body{
     justify-content: center;
     text-decoration: none;
     color: black;
-    margin-left: 35vh;
-    width: 10vw;
+    margin-left: 20vh;
+    width: 12vw;
     margin-top: 0vh;
     margin-bottom: 5vh;
     padding: 10px 0;
@@ -30,7 +30,7 @@ body{
     justify-content: center;
     text-decoration: none;
     color: black;
-    margin-left: 34vh;
+    margin-left: 5vh;
     width: 12vw;
     margin-top: 5vh;
     padding: 10px 0;
@@ -79,13 +79,56 @@ margin-left: 17vh;
     justify-content: center;
     text-decoration: none;
     color: black;
-    margin-left: 40vh;
+    margin-top: -11.5vh;
+    margin-left: 50vh;
     width: 12vw;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
     padding: 10px 0;
     font-size: 20px;
     border-radius: 10px;
     cursor: pointer;
     background: #23c55e;
+}
+
+.btn4{
+    display: grid;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+    margin-left: 40vh;
+    width: 12vw;
+    margin-top: 5vh;
+    padding: 10px 0;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #23c55e;
+}
+
+
+
+.btn4:hover{
+    background: #228B22;
+    transition: 0.5s;
+}
+
+.btn5{
+    display: grid;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+    margin-left: 30vh;
+    width: 12vw;
+    margin-top: 5vh;
+    padding: 10px 0;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #23c55e;
+}
+
+
+
+.btn5:hover{
+    background: #228B22;
+    transition: 0.5s;
 }

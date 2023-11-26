@@ -3,37 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style_crediti.css">
     <title>Gestione Crediti</title>
+    <link rel="stylesheet" href="../css./style_crediti.css">
 </head>
 <body>
 <?php
-require_once('connection.php');
+$xmlFile = '../xml/requests.xml';
+$dom = new DOMDocument();
+$dom->load($xmlFile);
 
-// Recupera richieste non ancora approvate
-$sql = "SELECT * FROM richieste WHERE accettata = 0";
-$result = $connessione->query($sql);
+$requests = $dom->getElementsByTagName('request');
 
-echo '<h1 class = "richiesta">Richieste di Ricarica Crediti</h1>';
+echo '<h1 class="richiesta">Richieste di Ricarica Crediti</h1>';
 
-if ($result->num_rows > 0) {
-    // Visualizza le richieste e fornisci un pulsante per l'approvazione
-    while ($row = $result->fetch_assoc()) {
-        echo "<p class= 'richiesta1'>Richiesta da {$row["email"]} per un importo di {$row["importo"]} crediti.</p>";
+// Flag per indicare se ci sono richieste pendenti
+$hasPendingRequests = false;
+
+// Loop attraverso le richieste
+foreach ($requests as $request) {
+    $status = $request->getAttribute('status');
+
+    // Verifica se lo status è 'pending'
+    if ($status == 'pending') {
+        $hasPendingRequests = true;
+
+        $email = $request->getElementsByTagName('email')->item(0)->nodeValue;
+        $importo = $request->getElementsByTagName('importo')->item(0)->nodeValue;
+
+        echo "<p class='richiesta1'>Richiesta da $email per un importo di $importo crediti.</p>";
         echo '<form action="approve_request.php" method="post">';
-        echo "<input type='hidden' name='id' value='{$row['id']}'>";
-        echo '<input class = "btn" type="submit" value="Approva">';
-        echo "</form>";
+        echo "<input type='hidden' name='email' value='$email'>";
+        echo "<input type='hidden' name='importo' value='$importo'>";
+        echo '<input class="btn" type="submit" name="action" value="Approva">';
+        echo '<input class="btn3" type="submit" name="action" value="Rifiuta">';
+        echo '</form>';
     }
-} else {
-    echo '<p class = "richiesta2">Nessuna richiesta di ricarica attualmente in sospeso.</p>';?>
-    <a href="../html/index_loggato_admin.html" class="btn1">Torna alla Home</a> <?php
-
 }
 
-$connessione->close();
+// Verifica il flag per determinare se ci sono richieste pendenti
+if (!$hasPendingRequests) {
+    echo '<p class="richiesta2">Nessuna richiesta di ricarica attualmente in sospeso.</p>';
+    ?>
+    <a href="../html/index_loggato_admin.html" class="btn5">Torna alla Home</a>
+    <?php
+}
 ?>
-
 </body>
 </html>
-

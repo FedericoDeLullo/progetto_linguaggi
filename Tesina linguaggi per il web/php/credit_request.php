@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['loggato'])) {
+    header("Location: ../html/login.html");
+    exit();
+}
+
+$email = $_SESSION['email'];
+$crediti = $_SESSION['crediti'];
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,22 +21,10 @@
     <link rel="stylesheet" href="../css/style_ricarica.css">
 </head>
 <body>
-    
-<?php
-require_once("connection.php");
-session_start();
-
- if(!isset($_SESSION['loggato'])) {
-    header("Location: ../html/login.html");
-    }
-    ?>
-
     <h1>Richiesta di Ricarica Crediti</h1>
-    <form class = "form" action="process_request.php" method="post">  
-        <label class="input" for="email"><?php echo 'Username: ' . $_SESSION['email']; ?></label>
-        <br><br><br>
-        <label class="input" for="credito"><?php echo 'Credito Residuo: ' . $_SESSION['crediti']; ?></label>
-        <br><br><br>
+    <p class="info">Username: <?php echo $email; ?></p>
+    <p class="info">Credito Residuo: <?php echo $crediti; ?></p>
+   <form class="form" action="process_request.php" method="post">
         <label for="importo">Importo richiesto:</label>
         <input type="number" name="importo" required>
         <br><br><br>

@@ -7,24 +7,48 @@
     <link rel="stylesheet" href="../css/style_ricarica.css">
 </head>
 <body>
-  <?php
-
-require_once('connection.php');
+<?php
 session_start();
+
+if (!isset($_SESSION['loggato'])) {
+    header("Location: ../html/login.html");
+    exit();
+}
+
 $email = $_SESSION['email'];
 $importo = $_POST['importo'];
 
-$sql = "INSERT INTO richieste (email, importo, accettata) VALUES ('$email', $importo, 0)";
+$xmlFile = '../xml/requests.xml';  // Utilizzo di un percorso relativo
+$dom = new DOMDocument();
 
-if ($connessione->query($sql) === TRUE) {
-    echo " <p class = 'richiesta'> Richiesta inviata con successo. Attendere l'approvazione dell'amministratore.</p>";?>
-    <a href="../html/index_loggato.html" class="btn1">Torna alla Home</a> <?php
-} else {
-    echo "Errore nell'invio della richiesta: " . $connessione->error;
+try {
+    $dom->load($xmlFile);
+} catch (Exception $e) {
+    die('Errore nel caricamento del file XML: ' . $e->getMessage());
 }
 
-$connessione->close();
-?>  
+$root = $dom->documentElement;
+
+$request = $dom->createElement('request');
+$request->setAttribute('status', 'pending');
+
+$emailElement = $dom->createElement('email', $email);
+$request->appendChild($emailElement);
+
+$importoElement = $dom->createElement('importo', $importo);
+$request->appendChild($importoElement);
+
+$root->appendChild($request);
+
+try {
+    $dom->save($xmlFile);
+} catch (Exception $e) {
+    die('Errore nel salvataggio del file XML: ' . $e->getMessage());
+}
+
+echo "<p class='richiesta'>Richiesta inviata con successo. Attendere l'approvazione dell'amministratore.</p>";
+?>
+<a href="../html/index_loggato.html" class="btn1">Torna alla Home</a>
+
 </body>
 </html>
-
