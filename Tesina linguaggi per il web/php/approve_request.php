@@ -8,7 +8,6 @@
 </head>
 <body>
 <?php
-require_once('connection.php');
 
 // Recupera i dati dal form in admin_approve.php
 $email = $_POST['email'];
