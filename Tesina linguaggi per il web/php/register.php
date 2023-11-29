@@ -11,6 +11,8 @@
     $password = $connessione->real_escape_string($_POST['password']);
     $crediti = $connessione->real_escape_string($_POST['crediti']);
 
+    $utente=1;
+    $admin_ok=0;
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     if(empty($nome) || empty($email) || empty($password) || empty($cognome) || empty($data_di_nascita) || empty($codice_fiscale) || empty($indirizzo_di_residenza) ||empty($cellulare)) {
@@ -18,7 +20,7 @@
             exit;
     }
             
-    $sql = "INSERT INTO utenti (email, nome, cognome, data_di_nascita, cellulare, indirizzo_di_residenza, codice_fiscale, passwd, crediti) VALUES ('$email','$nome','$cognome','$data_di_nascita','$cellulare','$indirizzo_di_residenza', '$codice_fiscale','$hashed_password', '$crediti')";
+    $sql = "INSERT INTO utenti (email, nome, cognome, data_di_nascita, cellulare, indirizzo_di_residenza, codice_fiscale, passwd, crediti, utente, ammin) VALUES ('$email','$nome','$cognome','$data_di_nascita','$cellulare','$indirizzo_di_residenza', '$codice_fiscale','$hashed_password', '$crediti', '$utente', '$admin_ok')";
     
 try {
       $connessione->query($sql);
