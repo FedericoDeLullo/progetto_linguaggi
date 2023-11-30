@@ -36,6 +36,8 @@ foreach ($requests as $request) {
             // Aggiorna lo stato della richiesta nel file XML
             $request->setAttribute('status', 'approved');
             $dom->save($xmlFile);
+          
+
 
             // Aggiorna i crediti dell'utente nel database
             $sql_credit_update = "UPDATE utenti SET crediti = crediti + $importo WHERE email = '$email'";

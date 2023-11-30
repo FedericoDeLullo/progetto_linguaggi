@@ -28,6 +28,13 @@
     // Flag per indicare se ci sono richieste per l'utente loggato
     $hasUserRequests = false;
 
+    // Inizio della tabella
+    echo '<table border="1">';
+    echo '<tr>';
+    echo '<th>Importo</th>';
+    echo '<th>Status</th>';
+    echo '</tr>';
+
     // Loop attraverso le richieste
     foreach ($requests as $request) {
         $email = $request->getElementsByTagName('email')->item(0)->nodeValue;
@@ -38,10 +45,16 @@
         if ($email == $userEmail) {
             $hasUserRequests = true;
 
-            // Stampa le informazioni della richiesta
-            echo "<p class='richiesta1'>Richiesta per un importo di $importo crediti - Stato: $status</p>";
+            // Stampa le informazioni della richiesta all'interno di una riga della tabella
+            echo '<tr>';
+            echo "<td>$importo</td>";
+            echo "<td>$status</td>";
+            echo '</tr>';
         }
     }
+
+    // Chiusura della tabella
+    echo '</table>';
 
     // Verifica se ci sono richieste per l'utente loggato
     if (!$hasUserRequests) {

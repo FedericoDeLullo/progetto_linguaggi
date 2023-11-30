@@ -9,6 +9,22 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
+  <?php
+$xmlFile = '../xml/requests.xml';
+$dom = new DOMDocument();
+$dom->load($xmlFile);
+
+$requests = $dom->getElementsByTagName('request');
+$hasPendingRequests = false;
+foreach ($requests as $request) {
+  $status = $request->getAttribute('status');
+
+  if ($status == 'pending') {
+      $hasPendingRequests = true;
+      }
+    }
+    ?>
+
     <div class="background-slider">
 
 <div class="header">
@@ -20,34 +36,38 @@
                 </label>
             
                 <ul class="menu__box">
-                  <li><a class="menu__item" href="index.html">Home</a></li>
-                  <li><a class="menu__item" href="#">FAQ</a></li>
-                  <li><a class="menu__item" href="#">Contatti</a></li>
+                  <li><a class="menu__item" href="../html/aggiungi_rimuovi.html">Gestisci Catalogo</a></li>
+                  <li><a class="menu__item" href="admin_approval.php">Accetta Crediti<?php
+                            if ($hasPendingRequests) {
+                                echo '<span class="notifica">•</span>';
+                            }
+                            ?></a></li>
+                  <li><a class="menu__item" href="catalogo.php">Catalogo</a></li>
                   <li><a class="menu__item" href="#">Recensioni</a></li>
                 </ul>
               </div>
-                <div class="header_menu_item"><a href="../php/articoli.php" class="stile">
-                    <div class="header_menu_link" title="Magliette">MAGLIETTE</div>
+              <div class="header_menu_item"><a href="catalogo.php" class="stile">
+                <div class="header_menu_link" title="Magliette">Catalogo</div>
 
-                   </div>
-                </a>
-                <div class="header_menu_item"><a href="#"class="stile">
-                    <div class="header_menu_link" title="Pantaloncini">PANTALONCINI</div>
-                    
-                   </div>
-                </a>
-                   <div class="header_menu_item"><a href="#"class="stile">
-                    <div class="header_menu_link" title="Calzettoni">CALZETTONI</div>
-                    
-                   </div>
-                </a>
-                    
-                <div class="header_menu_item"><a href="#"class="stile">
-                    <div class="header_menu_link" title="Tute">TUTE</div>
-                </div>
-               </a>
-              <div class="login"><a href="admin_client.html" class="stile"><span class="material-symbols-outlined">
-                login
+               </div>
+            </a>
+            <div class="header_menu_item"><a href="#"class="stile">
+                <div class="header_menu_link" title="Pantaloncini">Profilo</div>
+                
+               </div>
+            </a>
+               <div class="header_menu_item"><a href="gestione_utenti.php"class="stile">
+                <div class="header_menu_link" title="Calzettoni">Gestione Utenti</div>
+                
+               </div>
+            </a>
+                
+            <div class="header_menu_item"><a href="#"class="stile">
+                <div class="header_menu_link" title="Tute">FAQ</div>
+            </div>
+           </a>
+              <div class="login"><a href="../html/index.html" class="stile"><span class="material-symbols-outlined">
+                logout
                 </span>
               </div>  
             </a>

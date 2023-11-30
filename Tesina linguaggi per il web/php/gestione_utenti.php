@@ -6,6 +6,7 @@
     , initial-scale=1.0">
     <title>Gestione Utenti</title>
     <link rel="stylesheet" href="../css/style_gestione_utenti.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
 
@@ -30,6 +31,7 @@ echo '<th>Password</th>';
 echo '<th>Crediti</th>';
 echo '<th>Indirizzo di residenza</th>';
 echo '<th>Cellulare</th>';
+echo '<th>Modifica</th>';
 echo '</tr>';
 
 if ($result->num_rows > 0) {
@@ -43,7 +45,9 @@ if ($result->num_rows > 0) {
         echo '<td>' . $row['crediti'] . '</td>';
         echo '<td>' . $row['indirizzo_di_residenza'] . '</td>';
         echo '<td>' . $row['cellulare'] . '</td>';
-        echo '<td><a class="modifica" href="modifica_utente.php?id=' . $row['id'] . '">Modifica</a></td>';
+        echo '<td><a href="modifica_utente.php?id=' . $row['id'] . '"><span class="material-symbols-outlined">
+        edit
+        </span></a></td>';
         echo '</tr>';
     }
 } else {
@@ -53,7 +57,9 @@ if ($result->num_rows > 0) {
 echo '</table>';
 
 ?>
-                <a href="../html/index_loggato_admin.html" class="btn">Torna alla Home</a> <?php
+                <a href="index_loggato_admin.php" class="btn"><span class="material-symbols-outlined">
+home
+</span></a> <?php
 // Chiudi la connessione al database
 $connessione->close();
 ?>

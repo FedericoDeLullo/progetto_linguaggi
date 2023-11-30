@@ -31,6 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $xml->asXML($xmlFile);
 
     echo '<p class="ok">Prodotto rimosso con successo.';?>
-    <a href="../html/index_loggato_admin.html" class="btn2">Torna alla Home</a> <?php
+    <a href="index_loggato_admin.php" class="btn2">Torna alla Home</a> <?php
 }
 ?>

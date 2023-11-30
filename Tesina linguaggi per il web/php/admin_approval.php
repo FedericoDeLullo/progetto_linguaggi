@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestione Crediti</title>
     <link rel="stylesheet" href="../css./style_crediti.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
 <?php
@@ -16,37 +17,54 @@ $requests = $dom->getElementsByTagName('request');
 
 echo '<h1 class="richiesta">Richieste di Ricarica Crediti</h1>';
 
-// Flag per indicare se ci sono richieste pendenti
+
 $hasPendingRequests = false;
 
-// Loop attraverso le richieste
+echo '<table>';
+echo '<thead>';
+echo '<tr>';
+echo '<th>Email</th>';
+echo '<th>Importo</th>';
+echo '<th>Azione</th>';
+echo '</tr>';
+echo '</thead>';
+echo '<tbody>';
+
 foreach ($requests as $request) {
     $status = $request->getAttribute('status');
 
-    // Verifica se lo status è 'pending'
     if ($status == 'pending') {
         $hasPendingRequests = true;
 
         $email = $request->getElementsByTagName('email')->item(0)->nodeValue;
         $importo = $request->getElementsByTagName('importo')->item(0)->nodeValue;
 
-        echo "<p class='richiesta1'>Richiesta da $email per un importo di $importo crediti.</p>";
+        echo '<tr>';
+        echo "<td>$email</td>";
+        echo "<td>$importo</td>";
+        echo '<td>';
         echo '<form action="approve_request.php" method="post">';
         echo "<input type='hidden' name='email' value='$email'>";
         echo "<input type='hidden' name='importo' value='$importo'>";
-        echo '<input class="btn" type="submit" name="action" value="Approva">';
-        echo '<input class="btn3" type="submit" name="action" value="Rifiuta">';
+        echo '<button type="submit" name="action" value="Approva"><span class="material-symbols-outlined">done</span></button>';
+        echo '<button type="submit" name="action" value="Rifiuta"><span class="material-symbols-outlined">close</span></button> ';
         echo '</form>';
+        echo '</td>';
+        echo '</tr>';
     }
 }
+
+echo '</tbody>';
+echo '</table>';
 
 // Verifica il flag per determinare se ci sono richieste pendenti
 if (!$hasPendingRequests) {
     echo '<p class="richiesta2">Nessuna richiesta di ricarica attualmente in sospeso.</p>';
     ?>
-    <a href="../html/index_loggato_admin.html" class="btn5">Torna alla Home</a>
+    <a href="index_loggato_admin.php" class="btn5">Torna alla Home</a>
     <?php
 }
 ?>
+
 </body>
 </html>

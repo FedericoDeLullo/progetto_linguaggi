@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="home">
-                    <a href="../html/index_loggato_admin.html">
+                    <a href="index_loggato_admin.php">
                 <div class="home_link" title="home"><img src="../img/home1.png" alt="home"></div></a>
             </div>
           

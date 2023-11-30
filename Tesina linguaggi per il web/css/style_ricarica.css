@@ -28,11 +28,12 @@ h1{
 font-size: 25px;
 }
 
+
 .btn{
     display: grid;
     justify-content: center;
     text-decoration: none;
-    color: black;
+    color: white;
     margin-left: 12vh;
     width: 10vw;
     margin-top: 0vh;
