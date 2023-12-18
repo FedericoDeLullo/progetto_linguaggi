@@ -32,14 +32,13 @@ list-style-type: none;}
   }
 
 .header_menu_item {
-      margin: 1vw;
+    margin: 1vw;
     align-items:center;
-    display: flex;
+    display: grid;
     flex-flow: row;
     height: 7vh;
-    width:10vw;
+    width: 12vw;
     justify-content: center;
-   
 }
 
 
