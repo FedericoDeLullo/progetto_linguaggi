@@ -50,3 +50,19 @@ th {
     color: #fff;
     font-weight: bold;
 }
+#home{
+    margin-left: -15vh;
+    font-size: 50px;
+    color: white;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#home:hover{
+    color: green;
+    transition: 0.2s;
+}
+
+.richiesta{
+    margin-top: -8vh;
+}

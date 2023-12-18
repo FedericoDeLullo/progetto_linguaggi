@@ -5,8 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Storico Esiti Pagamenti</title>
     <link rel="stylesheet" href="../css/style_storico_pagamenti.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
 </head>
 <body>
+<a href="../html/index_loggato.html"><span id="home" class="material-symbols-outlined">
+home
+</span></a>
     <?php
     session_start();
 
@@ -62,6 +67,6 @@
     }
     ?>
 
-    <a href="../html/index_loggato.html" class="btn">Torna alla Home</a>
+   
 </body>
 </html>

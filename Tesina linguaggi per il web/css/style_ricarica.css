@@ -8,7 +8,7 @@ body{
 }
 
 h1{
-    margin-top: 0vh;
+    margin-top: -9.5vh;
     font-size: 50px;
 }
 
@@ -28,32 +28,35 @@ h1{
 font-size: 25px;
 }
 
-
-.btn{
-    display: grid;
-    justify-content: center;
-    text-decoration: none;
-    color: white;
-    margin-left: 12vh;
-    width: 10vw;
-    margin-top: 0vh;
-    font-size: 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    background: #23c55e;
+.submit {
+    background: transparent;
+    border: 3px solid green;
+    box-shadow: 0 0 20px 5px green;
+    outline: none;
+    width: 288px;
+    margin-top: 25px;
     padding: 10px 0;
+    font-size: 20px;
+    border-radius: 40px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    position: relative;
+    color: white;
+    overflow: hidden;
 }
 
-.btn:hover{
-    background: #228B22;
-    transition: 0.5s;
-}
 
+.submit:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
+    background: transparent;
+    box-shadow: 0 0 20px 5px green;
+}
 .btn1{
     display: grid;
     justify-content: center;
     text-decoration: none;
-    color: black;
+    color: white;
     margin-left: 40vh;
     width: 12vw;
     padding: 10px 0;
@@ -64,12 +67,11 @@ font-size: 25px;
     background: #23c55e;
 }
 
-.btn1:hover{
-    background: #228B22;
-    transition: 0.5s;
-}
-
 .richiesta{
     margin-top: 5vh;
     font-size: 25px;
+}
+
+.home{
+    margin-left: -15vh;
 }

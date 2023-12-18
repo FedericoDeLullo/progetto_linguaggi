@@ -41,18 +41,22 @@ margin-left: 7vh;
     display: grid;
     justify-content: center;
     text-decoration: none;
-    color: black;
+    color: white;
     margin-left: 15vh;
     width: 12vw;
     font-size: 20px;
     border-radius: 10px;
     cursor: pointer;
-    background: #23c55e;
+    background: transparent;
     padding: 10px 0;
+    overflow: hidden;
+    position: relative;
+
+    border: 3px solid #23c55e;
+    box-shadow: 0 0 50px 0 #23c55e;
 }
 
-.btn:hover{
-    background: #228B22;
+.btn:hover{transform: scale(1.1);
     transition: 0.5s;
 }
 .cont{
@@ -81,23 +85,28 @@ margin-left: 4vh;
 }
 
 .btn1{
+    margin-top: 2vh;
     margin-bottom: 3vh;
     display: grid;
     justify-content: center;
     text-decoration: none;
-    color: black;
-    margin-left: 11vh;
+    color: white;
+    margin-left: 10vh;
     width: 12vw;
     font-size: 20px;
     border-radius: 10px;
-    cursor: pointer;
-    background: #23c55e;
+    cursor: pointer;  
+    background: transparent;
     padding: 10px 0;
+    overflow: hidden;
+    position: relative;
+    border: 3px solid #23c55e;
+    box-shadow: 0 0 50px 0 #23c55e;
 }
 
 .btn1:hover{
-    background: #228B22;
-    transition: 0.5s;
+transform: scale(1.1);
+transition: 0.5s;
 }
 .ok{
     font-size: 25px;

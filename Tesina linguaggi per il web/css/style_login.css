@@ -57,8 +57,11 @@ body{
     color: #23c55e;
 }
 
+
 .submit{
-    border: none;
+    background: transparent;
+    border: 3px solid green;
+    box-shadow: 0 0 20px 5px green;
     outline: none;
     width: 288px;
     margin-top: 25px;
@@ -67,7 +70,30 @@ body{
     border-radius: 40px;
     letter-spacing: 1px;
     cursor: pointer;
-    background: linear-gradient(45deg,#23c55e,#228B22);
+    position: relative;
+    overflow: hidden;
+}
+
+.submit::before{
+    content: "";
+  position: absolute;
+  top: -80%;
+  left: -200%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(120deg, transparent, green, transparent);
+  transition:transform 0.9s;
+}
+
+.submit:hover::before{
+    transform:translate(200%);
+}
+
+.submit:hover{
+    transform: scale(1.1);
+    transition: 0.2s;
+    background: transparent;
+    box-shadow: 0 0 20px 5px green;
 }
 
 

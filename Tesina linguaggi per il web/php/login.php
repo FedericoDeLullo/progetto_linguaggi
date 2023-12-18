@@ -14,7 +14,9 @@
                     $_SESSION['loggato'] = true;
                     $_SESSION['email'] = $row['email'];
                     $_SESSION['crediti'] = $row['crediti'];
-
+                    $_SESSION['id'] = $row ['id'];
+                    $_SESSION['reputazione'] = $row['reputazione'];
+                    $_SESSION['passwd'] = $row['passwd'];
                     header("Location: ../html/index_loggato.html");
                 }
                 else{

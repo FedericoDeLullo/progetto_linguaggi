@@ -1,61 +1,106 @@
-.admin{
-    width: 20vw;
-    background: #228B22;
-    height: 7vh;
-    margin-left: 100vh;
-    margin-top: -47vh;
-    justify-content: center;
-    align-content: center;
-    display: grid;
-    text-decoration: none;
-    font-size:25px;
-    color: white;
-    border-radius: 50px;
-    border: 3px solid #23c55e;
-    box-shadow: 0 0 50px 0 #23c55e;
+.admin,
+.admin2,
+.admin_g,
+.client,
+.client2 {
+  width: 20vw;
+  height: 7vh;
+  justify-content: center;
+  align-content: center;
+  display: grid;
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  border-radius: 50px;
+  position: relative;
+  overflow: hidden;
 }
 
-.client{
-    width: 20vw;
-    background: #228B22;
-    height: 7vh;
-    margin-left: 3vh;
-    margin-top: 45vh;
-    justify-content: center;
-    align-content: center;
-    display: grid;
-    text-decoration: none;
-    font-size:25px;
-    color: white;
-    border: 3px solid #23c55e;
-    box-shadow: 0 0 50px 0 #23c55e;
-    border-radius: 50px;
+.admin::before,
+.admin2::before,
+.admin_g::before,
+.client::before,
+.client2::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -200%;
+  width: 180%;
+  height: 180%;
+  background: linear-gradient(120deg, transparent, green, transparent);
+  transition:transform 0.9s;
 }
 
-.admin:hover{
-    background: #23c55e;
-    transition: 0.5s;
+.admin:hover::before,
+.admin2:hover::before,
+.admin_g:hover::before,
+.client:hover::before,
+.client2:hover::before {
+  transform:translate(200%);
 }
 
-
-.client:hover{
-    background: #23c55e;
-    transition: 0.5s;
+.admin:hover,
+.admin2:hover,
+.admin_g:hover,
+.client:hover,
+.client2:hover{
+  transform: scale(1.1);
+  transition: 0.2s;
+  background: transparent;
+  box-shadow: 0 0 20px 5px green;
 }
 
-body{
-   
-    background: #171d29;
-    display: grid;
-    justify-content: center;
-    align-content: center;
+.admin {
+  border: 3px solid green;
+  background: transparent;
+  margin-left: auto;
+  margin-top: -30vh;
+  box-shadow: 0 0 50px 0 green;
 }
 
+.admin_g {  
+  border: 3px solid green;
+  background: transparent;
+  margin-left: 100vh;
+  margin-top: -70vh;
+  box-shadow: 0 0 50px 0 green;
+}
 
-.sep{
-    margin-top: -45vh;
-    border: 1px solid #228B22;
-    margin-left: 73vh;
-    height: 85vh;
-    width: 0%;
+.client {
+  border: 3px solid green;
+  background: transparent;
+  margin-left: 5vh;
+  margin-top: 45vh;
+  box-shadow: 0 0 50px 0 green;
+}
+
+.client2{
+  border: 3px solid green;
+  background: transparent;
+  margin-left: 0vh;
+  margin-top: 45vh;
+  box-shadow: 0 0 50px 0 green;
+}
+
+.admin2{
+  border: 3px solid green;
+  background: transparent;
+  margin-left: 100vh;
+  margin-top: -48vh;
+  box-shadow: 0 0 50px 0 green;
+}
+
+body {
+  background: #171d29;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+.sep {
+  margin-top: -45vh;
+  border: 1px solid #228B22;
+  margin-left: 72vh;
+  height: 85vh;
+  width: 0%;
 }

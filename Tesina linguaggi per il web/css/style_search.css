@@ -1,0 +1,132 @@
+.ordina{
+    font-size: 25px;
+    margin-left: 15vh;
+    margin-bottom: 5vh;
+}
+select {
+    background-color: #171d29;
+    color:white;
+    font-family: 'Arial', sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    width: 20vh;
+    outline: none; /* Rimuove l'outline quando l'elemento è selezionato */
+}
+
+input::placeholder{
+    color: white;
+}
+
+input[type="text"]{
+    color: white;
+}
+
+.search-input{
+    background-color: #171d29;
+border: 1px solid white;
+border-radius: 5px;
+    margin-left: 65vh;
+margin-bottom: 5vh;
+margin-top: -50vh;
+width: fit-content;
+height: fit-content;
+}
+
+.search-button{
+    height: fit-content;
+    border: none;
+    background: none;
+    width: fit-content;
+
+}
+
+#search{
+    color: white;
+        font-size: 22px;
+        cursor: pointer;
+}
+
+#filter{
+    cursor: pointer;
+    color: white;
+    border: none;
+    background: none;
+}
+
+.maglie{   
+    font-size: 20px;
+    text-decoration: none;
+    margin-bottom: 5vh;
+    height: 5vh;
+    margin-left: 70vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 13vw; 
+    border: 3px solid #23c55e;
+    box-shadow: 0 0 50px 0 #23c55e;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.maglie::before{
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -200%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(120deg, transparent, #23c55e, transparent);
+    transition:transform 0.9s;
+}
+
+.maglie:hover::before{  
+    transform:translate(200%);
+}
+
+.calze{
+    font-size: 20px;
+    height: 5vh;
+    text-decoration: none;
+    margin-top: -10.5vh;
+    margin-bottom: 10vh;
+    margin-left: 120vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 13vw;
+    border: 3px solid #23c55e;
+    box-shadow: 0 0 50px 0 #23c55e;
+     border-radius: 20px;
+     overflow: hidden;
+     position: relative;
+}
+
+.calze::before{
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -200%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(120deg, transparent, #23c55e, transparent);
+    transition:transform 0.9s;
+}
+
+.calze:hover::before{  
+    transform:translate(200%);
+}
+.maglie:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+.calze:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+    color:snow;
+}

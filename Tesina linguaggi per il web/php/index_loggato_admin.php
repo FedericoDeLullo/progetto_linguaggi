@@ -36,13 +36,13 @@ foreach ($requests as $request) {
                 </label>
             
                 <ul class="menu__box">
-                  <li><a class="menu__item" href="../html/aggiungi_rimuovi.html">Gestisci Catalogo</a></li>
                   <li><a class="menu__item" href="admin_approval.php">Accetta Crediti<?php
                             if ($hasPendingRequests) {
-                                echo '<span class="notifica">•</span>';
+                                echo '<span id="note" class="material-symbols-outlined">
+                                notifications_unread
+                                </span>';
                             }
                             ?></a></li>
-                  <li><a class="menu__item" href="catalogo.php">Catalogo</a></li>
                   <li><a class="menu__item" href="#">Recensioni</a></li>
                 </ul>
               </div>

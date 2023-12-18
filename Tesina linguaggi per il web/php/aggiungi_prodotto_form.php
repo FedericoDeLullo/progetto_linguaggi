@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="home">
-                    <a href="../html/">
+                    <a href="index_loggato_gestore.php">
                 <div class="home_link" title="home"><img src="../img/home1.png" alt="home"></div></a>
             </div>
     
@@ -27,6 +27,13 @@
         <label class="immagine" for="immagine">Immagine Prodotto:</label>
         <input class="immagine" type="file" name="immagine" accept="image/*" required><br>
 
+        <label class="tipologia" for="tipologia">Tipologia Prodotto</label>
+    <select select id="tipologia" name="tipologia">
+        <option value="magliette">Magliette</option>
+        <option value="pantaloncini">Pantaloncini</option>
+        <option value="calzettoni">Calzettoni</option>
+    </select>
+<br><br>
         <input class="btn" type="submit" value="Aggiungi Prodotto">
     </form>
 </div>

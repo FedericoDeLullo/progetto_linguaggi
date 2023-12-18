@@ -1,24 +1,87 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:complexType name="UtilitaType">
+    <xs:sequence>
+        <xs:element name="valore" type="xs:int" default="0" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+        <xs:attribute name="id_utente" type="xs:int" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:attribute name="reputazione_Vot" type="xs:int" minOccurs="0" maxOccurs="1"/>
+     </xs:complexType>
+
+  <!-- Definizione del tipo complesso per una recensione -->
+<xs:complexType name="RecensioneType">
+    <xs:sequence>
+        <xs:element name="id_recensione" type="xs:int"/>
+        <xs:element name="autore" type="xs:string"/>
+        <xs:element name="testo" type="xs:string"/>
+        <xs:element name="data" type="xs:dateTime"/>      
+        <xs:element name="ora" type="xs:dateTime"/>
+        <xs:element name="utilita" type="UtilitaType" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="supporto" type="UtilitaType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+        <xs:attribute name="id_prodotto" type="xs:int"/> 
+        <xs:attribute name="id_utente" type="xs:int"/>
+        </xs:complexType>
+
+<xs:complexType name="VotoType">
+    <xs:sequence>
+        <xs:element name="valore" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="id_utente" type="xs:int"/>
+</xs:complexType>
+
+
+<xs:complexType name="AType">
+    <xs:sequence>
+        <xs:element name="id_risposta" type="xs:int"/>
+        <xs:element name="autore" type="xs:string"/>
+        <xs:element name="data" type="xs:dateTime"/>      
+        <xs:element name="ora" type="xs:dateTime"/>
+        <xs:element name="testo" type="xs:string"/>             
+        <xs:element name="utilita" type="VotoType"/>
+        <xs:element name="supporto" type="VotoType"/>
+</xs:sequence>
+        <xs:attribute name="id_prodotto" type="xs:int"/> 
+        <xs:attribute name="id_utente" type="xs:int"/>
+        </xs:complexType>
+
+<xs:complexType name="QType">
+    <xs:sequence>
+        <xs:element name="id_domanda" type="xs:int"/>               
+        <xs:element name="utilita" type="VotoType"/>
+        <xs:element name="supporto" type="VotoType"/>
+        <xs:element name="autore" type="xs:string"/>
+        <xs:element name="testo" type="xs:string"/>
+        <xs:element name="risposta" type="AType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+        <xs:attribute name="id_prodotto" type="xs:int"/> 
+        <xs:attribute name="id_utente" type="xs:int"/>
+        </xs:complexType>
 
   <!-- Definizione del tipo complesso per un prodotto -->
   <xs:complexType name="ProdottoType">
     <xs:sequence>
+      <xs:element name="id_prodotto" type="xs:int"/>
       <xs:element name="nome" type="xs:string"/>
       <xs:element name="descrizione" type="xs:string"/>
       <xs:element name="prezzo" type="xs:decimal"/>
-      <xs:element name="immagine" type="xs:string"/>
+      <xs:element name="tipologia" type="xs:string"/>
+      <xs:element name="recensioni" type="RecensioneType" minOccurs="0" maxOccurs="unbounded"/>      
+      <xs:element name="domande" type="QType" minOccurs="0" maxOccurs="unbounded"/>
+
+      <!-- Altri elementi del prodotto -->
     </xs:sequence>
   </xs:complexType>
 
   <!-- Definizione del tipo complesso per il catalogo -->
   <xs:complexType name="CatalogoProdottiType">
     <xs:sequence>
-      <xs:element name="prodotto" type="ProdottoType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="prodotto" type="ProdottoType" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
   <!-- Definizione dell'elemento radice -->
-  <xs:element name="catalogo_prodotti" type="CatalogoProdottiType"/>
+  <xs:element name="catalogo" type="CatalogoProdottiType"/>
 
 </xs:schema>

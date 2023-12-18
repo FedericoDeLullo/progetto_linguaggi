@@ -57,7 +57,7 @@ if ($result->num_rows > 0) {
 echo '</table>';
 
 ?>
-                <a href="index_loggato_admin.php" class="btn"><span class="material-symbols-outlined">
+                <a href="index_loggato_admin.php" class="btn"><span id="home" class="material-symbols-outlined">
 home
 </span></a> <?php
 // Chiudi la connessione al database

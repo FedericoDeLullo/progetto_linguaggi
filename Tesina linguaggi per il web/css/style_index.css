@@ -92,13 +92,11 @@ z-index: 2;
     width: fit-content;
       margin-left: 0vh;
   }
-  .notifica {
-    color: red;  /* Colore rosso per la notifica */
-    font-size: 30px;  /* Testo in grassetto */
-    margin-left: 20px;
-    margin-top: -5px;
-  }
 
+#note{
+  margin-left:10px;
+  color: red;
+}
 
   .cart{
   margin-left: 12vh;

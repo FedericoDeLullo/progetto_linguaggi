@@ -21,6 +21,11 @@ $crediti = $_SESSION['crediti'];
     <link rel="stylesheet" href="../css/style_ricarica.css">
 </head>
 <body>
+<div class="home">
+                    <a href="../html/index_loggato.html">
+                <div class="home_link" title="home"><img src="../img/home1.png" alt="home"></div></a>
+            </div>
+    
     <h1>Richiesta di Ricarica Crediti</h1>
     <p class="info">Username: <?php echo $email; ?></p>
     <p class="info">Credito Residuo: <?php echo $crediti; ?></p>
@@ -28,7 +33,7 @@ $crediti = $_SESSION['crediti'];
         <label for="importo">Importo richiesto:</label>
         <input type="number" name="importo" required>
         <br><br><br>
-        <input class="btn" type="submit" value="Invia richiesta">
+        <input class="submit" type="submit" value="Invia richiesta">
     </form>
 </body>
 </html>
