@@ -32,12 +32,11 @@ list-style-type: none;}
   }
 
 .header_menu_item {
-    margin: 1vw;
+    margin: 3vw;
     align-items:center;
     display: grid;
     flex-flow: row;
     height: 7vh;
-    width: 12vw;
     justify-content: center;
 }
 
@@ -78,7 +77,7 @@ z-index: 2;
     }
   }
 
-  .login{
+  .login{ /*sostituito con header_menu_item*/
     align-items:center;
     display: flex;
     flex-flow: row;
