@@ -18,7 +18,7 @@ session_start();
         $nome_prodotto = $_GET['nome'];
         $email_utente = $_SESSION['email'];
         $tipologia = $_GET['tipologia'];
-        $id_utente = $_GET['id'];
+        $id_utente = $_GET ['id'];
         ?>
         <div class="home">
     <a href="catalogo_utente_<?php echo $tipologia; ?>.php">             
@@ -28,6 +28,7 @@ session_start();
 
 
 <form class="rew" method="post" action="recensioni_prodotti.php">
+    <input type="hidden" name="id" value="<?php echo $id_utente; ?>">
     <input type="hidden" name="id_prodotto" value="<?php echo $id_prodotto; ?>">
     <input type="hidden" name="tipologia" value="<?php echo $tipologia; ?>">
     <input type="hidden" name="autore" value="<?php echo $email_utente; ?>">
@@ -52,13 +53,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Verifica se sono stati inviati dati del modulo
     if (isset($_POST['id_prodotto'], $_POST['autore'], $_POST['recensione'])) {
         $id_prodotto = $_POST['id_prodotto'];
+        $id_utente = 0;
         $autore = $_POST['autore'];
         $recensione = $_POST['recensione'];
         $data = $_POST['data_recensione'];
         $ora = $_POST['orario_recensione'];
         $tipologia = $_POST['tipologia'];
-        $id_utente = $_SESSION['id'];
-   
         $id_recensione = uniqid();
         $utilita=0;
         $supporto=0;
@@ -68,7 +68,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Carica il file XML del catalogo
         $xmlFile = '../xml/catalogo_prodotti.xml';
         $dom = new DOMDocument();
-        $dom->preserveWhiteSpace = false;
         $dom->load($xmlFile);
 
         // Trova il prodotto nel file XML
@@ -89,8 +88,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             
             $recensioneNode->setAttribute('id_prodotto', $id_prodotto);
-            $recensioneNode->setAttribute('id_utente', $id_utente);
-
 
 
             // Aggiungi gli elementi 'autore', 'testo' e 'data e ora' all'elemento 'recensione'
@@ -99,44 +96,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $dataNode = $dom->createElement('data', $data);
             $oraNode = $dom->createElement('ora', $ora);
             $idRecensioneNode = $dom->createElement('id_recensione', $id_recensione);           
+            
             $utilitaNode = $dom->createElement('utilita');
+            $supportoNode = $dom->createElement('supporto');
 
-// Aggiungi il nuovo nodo 'valore' all'elemento 'utilita'
-$valoreUtilitaNode = $dom->createElement('valore', $utilita);
-$utilitaNode->appendChild($valoreUtilitaNode);
-
-// Aggiungi l'elemento 'utilita' all'elemento 'recensione'
-$recensioneNode->appendChild($utilitaNode);
-
-// Crea l'elemento 'supporto'
-$supportoNode = $dom->createElement('supporto');
-
-// Aggiungi il nuovo nodo 'valore' all'elemento 'supporto'
-$valoreSupportoNode = $dom->createElement('valore', $supporto);
-$supportoNode->appendChild($valoreSupportoNode);
-
-// Aggiungi l'elemento 'supporto' all'elemento 'recensione'
-$recensioneNode->appendChild($supportoNode);
-
-// Aggiungi l'elemento 'recensione' all'elemento 'recensioni'
-$recensioniNode->appendChild($recensioneNode);
-
+            $utilitaNode->setAttribute('id_utente', $id_utente);
+            $utilitaNode->appendChild($dom->createElement('valore', $utilita));
+            
+            $supportoNode->setAttribute('id_utente', $id_utente);
+            $supportoNode->appendChild($dom->createElement('valore', $supporto));
+            
 
             $recensioneNode->appendChild($autoreNode);
             $recensioneNode->appendChild($testoNode);
             $recensioneNode->appendChild($dataNode);
             $recensioneNode->appendChild($oraNode);
             $recensioneNode->appendChild($idRecensioneNode);
+            $recensioneNode->appendChild($utilitaNode);
+            $recensioneNode->appendChild($supportoNode);
 
 
             // Aggiungi l'elemento 'recensione' all'elemento 'recensioni'
             $recensioniNode->appendChild($recensioneNode);
 
-            $dom->normalizeDocument();
-
-            $dom->formatOutput = true;
-
-            //Salva il file XML aggiornato
+            // Salva il file XML aggiornato
             $dom->save($xmlFile);
 
             echo 'Recensione salvata con successo.';

@@ -78,11 +78,7 @@ foreach ($prodottiArray as $prodotto) {
     
     // Stampa le informazioni del prodotto
     echo '<div class="prodotto">';
-    echo '<h2 class="nome1">
-    <a title="Fai una domanda" href="domande_prodotti.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id=' . $id_utente .'"><span id="help" class="material-symbols-outlined">help</span></a>
-    <a title="Fai una domanda" href="domande.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id=' . $id_utente .'"><span id="q" class="material-symbols-outlined">live_help</span></a>' . $nome . '<a title="Lascia una recensione" href="recensioni_prodotti.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id=' . $id_utente .'"><span id="rev" class="material-symbols-outlined">note_stack_add</span></a>
-    <a title="Recensioni prodotto" href="recensioni.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id=' . $id_utente .'"><span id="add" class="material-symbols-outlined">reviews</span></a>
-    </h2>';
+    echo '<h2 class="nome1">' . $nome . '<a title="Lascia una recensione" href="recensioni_prodotti.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'"><span id="rev" class="material-symbols-outlined">note_stack_add</span></a><a title="Recensioni prodotto" href="recensioni.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'"><span id="add" class="material-symbols-outlined">reviews</span></a></h2>';
     echo '<p class="des1">' . $descrizione . '</p>';
     echo '<p class="prezzo1">Prezzo: ' . $prezzo . '€</p>';
     echo '<div class="box1">';

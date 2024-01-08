@@ -68,23 +68,6 @@ height: fit-content;
     border: 3px solid #23c55e;
     box-shadow: 0 0 50px 0 #23c55e;
     border-radius: 20px;
-    overflow: hidden;
-    position: relative;
-}
-
-.maglie::before{
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -200%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(120deg, transparent, #23c55e, transparent);
-    transition:transform 0.9s;
-}
-
-.maglie:hover::before{  
-    transform:translate(200%);
 }
 
 .calze{
@@ -102,31 +85,16 @@ height: fit-content;
     border: 3px solid #23c55e;
     box-shadow: 0 0 50px 0 #23c55e;
      border-radius: 20px;
-     overflow: hidden;
-     position: relative;
 }
 
-.calze::before{
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -200%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(120deg, transparent, #23c55e, transparent);
-    transition:transform 0.9s;
-}
-
-.calze:hover::before{  
-    transform:translate(200%);
-}
 .maglie:hover{
-    transform: scale(1.1);
+    background: darkslategrey;
     transition: 0.5s;
+    color:snow;
 }
 
 .calze:hover{
-    transform: scale(1.1);
+    background: darkslategrey;
     transition: 0.5s;
     color:snow;
 }

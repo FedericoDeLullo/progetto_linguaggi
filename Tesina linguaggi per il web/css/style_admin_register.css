@@ -184,12 +184,13 @@ margin-left: -560px;
 
 .home{
     z-index: 99;
+    margin-top: -88vh;
     margin-left: 90vh;
     align-items:center;
     display: flex;
     flex-flow: row;
     height: fit-content;
-    width: fit-content;
+    width: 3vw;
     justify-content: center;
   }
   .home_link{

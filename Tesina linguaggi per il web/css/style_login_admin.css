@@ -1,106 +1,99 @@
-.admin,
-.admin2,
-.admin_g,
-.client,
-.client2 {
-  width: 20vw;
-  height: 7vh;
-  justify-content: center;
-  align-content: center;
-  display: grid;
-  text-decoration: none;
-  font-size: 25px;
-  color: white;
-  border-radius: 50px;
-  position: relative;
-  overflow: hidden;
+body{
+  background-color: #9fd3c7;
 }
 
-.admin::before,
-.admin2::before,
-.admin_g::before,
-.client::before,
-.client2::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -200%;
-  width: 180%;
-  height: 180%;
-  background: linear-gradient(120deg, transparent, green, transparent);
-  transition:transform 0.9s;
+.admin{
+    width: 20vw;
+    background: #2c3e50;
+    height: 7vh;
+    margin-left: 100vh;
+    margin-top: -20vh;
+    justify-content: center;
+    align-content: center;
+    display: grid;
+    text-decoration: none;
+    font-size:25px;
+    color: white;
+    border-radius: 50px;
+    border: 3px solid #142d4c;
+    box-shadow: 0 0 50px 25px #113f67;
 }
-
-.admin:hover::before,
-.admin2:hover::before,
-.admin_g:hover::before,
-.client:hover::before,
-.client2:hover::before {
-  transform:translate(200%);
-}
-
-.admin:hover,
-.admin2:hover,
-.admin_g:hover,
-.client:hover,
-.client2:hover{
-  transform: scale(1.1);
-  transition: 0.2s;
-  background: transparent;
-  box-shadow: 0 0 20px 5px green;
-}
-
-.admin {
-  border: 3px solid green;
-  background: transparent;
-  margin-left: auto;
-  margin-top: -30vh;
-  box-shadow: 0 0 50px 0 green;
-}
-
-.admin_g {  
-  border: 3px solid green;
-  background: transparent;
-  margin-left: 100vh;
-  margin-top: -70vh;
-  box-shadow: 0 0 50px 0 green;
-}
-
-.client {
-  border: 3px solid green;
-  background: transparent;
-  margin-left: 5vh;
-  margin-top: 45vh;
-  box-shadow: 0 0 50px 0 green;
-}
-
-.client2{
-  border: 3px solid green;
-  background: transparent;
-  margin-left: 0vh;
-  margin-top: 45vh;
-  box-shadow: 0 0 50px 0 green;
-}
-
 .admin2{
-  border: 3px solid green;
-  background: transparent;
-  margin-left: 100vh;
-  margin-top: -48vh;
-  box-shadow: 0 0 50px 0 green;
+    width: 20vw;
+    background: #2c3e50;
+    height: 7vh;
+    margin-left: 100vh;
+    margin-top: -48vh;
+    justify-content: center;
+    align-content: center;
+    display: grid;
+    text-decoration: none;
+    font-size:25px;
+    color: white;
+    border-radius: 50px;
+    border: 3px solid #142d4c;
+    box-shadow: 0 0 50px 25px #113f67;
+}
+.admin2:hover{
+  background: #455d7a;
+  transition: 0.5s;
+}
+.admin_g{
+    width: 20vw;
+    background: #2c3e50;
+    height: 7vh;
+    margin-left: 100vh;
+    margin-top: -60vh;
+    justify-content: center;
+    align-content: center;
+    display: grid;
+    text-decoration: none;
+    font-size:25px;
+    color: white;
+    border-radius: 50px;
+    border: 3px solid #142d4c;
+    box-shadow: 0 0 50px 25px #113f67;}
+
+.client{
+    width: 20vw;
+    background: #2c3e50;
+    height: 7vh;
+    margin-left: 3vh;
+    margin-top: 40vh;
+    justify-content: center;
+    align-content: center;
+    display: grid;
+    text-decoration: none;
+    font-size:25px;
+    color: white;
+    border: 3px solid #142d4c;
+    box-shadow: 0 0 50px 25px #113f67;
+    border-radius: 50px;
 }
 
-body {
-  background: #171d29;
-  display: grid;
-  justify-content: center;
-  align-content: center;
+.admin:hover{
+    background: #455d7a;
+    transition: 0.5s;
+}
+.admin_g:hover{
+    background: #455d7a;
+    transition: 0.5s;
 }
 
-.sep {
-  margin-top: -45vh;
-  border: 1px solid #228B22;
-  margin-left: 72vh;
-  height: 85vh;
-  width: 0%;
+.client:hover{
+  background: #455d7a;
+  transition: 0.5s;
+}
+
+ 
+.cont{  
+    margin-left: 17vw;
+}
+
+.sep{
+    margin-top: -47vh;
+    border: 1px solid #2c3e50;
+    margin-left: 73vh;
+    height: 85vh;
+    width: 0%;
 }

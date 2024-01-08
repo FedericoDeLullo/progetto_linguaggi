@@ -33,23 +33,17 @@ body{
 
 .btn{
     cursor: pointer;
-    background:  transparent;
-    margin-left: 11vh;
-    margin-top: 4vh;
+    background:  #23c55e;
+    margin-left: 8vh;
+    margin-top: 1vh;
     width: 20vw;
     font-size: medium;
-    color: white;
+    color: black;
     height: 5vh;
-    overflow: hidden;
-    position: relative;
     border-radius: 10px;
-    box-shadow: 0 0 50px 0 green;
-    border: 3px solid green;
 }
 
 .btn:hover{
-    transform: scale(1.1);
-        transition: 0.2s;
-        background: transparent;
-        box-shadow: 0 0 20px 5px green;
+    background: #228B22;
+    transition: 0.5s;
 }

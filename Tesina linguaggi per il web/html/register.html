@@ -4,57 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrazione</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="../css/style_register.css">
+    <link rel="stylesheet" href="../css/style_header.css">
+
 </head>
 <body>
-  
-    <div class="wrapper">
+    <header class="header">
+        <div class="header_menu">  
+            <div class="header_menu_item">
+                <a href="index.html"><img class="logo" src="../img/logo.PNG"></a>
+            </div>
+            <div class="header_menu_item">
+                <a href="../php/catalogo_utente_magliette.php" class="stile">
+                    <div class="header_menu_link" title="Catalogo">
+                        <span class="material-symbols-outlined">receipt_long</span>CATALOGO
+                    </div>
+                </a>
+            </div>
+            <div class="header_menu_item">
+                <a href="#" class="stile">
+                    <div class="header_menu_link" title="Faq">
+                        <span class="material-symbols-outlined">quiz</span>FAQ
+                    </div>
+                </a>
+            </div>
+            <div class="header_menu_item">
+                <a href="#" class="stile">
+                    <div class="header_menu_link" title="About us">
+                        <span class="material-symbols-outlined">group</span>ABOUT US
+                    </div>
+                </a>
+            </div>
+            <div class="header_menu_item">
+                <a href="admin_client.html" class="stile">                   
+                    <div class="header_menu_link" title="Login">
+                        <span class="material-symbols-outlined">login</span>LOGIN
+                    </div>
+                </a>
+            </div>
+            <div class="header_menu_item">
+                <a href="admin_client.html" class="stile">                   
+                    <div class="header_menu_link" title="Carrello">
+                        <span class="material-symbols-outlined">shopping_cart</span>CARRELLO
+                    </div>
+                </a>
+            </div>
+        </div>
+    </header>          
+
+    <div class="cont">
+  <div class="wrapper">
+
         <form action="../php/register.php" method="post" class="form">
-            <h1 class="title">REGISTRAZIONE</h1>
+            <h1 class="title">REGISTRAZIONE</h1>    <div class="data">Data di nascita:</div>
+
+
             <div class="inp nome">
                 <input type="text" name="nome" id="" class="input" placeholder="Nome">
-                <i class="fa_solid fa_user"></i>
             </div>
             <div class="inp cognome">
-                <input type="text" name="cognome" id="" class="input col" placeholder="Cognome">
-                <i class="fa_solid fa_user"></i>
+                <input type="date" name="data_di_nascita" id="" class="input col" placeholder="Data di nascita">
             </div>
-            <p class="data">Data di nascita:</p> 
+           
             <div class="inp dn">
-                <input type="date" name="data_di_nascita" id="" class="input" placeholder="Data di nascita">
-                <i class="fa_solid fa_user"></i>
+                <input type="text" name="cognome" id="" class="input" placeholder="Cognome">
             </div>
             <div class="inp email">
                 <input type="email" name="email" id="" class="input col" placeholder="Email">
-                <i class="fa_solid fa_user"></i>
             </div> <div class="inp indirizzo">
                 <input type="text" name="indirizzo_di_residenza" id="" class="input" placeholder="Indirizzo di residenza">
-                <i class="fa_solid fa_user"></i>
             </div>
             <div class="inp cf">
-                <input type="text" name="codice_fiscale" id="" class="input col" placeholder="Codice Fiscale">
-                <i class="fa_solid fa_user"></i>
+                <input type="number" name="cellulare" id="" class="input col" placeholder="Cellulare">
             </div>
             <div class="inp cellulare">
-                <input type="number" name="cellulare" id="" class="input" placeholder="Cellulare">
-                <i class="fa_solid fa_user"></i>
+                <input type="text" name="codice_fiscale" id="" class="input" placeholder="Codice fiscale">
             </div>
             <div class="inp password">
             <input type="password" name="password" id="" class="input col" placeholder="Password">
-            <i class="fa_solid fa_lock"></i>
         </div>
     <button class="submit" type="submit">Crea Account</button>
-    <p class="footer">Hai già un account?<a href="login.html" class="link">Accedi!</a></p>    
+    <p class="footer1">Hai già un account?<a href="login.html" class="link">Accedi!</a></p>    
     </form>
-    <p class="footer">
-        <div class="home">
-           <a href="index.html">
-       <div class="home_link" title="home"><img src="../img/home.png" alt="home"></div>
+
+<div class="banner"></div> 
    </div>
-</a>
-</p>    
-<div class="banner">
-   
-    </div>
+</div>
 </body>
 </html>

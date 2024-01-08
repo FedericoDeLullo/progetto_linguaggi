@@ -1,21 +1,10 @@
-*{
-    margin: 0;
-    padding: 0;
-    font-family: arial;
-    color: #fff;
-}
-
 body{
-    width: 100vw;
-    height: 100vh;
-    background: #171d29;
-    display: grid;
-    justify-content: center;
-    align-content: center;
-}
+    background-color: #9fd3c7;
+  }
+  
 
 ::-webkit-input-placeholder{
-    color: #eee;
+    color: #142d4c;
 }
 
 .wrapper{
@@ -25,26 +14,45 @@ body{
     height: 65vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    border: 3px solid #23c55e;
-    box-shadow: 0 0 50px 0 #23c55e;
+    border: 3px solid #142d4c;
+    box-shadow: 0 0 50px 25px #113f67;
+    
 }
 
-.form{
-    margin-top: 5vh;
+.cont{
+    margin-top: 10vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-content: center;
+}
+
+
+.form{
+    margin-left: 5vw;
+  margin-top: 5vh;
+  width: fit-content;
+}
+
+
+.form_g{
+    margin-left: 5vw;
+  margin-top: 2vh;
+  width: fit-content;
 }
 
 .title{
+    margin-left: 3.5vw;
+    color: #142d4c;
     font-size: 35px;
 }
 
 .inp{
+    color: #142d4c;
     padding-bottom: 10px;
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid #142d4c;
 }
+
+
 
 .input{
     border: none;
@@ -54,14 +62,12 @@ body{
     margin-top: 40px;
     padding-right: 10px;
     font-size: 17px;
-    color: #23c55e;
+    color:#142d4c;
 }
 
-
 .submit{
-    background: transparent;
-    border: 3px solid green;
-    box-shadow: 0 0 20px 5px green;
+    color: #9fd3c7;
+    border: none;
     outline: none;
     width: 288px;
     margin-top: 25px;
@@ -70,42 +76,22 @@ body{
     border-radius: 40px;
     letter-spacing: 1px;
     cursor: pointer;
-    position: relative;
-    overflow: hidden;
-}
-
-.submit::before{
-    content: "";
-  position: absolute;
-  top: -80%;
-  left: -200%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(120deg, transparent, green, transparent);
-  transition:transform 0.9s;
-}
-
-.submit:hover::before{
-    transform:translate(200%);
-}
-
-.submit:hover{
-    transform: scale(1.1);
-    transition: 0.2s;
-    background: transparent;
-    box-shadow: 0 0 20px 5px green;
+    background: linear-gradient(45deg,#113f67,#142d4c);
 }
 
 
 .footer{
+    color: #142d4c;
     margin-top: 30px;
     letter-spacing: 0.5px;
     font-size:14px;
 }
 
+
+
 .link{
-    color: #23c55e;
-    text-decoration: none;
+    color: #113f67;
+    text-decoration: underline;
 }
 
 .banner{
@@ -115,7 +101,7 @@ body{
     right:0;
     width: 55%;
     height: 100%;
-    background: linear-gradient(to right, #23c55e,#228B22);
+    background: linear-gradient(to right, #113f67,#142d4c);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 60% 100%);
     padding-right: 70px;
     display: flex;
@@ -131,6 +117,7 @@ body{
   }
 
 .wel_text{
+    color: #9fd3c7;
     font-size: 40px;
     margin-top: -50px;
     line-height: 50px;
@@ -143,6 +130,3 @@ body{
     letter-spacing: 1px;
 }
 
-.home_link{
-    margin-top: -2vh;
-}

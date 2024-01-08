@@ -103,23 +103,18 @@ button{
     display: grid;
     justify-content: center;
     text-decoration: none;
-    color: white;
+    color: black;
     margin-left: 10vh;
     width: 12vw;
     font-size: 20px;
     border-radius: 10px;
     cursor: pointer;
-    background: transparent;
+    background: #23c55e;
     padding: 10px 0;
-    position: relative;
-    overflow:hidden;
-    border: 3px solid #23c55e;
-    box-shadow: 0 0 50px 0 #23c55e;
 }
 
-
 .btn1:hover{
-    transform: scale(1.1);
+    background: #228B22;
     transition: 0.5s;
 }
 

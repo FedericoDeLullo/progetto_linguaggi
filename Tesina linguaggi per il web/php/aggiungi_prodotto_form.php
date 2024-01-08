@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="home">
-                    <a href="index_loggato_gestore.php">
+                    <a href="../html/">
                 <div class="home_link" title="home"><img src="../img/home1.png" alt="home"></div></a>
             </div>
     

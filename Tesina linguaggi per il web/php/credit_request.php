@@ -19,21 +19,87 @@ $crediti = $_SESSION['crediti'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Richiesta di Ricarica Crediti</title>
     <link rel="stylesheet" href="../css/style_ricarica.css">
+    <link rel="stylesheet" href="../css/style_header.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+
 </head>
 <body>
-<div class="home">
-                    <a href="../html/index_loggato.html">
-                <div class="home_link" title="home"><img src="../img/home1.png" alt="home"></div></a>
-            </div>
-    
-    <h1>Richiesta di Ricarica Crediti</h1>
-    <p class="info">Username: <?php echo $email; ?></p>
-    <p class="info">Credito Residuo: <?php echo $crediti; ?></p>
-   <form class="form" action="process_request.php" method="post">
-        <label for="importo">Importo richiesto:</label>
-        <input type="number" name="importo" required>
-        <br><br><br>
-        <input class="submit" type="submit" value="Invia richiesta">
-    </form>
+<header class="header">
+    <div class="header_menu">  
+        <div class="header_menu_item">
+            <a href="../html/index_loggato.html"><img class="logo" src="../img/logo.PNG"></a>
+        </div>
+        <div class="header_menu_item">
+            <a href="catalogo_utente_magliette.php" class="stile">
+                <div class="header_menu_link" title="Catalogo">
+                    <span class="material-symbols-outlined">receipt_long</span>CATALOGO
+                </div>
+            </a>
+        </div>
+        <div class="header_menu_item">
+            <a href="#" class="stile">
+                <div class="header_menu_link" title="Faq">
+                    <span class="material-symbols-outlined">quiz</span>FAQ
+                </div>
+            </a>
+        </div>
+        <div class="header_menu_item">
+            <a href="#" class="stile">
+                <div class="header_menu_link" title="Profilo">
+                    <span class="material-symbols-outlined">group</span>PROFILO
+                </div>
+            </a>
+        </div>
+        <div class="header_menu_item">
+          <a href="../html/gestione_crediti.html" class="stile">
+              <div class="header_menu_link" title="Gestione Crediti">
+                  <span class="material-symbols-outlined">group</span>GESTIONE CREDITI
+              </div>
+          </a>
+      </div>
+        <div class="header_menu_item">
+            <a href="../html/index.html" class="stile">                   
+                <div class="header_menu_link" title="Logout">
+                    <span class="material-symbols-outlined">logout</span>LOGOUT
+                </div>
+            </a>
+        </div>
+        <div class="header_menu_item">
+            <a href="../html/admin_client.html" class="stile">                   
+                <div class="header_menu_link" title="Carrello">
+                    <span class="material-symbols-outlined">shopping_cart</span>CARRELLO
+                </div>
+            </a>
+        </div>
+    </div>
+</header>
+
+<div class="cont">
+<table>
+    <tr>
+        <th colspan="2">Richiesta di Ricarica Crediti</th>
+    </tr>
+    <tr>
+        <td>Username:</td>
+        <td><?php echo $email; ?></td>
+    </tr>
+    <tr>
+        <td>Credito Residuo:</td>
+        <td><?php echo $crediti; ?></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <form class="form" action="process_request.php" method="post">
+                <label for="importo">Importo richiesto:</label>
+                <input type="number" name="importo" required>
+                <br><br><br>
+                <input class="btn" type="submit" value="Invia richiesta">
+            </form>
+        </td>
+    </tr>
+</table>
+</div>
+
 </body>
 </html>

@@ -20,14 +20,8 @@ table {
 
 th, td {
     border: 1px solid #333;
-    padding: 10px;    
-}
-
-td{
-    word-wrap: break-word; /* Per far andare a capo il testo */
-    white-space: normal; 
+    padding: 10px;
     text-align: left;
-    max-width: 20vw;
 }
 
 th {
@@ -45,6 +39,12 @@ th {
 #casa:hover{
     color: #23c55e;
     transition: 0.2s;
+}
+
+.recensione-cell {
+    max-width: 600px; /* Sostituisci con la larghezza massima desiderata */
+    word-wrap: break-word;
+    overflow: hidden;
 }
 
 .vota{
@@ -77,6 +77,9 @@ button{
 
 #ver{
     font-size: 30px;
-    display: grid;
-    justify-content: center;
+    margin-left: 16vh;
+}
+
+.u{
+    margin-left: 5vh;
 }

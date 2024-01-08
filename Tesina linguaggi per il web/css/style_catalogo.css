@@ -137,7 +137,7 @@ body{
 
 #rev{
     color: white;
-    margin-left: 1vh;
+    margin-left: 2vh;
 }
 
 #rev:hover{
@@ -147,7 +147,7 @@ body{
 
 #add{
     color: white;
-    margin-left: 9px;
+    margin-left: 2vh;
 }
 
 #add:hover{
@@ -179,45 +179,20 @@ body{
     margin-bottom: 5vh;
 }
 
-#help{
-    color: white;
-}
 
-#help:hover{
-color: #23c55e;
-}
-
-#q{
-    color: white;
-    margin-right: 15px;
-}
-
-#q:hover{
-    color: #23c55e;
-    }
 
 .button{
-    color: white;
     width: 20vh;
     height: 5vh;
     border-radius: 10px;
-    background: transparent;
+    background: #23c55e;
     cursor: pointer;
-    overflow: hidden;
-    box-shadow: 0 0 50px 0 green;
-    border: 3px solid green;
-    position: relative;
-    margin-left: -22vh;
 }
 
 .button:hover{
-transform: scale(1.1);
+    background: #228B22;
     transition: 0.2s;
-    background: transparent;
-    box-shadow: 0 0 20px 5px green;
 }
-
-
 #casa{
     font-size: 40px;
     color: white;

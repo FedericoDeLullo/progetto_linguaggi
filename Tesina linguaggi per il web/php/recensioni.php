@@ -10,113 +10,94 @@
 <body>
 
 <?php
-if(isset($_GET['tipologia']) && isset($_GET['id_prodotto'])){
+session_start(); // Assicurati di iniziare la sessione se non lo hai già fatto
+
+if (isset($_GET['tipologia']) && isset($_GET['id_prodotto'])) {
     $tipologia = $_GET['tipologia'];
     $id_prodotto = $_GET['id_prodotto'];
     $nome = $_GET['nome'];
+    $id_utente = $_SESSION['id']; // Assumi che l'id utente sia memorizzato in una sessione
 }
 ?>
-
 <div class="home">
     <a href="catalogo_utente_<?php echo $tipologia; ?>.php">             
         <span id="casa" class="material-symbols-outlined">home</span>
     </a>
 </div>
-
 <?php
-       require_once('connection.php');
-session_start();
+$xmlFile = '../xml/catalogo_prodotti.xml';
+$dom = new DOMDocument();
+$dom->load($xmlFile);
 
-if (!isset($_SESSION['email'])) {
-    // L'utente non è autenticato, puoi reindirizzarlo alla pagina di login o fare altre azioni
-    header("Location: ../html/login.html");
-    exit();
-}else{
-    $email = $_SESSION['email'];
+// Trova tutti gli elementi 'recensione' nel file XML relativi all'id_prodotto desiderato
+$xpath = new DOMXPath($dom);
+$recensioni = $xpath->query("//recensione[@id_prodotto='$id_prodotto']");
 
-}
+// Mostra le recensioni in una tabella
+if ($recensioni->length > 0) {
+    echo '<h1>Recensioni Prodotto ' . $nome . '</h1>';
+    echo '<table>';
+    echo '<tr><th>Autore</th><th>Recensione</th><th>Data e Ora</th><th>Voto Utilità</th><th>Voto Supporto</th><th>Azione</th></tr>';
 
-if(isset($_SESSION['id'])){
-   $idUtenteSessione = $_SESSION['id'];
-}
+    foreach ($recensioni as $recensione) {
+        $id_recensione = $recensione->getElementsByTagName("id_recensione")->item(0)->textContent;
+        $autore = $recensione->getElementsByTagName("autore")->item(0)->textContent;
+        $testo = $recensione->getElementsByTagName("testo")->item(0)->textContent;
+        $data = $recensione->getElementsByTagName("data")->item(0)->textContent;
+        $ora = $recensione->getElementsByTagName("ora")->item(0)->textContent;
 
-    // Carica il file XML del catalogo
-    $xmlFile = '../xml/catalogo_prodotti.xml';
-    $dom = new DOMDocument();
-    $dom->load($xmlFile);
+        // Recupera attributi e valori da utilita e supporto
+        $utilitaNode = $recensione->getElementsByTagName('utilita')->item(0);
+        $id_utente_utilita = $utilitaNode->getAttribute('id_utente');
+        $utilitaValue = $utilitaNode->getElementsByTagName('valore')->item(0)->textContent;
 
-    // Trova tutti gli elementi 'recensione' nel file XML relativi all'id_prodotto desiderato
-    $xpath = new DOMXPath($dom);
-    $recensioni = $xpath->query("//recensione[@id_prodotto='$id_prodotto']");
+        $supportoNode = $recensione->getElementsByTagName('supporto')->item(0);
+        $id_utente_supporto = $supportoNode->getAttribute('id_utente');
+        $supportoValue = $supportoNode->getElementsByTagName('valore')->item(0)->textContent;
 
-    // Mostra le recensioni in una tabella
-    if ($recensioni->length > 0) {
-        echo '<h1>Recensioni Prodotto ' . $nome . '</h1>';
-        echo '<table>';
-        echo '<tr><th>Autore</th><th>Recensione</th><th>Data e Ora</th><th>Voto Utilità</th><th>Voto Supporto</th><th>Azione</th></tr>';
-    
-        foreach ($recensioni as $recensione) {
+        echo '<tr>';
+        echo '<td>' . $autore . '</td>';
+        echo '<td>' . $testo . '</td>';
+        echo '<td>' . $data . ' ' . $ora . '</td>';
+        echo '<td>' . $utilitaValue . '</td>';
+        echo '<td>' . $supportoValue . '</td>';
+        echo '<td>';
 
-           // Cerca gli elementi 'utilita' e 'supporto' con id_utente corrispondente
-$utilitaNode = $xpath->query("utilita/valore[@id_utente='$idUtenteSessione']", $recensione)->item(0);
-$supportoNode = $xpath->query("supporto/valore[@id_utente='$idUtenteSessione']", $recensione)->item(0);
-
-// Assegna i valori o "N/A" se l'elemento non esiste
-$utilitaValue = $utilitaNode ? $utilitaNode->nodeValue : "N/A";
-$supportoValue = $supportoNode ? $supportoNode->nodeValue : "N/A";
-
-$id_recensione = $recensione->getElementsByTagName("id_recensione")->item(0)->nodeValue;
-$autore = $recensione->getElementsByTagName("autore")->item(0)->nodeValue;
-$testo = $recensione->getElementsByTagName("testo")->item(0)->nodeValue;
-$data = $recensione->getElementsByTagName("data")->item(0)->nodeValue;
-$ora = $recensione->getElementsByTagName("ora")->item(0)->nodeValue;
-
-
+        // Verifica se l'utente ha già votato questa recensione
+        if ($utilitaValue == 0 && $supportoValue == 0) {
+            // Se l'utente non ha ancora votato, mostra i pulsanti per il voto
+            echo '<form action="utilita_supporto.php" method="post">';
+            echo '<input type="hidden" name="id_recensione" value="' . $id_recensione . '"/>';
+            echo '<input type="hidden" name="id_prodotto" value="' . $id_prodotto . '"/>';
+            echo '<input type="hidden" name="tipologia" value="' . $tipologia . '"/>';
             
-            echo '<tr>';
-            echo '<td>' . $autore . '</td>';
-            echo '<td>' . $testo . '</td>';
-            echo '<td>' . $data . ' ' . $ora . '</td>';
-            echo '<td>' . $utilitaValue . '</td>';
-            echo '<td>' . $supportoValue . '</td>';
-            echo '<td>';
-
-
-        // Ottieni l'id_utente dai nodi "valore" all'interno degli elementi "utilita" e "supporto"
-        $utilitaIdUtente = $utilitaNode ? $utilitaNode->getAttribute("id_utente") : "N/A";
-        $supportoIdUtente = $supportoNode ? $supportoNode->getAttribute("id_utente") : "N/A";
-
-
-            if ($utilitaIdUtente == $_SESSION['id'] || $supportoIdUtente == $_SESSION['id']) {
-                echo '<p><span id="ver" class="material-symbols-outlined">verified</span></p>';
-            }  else {
-               echo '<form action="utilita_supporto.php" method="post">';
-                echo '<input type="hidden" name="id_recensione" value="' . $id_recensione . '"/>';
-                echo '<input type="hidden" name="id_prodotto" value="' . $id_prodotto . '"/>';
-                echo '<input type="hidden" name="tipologia" value="' . $tipologia . '"/>';
-
-                // Pulsanti per il voto di utilità
-                echo '<label class="uti" for="votoUtilita">Utilità (da 1 a 5): </label>';
-                echo '<input class="util" type="number" name="votoUtilita" min="1" max="5" required/>'; ?><br><?php
-    
-                // Pulsanti per il voto di supporto
-                echo '<label class="sup" for="votoSupporto">Supporto (da 1 a 3): </label>';
-                echo '<input type="number" name="votoSupporto" min="1" max="3" required/>';
-          
-                echo '<button class="vota" type="submit" name="vota"><span id="done" title="Invia" class="material-symbols-outlined">
-                done_outline
-                </span></button>';
-                echo '</form>';
-            }
             
-            echo '</td>';
-            echo '</tr>';
-        }echo '</table>';
+            // Pulsanti per il voto di utilità
+            echo '<label class="uti" for="votoUtilita">Utilità (da 1 a 3): </label>';
+            echo '<input class="util" type="number" name="votoUtilita" min="1" max="3" required/><br>';
+
+            // Pulsanti per il voto di supporto
+            echo '<label class="sup" for="votoSupporto">Supporto (da 1 a 5): </label>';
+            echo '<input type="number" name="votoSupporto" min="1" max="5" required/>';
+
+            echo '<button class="vota" type="submit" name="vota"><span id="done" title="Invia" class="material-symbols-outlined">
+            done_outline
+            </span></button>';
+            echo '</form>';
+        } else {
+            echo '<p><span id="ver" class="material-symbols-outlined">
+            verified
+            </span></p>';
+        }
+
+        echo '</td>';
+        echo '</tr>';
     }
-    else {
-        echo '<p>Nessuna recensione disponibile.</p>';
-     } 
-?>
 
+    echo '</table>';
+} else {
+    echo '<p>Nessuna recensione disponibile.</p>';
+}
+?>
 </body>
 </html>
