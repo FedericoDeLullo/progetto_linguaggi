@@ -12,7 +12,10 @@
   <header class="header">
     <div class="header_menu">  
         <div class="header_menu_item">
-            <a href="index.html"><img class="logo" src="../img/logo.PNG"></a>
+            <a href="index.html">
+                <img class="logo" src="../img/logo.PNG">
+                <span class="logo-text">RugbyWorld</span>
+            </a>
         </div>
         <div class="header_menu_item">
             <a href="../php/catalogo_utente_magliette.php" class="stile">
@@ -52,10 +55,21 @@
     </div>
 </header>
 <div class="cont">
-<a class="client" href="login.html">Accedi come cliente</a>
+    <table>
+        <tr>
+            <td></td>
+            <td class="centered"><a href="admin_login.html" class="admin">Accedi come admin</a></td>
+        </tr>
+        <tr>
+            <td class="centered"><a href="login.html" class="admin">Accedi come cliente</a></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="centered"><a href="gestore_login.html" class="admin">Accedi come gestore</a></td>
+        </tr>
+    </table>
 <div class="sep"></div>
-<a href="admin_login.html" class="admin">Accedi come admin</a>
-<a href="gestore_login.html" class="admin_g">Accedi come gestore</a>
 </div>
 </body>
 </html>

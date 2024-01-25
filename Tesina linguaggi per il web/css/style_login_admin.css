@@ -1,13 +1,11 @@
 body{
-  background-color: #9fd3c7;
+  background-color: #0080ff;
 }
 
 .admin{
+    background: #011050;
     width: 20vw;
-    background: #2c3e50;
     height: 7vh;
-    margin-left: 100vh;
-    margin-top: -20vh;
     justify-content: center;
     align-content: center;
     display: grid;
@@ -15,85 +13,41 @@ body{
     font-size:25px;
     color: white;
     border-radius: 50px;
-    border: 3px solid #142d4c;
-    box-shadow: 0 0 50px 25px #113f67;
-}
-.admin2{
-    width: 20vw;
-    background: #2c3e50;
-    height: 7vh;
-    margin-left: 100vh;
-    margin-top: -48vh;
-    justify-content: center;
-    align-content: center;
-    display: grid;
-    text-decoration: none;
-    font-size:25px;
-    color: white;
-    border-radius: 50px;
-    border: 3px solid #142d4c;
-    box-shadow: 0 0 50px 25px #113f67;
-}
-.admin2:hover{
-  background: #455d7a;
-  transition: 0.5s;
-}
-.admin_g{
-    width: 20vw;
-    background: #2c3e50;
-    height: 7vh;
-    margin-left: 100vh;
-    margin-top: -60vh;
-    justify-content: center;
-    align-content: center;
-    display: grid;
-    text-decoration: none;
-    font-size:25px;
-    color: white;
-    border-radius: 50px;
-    border: 3px solid #142d4c;
-    box-shadow: 0 0 50px 25px #113f67;}
-
-.client{
-    width: 20vw;
-    background: #2c3e50;
-    height: 7vh;
-    margin-left: 3vh;
-    margin-top: 40vh;
-    justify-content: center;
-    align-content: center;
-    display: grid;
-    text-decoration: none;
-    font-size:25px;
-    color: white;
-    border: 3px solid #142d4c;
-    box-shadow: 0 0 50px 25px #113f67;
-    border-radius: 50px;
+    border: 3px solid gold;
+    box-shadow: 0 0 50px 25px #00b7ff;
 }
 
 .admin:hover{
-    background: #455d7a;
+    background: black;
     transition: 0.5s;
 }
-.admin_g:hover{
-    background: #455d7a;
-    transition: 0.5s;
-}
-
-.client:hover{
-  background: #455d7a;
-  transition: 0.5s;
-}
-
  
 .cont{  
-    margin-left: 17vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .sep{
-    margin-top: -47vh;
-    border: 1px solid #2c3e50;
-    margin-left: 73vh;
-    height: 85vh;
-    width: 0%;
+    border: 1px solid #011050;
+    position: absolute;
+    height: 75%;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Traslazione per centrare l'elemento, spostandolo di -50% della sua larghezza e -50% della sua altezza rispetto al suo punto di origine (il 50% della larghezza e altezza dell'elemento) */
+}
+
+table {
+    width: 100%;
+    margin: 70px auto;
+    border-collapse: collapse;
+}
+
+td.centered {
+    padding: 50px;
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
