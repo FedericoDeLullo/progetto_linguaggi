@@ -25,7 +25,7 @@
     
 try {
       $connessione->query($sql);
-      header("Location: ../html/login.html");
+      header("Location: ../html/login_cliente.html");
 } catch (Exception $e) {
     header("Location: ../html/registrazione_ko.html");
     exit;

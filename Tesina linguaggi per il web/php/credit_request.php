@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['loggato'])) {
-    header("Location: ../html/login.html");
+    header("Location: ../html/login_cliente.html");
     exit();
 }
 
@@ -18,7 +18,7 @@ $crediti = $_SESSION['crediti'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Richiesta di Ricarica Crediti</title>
-    <link rel="stylesheet" href="../css/style_richiesta_crediti.css">
+    <link rel="stylesheet" href="../css/style_standard.css">
     <link rel="stylesheet" href="../css/style_header.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 

@@ -1,10 +1,5 @@
 body{
     background-color: #9fd3c7;
-  }
-  
-
-::-webkit-input-placeholder{
-    color: #142d4c;
 }
 
 .wrapper{
@@ -14,45 +9,39 @@ body{
     height: 65vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    border: 3px solid #142d4c;
-    box-shadow: 0 0 50px 25px #113f67;
-    
+    border: 3px solid #011050;
+    box-shadow: 0 0 50px 25px #00b7ff;
 }
 
 .cont{
-    margin-top: 10vh;
-    display: flex;
+    margin-top: 8vh;
+    display: grid;
     justify-content: center;
     align-content: center;
 }
 
-
 .form{
     margin-left: 5vw;
-  margin-top: 5vh;
-  width: fit-content;
+    margin-top: 5vh;
+    width: fit-content;
 }
 
-
-.form_g{
+.form_plus{
     margin-left: 5vw;
-  margin-top: 2vh;
-  width: fit-content;
+    margin-top: 2vh;
+    width: fit-content;
 }
 
-.title{
-    margin-left: 3.5vw;
-    color: #142d4c;
+.titolo{
+    margin-left: 4vw;
+    color: #011050;
     font-size: 35px;
 }
 
 .inp{
-    color: #142d4c;
     padding-bottom: 10px;
-    border-bottom: 2px solid #142d4c;
+    border-bottom: 2px solid #011050;
 }
-
-
 
 .input{
     border: none;
@@ -62,7 +51,7 @@ body{
     margin-top: 40px;
     padding-right: 10px;
     font-size: 17px;
-    color:#142d4c;
+    color:#011050;
 }
 
 .submit{
@@ -76,21 +65,18 @@ body{
     border-radius: 40px;
     letter-spacing: 1px;
     cursor: pointer;
-    background: linear-gradient(45deg,#113f67,#142d4c);
+    background: linear-gradient(45deg,#0021b4,#011050);
 }
 
-
 .footer{
-    color: #142d4c;
+    color: #011050;
     margin-top: 30px;
     letter-spacing: 0.5px;
     font-size:14px;
 }
 
-
-
 .link{
-    color: #113f67;
+    color: #0021b4;
     text-decoration: underline;
 }
 
@@ -101,7 +87,7 @@ body{
     right:0;
     width: 55%;
     height: 100%;
-    background: linear-gradient(to right, #113f67,#142d4c);
+    background: linear-gradient(to right, #0021b4,#011050);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 60% 100%);
     padding-right: 70px;
     display: flex;
@@ -114,7 +100,7 @@ body{
     object-fit: cover;
     width: 220px;
     height: 220px;
-  }
+}
 
 .wel_text{
     color: #9fd3c7;
@@ -122,11 +108,3 @@ body{
     margin-top: -50px;
     line-height: 50px;
 }
-
-.para{
-    margin-top: 10px;
-    font-size: 18px;
-    line-height: 24px;
-    letter-spacing: 1px;
-}
-

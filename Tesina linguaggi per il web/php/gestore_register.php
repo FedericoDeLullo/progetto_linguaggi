@@ -20,7 +20,7 @@
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     if(empty($codice) || empty($nome) || empty($email) || empty($password) || empty($cognome) || empty($data_di_nascita) || empty($codice_fiscale) || empty($indirizzo_di_residenza) || empty($cellulare) || $codice != $codice_gestore ) {
-            header("Location:../html/registrazione_fallita_admin.html");
+            header("Location:../html/registrazione_fallita.html");
             exit;
     }
             
@@ -28,9 +28,9 @@
     
 try {
       $connessione->query($sql);
-      header("Location: ../html/gestore_login.html");
+      header("Location: ../html/login_gestore.html");
 } catch (Exception $e) {
-    header("Location: ../html/registrazione_ko_gestore.html");
+    header("Location: ../html/registrazione_ko.html");
     exit;
 }
     

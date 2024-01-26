@@ -29,7 +29,7 @@ session_start();
 
 if (!isset($_SESSION['email'])) {
     // L'utente non è autenticato, puoi reindirizzarlo alla pagina di login o fare altre azioni
-    header("Location: ../html/login.html");
+    header("Location: ../html/login_cliente.html");
     exit();
 }else{
     $email = $_SESSION['email'];
