@@ -1,0 +1,63 @@
+body{
+    background-color: #9fd3c7;
+  }
+
+.cont{
+    margin-top: 8vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+table {
+    border: 3px solid #011050;
+    box-shadow: 0 0 50px 0 #00b7ff;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 100px;
+}
+
+th, td {
+    border: 1px solid #011050;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    width: fit-content;
+    background-color: #0021b4;
+    color: white;
+    font-weight: bold;
+}
+
+.form {
+    margin-top: 5vh;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    width: 10vw;
+    margin-top: 0vh;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #0021b4;
+    padding: 10px;
+    border: 2px solid #011050;
+    margin: auto; /* Aggiungi questa riga */
+}
+
+.btn:hover{
+    background: #011050;
+    transition: 0.5s;
+}
+
+.titolo{
+    margin-bottom: -5vh;
+    color: #011050;
+    text-align: center; /* Centra il testo orizzontalmente */
+}

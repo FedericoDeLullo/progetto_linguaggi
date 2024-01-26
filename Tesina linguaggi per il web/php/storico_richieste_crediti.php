@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Storico Esiti Pagamenti</title>
-    <link rel="stylesheet" href="../css/style_storico_pagamenti.css">
+    <link rel="stylesheet" href="../css/style_richiesta_crediti.css">
     <link rel="stylesheet" href="../css/style_header.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
@@ -14,7 +14,10 @@
 <header class="header">
     <div class="header_menu">  
         <div class="header_menu_item">
-            <a href="../html/index_loggato.html"><img class="logo" src="../img/logo.PNG"></a>
+            <a href="../html/index_loggato.html">
+                <img class="logo" src="../img/logo.PNG">
+                <span class="logo-text">RugbyWorld</span>
+            </a>   
         </div>
         <div class="header_menu_item">
             <a href="catalogo_utente_magliette.php" class="stile">
@@ -40,7 +43,7 @@
         <div class="header_menu_item">
           <a href="../html/gestione_crediti.html" class="stile">
               <div class="header_menu_link" title="Gestione Crediti">
-                  <span class="material-symbols-outlined">group</span>GESTIONE CREDITI
+                  <span class="material-symbols-outlined">monetization_on</span>GESTIONE CREDITI
               </div>
           </a>
       </div>
@@ -52,7 +55,7 @@
             </a>
         </div>
         <div class="header_menu_item">
-            <a href="../html/admin_client.html" class="stile">                   
+            <a href="#" class="stile">                   
                 <div class="header_menu_link" title="Carrello">
                     <span class="material-symbols-outlined">shopping_cart</span>CARRELLO
                 </div>
@@ -78,7 +81,7 @@
     $requests = $dom->getElementsByTagName('request');
 
     echo '<div class="cont">';
-    echo '<h1 class="richiesta">Storico Richiesta Crediti</h1>';
+    echo '<h1 class="titolo">Storico Richiesta Crediti</h1>';
 
     // Flag per indicare se ci sono richieste per l'utente loggato
     $hasUserRequests = false;

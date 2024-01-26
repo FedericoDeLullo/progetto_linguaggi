@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="../css/style_ham.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="../css/style_index.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-</head>
+    <link rel="stylesheet" href="../css/style_header.css"></head>
 <body>
-  <?php
+<?php
 $xmlFile = '../xml/requests.xml';
 $dom = new DOMDocument();
 $dom->load($xmlFile);
@@ -24,95 +24,98 @@ foreach ($requests as $request) {
       }
     }
     ?>
-
-    <div class="background-slider">
-
-<div class="header">
-            <div class="header_menu">  
-              <div class="hamburger-menu">
-                <input id="menu__toggle" type="checkbox" />
-                <label class="menu__btn" for="menu__toggle">
-                  <span></span>
-                </label>
-            
-                <ul class="menu__box">
-                  <li><a class="menu__item" href="admin_approval.php">Accetta Crediti<?php
-                            if ($hasPendingRequests) {
+<header class="header">
+    <div class="header_menu">  
+        <div class="header_menu_item">
+            <a href="index.html"><img class="logo" src="../img/logo.PNG"></a>
+        </div>
+        <div class="header_menu_item">
+            <a href="../php/catalogo_utente_magliette.php" class="stile">
+                <div class="header_menu_link" title="Catalogo">
+                    <span class="material-symbols-outlined">receipt_long</span>CATALOGO
+                </div>
+            </a>
+        </div>
+        <div class="header_menu_item">
+            <a href="#" class="stile">
+                <div class="header_menu_link" title="Faq">
+                    <span class="material-symbols-outlined">quiz</span>FAQ
+                </div>
+            </a>
+        </div>
+        <div class="header_menu_item">
+            <a href="admin_approval.php" class="stile">
+                <div class="header_menu_link" title="Profilo">
+                  <?php
+            if ($hasPendingRequests) {
                                 echo '<span id="note" class="material-symbols-outlined">
                                 notifications_unread
                                 </span>';
                             }
-                            ?></a></li>
-                  <li><a class="menu__item" href="#">Recensioni</a></li>
-                </ul>
-              </div>
-              <div class="header_menu_item"><a href="catalogo.php" class="stile">
-                <div class="header_menu_link" title="Magliette">Catalogo</div>
-
-               </div>
+                             else { 
+                             ?>
+                    <span class="material-symbols-outlined">notifications_unread</span><?php }?>ACCETTA CREDITI
+                </div>
             </a>
-            <div class="header_menu_item"><a href="#"class="stile">
-                <div class="header_menu_link" title="Pantaloncini">Profilo</div>
-                
-               </div>
-            </a>
-               <div class="header_menu_item"><a href="gestione_utenti.php"class="stile">
-                <div class="header_menu_link" title="Calzettoni">Gestione Utenti</div>
-                
-               </div>
-            </a>
-                
-            <div class="header_menu_item"><a href="#"class="stile">
-                <div class="header_menu_link" title="Tute">FAQ</div>
-            </div>
-           </a>
-              <div class="login"><a href="../html/index.html" class="stile"><span class="material-symbols-outlined">
-                logout
-                </span>
-              </div>  
-            </a>
-            <div class="cart"><a href="#">
-                <div class="cart_link" title="cart"><img src="../img/cart.png" alt="carrello"></div>
-            </div>
-         </a>
         </div>
-       </div>
+        <div class="header_menu_item">
+          <a href="gestione_utenti.php" class="stile">
+              <div class="header_menu_link" title="Gestione Crediti">
+                  <span class="material-symbols-outlined">group</span>GESTIONE UTENTI
+              </div>
+          </a>
       </div>
-      <div class="footer">                 
-        <a name="contatti"></a>
-  
-  <ul class="cont" >
-    <li class="servizi">Servizi e supporto</li>
-    <li class="contatti">Supporto tecnico</li>
-    <li class="contatti">Consulenza</li>
-    <li class="contatti">Servizio clienti</li>
-  </ul>
-  
-  
-  <ul class="cont">
-    <li class="servizi">About Us</li> 
-    <li class="contatti">Chi siamo?</li>
-    <li class="contatti">Dove siamo?</li>
-    <li class="contatti">Contatti</li>
-  </ul>
-  
-  <ul class="cont">
-    <li class="servizi">Servizi</li>
-    <li class="contatti">Traccia il tuo ordine</li>
-    <li class="contatti">Ritiro usato</li>
-    <li class="contatti">Verifica validità</li>
-  </ul>
-  
-  
-  
-  <h5 class="servizi_social" >Social</h5>
-  <ul class="social_icon">
-    <li class="social">c</li>
-    <li class="social">f</li>
-    <li class="social">g</li>
-    <li class="social">t</li>
-    <li class="social">n</li>
-  </ul>
-      </div>
+        <div class="header_menu_item">
+            <a href="../html/index.html" class="stile">                   
+                <div class="header_menu_link" title="Logout">
+                    <span class="material-symbols-outlined">logout</span>LOGOUT
+                </div>
+            </a>
+        </div>
+        <div class="header_menu_item">
+            <a href="admin_client.html" class="stile">                   
+                <div class="header_menu_link" title="Carrello">
+                    <span class="material-symbols-outlined">shopping_cart</span>CARRELLO
+                </div>
+            </a>
+        </div>
+    </div>
+</header>
+
+    
+<footer>
+          <div class="col center">
+              <h4>Informazioni sul sito</h4>
+      
+              <li>Servizi e supporto</li>
+              <li>Supporto tecnico</li>
+              <li>Consulenza</li>
+              <li>Servizio clienti</li>
+          </div>
+          <div class="col center">
+              <h4>Servizi</h4>
+           
+      <li>About Us</li> 
+      <li>Chi siamo?</li>
+      <li>Dove siamo?</li>
+      <li>Contatti</li>
+          </div>
+          <div class="col center">
+              <h4>Supporto</h4>
+              <li>Traccia il tuo ordine</li>
+              <li>Ritiro usato</li>
+              <li>Verifica validità</li>
+          </div>
+          <div class="col center">
+              <h4>Seguici su</h4>
+              <div class="social-media">
+                  <a href="#"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#"><i class="fab fa-github"></i></a>
+                  <a href="#"><i class="fab fa-whatsapp"></i></a>
+                  <a href="#"><i class="fab fa-instagram"></i></a>
+                  <a href="#"><i class="fab fa-tiktok"></i></a>
+              </div>
+          </div>
+      </footer>
 </body>
 </html>

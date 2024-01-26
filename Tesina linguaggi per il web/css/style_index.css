@@ -5,8 +5,9 @@
   src: url('../icone_contatti/Icons\ 2019.ttf');
 }  
 
-body { 
+body {
   background: url('../img/sfondo.png') no-repeat center center; 
+  background-size: cover;
 }
 
 footer {
@@ -79,4 +80,8 @@ footer li{
 
 footer li:hover{
   color: gold;
+}
+
+#note{
+  color:red ;
 }

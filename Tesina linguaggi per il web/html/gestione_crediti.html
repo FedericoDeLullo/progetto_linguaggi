@@ -7,17 +7,18 @@
     <link rel="stylesheet" href="../css/style_login_admin.css">
     <link rel="stylesheet" href="../css/style_header.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-
-
 </head>
 <body>
     <header class="header">
         <div class="header_menu">  
             <div class="header_menu_item">
-                <a href="index_loggato.html"><img class="logo" src="../img/logo.PNG"></a>
+                <a href="index_loggato.html">
+                    <img class="logo" src="../img/logo.PNG">
+                    <span class="logo-text">RugbyWorld</span>
+                </a>   
             </div>
             <div class="header_menu_item">
-                <a href="../php/catalogo_utente_magliette.php" class="stile">
+                <a href="catalogo_utente_magliette.php" class="stile">
                     <div class="header_menu_link" title="Catalogo">
                         <span class="material-symbols-outlined">receipt_long</span>CATALOGO
                     </div>
@@ -38,21 +39,21 @@
                 </a>
             </div>
             <div class="header_menu_item">
-              <a href="gestione_crediti.html" class="stile">
+              <a href="../html/gestione_crediti.html" class="stile">
                   <div class="header_menu_link" title="Gestione Crediti">
-                      <span class="material-symbols-outlined">group</span>GESTIONE CREDITI
+                      <span class="material-symbols-outlined">monetization_on</span>GESTIONE CREDITI
                   </div>
               </a>
           </div>
             <div class="header_menu_item">
-                <a href="index.html" class="stile">                   
+                <a href="../html/index.html" class="stile">                   
                     <div class="header_menu_link" title="Logout">
                         <span class="material-symbols-outlined">logout</span>LOGOUT
                     </div>
                 </a>
             </div>
             <div class="header_menu_item">
-                <a href="admin_client.html" class="stile">                   
+                <a href="#" class="stile">                   
                     <div class="header_menu_link" title="Carrello">
                         <span class="material-symbols-outlined">shopping_cart</span>CARRELLO
                     </div>
@@ -60,11 +61,14 @@
             </div>
         </div>
     </header>
-
-<a class="client" href="../php/storico_richieste_crediti.php">Storico Richieste Crediti</a>
-<div class="sep"></div>
-<a href="../php/credit_request.php" class="admin2">Richiedi nuovi crediti</a>
-
-
+    <div class="cont">
+        <table>
+            <tr>
+                <td class="crediti"><a href="../php/storico_richieste_crediti.php" class="admin">Storico Richieste Crediti</a></td>
+                <td class="crediti"><a href="../php/credit_request.php" class="admin">Richiedi Nuovi Crediti</a></td>
+            </tr>
+        </table>
+    <div class="sep"></div>
+    </div>
 </body>
 </html>
