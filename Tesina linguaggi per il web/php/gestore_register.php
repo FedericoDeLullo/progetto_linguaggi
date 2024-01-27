@@ -9,12 +9,12 @@
     $indirizzo_di_residenza = $connessione->real_escape_string($_POST['indirizzo_di_residenza']);
     $codice_fiscale = $connessione->real_escape_string($_POST['codice_fiscale']);
     $password = $connessione->real_escape_string($_POST['password']);
-    $crediti = $connessione->real_escape_string($_POST['crediti']);
     $codice = $connessione->real_escape_string($_POST['codice']);
     
     $utente=0;
     $admin_ok=0;
     $gestore=1;
+    $crediti=0;
 
     $codice_gestore=4567;
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);

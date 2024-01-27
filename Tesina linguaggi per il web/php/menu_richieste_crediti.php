@@ -2,12 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=
-    , initial-scale=1.0">
-    <title>Gestione Utenti</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestione Crediti</title>
     <link rel="stylesheet" href="../css/style_standard.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="../css/style_header.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
 <header class="header">
@@ -72,58 +71,61 @@
     </div>
 </header>
 
-<div class="cont">
-<h1 class="titolo">GESTIONE UTENTI</h1>
-
 <?php
-// Include il file di connessione al database
-require_once('connection.php');
-// Query per ottenere gli utenti
-$sql = "SELECT id, nome, cognome, email, passwd, crediti, indirizzo_di_residenza, cellulare FROM utenti WHERE utente = 1";
-$result = $connessione->query($sql);
+$xmlFile = '../xml/requests.xml';
+$dom = new DOMDocument();
+$dom->load($xmlFile);
 
-// Stampa la tabella degli utenti
-echo '<table border="1">';
+$requests = $dom->getElementsByTagName('request');
+
+echo '<div class="cont">';
+echo '<h1 class="titolo">Richieste di Ricarica Crediti</h1>';
+
+
+$hasPendingRequests = false;
+
+echo '<table>';
+echo '<thead>';
 echo '<tr>';
-echo '<th>ID</th>';
-echo '<th>Nome</th>';
-echo '<th>Cognome</th>';
 echo '<th>Email</th>';
-echo '<th>Password</th>';
-echo '<th>Crediti</th>';
-echo '<th>Indirizzo di residenza</th>';
-echo '<th>Cellulare</th>';
-echo '<th>Modifica</th>';
+echo '<th>Importo</th>';
+echo '<th>Azione</th>';
 echo '</tr>';
+echo '</thead>';
+echo '<tbody>';
 
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
+foreach ($requests as $request) {
+    $status = $request->getAttribute('status');
+
+    if ($status == 'pending') {
+        $hasPendingRequests = true;
+
+        $email = $request->getElementsByTagName('email')->item(0)->nodeValue;
+        $importo = $request->getElementsByTagName('importo')->item(0)->nodeValue;
+
         echo '<tr>';
-        echo '<td>' . $row['id'] . '</td>';
-        echo '<td>' . $row['nome'] . '</td>';
-        echo '<td>' . $row['cognome'] . '</td>';
-        echo '<td>' . $row['email'] . '</td>';
-        echo '<td>' . $row['passwd'] . '</td>';
-        echo '<td>' . $row['crediti'] . '</td>';
-        echo '<td>' . $row['indirizzo_di_residenza'] . '</td>';
-        echo '<td>' . $row['cellulare'] . '</td>';
-        echo '<td><a href="modifica_utente.php?id=' . $row['id'] . '"><span class="material-symbols-outlined">
-        edit
-        </span></a></td>';
+        echo "<td>$email</td>";
+        echo "<td>$importo</td>";
+        echo '<td>';
+        echo '<form action="approva_richieste_crediti.php" method="post">';
+        echo "<input type='hidden' name='email' value='$email'>";
+        echo "<input type='hidden' name='importo' value='$importo'>";
+        echo '<button type="submit" name="action" value="Approva"><span class="material-symbols-outlined">done</span></button>';
+        echo '<button type="submit" name="action" value="Rifiuta"><span class="material-symbols-outlined">close</span></button> ';
+        echo '</form>';
+        echo '</td>';
         echo '</tr>';
     }
-} else {
-    echo '<tr><td colspan="3">Nessun utente trovato</td></tr>';
 }
 
+echo '</tbody>';
 echo '</table>';
 
-?>
-</div>
-                
-<?php
-// Chiudi la connessione al database
-$connessione->close();
+// Verifica il flag per determinare se ci sono richieste pendenti
+if (!$hasPendingRequests) {
+    echo '<p class="titolo">Nessuna richiesta di ricarica attualmente in sospeso.</p>';
+}    
+echo '</div>';
 ?>
 
 </body>

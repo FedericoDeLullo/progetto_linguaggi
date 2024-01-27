@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="../css/style_index.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <link rel="stylesheet" href="../css/style_header.css"></head>
+    <link rel="stylesheet" href="../css/style_header.css">
+</head>
 <body>
 <?php
 $xmlFile = '../xml/requests.xml';
@@ -27,7 +28,10 @@ foreach ($requests as $request) {
 <header class="header">
     <div class="header_menu">  
         <div class="header_menu_item">
-            <a href="index.html"><img class="logo" src="../img/logo.PNG"></a>
+            <a href="index_loggato_admin.php">
+                <img class="logo" src="../img/logo.PNG">
+                <span class="logo-text">RugbyWorld</span>
+            </a>
         </div>
         <div class="header_menu_item">
             <a href="../php/catalogo_utente_magliette.php" class="stile">
@@ -44,24 +48,25 @@ foreach ($requests as $request) {
             </a>
         </div>
         <div class="header_menu_item">
-            <a href="admin_approval.php" class="stile">
-                <div class="header_menu_link" title="Profilo">
-                  <?php
-            if ($hasPendingRequests) {
-                                echo '<span id="note" class="material-symbols-outlined">
-                                notifications_unread
-                                </span>';
-                            }
-                             else { 
-                             ?>
-                    <span class="material-symbols-outlined">notifications_unread</span><?php }?>ACCETTA CREDITI
+            <a href="menu_richieste_crediti.php" class="stile">
+                <div class="header_menu_link" title="Accetta Crediti">
+                    <?php
+                    if ($hasPendingRequests) {
+                        echo '<span id="note" class="material-symbols-outlined">
+                        notifications_unread
+                        </span>';
+                    }
+                    else { 
+                    ?>
+                        <span class="material-symbols-outlined">notifications_unread</span>
+                    <?php }?>ACCETTA CREDITI
                 </div>
             </a>
         </div>
         <div class="header_menu_item">
           <a href="gestione_utenti.php" class="stile">
-              <div class="header_menu_link" title="Gestione Crediti">
-                  <span class="material-symbols-outlined">group</span>GESTIONE UTENTI
+              <div class="header_menu_link" title="Gestione Utenti">
+                  <span class="material-symbols-outlined">manage_accounts</span>GESTIONE UTENTI
               </div>
           </a>
       </div>
@@ -73,7 +78,7 @@ foreach ($requests as $request) {
             </a>
         </div>
         <div class="header_menu_item">
-            <a href="login_menu.html" class="stile">                   
+            <a href="#" class="stile">                   
                 <div class="header_menu_link" title="Carrello">
                     <span class="material-symbols-outlined">shopping_cart</span>CARRELLO
                 </div>

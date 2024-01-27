@@ -22,7 +22,6 @@ $crediti = $_SESSION['crediti'];
     <link rel="stylesheet" href="../css/style_header.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
-
 </head>
 <body>
 <header class="header">
@@ -93,7 +92,7 @@ $crediti = $_SESSION['crediti'];
         <td colspan="2">
             <form class="form" action="process_request.php" method="post">
                 <label for="importo">Importo richiesto:</label>
-                <input type="number" name="importo" required>
+                <input class="input" type="number" name="importo" required>
                 <br><br><br>
                 <input class="btn" type="submit" value="Invia richiesta">
             </form>

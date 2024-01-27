@@ -117,7 +117,7 @@
     echo '</div>';
     // Verifica se ci sono richieste per l'utente loggato
     if (!$hasUserRequests) {
-        echo '<p class="richiesta2">Nessuna richiesta di ricarica effettuata.</p>';
+        echo '<p class="titolo">Nessuna richiesta di ricarica effettuata.</p>';
     }
     ?>
 

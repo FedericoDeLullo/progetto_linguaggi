@@ -9,7 +9,6 @@
     $indirizzo_di_residenza = $connessione->real_escape_string($_POST['indirizzo_di_residenza']);
     $codice_fiscale = $connessione->real_escape_string($_POST['codice_fiscale']);
     $password = $connessione->real_escape_string($_POST['password']);
-    $crediti = $connessione->real_escape_string($_POST['crediti']);
     $codice = $connessione->real_escape_string($_POST['codice']);
     
     $utente=0;
@@ -17,6 +16,7 @@
     $gestore=0;
     $codice_admin=1234;
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    $crediti=0;
 
     if(empty($codice) || empty($nome) || empty($email) || empty($password) || empty($cognome) || empty($data_di_nascita) || empty($codice_fiscale) || empty($indirizzo_di_residenza) || empty($cellulare) || $codice != $codice_admin ) {
             header("Location:../html/registrazione_fallita.html");

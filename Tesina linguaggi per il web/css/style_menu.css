@@ -44,7 +44,7 @@ table {
     border-collapse: collapse;
 }
 
-td.centered {
+td.tre_bottoni {
     padding: 50px;
     text-align: center;
     vertical-align: middle;
@@ -53,7 +53,7 @@ td.centered {
     align-items: center;
 }
 
-.crediti {
+.due_bottoni {
     padding: 209px;
     justify-content: center;
     align-items: center;
