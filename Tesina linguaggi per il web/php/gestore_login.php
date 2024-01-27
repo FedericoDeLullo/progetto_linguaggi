@@ -21,12 +21,12 @@
                     header("Location:index_loggato_gestore.php");
                 }
                 else{
-                    header("Location: ../html/account_ko_gestore.html");
+                    header("Location: ../html/login_ko.html");
                     exit;
                 }
             }
             else{
-                header("Location: ../html/account_ko_gestore.html");
+                header("Location: ../html/login_ko.html");
                 exit;
             }
 

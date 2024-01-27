@@ -18,12 +18,12 @@
                     header("Location: ../html/index_loggato.html");
                 }
                 else{
-                    header("Location: ../html/account_ko.html");
+                    header("Location: ../html/login_ko.html");
                     exit;
                 }
             }
             else{
-                header("Location: ../html/account_ko.html");
+                header("Location: ../html/login_ko.html");
                 exit;
             }
 
