@@ -21,7 +21,7 @@
             </a>
         </div>
         <div class="header_menu_item">
-            <a href="../php/catalogo_utente_magliette.php" class="stile">
+            <a href="catalogo_utente_magliette.php" class="stile">
                 <div class="header_menu_link" title="Catalogo">
                     <span class="material-symbols-outlined">receipt_long</span>CATALOGO
                 </div>
@@ -37,15 +37,14 @@
         <div class="header_menu_item">
             <a href="../html/gestione_catalogo.html" class="stile">
                 <div class="header_menu_link" title="Gestisci Catalogo">
-        
                     <span class="material-symbols-outlined">folder_managed</span>GESTISCI CATALOGO
                 </div>
             </a>
         </div>
         <div class="header_menu_item">
           <a href="gestione_utenti_gestore.php" class="stile">
-              <div class="header_menu_link" title="Profilo">
-                  <span class="material-symbols-outlined">group</span>PROFILO CLIENTI
+              <div class="header_menu_link" title="Profili Clienti">
+                  <span class="material-symbols-outlined">group</span>PROFILI CLIENTI
               </div>
           </a>
       </div>

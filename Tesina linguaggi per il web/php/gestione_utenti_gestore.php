@@ -10,31 +10,17 @@
     <link rel="stylesheet" href="../css/style_header.css">
 </head>
 <body>
-<?php
-$xmlFile = '../xml/requests.xml';
-$dom = new DOMDocument();
-$dom->load($xmlFile);
 
-$requests = $dom->getElementsByTagName('request');
-$hasPendingRequests = false;
-foreach ($requests as $request) {
-  $status = $request->getAttribute('status');
-
-  if ($status == 'pending') {
-      $hasPendingRequests = true;
-      }
-    }
-    ?>
 <header class="header">
     <div class="header_menu">  
         <div class="header_menu_item">
-            <a href="index_admin.php">
+            <a href="index_gestore.php">
                 <img class="logo" src="../img/logo.PNG">
                 <span class="logo-text">RugbyWorld</span>
             </a>
         </div>
         <div class="header_menu_item">
-            <a href="../php/catalogo_utente_magliette.php" class="stile">
+            <a href="catalogo_utente_magliette.php" class="stile">
                 <div class="header_menu_link" title="Catalogo">
                     <span class="material-symbols-outlined">receipt_long</span>CATALOGO
                 </div>
@@ -48,25 +34,16 @@ foreach ($requests as $request) {
             </a>
         </div>
         <div class="header_menu_item">
-            <a href="menu_richieste_crediti.php" class="stile">
-                <div class="header_menu_link" title="Profilo">
-                    <?php
-                    if ($hasPendingRequests) {
-                        echo '<span id="note" class="material-symbols-outlined">
-                        notifications_unread
-                        </span>';
-                    }
-                    else { 
-                    ?>
-                        <span class="material-symbols-outlined">notifications_unread</span>
-                    <?php }?>ACCETTA CREDITI
+            <a href="../html/gestione_catalogo.html" class="stile">
+                <div class="header_menu_link" title="Gestisci Catalogo">
+                    <span class="material-symbols-outlined">folder_managed</span>GESTISCI CATALOGO
                 </div>
             </a>
         </div>
         <div class="header_menu_item">
-          <a href="gestione_utenti.php" class="stile">
-              <div class="header_menu_link" title="Gestione Utenti">
-                  <span class="material-symbols-outlined">manage_accounts</span>GESTIONE UTENTI
+          <a href="gestione_utenti_gestore.php" class="stile">
+              <div class="header_menu_link" title="Profili Clienti">
+                  <span class="material-symbols-outlined">group</span>PROFILI CLIENTI
               </div>
           </a>
       </div>
@@ -86,6 +63,22 @@ foreach ($requests as $request) {
         </div>
     </div>
 </header>
+
+<?php
+$xmlFile = '../xml/requests.xml';
+$dom = new DOMDocument();
+$dom->load($xmlFile);
+
+$requests = $dom->getElementsByTagName('request');
+$hasPendingRequests = false;
+foreach ($requests as $request) {
+  $status = $request->getAttribute('status');
+
+  if ($status == 'pending') {
+      $hasPendingRequests = true;
+      }
+    }
+    ?>
 
 <div class="cont">
 <h1 class="titolo">PROFILI CLIENTI</h1>

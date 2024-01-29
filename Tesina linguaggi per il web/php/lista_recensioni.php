@@ -33,7 +33,7 @@
             </a>
         </div>
         <div class="header_menu_item">
-            <a href="#" class="stile">
+            <a href="gestione_profilo.php" class="stile">
                 <div class="header_menu_link" title="Profilo">
                     <span class="material-symbols-outlined">group</span>PROFILO
                 </div>
@@ -129,10 +129,10 @@ if ($recensioni->length > 0) {
             echo '<label class="nome" for="votoSupporto">Supporto (da 1 a 5): </label>';
             echo '<input class="input" type="number" name="votoSupporto" min="1" max="5" required/>';
 
-            echo '<button class="btn" type="submit" name="vota">CONFERMA<span id="done" title="Invia" class="material-symbols-outlined">done_outline</span></button>';
+            echo '<button class="btn" type="submit" name="vota">CONFERMA<span title="Invia" class="material-symbols-outlined">done_outline</span></button>';
             echo '</form>';
         } else {
-            echo '<p class="nome"><span id="ver" class="material-symbols-outlined">verified</span></p>';
+            echo '<p class="nome"><span class="material-symbols-outlined">verified</span></p>';
         }
 
         echo '</td>';

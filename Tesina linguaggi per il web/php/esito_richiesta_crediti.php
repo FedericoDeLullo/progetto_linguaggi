@@ -32,7 +32,7 @@
             </a>
         </div>
         <div class="header_menu_item">
-            <a href="#" class="stile">
+            <a href="gestione_profilo.php" class="stile">
                 <div class="header_menu_link" title="Profilo">
                     <span class="material-symbols-outlined">group</span>PROFILO
                 </div>
