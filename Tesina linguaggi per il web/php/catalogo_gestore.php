@@ -19,7 +19,7 @@
     <input type="text" class="search-input" placeholder="Cerca...">
     <button class="search-button"><span id="search" class="material-symbols-outlined">search</span></button>
 
-    <label class="ordina" for="ordina">Ordina per:</label>
+    <label class="scritta" for="ordina">Ordina per:</label>
     <select id="ordina">
         <option value="nome">Nome</option>
         <option value="prezzo">Prezzo</option>
@@ -63,7 +63,7 @@
         $id_prodotto = $prodotto->getElementsByTagName('id_prodotto')->item(0)->nodeValue;
 
         echo '<div class="prodotto">';
-        echo '<h2 class="nome">' . $nome . '<a href="modifica_prodotti_form.php?id_prodotto=' . $id_prodotto . '"><span id="edit" class="material-symbols-outlined">edit</span></a></h2>';
+        echo '<h2 class="nome">' . $nome . '<a href="modifica_prodotti_form.php?id_prodotto=' . $id_prodotto . '"><span id="simbolo_recensione" class="material-symbols-outlined">edit</span></a></h2>';
         echo '<p class="des">' . $descrizione . '</p>';
         echo '<p class="prezzo">Prezzo: ' . $prezzo . '€</p>';
         echo '<div class="box">';

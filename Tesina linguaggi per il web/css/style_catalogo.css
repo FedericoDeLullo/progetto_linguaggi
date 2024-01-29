@@ -1,22 +1,27 @@
 body{
-    background: #171d29;
-    color: white;
+    background-color: #9fd3c7;
+}
+
+.cont{
+    margin-top: 8vh;
 }
 
 .prodotto{
     height: 60vh;
-    margin-bottom: 8vh;
-    border: 3px solid #23c55e;
-    box-shadow: 0 0 50px 0 #23c55e;
+    width: 90%;
+    margin: 3vh auto;
+    border: 3px solid #011050;
+    box-shadow: 0 0 50px 0 #00b7ff;
     border-radius: 20px;
 }
 
 .nome{
-    margin-top: -3vh;
+    margin-top: 5vh;
     margin-bottom: 5vh;
     width: fit-content;
     margin-left: 130vh;
-    border-bottom: 1px solid white;
+    color: #011050;
+    border-bottom: 1px solid #011050;
 }
 
 .des{
@@ -27,6 +32,7 @@ body{
     overflow: hidden;
     height: 25vh;
     margin-bottom: 5vh;
+    color: #011050;
 }
 
 .prezzo{
@@ -34,6 +40,7 @@ body{
     font-size: 25px;
     margin-left: 142vh;
     width: fit-content;
+    color: #011050;
 }
 
 .img{
@@ -45,6 +52,7 @@ body{
     margin-left: 30vh;
     width: 13.5vw;
     margin-top: -30.5vh;
+    color: #011050;
 }
 
 .box:hover{
@@ -52,124 +60,21 @@ body{
     transition: 0.5s;
 }
 
-.home{
-    width: fit-content;
-    margin-left: 16vh;
-}
-
-
 #cart{
-    color: white;
+    color: #011050;
     margin-left: 150vh;
    font-size: 50px;
    margin-top: -10vh;
 }
 
-#home{
-        font-size: 50px;
-    color: white;
-    margin-bottom: 10px;
-    margin-top: 5px;
-}
-
-#home:hover{
-    color: green;
-    transition: 0.2s;
-}
-
-#edit{
-    color: white;
-    margin-left: 3vh;
-    margin-top: 50px;
-}
-
-#edit:hover{
-    color: #23c55e;
-    transition: 0.2s;
-}
-
-
-.prezzo1{
-    font-size: 25px;
-    margin-left: 142vh;
-    width: fit-content;
-}
-
-.img1{
-    margin-bottom: 8vh;
-    margin-top: -8vh;
-}
-
-.box1{
-    margin-left: 30vh;
-    width: 13.5vw;
-    margin-top: -30.5vh;
-}
-
-.box1:hover{
-    transform: scale(1.1);
-    transition: 0.5s;
-}
-
-#cart1{
-    color: white;
-    margin-left: 150vh;
-   font-size: 50px;
-   margin-top: -10vh;
-}
-
-
-.des1{
-    font-size: 20px;
-    margin-left: 122vh;
-    width: 30vw;
-    height: 25vh;
-    margin-bottom: 5vh;
-}
-
-.nome1{
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-    width: fit-content;
-    margin-left: 130vh;
-    border-bottom: 1px solid white;
-}
-
-#rev{
-    color: white;
+#simbolo_recensione{
+    color: #011050;
     margin-left: 2vh;
 }
 
-#rev:hover{
-    color: #23c55e;
+#simbolo_recensione:hover{
+    color: #0021b4;
     transition: 0.2s;
-}
-
-#add{
-    color: white;
-    margin-left: 2vh;
-}
-
-#add:hover{
-    color: #23c55e;
-    transition: 0.2s; 
-}
-
-.rew{
-    display: grid;
-    justify-content: center;
-    border: 3px solid #23c55e;
-    box-shadow: 0 0 50px 0 #23c55e;
-    margin-top: -10vh;
-    margin-left: 50vh;
-    width: 55vw;
-}
-
-.rec{
-    margin-bottom: 5vh;
-    font-size: 30px;
-    width: fit-content;
-    margin-top: 4vh;
 }
 
 .send{  
@@ -177,74 +82,4 @@ body{
     margin-top: 5vh;
     width: fit-content;
     margin-bottom: 5vh;
-}
-
-
-
-.button{
-    width: 20vh;
-    height: 5vh;
-    border-radius: 10px;
-    background: #23c55e;
-    cursor: pointer;
-}
-
-.button:hover{
-    background: #228B22;
-    transition: 0.2s;
-}
-#casa{
-    font-size: 40px;
-    color: white;
-    margin-left: 36vh;
-    margin-top: 190px;
-}
-#casa:hover{
-    color: #23c55e;
-    transition: 0.2s;
-}
-.prezzo2{
-    font-size: 25px;
-    margin-left: 142vh;
-    width: fit-content;
-}
-
-.img2{
-    margin-bottom: 8vh;
-    margin-top: -8vh;
-}
-
-.box2{
-    margin-left: 30vh;
-    width: 13.5vw;
-    margin-top: -30.5vh;
-}
-
-.box2:hover{
-    transform: scale(1.1);
-    transition: 0.5s;
-}
-
-#cart2{
-    color: white;
-    margin-left: 150vh;
-   font-size: 50px;
-   margin-top: -10vh;
-}
-
-
-.des2{
-    font-size: 20px;
-    margin-left: 122vh;
-    width: 30vw;
-    height: 25vh;
-    margin-bottom: 5vh;
-}
-
-.nome2{
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-    width: fit-content;
-    margin-left: 130vh;
-    border-bottom: 1px solid white;
 }

@@ -1,100 +1,79 @@
-.ordina{
-    font-size: 25px;
-    margin-left: 15vh;
-    margin-bottom: 5vh;
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    gap: 100px; /* Aggiungi la distanza desiderata tra gli oggetti interni */
+    margin-bottom: 8vh;
 }
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #011050;
+    width: 13vw;
+    height: 5vh;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    border-radius: 50px;
+    border: 3px solid #011050;
+    box-shadow: 0 0 50px 25px #00b7ff;
+}
+
+.btn:hover{
+    background: #00b7ff;
+    color: #011050;
+    transition: 0.5s;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.scritta{
+    color: #011050;
+    font-size: 20px;
+}
+
 select {
-    background-color: #171d29;
-    color:white;
-    font-family: 'Arial', sans-serif;
-    border: 1px solid #ccc;
+    background: #9fd3c7;
+    color: #0021b4;
+    border: 1px solid #9fd3c7;
+    box-shadow: 0 0 5px 0 #0021b4;
     border-radius: 5px;
     padding: 5px;
-    width: 20vh;
     outline: none; /* Rimuove l'outline quando l'elemento è selezionato */
 }
 
 input::placeholder{
-    color: white;
+    color: #0021b4;
 }
 
 input[type="text"]{
-    color: white;
+    color: #0021b4;
 }
 
 .search-input{
-    background-color: #171d29;
-border: 1px solid white;
-border-radius: 5px;
-    margin-left: 65vh;
-margin-bottom: 5vh;
-margin-top: -50vh;
-width: fit-content;
-height: fit-content;
+    background: #9fd3c7;
+    color: #0021b4;
+    border: 1px solid #9fd3c7;
+    box-shadow: 0 0 5px 0 #0021b4;
+    border-radius: 5px;
+    padding: 5px;
 }
 
-.search-button{
-    height: fit-content;
-    border: none;
-    background: none;
-    width: fit-content;
-
-}
-
-#search{
-    color: white;
-        font-size: 22px;
-        cursor: pointer;
-}
-
-#filter{
+.btn_stilizzato{
     cursor: pointer;
-    color: white;
+    color: #011050;
     border: none;
     background: none;
-}
-
-.maglie{   
-    font-size: 20px;
-    text-decoration: none;
-    margin-bottom: 5vh;
-    height: 5vh;
-    margin-left: 70vh;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 13vw; 
-    border: 3px solid #23c55e;
-    box-shadow: 0 0 50px 0 #23c55e;
-    border-radius: 20px;
-}
-
-.calze{
-    font-size: 20px;
-    height: 5vh;
-    text-decoration: none;
-    margin-top: -10.5vh;
-    margin-bottom: 10vh;
-    margin-left: 120vh;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 13vw;
-    border: 3px solid #23c55e;
-    box-shadow: 0 0 50px 0 #23c55e;
-     border-radius: 20px;
-}
-
-.maglie:hover{
-    background: darkslategrey;
-    transition: 0.5s;
-    color:snow;
-}
-
-.calze:hover{
-    background: darkslategrey;
-    transition: 0.5s;
-    color:snow;
+    vertical-align: middle;
 }

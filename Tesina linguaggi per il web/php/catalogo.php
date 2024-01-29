@@ -19,7 +19,7 @@
     <input type="text" class="search-input" placeholder="Cerca...">
     <button class="search-button"><span id="search" class="material-symbols-outlined">search</span></button>
 
-    <label class="ordina" for="ordina">Ordina per:</label>
+    <label class="scritta" for="ordina">Ordina per:</label>
     <select id="ordina">
         <option value="nome">Nome</option>
         <option value="prezzo">Prezzo</option>

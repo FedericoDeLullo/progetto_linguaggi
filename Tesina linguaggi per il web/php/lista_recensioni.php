@@ -3,12 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recensioni Prodotti</title>
-    <link rel="stylesheet" href="../css/style_recensioni.css">
+    <title>Lista Recensioni</title>
+    <link rel="stylesheet" href="../css/style_standard.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="../css/style_header.css">
 </head>
 <body>
 
+<header class="header">
+    <div class="header_menu">  
+        <div class="header_menu_item">
+            <a href="../html/index_cliente.html">
+                <img class="logo" src="../img/logo.PNG">
+                <span class="logo-text">RugbyWorld</span>
+            </a>        
+        </div>
+        <div class="header_menu_item">
+            <a href="catalogo_utente_magliette.php" class="stile">
+                <div class="header_menu_link" title="Catalogo">
+                    <span class="material-symbols-outlined">receipt_long</span>CATALOGO
+                </div>
+            </a>
+        </div>
+        <div class="header_menu_item">
+            <a href="#" class="stile">
+                <div class="header_menu_link" title="Faq">
+                    <span class="material-symbols-outlined">quiz</span>FAQ
+                </div>
+            </a>
+        </div>
+        <div class="header_menu_item">
+            <a href="#" class="stile">
+                <div class="header_menu_link" title="Profilo">
+                    <span class="material-symbols-outlined">group</span>PROFILO
+                </div>
+            </a>
+        </div>
+        <div class="header_menu_item">
+          <a href="../html/gestione_crediti.html" class="stile">
+              <div class="header_menu_link" title="Gestione Crediti">
+                  <span class="material-symbols-outlined">monetization_on</span>GESTIONE CREDITI
+              </div>
+          </a>
+      </div>
+        <div class="header_menu_item">
+            <a href="../html/index.html" class="stile">                   
+                <div class="header_menu_link" title="Logout">
+                    <span class="material-symbols-outlined">logout</span>LOGOUT
+                </div>
+            </a>
+        </div>
+        <div class="header_menu_item">
+            <a href="#" class="stile">                   
+                <div class="header_menu_link" title="Carrello">
+                    <span class="material-symbols-outlined">shopping_cart</span>CARRELLO
+                </div>
+            </a>
+        </div>
+    </div>
+</header>
+
+<div class="cont">
 <?php
 session_start(); // Assicurati di iniziare la sessione se non lo hai già fatto
 
@@ -18,13 +73,7 @@ if (isset($_GET['tipologia']) && isset($_GET['id_prodotto'])) {
     $nome = $_GET['nome'];
     $id_utente = $_SESSION['id']; // Assumi che l'id utente sia memorizzato in una sessione
 }
-?>
-<div class="home">
-    <a href="catalogo_utente_<?php echo $tipologia; ?>.php">             
-        <span id="casa" class="material-symbols-outlined">home</span>
-    </a>
-</div>
-<?php
+
 $xmlFile = '../xml/catalogo_prodotti.xml';
 $dom = new DOMDocument();
 $dom->load($xmlFile);
@@ -35,7 +84,7 @@ $recensioni = $xpath->query("//recensione[@id_prodotto='$id_prodotto']");
 
 // Mostra le recensioni in una tabella
 if ($recensioni->length > 0) {
-    echo '<h1>Recensioni Prodotto ' . $nome . '</h1>';
+    echo '<h1 class="titolo">Recensioni del prodotto: ' . $nome . '</h1>';
     echo '<table>';
     echo '<tr><th>Autore</th><th>Recensione</th><th>Data e Ora</th><th>Voto Utilità</th><th>Voto Supporto</th><th>Azione</th></tr>';
 
@@ -73,21 +122,17 @@ if ($recensioni->length > 0) {
             
             
             // Pulsanti per il voto di utilità
-            echo '<label class="uti" for="votoUtilita">Utilità (da 1 a 3): </label>';
-            echo '<input class="util" type="number" name="votoUtilita" min="1" max="3" required/><br>';
+            echo '<label class="nome" for="votoUtilita">Utilità (da 1 a 3): </label>';
+            echo '<input class="input" type="number" name="votoUtilita" min="1" max="3" required/><br>';
 
             // Pulsanti per il voto di supporto
-            echo '<label class="sup" for="votoSupporto">Supporto (da 1 a 5): </label>';
-            echo '<input type="number" name="votoSupporto" min="1" max="5" required/>';
+            echo '<label class="nome" for="votoSupporto">Supporto (da 1 a 5): </label>';
+            echo '<input class="input" type="number" name="votoSupporto" min="1" max="5" required/>';
 
-            echo '<button class="vota" type="submit" name="vota"><span id="done" title="Invia" class="material-symbols-outlined">
-            done_outline
-            </span></button>';
+            echo '<button class="btn" type="submit" name="vota">CONFERMA<span id="done" title="Invia" class="material-symbols-outlined">done_outline</span></button>';
             echo '</form>';
         } else {
-            echo '<p><span id="ver" class="material-symbols-outlined">
-            verified
-            </span></p>';
+            echo '<p class="nome"><span id="ver" class="material-symbols-outlined">verified</span></p>';
         }
 
         echo '</td>';
@@ -96,8 +141,10 @@ if ($recensioni->length > 0) {
 
     echo '</table>';
 } else {
-    echo '<p>Nessuna recensione disponibile.</p>';
+    echo '<p class="titolo">Nessuna recensione disponibile.</p>';
 }
 ?>
+</div>
+
 </body>
 </html>

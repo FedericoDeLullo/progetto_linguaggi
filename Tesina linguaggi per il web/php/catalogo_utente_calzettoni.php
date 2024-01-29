@@ -26,7 +26,7 @@
     <input type="text" class="search-input" placeholder="Cerca..."></input>
     <button class="search-button"><span id="search" class="material-symbols-outlined">search</span></button>
 
-    <label class="ordina" for="ordina">Ordina per:</label>
+    <label class="scritta" for="ordina">Ordina per:</label>
     <select id="ordina">
         <option value="nome">Nome</option>
         <option value="prezzo">Prezzo</option>
@@ -79,13 +79,13 @@ foreach ($prodottiArray as $prodotto) {
     
     // Stampa le informazioni del prodotto
     echo '<div class="prodotto">';
-    echo '<h2 class="nome1">' . $nome . '<a title="Lascia una recensione" href="recensioni_prodotti.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'"><span id="rev" class="material-symbols-outlined">note_stack_add</span></a><a title="Recensioni prodotto" href="recensioni.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'"><span id="add" class="material-symbols-outlined">reviews</span></a></h2>';
-    echo '<p class="des1">' . $descrizione . '</p>';
-    echo '<p class="prezzo1">Prezzo: ' . $prezzo . '€</p>';
-    echo '<div class="box1">';
-    echo '<img class="img1" src="' . $immagine . '" alt="' . $nome . '">';
+    echo '<h2 class="nome">' . $nome . '<a title="Lascia una recensione" href="recensione_cliente.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'"><span id="rev" class="material-symbols-outlined">note_stack_add</span></a><a title="Recensioni prodotto" href="lista_recensioni.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'"><span id="add" class="material-symbols-outlined">reviews</span></a></h2>';
+    echo '<p class="des">' . $descrizione . '</p>';
+    echo '<p class="prezzo">Prezzo: ' . $prezzo . '€</p>';
+    echo '<div class="box">';
+    echo '<img class="img" src="' . $immagine . '" alt="' . $nome . '">';
     echo '</div>';
-    echo '<a href="../php/carrello.php"><span id="cart1" class="material-symbols-outlined">add_shopping_cart</span></a>';
+    echo '<a href="../php/carrello.php"><span id="cart" class="material-symbols-outlined">add_shopping_cart</span></a>';
     echo '</div>';
 }
 ?>
