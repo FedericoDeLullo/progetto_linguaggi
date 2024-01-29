@@ -13,15 +13,16 @@
     $utente=1;
     $admin_ok=0;
     $gestore=0;
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     $crediti=0;
+    $reputazione=1;
+    $ban=0;
 
     if(empty($nome) || empty($email) || empty($password) || empty($cognome) || empty($data_di_nascita) || empty($codice_fiscale) || empty($indirizzo_di_residenza) ||empty($cellulare)) {
             header("Location: ../html/registrazione_fallita.html");
             exit;
     }
             
-    $sql = "INSERT INTO utenti (email, nome, cognome, data_di_nascita, cellulare, indirizzo_di_residenza, codice_fiscale, passwd, crediti, utente, ammin, gestore) VALUES ('$email','$nome','$cognome','$data_di_nascita','$cellulare','$indirizzo_di_residenza', '$codice_fiscale','$hashed_password', '$crediti', '$utente', '$admin_ok', '$gestore')";
+    $sql = "INSERT INTO utenti (email, nome, cognome, data_di_nascita, cellulare, indirizzo_di_residenza, codice_fiscale, passwd, crediti, utente, ammin, gestore, reputazione, ban) VALUES ('$email','$nome','$cognome','$data_di_nascita','$cellulare','$indirizzo_di_residenza', '$codice_fiscale','$password', '$crediti', '$utente', '$admin_ok', '$gestore', '$reputazione', '$ban')";
     
 try {
       $connessione->query($sql);

@@ -9,6 +9,21 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
+<?php
+$xmlFile = '../xml/requests.xml';
+$dom = new DOMDocument();
+$dom->load($xmlFile);
+
+$requests = $dom->getElementsByTagName('request');
+$hasPendingRequests = false;
+foreach ($requests as $request) {
+  $status = $request->getAttribute('status');
+
+  if ($status == 'pending') {
+      $hasPendingRequests = true;
+      }
+    }
+    ?>
 <header class="header">
     <div class="header_menu">  
         <div class="header_menu_item">
@@ -110,8 +125,8 @@ foreach ($requests as $request) {
         echo '<form action="approva_richieste_crediti.php" method="post">';
         echo "<input type='hidden' name='email' value='$email'>";
         echo "<input type='hidden' name='importo' value='$importo'>";
-        echo '<button type="submit" name="action" value="Approva"><span class="material-symbols-outlined">done</span></button>';
-        echo '<button type="submit" name="action" value="Rifiuta"><span class="material-symbols-outlined">close</span></button> ';
+        echo '<button class="done" type="submit" name="action" value="Approva"><span id="done" class="material-symbols-outlined">done</span></button>';
+        echo '<button class="done" type="submit" name="action" value="Rifiuta"><span id="done" class="material-symbols-outlined">close</span></button> ';
         echo '</form>';
         echo '</td>';
         echo '</tr>';

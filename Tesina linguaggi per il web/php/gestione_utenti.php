@@ -10,6 +10,21 @@
     <link rel="stylesheet" href="../css/style_header.css">
 </head>
 <body>
+<?php
+$xmlFile = '../xml/requests.xml';
+$dom = new DOMDocument();
+$dom->load($xmlFile);
+
+$requests = $dom->getElementsByTagName('request');
+$hasPendingRequests = false;
+foreach ($requests as $request) {
+  $status = $request->getAttribute('status');
+
+  if ($status == 'pending') {
+      $hasPendingRequests = true;
+      }
+    }
+    ?>
 <header class="header">
     <div class="header_menu">  
         <div class="header_menu_item">
@@ -79,7 +94,7 @@
 // Include il file di connessione al database
 require_once('../res/connection.php');
 // Query per ottenere gli utenti
-$sql = "SELECT id, nome, cognome, email, passwd, crediti, indirizzo_di_residenza, cellulare FROM utenti WHERE utente = 1";
+$sql = "SELECT id, nome, cognome, email, passwd, crediti, indirizzo_di_residenza, cellulare, ban FROM utenti WHERE utente = 1";
 $result = $connessione->query($sql);
 
 // Stampa la tabella degli utenti
@@ -94,6 +109,7 @@ echo '<th>Crediti</th>';
 echo '<th>Indirizzo di residenza</th>';
 echo '<th>Cellulare</th>';
 echo '<th>Modifica</th>';
+echo '<th>Attiva/Disattiva Utente</th>';
 echo '</tr>';
 
 if ($result->num_rows > 0) {
@@ -107,9 +123,17 @@ if ($result->num_rows > 0) {
         echo '<td>' . $row['crediti'] . '</td>';
         echo '<td>' . $row['indirizzo_di_residenza'] . '</td>';
         echo '<td>' . $row['cellulare'] . '</td>';
-        echo '<td><a href="modifica_utente.php?id=' . $row['id'] . '"><span class="material-symbols-outlined">
+        echo '<td><a href="modifica_utente.php?id=' . $row['id'] . '"><span id="edit" class="material-symbols-outlined">
         edit
         </span></a></td>';
+        if ($row['ban'] == 1) {
+            // Utente disattivato
+            echo '<td><a href="conferma_ban.php?id=' . $row['id'] . '&ban=' . $row['ban'] . '"><span id="done" class="material-symbols-outlined">visibility_off</span></a></td>';
+
+        } else {
+            // Utente attivato
+            echo '<td><a href="conferma_ban.php?id=' . $row['id'] . '&ban=' . $row['ban'] . '"><span id="done" class="material-symbols-outlined">visibility</span></a></td>';
+        }
         echo '</tr>';
     }
 } else {

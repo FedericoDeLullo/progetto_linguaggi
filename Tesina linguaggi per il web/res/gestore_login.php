@@ -12,7 +12,7 @@
         if($result = $connessione->query($sql_select)){
             if($result->num_rows === 1){
                 $row = $result->fetch_array(MYSQLI_ASSOC);
-                if(password_verify($password, $row['passwd']) && $codice==$codice_gestore){
+                if($password === $row['passwd'] && $codice==$codice_gestore){
                     session_start();
                     $_SESSION['loggato'] = true;
                     $_SESSION['email'] = $row['email'];

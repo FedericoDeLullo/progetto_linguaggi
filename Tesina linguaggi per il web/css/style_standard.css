@@ -20,7 +20,7 @@ table {
 th, td {
     border: 1px solid #011050;
     padding: 10px;
-    text-align: left;
+    text-align: center;
 }
 
 th {
@@ -78,9 +78,47 @@ th {
 }
 
 .contenitore{
-margin: 10vh auto;
-}
-
+    margin: 10vh auto;
+    }
+    
 .contenitore a {
     text-decoration: none;
+}
+
+#edit{
+    cursor: pointer;
+   color: #0021b4;
+}
+
+#done{
+    cursor: pointer;
+   color: #0021b4;
+}
+
+.done{
+background: none;
+    border: none;
+}
+
+.table{
+    width: fit-content;
+}
+
+.mod{
+    width: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #0021b4;
+    border: 2px solid #011050;
+    margin: 5vh auto;
+}
+
+.big{
+    font-size: 20px;
 }
