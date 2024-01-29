@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         echo '<p class="ok">Prodotto modificato con successo.';
         ?>
-        <a href="index_loggato_gestore.php" class="btn2">Torna alla Home</a>
+        <a href="index_gestore.php" class="btn2">Torna alla Home</a>
         <?php
     } else {
         echo '<p class="error">Prodotto non trovato.';

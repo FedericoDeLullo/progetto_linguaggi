@@ -1,6 +1,6 @@
 <?php
 
-require_once('connection.php');
+require_once('../res/connection.php');
 session_start();
 $xmlFile = '../xml/catalogo_prodotti.xml';
 

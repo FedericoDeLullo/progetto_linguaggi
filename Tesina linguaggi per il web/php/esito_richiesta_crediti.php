@@ -12,7 +12,7 @@
 <header class="header">
     <div class="header_menu">  
         <div class="header_menu_item">
-            <a href="../html/index_loggato.html">
+            <a href="../html/index_cliente.html">
                 <img class="logo" src="../img/logo.PNG">
                 <span class="logo-text">RugbyWorld</span>
             </a>   

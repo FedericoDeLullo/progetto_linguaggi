@@ -8,11 +8,11 @@
 </head>
 <body>
 <div class="home">
-                    <a href="../html/index_loggato.html">
+                    <a href="../html/index_cliente.html">
                 <div class="home_link" title="home"><img src="../img/home1.png" alt="home"></div></a>
             </div>
     <?php
-require_once('connection.php');
+require_once('../res/connection.php');
 
 // Verifica se è stato fornito un ID utente valido
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {

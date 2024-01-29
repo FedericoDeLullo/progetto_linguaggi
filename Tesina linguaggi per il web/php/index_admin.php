@@ -4,18 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="../css/style_index.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="../css/style_header.css">
 </head>
 <body>
+<?php
+$xmlFile = '../xml/requests.xml';
+$dom = new DOMDocument();
+$dom->load($xmlFile);
 
+$requests = $dom->getElementsByTagName('request');
+$hasPendingRequests = false;
+foreach ($requests as $request) {
+  $status = $request->getAttribute('status');
+
+  if ($status == 'pending') {
+      $hasPendingRequests = true;
+      }
+    }
+    ?>
 <header class="header">
     <div class="header_menu">  
         <div class="header_menu_item">
-            <a href="index_loggato_gestore.php">
+            <a href="index_admin.php">
                 <img class="logo" src="../img/logo.PNG">
                 <span class="logo-text">RugbyWorld</span>
             </a>
@@ -35,17 +48,25 @@
             </a>
         </div>
         <div class="header_menu_item">
-            <a href="../html/gestione_catalogo.html" class="stile">
-                <div class="header_menu_link" title="Gestisci Catalogo">
-        
-                    <span class="material-symbols-outlined">folder_managed</span>GESTISCI CATALOGO
+            <a href="menu_richieste_crediti.php" class="stile">
+                <div class="header_menu_link" title="Accetta Crediti">
+                    <?php
+                    if ($hasPendingRequests) {
+                        echo '<span id="note" class="material-symbols-outlined">
+                        notifications_unread
+                        </span>';
+                    }
+                    else { 
+                    ?>
+                        <span class="material-symbols-outlined">notifications_unread</span>
+                    <?php }?>ACCETTA CREDITI
                 </div>
             </a>
         </div>
         <div class="header_menu_item">
-          <a href="#" class="stile">
-              <div class="header_menu_link" title="Profilo">
-                  <span class="material-symbols-outlined">group</span>PROFILO
+          <a href="gestione_utenti.php" class="stile">
+              <div class="header_menu_link" title="Gestione Utenti">
+                  <span class="material-symbols-outlined">manage_accounts</span>GESTIONE UTENTI
               </div>
           </a>
       </div>
@@ -67,8 +88,6 @@
 </header>
 
     
-
-
 <footer>
           <div class="col center">
               <h4>Informazioni sul sito</h4>
@@ -105,4 +124,3 @@
       </footer>
 </body>
 </html>
-    

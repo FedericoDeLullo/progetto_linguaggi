@@ -9,26 +9,23 @@
     $indirizzo_di_residenza = $connessione->real_escape_string($_POST['indirizzo_di_residenza']);
     $codice_fiscale = $connessione->real_escape_string($_POST['codice_fiscale']);
     $password = $connessione->real_escape_string($_POST['password']);
-    $codice = $connessione->real_escape_string($_POST['codice']);
-    
-    $utente=0;
+
+    $utente=1;
     $admin_ok=0;
-    $gestore=1;
+    $gestore=0;
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     $crediti=0;
 
-    $codice_gestore=4567;
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-    if(empty($codice) || empty($nome) || empty($email) || empty($password) || empty($cognome) || empty($data_di_nascita) || empty($codice_fiscale) || empty($indirizzo_di_residenza) || empty($cellulare) || $codice != $codice_gestore ) {
-            header("Location:../html/registrazione_fallita.html");
+    if(empty($nome) || empty($email) || empty($password) || empty($cognome) || empty($data_di_nascita) || empty($codice_fiscale) || empty($indirizzo_di_residenza) ||empty($cellulare)) {
+            header("Location: ../html/registrazione_fallita.html");
             exit;
     }
             
-    $sql = "INSERT INTO utenti (email, nome, cognome, data_di_nascita, cellulare, indirizzo_di_residenza, codice_fiscale, passwd, crediti, ammin, utente, gestore) VALUES ('$email','$nome','$cognome','$data_di_nascita','$cellulare','$indirizzo_di_residenza', '$codice_fiscale','$hashed_password', '$crediti', '$admin_ok', '$utente', '$gestore')";
+    $sql = "INSERT INTO utenti (email, nome, cognome, data_di_nascita, cellulare, indirizzo_di_residenza, codice_fiscale, passwd, crediti, utente, ammin, gestore) VALUES ('$email','$nome','$cognome','$data_di_nascita','$cellulare','$indirizzo_di_residenza', '$codice_fiscale','$hashed_password', '$crediti', '$utente', '$admin_ok', '$gestore')";
     
 try {
       $connessione->query($sql);
-      header("Location: ../html/login_gestore.html");
+      header("Location: ../html/login_cliente.html");
 } catch (Exception $e) {
     header("Location: ../html/registrazione_ko.html");
     exit;

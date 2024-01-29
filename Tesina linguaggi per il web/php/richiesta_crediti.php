@@ -1,25 +1,39 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['loggato'])) {
+    header("Location: ../html/login_cliente.html");
+    exit();
+}
+
+$email = $_SESSION['email'];
+$crediti = $_SESSION['crediti'];
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="../css/style_index.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <title>Richiesta di Ricarica Crediti</title>
+    <link rel="stylesheet" href="../css/style_standard.css">
     <link rel="stylesheet" href="../css/style_header.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
 </head>
 <body>
-  <header class="header">
+<header class="header">
     <div class="header_menu">  
         <div class="header_menu_item">
-            <a href="index_loggato.html">
+            <a href="../html/index_cliente.html">
                 <img class="logo" src="../img/logo.PNG">
                 <span class="logo-text">RugbyWorld</span>
-            </a>        
+            </a>   
         </div>
         <div class="header_menu_item">
-            <a href="../php/catalogo_utente_magliette.php" class="stile">
+            <a href="catalogo_utente_magliette.php" class="stile">
                 <div class="header_menu_link" title="Catalogo">
                     <span class="material-symbols-outlined">receipt_long</span>CATALOGO
                 </div>
@@ -40,14 +54,14 @@
             </a>
         </div>
         <div class="header_menu_item">
-          <a href="gestione_crediti.html" class="stile">
+          <a href="../html/gestione_crediti.html" class="stile">
               <div class="header_menu_link" title="Gestione Crediti">
                   <span class="material-symbols-outlined">monetization_on</span>GESTIONE CREDITI
               </div>
           </a>
       </div>
         <div class="header_menu_item">
-            <a href="index.html" class="stile">                   
+            <a href="../html/index.html" class="stile">                   
                 <div class="header_menu_link" title="Logout">
                     <span class="material-symbols-outlined">logout</span>LOGOUT
                 </div>
@@ -63,40 +77,29 @@
     </div>
 </header>
 
-  
-        <footer>
-          <div class="col center">
-              <h4>Informazioni sul sito</h4>
-      
-              <li>Servizi e supporto</li>
-              <li>Supporto tecnico</li>
-              <li>Consulenza</li>
-              <li>Servizio clienti</li>
-          </div>
-          <div class="col center">
-              <h4>Servizi</h4>
-           
-      <li>About Us</li> 
-      <li>Chi siamo?</li>
-      <li>Dove siamo?</li>
-      <li>Contatti</li>
-          </div>
-          <div class="col center">
-              <h4>Supporto</h4>
-              <li>Traccia il tuo ordine</li>
-              <li>Ritiro usato</li>
-              <li>Verifica validità</li>
-          </div>
-          <div class="col center">
-              <h4>Seguici su</h4>
-              <div class="social-media">
-                  <a href="#"><i class="fab fa-facebook-f"></i></a>
-                  <a href="#"><i class="fab fa-github"></i></a>
-                  <a href="#"><i class="fab fa-whatsapp"></i></a>
-                  <a href="#"><i class="fab fa-instagram"></i></a>
-                  <a href="#"><i class="fab fa-tiktok"></i></a>
-              </div>
-          </div>
-      </footer>
+<div class="cont">
+<h1 class="titolo">Richiesta di Ricarica Crediti</h1>
+<table>
+    <tr>
+        <th>Username:</th>
+        <td><?php echo $email; ?></td>
+    </tr>
+    <tr>
+        <th>Credito Residuo:</th>
+        <td><?php echo $crediti; ?></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <form class="form" action="esito_richiesta_crediti.php" method="post">
+                <label for="importo">Importo richiesto:</label>
+                <input class="input" type="number" name="importo" required>
+                <br><br><br>
+                <input class="btn" type="submit" value="Invia richiesta">
+            </form>
+        </td>
+    </tr>
+</table>
+</div>
+
 </body>
 </html>

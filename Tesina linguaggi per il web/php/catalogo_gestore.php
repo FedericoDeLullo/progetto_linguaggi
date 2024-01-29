@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="home">
-        <a href="index_loggato_gestore.php">
+        <a href="index_gestore.php">
             <div class="home_link" title="home"><span id="home" class="material-symbols-outlined">home</span></div>
         </a>
     </div>

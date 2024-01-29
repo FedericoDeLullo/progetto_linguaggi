@@ -24,7 +24,7 @@ if(isset($_GET['tipologia']) && isset($_GET['id_prodotto'])){
 </div>
 
 <?php
-       require_once('connection.php');
+       require_once('../res/connection.php');
 session_start();
 
 if (!isset($_SESSION['email'])) {

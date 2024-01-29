@@ -1,5 +1,5 @@
 <?php
-require_once('connection.php');
+require_once('../res/connection.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Ricevi i dati del modulo inviati tramite POST

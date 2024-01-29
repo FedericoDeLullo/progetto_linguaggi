@@ -10,28 +10,13 @@
     <link rel="stylesheet" href="../css/style_header.css">
 </head>
 <body>
-<?php
-$xmlFile = '../xml/requests.xml';
-$dom = new DOMDocument();
-$dom->load($xmlFile);
-
-$requests = $dom->getElementsByTagName('request');
-$hasPendingRequests = false;
-foreach ($requests as $request) {
-  $status = $request->getAttribute('status');
-
-  if ($status == 'pending') {
-      $hasPendingRequests = true;
-      }
-    }
-    ?>
-<header class="header">
+  <header class="header">
     <div class="header_menu">  
         <div class="header_menu_item">
-            <a href="index_loggato_admin.php">
+            <a href="index_cliente.html">
                 <img class="logo" src="../img/logo.PNG">
                 <span class="logo-text">RugbyWorld</span>
-            </a>
+            </a>        
         </div>
         <div class="header_menu_item">
             <a href="../php/catalogo_utente_magliette.php" class="stile">
@@ -48,30 +33,21 @@ foreach ($requests as $request) {
             </a>
         </div>
         <div class="header_menu_item">
-            <a href="menu_richieste_crediti.php" class="stile">
-                <div class="header_menu_link" title="Accetta Crediti">
-                    <?php
-                    if ($hasPendingRequests) {
-                        echo '<span id="note" class="material-symbols-outlined">
-                        notifications_unread
-                        </span>';
-                    }
-                    else { 
-                    ?>
-                        <span class="material-symbols-outlined">notifications_unread</span>
-                    <?php }?>ACCETTA CREDITI
+            <a href="#" class="stile">
+                <div class="header_menu_link" title="Profilo">
+                    <span class="material-symbols-outlined">group</span>PROFILO
                 </div>
             </a>
         </div>
         <div class="header_menu_item">
-          <a href="gestione_utenti.php" class="stile">
-              <div class="header_menu_link" title="Gestione Utenti">
-                  <span class="material-symbols-outlined">manage_accounts</span>GESTIONE UTENTI
+          <a href="gestione_crediti.html" class="stile">
+              <div class="header_menu_link" title="Gestione Crediti">
+                  <span class="material-symbols-outlined">monetization_on</span>GESTIONE CREDITI
               </div>
           </a>
       </div>
         <div class="header_menu_item">
-            <a href="../html/index.html" class="stile">                   
+            <a href="index.html" class="stile">                   
                 <div class="header_menu_link" title="Logout">
                     <span class="material-symbols-outlined">logout</span>LOGOUT
                 </div>
@@ -87,8 +63,8 @@ foreach ($requests as $request) {
     </div>
 </header>
 
-    
-<footer>
+  
+        <footer>
           <div class="col center">
               <h4>Informazioni sul sito</h4>
       

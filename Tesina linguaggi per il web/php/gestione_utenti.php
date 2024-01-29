@@ -13,7 +13,7 @@
 <header class="header">
     <div class="header_menu">  
         <div class="header_menu_item">
-            <a href="index_loggato_admin.php">
+            <a href="index_admin.php">
                 <img class="logo" src="../img/logo.PNG">
                 <span class="logo-text">RugbyWorld</span>
             </a>
@@ -77,7 +77,7 @@
 
 <?php
 // Include il file di connessione al database
-require_once('connection.php');
+require_once('../res/connection.php');
 // Query per ottenere gli utenti
 $sql = "SELECT id, nome, cognome, email, passwd, crediti, indirizzo_di_residenza, cellulare FROM utenti WHERE utente = 1";
 $result = $connessione->query($sql);

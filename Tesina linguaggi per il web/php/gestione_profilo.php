@@ -10,7 +10,7 @@
 
 <?php
 // Include il file di connessione al database
-require_once('connection.php');
+require_once('../res/connection.php');
 session_start();
 
 // Verifica se l'utente è loggato

@@ -10,7 +10,7 @@
 <body>
 
     <?php
-        require_once('connection.php');
+        require_once('../res/connection.php');
 session_start();
     // Verifica se è stato fornito un ID del prodotto nella query string
     if (isset($_GET['id_prodotto'])) {

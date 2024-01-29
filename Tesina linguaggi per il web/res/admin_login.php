@@ -18,7 +18,7 @@
                     $_SESSION['email'] = $row['email'];
                     $_SESSION['crediti'] = $row['crediti'];
 
-                    header("Location: index_loggato_admin.php");
+                    header("Location: ../php/index_admin.php");
                 }
                 else{
                     header("Location: ../html/login_ko.html");

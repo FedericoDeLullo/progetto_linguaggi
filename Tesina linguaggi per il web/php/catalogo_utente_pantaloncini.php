@@ -12,7 +12,7 @@
 <body>
     
     <div class="home">
-        <a href="../html/index_loggato.html">
+        <a href="../html/index_cliente.html">
             <div class="home_link" title="home">
                 <span id="home" class="material-symbols-outlined">home</span>
             </div>

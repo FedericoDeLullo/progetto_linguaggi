@@ -12,7 +12,7 @@
 <header class="header">
     <div class="header_menu">  
         <div class="header_menu_item">
-            <a href="index_loggato_admin.php">
+            <a href="index_admin.php">
                 <img class="logo" src="../img/logo.PNG">
                 <span class="logo-text">RugbyWorld</span>
             </a>
@@ -73,7 +73,7 @@
 
 <div class="cont">
 <?php
-require_once('connection.php');
+require_once('../res/connection.php');
 
 // Recupera i dati dal form in admin_approve.php
 $email = $_POST['email'];
