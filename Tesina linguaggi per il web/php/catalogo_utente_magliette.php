@@ -97,7 +97,6 @@ if(isset($_SESSION['id'])){
     $id_utente = $_SESSION['id'];
 }
 
-
 $ordinaPer = isset($_GET['ordina']) ? $_GET['ordina'] : 'nome';
 
 // Leggi il file XML del catalogo

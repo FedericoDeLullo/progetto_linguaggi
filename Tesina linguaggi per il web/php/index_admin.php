@@ -25,6 +25,7 @@ foreach ($requests as $request) {
       }
     }
     ?>
+
 <header class="header">
     <div class="header_menu">  
         <div class="header_menu_item">
@@ -34,7 +35,7 @@ foreach ($requests as $request) {
             </a>
         </div>
         <div class="header_menu_item">
-            <a href="../php/catalogo_utente_magliette.php" class="stile">
+            <a href="../php/catalogo_admin_magliette.php" class="stile">
                 <div class="header_menu_link" title="Catalogo">
                     <span class="material-symbols-outlined">receipt_long</span>CATALOGO
                 </div>
@@ -86,7 +87,6 @@ foreach ($requests as $request) {
         </div>
     </div>
 </header>
-
     
 <footer>
           <div class="col center">

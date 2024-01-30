@@ -7,35 +7,96 @@
     <link rel="stylesheet" href="../css/style_catalogo.css">
     <link rel="stylesheet" href="../css/style_search.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="../css/style_header.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 <body>
     
-    <div class="home">
-        <a href="../html/index_cliente.html">
-            <div class="home_link" title="home">
-                <span id="home" class="material-symbols-outlined">home</span>
-            </div>
-        </a>
+<header class="header">
+    <div class="header_menu">  
+        <div class="header_menu_item">
+            <a href="../html/index_cliente.html">
+                <img class="logo" src="../img/logo.PNG">
+                <span class="logo-text">RugbyWorld</span>
+            </a>        
+        </div>
+        <div class="header_menu_item">
+            <a href="catalogo_utente_magliette.php" class="stile">
+                <div class="header_menu_link" title="Catalogo">
+                    <span class="material-symbols-outlined">receipt_long</span>CATALOGO
+                </div>
+            </a>
+        </div>
+        <div class="header_menu_item">
+            <a href="#" class="stile">
+                <div class="header_menu_link" title="Faq">
+                    <span class="material-symbols-outlined">quiz</span>FAQ
+                </div>
+            </a>
+        </div>
+        <div class="header_menu_item">
+            <a href="gestione_profilo.php" class="stile">
+                <div class="header_menu_link" title="Profilo">
+                    <span class="material-symbols-outlined">group</span>PROFILO
+                </div>
+            </a>
+        </div>
+        <div class="header_menu_item">
+          <a href="../html/gestione_crediti.html" class="stile">
+              <div class="header_menu_link" title="Gestione Crediti">
+                  <span class="material-symbols-outlined">monetization_on</span>GESTIONE CREDITI
+              </div>
+          </a>
+      </div>
+        <div class="header_menu_item">
+            <a href="../html/index.html" class="stile">                   
+                <div class="header_menu_link" title="Logout">
+                    <span class="material-symbols-outlined">logout</span>LOGOUT
+                </div>
+            </a>
+        </div>
+        <div class="header_menu_item">
+            <a href="#" class="stile">                   
+                <div class="header_menu_link" title="Carrello">
+                    <span class="material-symbols-outlined">shopping_cart</span>CARRELLO
+                </div>
+            </a>
+        </div>
     </div>
+</header>
     
-    <a class="maglie" href="catalogo_utente_magliette.php">Magliette</a>
-    <a class="calze" href="catalogo_utente_calzettoni.php">Calzettoni</a>
+<div class="cont">
+    <div class="container">
+        <a class="btn" href="catalogo_utente_magliette.php">Magliette</a>
+        <a class="btn" href="catalogo_utente_calzettoni.php">Calzettoni</a>
+    </div>
 
-    <input type="text" class="search-input" placeholder="Cerca..."></input>
-    <button class="search-button"><span id="search" class="material-symbols-outlined">search</span></button>
-
-    <label class="scritta" for="ordina">Ordina per:</label>
-    <select id="ordina">
-        <option value="nome">Nome</option>
-        <option value="prezzo">Prezzo</option>
-        <!-- Altre opzioni di ordinamento se necessario -->
-    </select>
-    <button id="filter"><span class="material-symbols-outlined">
-check
-</span></button>
+    <table>
+        <tr>
+            <td>
+                <input type="text" class="search-input" placeholder="Cerca...">
+                <button class="btn_stilizzato"><span class="material-symbols-outlined">search</span></button>
+            </td>
+            <td>
+                <label class="scritta" for="ordina">Ordina per:</label>
+                <select id="ordina">
+                    <option value="nome">Nome</option>
+                    <option value="prezzo">Prezzo</option>
+                    <!-- Altre opzioni di ordinamento se necessario -->
+                </select>
+                <button class="btn_stilizzato"><span class="material-symbols-outlined">check</span></button>
+            </td>
+        </tr>
+    </table>
 
 <?php
+
+require_once('../res/connection.php');
+session_start();
+if(isset($_SESSION['id'])){
+    $id_utente = $_SESSION['id'];
+}
+
 $ordinaPer = isset($_GET['ordina']) ? $_GET['ordina'] : 'nome';
 
 // Leggi il file XML del catalogo
@@ -78,7 +139,7 @@ foreach ($prodottiArray as $prodotto) {
     
     // Stampa le informazioni del prodotto
     echo '<div class="prodotto">';
-    echo '<h2 class="nome">' . $nome . '<a title="Lascia una recensione" href="recensione_cliente.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'"><span id="rev" class="material-symbols-outlined">note_stack_add</span></a><a title="Recensioni prodotto" href="lista_recensioni.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'"><span id="add" class="material-symbols-outlined">reviews</span></a></h2>';
+    echo '<h1 class="nome">' . $nome . '<a title="Lascia una recensione" href="recensione_cliente.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'"><span id="rev" class="material-symbols-outlined">note_stack_add</span></a><a title="Recensioni prodotto" href="lista_recensioni.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'"><span id="add" class="material-symbols-outlined">reviews</span></a></h1>';
     echo '<p class="des">' . $descrizione . '</p>';
     echo '<p class="prezzo">Prezzo: ' . $prezzo . '€</p>';
     echo '<div class="box">';
@@ -128,5 +189,7 @@ foreach ($prodottiArray as $prodotto) {
             });
         });
     </script>
+</div>
+
 </body>
 </html>

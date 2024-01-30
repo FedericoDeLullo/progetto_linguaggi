@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
+
 <header class="header">
     <div class="header_menu">  
         <div class="header_menu_item">
@@ -18,7 +19,7 @@
             </a>
         </div>
         <div class="header_menu_item">
-            <a href="catalogo_utente_magliette.php" class="stile">
+            <a href="catalogo_gestore_magliette.php" class="stile">
                 <div class="header_menu_link" title="Catalogo">
                     <span class="material-symbols-outlined">receipt_long</span>CATALOGO
                 </div>
