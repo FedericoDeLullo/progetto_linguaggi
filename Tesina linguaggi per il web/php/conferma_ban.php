@@ -36,16 +36,10 @@
         <div class="header_menu_item">
             <a href="menu_richieste_crediti.php" class="stile">
                 <div class="header_menu_link" title="Profilo">
-                    <?php
-                    if ($hasPendingRequests) {
-                        echo '<span id="note" class="material-symbols-outlined">
-                        notifications_unread
-                        </span>';
-                    }
-                    else { 
-                    ?>
+                
+                   
                         <span class="material-symbols-outlined">notifications_unread</span>
-                    <?php }?>ACCETTA CREDITI
+                    ACCETTA CREDITI
                 </div>
             </a>
         </div>
