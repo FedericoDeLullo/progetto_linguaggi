@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faq>
+    <entry id="1">
+        <user>
+            <userId>1</userId>
+        </user>
+        <question>Qual è il costo della spedizione?</question>
+        <answers>
+            <answer id="1" email="utente1@example.com">Il costo della spedizione dipende dalla destinazione e dal peso del pacco.</answer>
+            <answer id="2" email="utente2@example.com">Offriamo opzioni di spedizione standard e express con tariffe competitive.</answer>
+        <answer id="65b8e3470344c">diodiidodododo&#13;
+</answer><answer id="65b8f4635468c">caiao&#13;
+</answer><answer id="65b8f48b1925e">fghjk</answer><answer id="65b8f715c141a">fecdwxsqw</answer><answer id="65b90b60e40b2" email="federico@gmail.com">5 euro</answer></answers>
+    </entry>
+    <entry id="2">
+        <user>
+            <userId>3</userId>
+        </user>
+        <question>Come posso restituire un prodotto?</question>
+        <answers>
+            <answer id="3" email="utente3@example.com">Puoi richiedere la restituzione entro 30 giorni dalla data di acquisto. Contattaci per ottenere istruzioni dettagliate.</answer>
+        </answers>
+    </entry>
+    <entry id="3">
+        <user>
+            <userId>4</userId>
+        </user>
+        <question>Quanto tempo ci vuole per la consegna?</question>
+        <answers>
+            <!-- Aggiungi risposte secondo necessità -->
+        </answers>
+    </entry>
+    <!-- Aggiungi altre FAQ secondo necessità -->
+<entry id="65b8fe9201566"><question>vfecdwxsa</question><answers><answer id="65b8fe9ac3678">teywno</answer><answer id="65b8fecd6bca8">h</answer><answer id="65b8ff8026132" email="email_utente_di_esempio">rtefds</answer><answer id="65b8ffa6b49eb" email="federico@gmail.com">rte</answer></answers></entry><entry id="65b90483cc297"><question>Posso di cnse&#13;
+</question><answers><answer id="65b904894175d" email="federico@gmail.com">no&#13;
+</answer></answers></entry><entry id="65b90b6dba684"><question>ciso</question></entry></faq>
