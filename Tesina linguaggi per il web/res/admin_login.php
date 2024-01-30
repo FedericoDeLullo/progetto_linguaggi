@@ -15,9 +15,12 @@
                 if($password === $row['passwd'] && $codice==$codice_admin){
                     session_start();
                     $_SESSION['loggato'] = true;
+                    $_SESSION['id'] = $row['id'];
                     $_SESSION['email'] = $row['email'];
                     $_SESSION['crediti'] = $row['crediti'];
-
+                    $_SESSION['utente'] = $row['utente'];
+                    $_SESSION['gestore'] = $row['gestore'];
+                    $_SESSION['ammin'] = $row['ammin'];
                     header("Location: ../php/index_admin.php");
                 }
                 else{

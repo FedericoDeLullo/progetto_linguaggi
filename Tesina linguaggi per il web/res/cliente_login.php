@@ -23,6 +23,12 @@
                     $_SESSION['email'] = $row['email'];
                     $_SESSION['crediti'] = $row['crediti'];
                     $_SESSION['id'] = $row['id'];
+                    $_SESSION['utente'] = $row['utente'];
+                    $_SESSION['gestore'] = $row['gestore'];
+                    $_SESSION['ammin'] = $row['ammin'];
+                    
+
+
                     header("Location: ../html/index_cliente.html");
                 } else {
                     header("Location: ../html/login_ko.html");

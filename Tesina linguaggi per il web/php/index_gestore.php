@@ -21,7 +21,7 @@
             </a>
         </div>
         <div class="header_menu_item">
-            <a href="catalogo_gestore_magliette.php" class="stile">
+            <a href="catalogo_magliette.php" class="stile">
                 <div class="header_menu_link" title="Catalogo">
                     <span class="material-symbols-outlined">receipt_long</span>CATALOGO
                 </div>
@@ -49,7 +49,7 @@
           </a>
       </div>
         <div class="header_menu_item">
-            <a href="../html/index.html" class="stile">                   
+            <a href="../res/logout.php" class="stile">                   
                 <div class="header_menu_link" title="Logout">
                     <span class="material-symbols-outlined">logout</span>LOGOUT
                 </div>
