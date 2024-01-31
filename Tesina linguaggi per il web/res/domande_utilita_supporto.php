@@ -1,9 +1,9 @@
 <?php
 
 require_once('connection.php');
-session_start();
+ 
 $xmlFile = '../xml/catalogo_prodotti.xml';
-
+session_start();
 // Carica il file XML
 $dom = new DOMDocument();
 $dom->preserveWhiteSpace = false;

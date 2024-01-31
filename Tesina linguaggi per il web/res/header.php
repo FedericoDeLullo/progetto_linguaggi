@@ -1,6 +1,7 @@
 <?php
-require_once('../res/connection.php');
+require_once('connection.php');
 session_start();
+if(isset($_SESSION['loggato'])){
 $id_utente = $_SESSION['id'];
 $gestore = $_SESSION['gestore'];
 $admin = $_SESSION['ammin'];
@@ -23,7 +24,7 @@ $utente = $_SESSION['utente'];
                     </a>
                 </div>
                 <div class="header_menu_item">
-                    <a href="#" class="stile">
+                    <a href="../php/faq.php" class="stile">
                         <div class="header_menu_link" title="Faq">
                             <span class="material-symbols-outlined">quiz</span>FAQ
                         </div>
@@ -93,7 +94,7 @@ $utente = $_SESSION['utente'];
                     </a>
                 </div>
                 <div class="header_menu_item">
-                    <a href="#" class="stile">
+                    <a href="../php/faq.php" class="stile">
                         <div class="header_menu_link" title="Faq">
                             <span class="material-symbols-outlined">quiz</span>FAQ
                         </div>
@@ -158,7 +159,7 @@ $utente = $_SESSION['utente'];
                     </a>
                 </div>
                 <div class="header_menu_item">
-                    <a href="#" class="stile">
+                    <a href="../php/faq.php" class="stile">
                         <div class="header_menu_link" title="Faq">
                             <span class="material-symbols-outlined">quiz</span>FAQ
                         </div>
@@ -195,7 +196,7 @@ $utente = $_SESSION['utente'];
             </div>
         </header>
         <?php
-    }
+    }}
     else {
         ?>
         <header class="header">
@@ -214,7 +215,7 @@ $utente = $_SESSION['utente'];
                     </a>
                 </div>
                 <div class="header_menu_item">
-                    <a href="#" class="stile">
+                    <a href="../php/faq.php" class="stile">
                         <div class="header_menu_link" title="Faq">
                             <span class="material-symbols-outlined">quiz</span>FAQ
                         </div>

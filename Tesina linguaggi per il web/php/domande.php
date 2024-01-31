@@ -8,6 +8,9 @@
         <link rel="stylesheet" href="../css/style_search.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
         <link rel="stylesheet" href="../css/style_header.css">
+        <?php
+        include('../res/header.php');
+        ?>
 </head>
 <body>
 
@@ -27,7 +30,7 @@ if(isset($_GET['tipologia']) && isset($_GET['id_prodotto'])){
 
 <?php
        require_once('../res/connection.php');
-session_start();
+ 
 
 if (!isset($_SESSION['email'])) {
     // L'utente non è autenticato, puoi reindirizzarlo alla pagina di login o fare altre azioni

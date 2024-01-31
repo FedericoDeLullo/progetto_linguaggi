@@ -15,7 +15,7 @@
     
 <div class="cont">
 <?php
-session_start();
+ 
 
 if (!isset($_SESSION['loggato'])) {
     header("Location: login_cliente.php");

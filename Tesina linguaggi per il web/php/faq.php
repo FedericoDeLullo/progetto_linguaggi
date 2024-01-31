@@ -18,7 +18,7 @@
 <?php
 
 require_once('../res/connection.php');
-session_start();
+ 
 
 // Assicurati di avere l'ID dell'utente dalla sessione o da un'altra fonte
 if (isset($_SESSION['id'])) {
@@ -42,7 +42,7 @@ $faq_id = uniqid();
         <td>
             <form action="processa_domanda.php" method="post">
                 <label class="big" for="faq_question">Fai una domanda:</label>
-                <textarea id="faq_question" name="faq_question" rows="4"style="width: 500px; height: 50px;" required></textarea>
+                <input class="input" name="faq_question" rows="4"style="width: 500px; height: 50px;" required></input>
 
                 <!-- Includi l'ID della domanda come campo nascosto -->
                 <input type="hidden" name="faq_id" value="<?php echo $faq_id; ?>">
@@ -50,7 +50,7 @@ $faq_id = uniqid();
                 <!-- Includi l'ID dell'utente come campo nascosto -->
                 <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
 
-                <button type="submit">Invia Domanda FAQ</button>
+                <button class="btn" type="submit">Invia Domanda FAQ</button>
             </form>
         </td>
     </tr>
@@ -99,11 +99,11 @@ if (file_exists($xmlFile)) {
                 echo '<form action="processa_risposta.php" method="post">';
                 echo "<input type='hidden' name='faq_id' value='$id'>";
                 echo '<label class="big" for="answer">Lascia una risposta:</label>';
-                echo '<textarea id="answer" name="answer" rows="4" style="width: 500px; height: 50px;" required></textarea>';              
+                echo '<input class="input" name="answer" rows="4" style="width: 500px; height: 50px;" required></input>';              
                 echo "<input type='hidden' name='email' value='$email'>";
                 
 
-                echo '<button type="submit">Invia Risposta</button>';
+                echo '<button class="btn" type="submit">Invia Risposta</button>';
                 echo '</form>';
                 echo "</td>";
                 echo "</tr>";

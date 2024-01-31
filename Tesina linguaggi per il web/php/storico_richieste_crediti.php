@@ -14,7 +14,7 @@
 <body>
 
     <?php
-    session_start();
+     
 
     // Verifica se l'utente è loggato
     if (!isset($_SESSION['loggato'])) {

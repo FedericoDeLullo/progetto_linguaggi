@@ -14,6 +14,7 @@
                 $row = $result->fetch_array(MYSQLI_ASSOC);
                 if($password === $row['passwd'] && $codice==$codice_admin){
                     session_start();
+
                     $_SESSION['loggato'] = true;
                     $_SESSION['id'] = $row['id'];
                     $_SESSION['email'] = $row['email'];

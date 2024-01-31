@@ -13,7 +13,7 @@
             if($result->num_rows === 1){
                 $row = $result->fetch_array(MYSQLI_ASSOC);
                 if($password === $row['passwd'] && $codice==$codice_gestore){
-                    session_start();
+                     session_start();
                     $_SESSION['loggato'] = true;
                     $_SESSION['id'] = $row['id'];
                     $_SESSION['email'] = $row['email'];

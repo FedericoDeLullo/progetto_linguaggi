@@ -15,7 +15,7 @@
 
 <div class="cont">
 <?php
-session_start(); // Assicurati di iniziare la sessione se non lo hai già fatto
+  // Assicurati di iniziare la sessione se non lo hai già fatto
 
 if (isset($_GET['tipologia']) && isset($_GET['id_prodotto'])) {
     $tipologia = $_GET['tipologia'];

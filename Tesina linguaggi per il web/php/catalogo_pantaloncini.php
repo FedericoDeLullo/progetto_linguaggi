@@ -1,6 +1,6 @@
 <?php
 require_once('../res/connection.php');
-session_start();
+ 
 
 if(isset($_SESSION['loggato'])){   
     ?>
@@ -89,10 +89,15 @@ if(isset($_SESSION['loggato'])){
             
             // Stampa le informazioni del prodotto
             echo '<div class="prodotto">';
-            echo '<h1 class="nome">' . $nome . '<a title="Lascia una recensione" href="recensione_cliente.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'"><span id="rev" class="material-symbols-outlined">note_stack_add</span></a><a title="Recensioni prodotto" href="lista_recensioni.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'"><span id="add" class="material-symbols-outlined">reviews</span></a></h1>';
-            echo '<p class="des">' . $descrizione . '</p>';
+            echo '<h1 class="nome"><a title="Lista delle domande" href="domande.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">
+            <span id="simbolo_recensione" class="material-symbols-outlined">question_mark</span></a><a title="Lascia una domanda" href="domande_prodotti.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">
+            <span id="simbolo_recensione" class="material-symbols-outlined">rate_review</span></a>' . $nome . '<a title="Lascia una recensione" href="recensione_cliente.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">
+            <span id="simbolo_recensione" class="material-symbols-outlined">note_stack_add</span></a>
+            <a title="Lista delle recensioni" href="lista_recensioni.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'"">
+            <span id="simbolo_recensione" class="material-symbols-outlined">reviews</span></a></h1>';            echo '<p class="des">' . $descrizione . '</p>';
             echo '<p class="prezzo">Prezzo: ' . $prezzo . '€</p>';
             echo '<div class="box">';
+            echo '<a href="domande_prodotti.php?id_prodotto=' . $id_prodotto . '&nome=' . urlencode($nome) . '&tipologia=' . urlencode($tipologia) . '&id=' . $id_utente . '">';
             echo '<img class="img" src="' . $immagine . '" alt="' . $nome . '">';
             echo '</div>';
             echo '<a href="../php/carrello.php"><span id="cart" class="material-symbols-outlined">add_shopping_cart</span></a>';

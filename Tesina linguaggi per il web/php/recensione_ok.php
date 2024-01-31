@@ -22,7 +22,7 @@
     <h1 class="titolo">Recensione aggiunta con successo</h1>
     
     <div class="contenitore">
-        <a href="catalogo_utente_<?php echo $tipologia; ?>.php"> <button class="btn">Ritorna al catalogo</button></a>
+        <a href="catalogo_<?php echo $tipologia; ?>.php"> <button class="btn">Ritorna al catalogo</button></a>
     </div>
 
   </div>

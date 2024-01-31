@@ -15,13 +15,24 @@
         <id_domanda>65ba23ea25ef4</id_domanda>
         <utilita>
           <valore id_utente="4" reputazione_Vot="11">1</valore>
+          <valore id_utente="2" reputazione_Vot="1">1</valore>
         </utilita>
         <supporto>
           <valore id_utente="4" reputazione_Vot="11">1</valore>
+          <valore id_utente="2" reputazione_Vot="1">2</valore>
         </supporto>
+        <risposte>
+          <risposta id_prodotto="1" id_utente="2">
+            <id_risposta>65ba59cc2f1d5</id_risposta>
+            <autore>federico@gmail.com</autore>
+            <data>2024-01-31</data>
+            <ora>15:31:40</ora>
+            <testo>ituyhi</testo>
+          </risposta>
+        </risposte>
       </domanda>
     </domande>
-  </prodotto>
+  <recensioni><recensione id_prodotto="1"><autore>federico@gmail.com</autore><testo>jtrhtgjfvhgbnkjl</testo><data>2024-01-31</data><ora>15:32:35</ora><id_recensione>65ba5a05f3cd1</id_recensione><utilita id_utente="0"><valore>0</valore></utilita><supporto id_utente="0"><valore>0</valore></supporto><utilita id_utente=""><valore>1</valore></utilita><supporto id_utente=""><valore>2</valore></supporto></recensione></recensioni></prodotto>
   <prodotto>
     <id_prodotto>2</id_prodotto>
     <nome>Maglia Rugby Italia 2022-2023 </nome>

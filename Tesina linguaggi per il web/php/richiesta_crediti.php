@@ -1,17 +1,3 @@
-<?php
-session_start();
-
-if (!isset($_SESSION['loggato'])) {
-    header("Location: login_cliente.php");
-    exit();
-}
-
-$email = $_SESSION['email'];
-$crediti = $_SESSION['crediti'];
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,6 +12,22 @@ $crediti = $_SESSION['crediti'];
     ?>
 </head>
 <body>
+
+<?php
+ 
+
+if (!isset($_SESSION['loggato'])) {
+    header("Location: login_cliente.php");
+    exit();
+}
+
+$email = $_SESSION['email'];
+$crediti = $_SESSION['crediti'];
+
+
+?>
+
+
 
 <div class="cont">
 <h1 class="titolo">Richiesta di Ricarica Crediti</h1>
