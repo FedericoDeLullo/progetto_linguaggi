@@ -1,5 +1,5 @@
 <?php
-require_once('../res/connection.php');
+require_once('connection.php');
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['action'])) {
         $action = $_POST['action'];
@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $query = "UPDATE utenti SET ban = '$newBanValue' WHERE id = $id_utente";
                     
                 if ($connessione->query($query) === TRUE) {
-                   header("Location:gestione_utenti.php");
+                   header("Location: ../php/gestione_utenti.php");
             
                 } else {
                     echo 'Errore durante il salvataggio delle modifiche: ' . $connessione->error;
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         } elseif ($action === 'Rifiuta') {
             // Se l'azione è "Rifiuta", non fare nulla e reindirizza alla pagina iniziale
-            header("Location: gestione_utenti.php");
+            header("Location: ../php/gestione_utenti.php");
             exit;
         } 
     }}

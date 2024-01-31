@@ -1,6 +1,6 @@
 <?php
 
-require_once('../res/connection.php');
+require_once('connection.php');
 session_start();
 $xmlFile = '../xml/catalogo_prodotti.xml';
 
@@ -10,21 +10,20 @@ $dom->preserveWhiteSpace = false;
 $dom->load($xmlFile);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['vota'])) {
-    $id_risposta = $_POST['id_risposta'];
+    $id_domanda = $_POST['id_domanda'];
     $votoUtilita = $_POST['votoUtilita'];
     $votoSupporto = $_POST['votoSupporto'];
     $id_prodotto = $_POST['id_prodotto'];
     $tipologia = $_POST['tipologia'];
     $id_utente = $_SESSION['id'];
-    $nome = $_POST['nome'];
 
-    // Trova la risposta con l'id_risposta specificato
+    // Trova la domanda con l'id_domanda specificato
     $xpath = new DOMXPath($dom);
-    $rispostaNode = $xpath->query("//risposta[id_risposta='$id_risposta']")->item(0);
+    $domandaNode = $xpath->query("//domanda[id_domanda='$id_domanda']")->item(0);
 
-    // Verifica se la risposta esiste prima di procedere
-    if ($rispostaNode) {
-        $id_utente_risp = $rispostaNode->getAttribute("id_utente");
+    // Verifica se la domanda esiste prima di procedere
+    if ($domandaNode) {
+        $id_utente_dom = $domandaNode->getAttribute("id_utente");
 
         $sql = "SELECT reputazione FROM utenti WHERE id = $id_utente";
         $result = $connessione->query($sql);
@@ -37,39 +36,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['vota'])) {
             $reputazioneUtente = $row['reputazione'];
         }
 
-        // Ottieni o crea i nodi "utilita" e "supporto" all'interno della risposta
-        $utilitaNode = $rispostaNode->getElementsByTagName("utilita")->item(0);
+        // Ottieni o crea i nodi "utilita" e "supporto"
+        $utilitaNode = $domandaNode->getElementsByTagName("utilita")->item(0);
         if (!$utilitaNode) {
-            $utilitaNode = $rispostaNode->appendChild($dom->createElement("utilita"));
+            $utilitaNode = $domandaNode->appendChild($dom->createElement("utilita"));
         }
 
-        $supportoNode = $rispostaNode->getElementsByTagName("supporto")->item(0);
+        $supportoNode = $domandaNode->getElementsByTagName("supporto")->item(0);
         if (!$supportoNode) {
-            $supportoNode = $rispostaNode->appendChild($dom->createElement("supporto"));
+            $supportoNode = $domandaNode->appendChild($dom->createElement("supporto"));
         }
 
-        // Aggiungi o aggiorna il nodo "valore" per "utilita"
-        $valoreUtilitaNode = $utilitaNode->getElementsByTagName("valore")->item(0);
-        if (!$valoreUtilitaNode) {
-            $valoreUtilitaNode = $utilitaNode->appendChild($dom->createElement("valore"));
+        // Aggiungi un nuovo nodo "valore" per "utilita"
+        $valoreUtilitaNode = $utilitaNode->appendChild($dom->createElement("valore"));
 
-            // Imposta l'attributo "id_utente" per "utilita"
-            $valoreUtilitaNode->setAttribute("id_utente", $id_utente);
-            $valoreUtilitaNode->setAttribute("reputazione_Vot", $reputazioneUtente);
-        }
+        // Imposta l'attributo "id_utente" per "utilita"
+        $valoreUtilitaNode->setAttribute("id_utente", $id_utente);
+        $valoreUtilitaNode->setAttribute("reputazione_Vot", $reputazioneUtente);
 
         // Imposta il valore di "valore" per "utilita"
         $valoreUtilitaNode->nodeValue = $votoUtilita;
 
-        // Aggiungi o aggiorna il nodo "valore" per "supporto"
-        $valoreSupportoNode = $supportoNode->getElementsByTagName("valore")->item(0);
-        if (!$valoreSupportoNode) {
-            $valoreSupportoNode = $supportoNode->appendChild($dom->createElement("valore"));
+        // Aggiungi un nuovo nodo "valore" per "supporto"
+        $valoreSupportoNode = $supportoNode->appendChild($dom->createElement("valore"));
 
-            // Imposta l'attributo "id_utente" per "supporto"
-            $valoreSupportoNode->setAttribute("id_utente", $id_utente);
-            $valoreSupportoNode->setAttribute("reputazione_Vot", $reputazioneUtente);
-        }
+        // Imposta l'attributo "id_utente" per "supporto"
+        $valoreSupportoNode->setAttribute("id_utente", $id_utente);
+        $valoreSupportoNode->setAttribute("reputazione_Vot", $reputazioneUtente);
 
         // Imposta il valore di "valore" per "supporto"
         $valoreSupportoNode->nodeValue = $votoSupporto;
@@ -105,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['vota'])) {
         // Calcola il risultato finale
         $risultatoFinale = (10/8) * ($sommaVotiUtilitaSupporto / $sommaReputazioni);
 
-        $query = "SELECT reputazione FROM utenti WHERE id = $id_utente_risp";
+        $query = "SELECT reputazione FROM utenti WHERE id = $id_utente_dom";
         $result = $connessione->query($query);
 
         if ($result->num_rows == 1) {
@@ -119,11 +112,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['vota'])) {
             $reputazioneUtenteDom = $risultatoFinale;
 
             // Ora puoi aggiornare la reputazione nel database
-            $updateQuery = "UPDATE utenti SET reputazione = $reputazioneUtenteDom WHERE id = $id_utente_risp";
+            $updateQuery = "UPDATE utenti SET reputazione = $reputazioneUtenteDom WHERE id = $id_utente_dom";
             $connessione->query($updateQuery);
 
-            header("Location: domande.php?id_prodotto=" . $id_prodotto . "&tipologia=" . $tipologia . "&nome=" . $nome);
+            header("Location: ../php/domande.php?id_prodotto=" . $id_prodotto . "&tipologia=" . $tipologia . "&nome=" . $nome);
         }
     }
 }
 ?>
+

@@ -7,61 +7,11 @@
     <link rel="stylesheet" href="../css/style_standard.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="../css/style_header.css">
+    <?php
+        include('../res/header.php');
+    ?>
 </head>
 <body>
-
-<header class="header">
-    <div class="header_menu">  
-        <div class="header_menu_item">
-            <a href="../html/index_cliente.html">
-                <img class="logo" src="../img/logo.PNG">
-                <span class="logo-text">RugbyWorld</span>
-            </a>        
-        </div>
-        <div class="header_menu_item">
-            <a href="catalogo_utente_magliette.php" class="stile">
-                <div class="header_menu_link" title="Catalogo">
-                    <span class="material-symbols-outlined">receipt_long</span>CATALOGO
-                </div>
-            </a>
-        </div>
-        <div class="header_menu_item">
-            <a href="#" class="stile">
-                <div class="header_menu_link" title="Faq">
-                    <span class="material-symbols-outlined">quiz</span>FAQ
-                </div>
-            </a>
-        </div>
-        <div class="header_menu_item">
-            <a href="gestione_profilo.php" class="stile">
-                <div class="header_menu_link" title="Profilo">
-                    <span class="material-symbols-outlined">group</span>PROFILO
-                </div>
-            </a>
-        </div>
-        <div class="header_menu_item">
-          <a href="../html/gestione_crediti.html" class="stile">
-              <div class="header_menu_link" title="Gestione Crediti">
-                  <span class="material-symbols-outlined">monetization_on</span>GESTIONE CREDITI
-              </div>
-          </a>
-      </div>
-        <div class="header_menu_item">
-            <a href="../res/logout.php" class="stile">                   
-                <div class="header_menu_link" title="Logout">
-                    <span class="material-symbols-outlined">logout</span>LOGOUT
-                </div>
-            </a>
-        </div>
-        <div class="header_menu_item">
-            <a href="#" class="stile">                   
-                <div class="header_menu_link" title="Carrello">
-                    <span class="material-symbols-outlined">shopping_cart</span>CARRELLO
-                </div>
-            </a>
-        </div>
-    </div>
-</header>
 
 <div class="cont">
 <?php
@@ -115,7 +65,7 @@ if ($recensioni->length > 0) {
         // Verifica se l'utente ha già votato questa recensione
         if ($utilitaValue == 0 && $supportoValue == 0) {
             // Se l'utente non ha ancora votato, mostra i pulsanti per il voto
-            echo '<form action="utilita_supporto.php" method="post">';
+            echo '<form action="../res/utilita_supporto.php" method="post">';
             echo '<input type="hidden" name="id_recensione" value="' . $id_recensione . '"/>';
             echo '<input type="hidden" name="id_prodotto" value="' . $id_prodotto . '"/>';
             echo '<input type="hidden" name="tipologia" value="' . $tipologia . '"/>';

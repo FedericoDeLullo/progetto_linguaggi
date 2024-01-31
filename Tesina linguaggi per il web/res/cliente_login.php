@@ -14,7 +14,7 @@
                 if($password === $row['passwd']){
                     // Verifica il campo 'ban'
                     if($row['ban'] == 1){
-                        header("Location: ../html/utente_bannato.html"); // Reindirizza a pagina di errore ban
+                        header("Location: ../php/utente_bannato.php"); // Reindirizza a pagina di errore ban
                         exit;
                     }
 
@@ -29,13 +29,13 @@
                     
 
 
-                    header("Location: ../html/index_cliente.html");
+                    header("Location: ../php/index.php");
                 } else {
-                    header("Location: ../html/login_ko.html");
+                    header("Location: ../php/login_ko.php");
                     exit;
                 }
             } else {
-                header("Location: ../html/login_ko.html");
+                header("Location: ../php/login_ko.php");
                 exit;
             }
         } else {

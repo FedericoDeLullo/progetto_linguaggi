@@ -8,20 +8,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Domande</title>
+    <title>Area privata</title>
     <?php
         include('../res/header.php');
     ?>
 </head>
 <body>
-    <?php 
-    if(isset($_GET['tipologia'])){
-        $tipologia = $_GET['tipologia'];
-    }
-    ?>
-    <div class="cont">
-        <h1 class="titolo">Domanda aggiunta con successo!</h1>
+
+<div class="cont">
+    <div>
+        <h1 class="titolo">Errore in fase di login...</h1>
     </div>
+</div>
+
 </body>
 </html>
-          

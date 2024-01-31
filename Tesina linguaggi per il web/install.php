@@ -44,7 +44,7 @@ $sql = "CREATE TABLE IF NOT EXISTS utenti (
 )";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'utenti' creata correttamente\n";
-    header("Location:html/index.html");
+    header("Location:php/index.php");
 } else {
     echo "Errore durante la creazione della tabella 'utenti': " . $connessione->error;
 }

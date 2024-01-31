@@ -21,15 +21,15 @@
                     $_SESSION['utente'] = $row['utente'];
                     $_SESSION['gestore'] = $row['gestore'];
                     $_SESSION['ammin'] = $row['ammin'];
-                    header("Location: ../php/index_admin.php");
+                    header("Location: ../php/index.php");
                 }
                 else{
-                    header("Location: ../html/login_ko.html");
+                    header("Location: ../php/login_ko.php");
                     exit;
                 }
             }
             else{
-                header("Location: ../html/login_ko.html");
+                header("Location: ../php/login_ko.php");
                 exit;
             }
 

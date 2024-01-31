@@ -18,7 +18,7 @@
     $ban=0;
 
     if(empty($nome) || empty($email) || empty($password) || empty($cognome) || empty($data_di_nascita) || empty($codice_fiscale) || empty($indirizzo_di_residenza) ||empty($cellulare)) {
-            header("Location: ../html/registrazione_fallita.html");
+            header("Location: ../php/registrazione_fallita.php");
             exit;
     }
             
@@ -26,9 +26,9 @@
     
 try {
       $connessione->query($sql);
-      header("Location: ../html/login_cliente.html");
+      header("Location: ../php/login_cliente.php");
 } catch (Exception $e) {
-    header("Location: ../html/registrazione_ko.html");
+    header("Location: ../php/registrazione_ko.php");
     exit;
 }
     

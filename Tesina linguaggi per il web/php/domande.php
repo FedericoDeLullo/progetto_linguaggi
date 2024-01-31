@@ -31,7 +31,7 @@ session_start();
 
 if (!isset($_SESSION['email'])) {
     // L'utente non è autenticato, puoi reindirizzarlo alla pagina di login o fare altre azioni
-    header("Location: ../html/login_cliente.html");
+    header("Location: login_cliente.php");
     exit();
 }else{
     $email = $_SESSION['email'];
@@ -92,7 +92,7 @@ if ($domande->length > 0) {
         }  else {
          // Colonna per i pulsanti di voto delle domande
         echo '<td class="voting-buttons">';
-        echo '<form action="domande_utilita_supporto.php" method="post">';
+        echo '<form action="../res/domande_utilita_supporto.php" method="post">';
         echo '<input type="hidden" name="id_domanda" value="' . $id_domanda . '"/>';
         echo '<input type="hidden" name="id_prodotto" value="' . $id_prodotto . '"/>';
         echo '<input type="hidden" name="tipologia" value="' . $tipologia . '"/>';
@@ -171,7 +171,7 @@ if ($domande->length > 0) {
         }  else {
                 // Colonna per i pulsanti di voto delle risposte
                 echo '<div class="voting-buttons">';
-                echo '<form action="risposte_utilita_supporto.php" method="post">';
+                echo '<form action="../res/risposte_utilita_supporto.php" method="post">';
                 echo '<input type="hidden" name="id_domanda" value="' . $id_domanda . '"/>';
                 echo '<input type="hidden" name="id_risposta" value="' . $id_risposta . '"/>';
                 echo '<input type="hidden" name="id_prodotto" value="' . $id_prodotto . '"/>';

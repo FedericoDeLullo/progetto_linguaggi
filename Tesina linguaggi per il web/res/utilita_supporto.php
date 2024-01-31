@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['vota'])) {
         $dom->save($xmlFile);
 
         // Reindirizza alla pagina delle recensioni
-        header("Location: lista_recensioni.php?id_prodotto=" . $id_prodotto . "&nome=" . $nome . "&tipologia=" . $tipologia);
+        header("Location: ../php/lista_recensioni.php?id_prodotto=" . $id_prodotto . "&nome=" . $nome . "&tipologia=" . $tipologia);
     }
 }
 ?>
