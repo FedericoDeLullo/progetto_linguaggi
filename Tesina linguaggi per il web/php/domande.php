@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recensioni Prodotti</title>
+    <link rel="stylesheet" href="../css/style_standard.css">
     <link rel="stylesheet" href="../css/style_catalogo.css">
         <link rel="stylesheet" href="../css/style_search.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
@@ -21,12 +22,6 @@ if(isset($_GET['tipologia']) && isset($_GET['id_prodotto'])){
     $nome = $_GET['nome'];
 }
 ?>
-
-<div class="home">
-    <a href="catalogo_utente_<?php echo $tipologia; ?>.php">             
-        <span id="casa" class="material-symbols-outlined">home</span>
-    </a>
-</div>
 
 <?php
        require_once('../res/connection.php');
@@ -58,7 +53,7 @@ if(isset($_SESSION['id'])){
 
 
 if ($domande->length > 0) {
-    echo '<h1>Domande Prodotto: ' . $nome . '</h1>';
+    echo '<h1 class="titolo">Domande Prodotto: ' . $nome . '</h1>';
     echo '<table>';
 
 
@@ -106,7 +101,7 @@ if ($domande->length > 0) {
         echo '<label for="votoSupporto">Supporto (da 1 a 3): </label>';
         echo '<input type="number" name="votoSupporto" min="1" max="3" required/>';
     
-        echo '<button type="submit" name="vota"><span id="done" title="Invia" class="material-symbols-outlined">
+        echo '<button class="done" type="submit" name="vota"><span id="done" title="Invia" class="material-symbols-outlined">
         done_outline
         </span></button>';
         echo '</form>';
@@ -121,14 +116,11 @@ if ($domande->length > 0) {
         echo '<input type="hidden" name="nome" value="' . $nome . '"/>';            
         echo '<input type="hidden" name="autore" value="' . $email . '"/>';
         echo '<input type="hidden" name="id_domanda" value="' . $id_domanda . '"/>';
-        echo '<textarea class="text" name="risposta" rows="2" cols="30" placeholder="Inserisci la risposta" required></textarea>';
-        echo '<div class="send">';
-        echo '<input class="button" type="submit" value="Invia risposta">';
-        echo '</div>';
+        echo '<input class="input" name="risposta" rows="2" cols="30" placeholder="Inserisci la risposta" required></input>';
+        echo '<button class="btn" type="submit">Invia risposta</button>';
+        
+
         echo '</form>';
-    
-       
-    
         echo '</tr>';
     
         // Mostra le risposte
@@ -182,11 +174,9 @@ if ($domande->length > 0) {
                 echo '<input type="hidden" name="nome" value="' . $nome . '"/>';            
                 echo '<label class="uti" for="votoUtilita">Utilità (da 1 a 5): </label>';
                 echo '<input class="util" type="number" name="votoUtilita" min="1" max="5" required/><br>';
-        
                 echo '<label for="votoSupporto">Supporto (da 1 a 3): </label>';
                 echo '<input type="number" name="votoSupporto" min="1" max="3" required/>';
-        
-                echo '<button type="submit" name="vota"><span id="done" title="Invia" class="material-symbols-outlined">
+                echo '<button class="done" type="submit" name="vota"><span  class="material-symbols-outlined">
                 done_outline
                 </span></button>';
                 echo '</form>';

@@ -44,7 +44,7 @@ if(isset($_SESSION['loggato'])){
             </table>
             <?php
             require_once('../res/connection.php');
-            if(isset($_SESSION['id'])){
+            if(isset($_SESSION['loggato'])){
             $id_utente = $_SESSION['id'];
             }
 
