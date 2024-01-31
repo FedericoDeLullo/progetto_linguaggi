@@ -292,7 +292,9 @@ echo '<h1 class="nome">' . $nome . '<a title="Lascia una recensione" href="recen
 echo '<p class="des">' . $descrizione . '</p>';
 echo '<p class="prezzo">Prezzo: ' . $prezzo . '€</p>';
 echo '<div class="box">';
+echo '<a href="domande.php?id_prodotto=' . $id_prodotto . '&nome=' . urlencode($nome) . '&tipologia=' . urlencode($tipologia) . '&id=' . $id_utente . '">';
 echo '<img class="img" src="' . $immagine . '" alt="' . $nome . '">';
+echo '</a>';
 echo '</div>';
 echo '<a href="../php/carrello.php"><span id="cart" class="material-symbols-outlined">add_shopping_cart</span></a>';
 echo '</div>';

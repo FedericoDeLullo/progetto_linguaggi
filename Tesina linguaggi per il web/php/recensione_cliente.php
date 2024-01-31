@@ -75,6 +75,8 @@
         $tipologia = $_GET['tipologia'];
         $id_utente = $_GET ['id'];
 ?>
+
+
     <h1 class="titolo">Lascia una recensione per <?php echo $nome_prodotto; ?>:</h1>
     <table>
         <tr>

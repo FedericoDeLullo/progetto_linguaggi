@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recensioni Prodotti</title>
-    <link rel="stylesheet" href="../css/style_domande_risposte.css"> <!-- Aggiungi il percorso corretto al tuo file CSS -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="../css/style_catalogo.css">
+        <link rel="stylesheet" href="../css/style_search.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+        <link rel="stylesheet" href="../css/style_header.css">
 </head>
 <body>
 

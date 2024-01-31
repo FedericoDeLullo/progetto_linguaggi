@@ -3,11 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fai una Domanda</title>
-    <link rel="stylesheet" href="../css/style_catalogo.css"> <!-- Sostituisci con il percorso corretto al tuo file CSS -->
+    <title>Fai una Domanda</title>   
+     <link rel="stylesheet" href="../css/style_standard.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="../css/style_header.css">
 </head>
 <body>
+    
+<header class="header">
+    <div class="header_menu">  
+        <div class="header_menu_item">
+            <a href="../html/index_cliente.html">
+                <img class="logo" src="../img/logo.PNG">
+                <span class="logo-text">RugbyWorld</span>
+            </a>        
+        </div>
+        <div class="header_menu_item">
+            <a href="catalogo_utente_magliette.php" class="stile">
+                <div class="header_menu_link" title="Catalogo">
+                    <span class="material-symbols-outlined">receipt_long</span>CATALOGO
+                </div>
+            </a>
+        </div>
+        <div class="header_menu_item">
+            <a href="#" class="stile">
+                <div class="header_menu_link" title="Faq">
+                    <span class="material-symbols-outlined">quiz</span>FAQ
+                </div>
+            </a>
+        </div>
+        <div class="header_menu_item">
+            <a href="gestione_profilo.php" class="stile">
+                <div class="header_menu_link" title="Profilo">
+                    <span class="material-symbols-outlined">group</span>PROFILO
+                </div>
+            </a>
+        </div>
+        <div class="header_menu_item">
+          <a href="../html/gestione_crediti.html" class="stile">
+              <div class="header_menu_link" title="Gestione Crediti">
+                  <span class="material-symbols-outlined">monetization_on</span>GESTIONE CREDITI
+              </div>
+          </a>
+      </div>
+        <div class="header_menu_item">
+            <a href="../res/logout.php" class="stile">                   
+                <div class="header_menu_link" title="Logout">
+                    <span class="material-symbols-outlined">logout</span>LOGOUT
+                </div>
+            </a>
+        </div>
+        <div class="header_menu_item">
+            <a href="#" class="stile">                   
+                <div class="header_menu_link" title="Carrello">
+                    <span class="material-symbols-outlined">shopping_cart</span>CARRELLO
+                </div>
+            </a>
+        </div>
+    </div>
+</header>
+
 
 <?php
 require_once('../res/connection.php');
@@ -21,25 +76,22 @@ if (isset($_GET['id_prodotto'])) {
     $tipologia = $_GET['tipologia'];
     $id_utente = $_GET['id'];
     ?>
-    <div class="home">
-        <a href="catalogo_utente_<?php echo $tipologia; ?>.php">
-            <span id="casa" class="material-symbols-outlined">home</span>
-        </a>
-    </div>
+   
+   <h1 class="titolo">Fai una domanda per <?php echo $nome_prodotto; ?>:</h1>
 
-    <form class="dom" method="post" action="domande_prodotti.php">
+   <table>
+        <tr>
+            <td colspan="2">
+    <form class="form" method="post" action="domande.php">
         <input type="hidden" name="id_prodotto" value="<?php echo $id_prodotto; ?>">
         <input type="hidden" name="tipologia" value="<?php echo $tipologia; ?>">
         <input type="hidden" name="autore" value="<?php echo $email_utente; ?>">
-        <div class="que">
-            <label for="domanda">Fai una domanda su: <?php echo $nome_prodotto; ?>:</label>
-        </div>
-        <textarea class="text" name="domanda" rows="4" cols="50" required></textarea>
-        <div class="send">
-            <input class="button" type="submit" value="Invia Domanda">
-        </div>
+        <textarea class="input" name="domanda" rows="4" cols="50" required></textarea>
+            <input class="btn" type="submit" value="Invia Domanda">
     </form>
-
+    </td>
+        </tr>
+    </table>
 <?php
 } else {
     echo 'ID del prodotto mancante.';

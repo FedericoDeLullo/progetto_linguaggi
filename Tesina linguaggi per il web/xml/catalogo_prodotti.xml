@@ -1,3 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalogo_prodotti xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="catalogo_prodotti.xsd">
-<prodotto><id_prodotto>1</id_prodotto><nome>hk</nome><descrizione>uhk</descrizione><prezzo>85</prezzo><tipologia>magliette</tipologia><immagine>../img/images-removebg-preview.png</immagine><recensioni><recensione id_prodotto="1"><autore>federico@gmail.com</autore><testo>ghbjn</testo><data>2023-12-08</data><ora>13:28:51</ora><id_recensione>65730c05cf25a</id_recensione><utilita id_utente="1"><valore>2</valore></utilita><supporto id_utente="1"><valore>3</valore></supporto><utilita id_utente="2"><valore>1</valore></utilita><supporto id_utente="2"><valore>3</valore></supporto><utilita id_utente="2"><valore>2</valore></utilita><supporto id_utente="2"><valore>2</valore></supporto><utilita id_utente="2"><valore>2</valore></utilita><supporto id_utente="2"><valore>2</valore></supporto></recensione><recensione id_prodotto="1"><autore>federico@gmail.com</autore><testo>fsd</testo><data>2023-12-08</data><ora>14:07:52</ora><id_recensione>6573152b15d18</id_recensione><utilita id_utente="0"><valore>0</valore></utilita><supporto id_utente="0"><valore>0</valore></supporto><utilita id_utente="2"><valore>2</valore></utilita><supporto id_utente="2"><valore>2</valore></supporto><utilita id_utente="2"><valore>2</valore></utilita><supporto id_utente="2"><valore>3</valore></supporto><utilita id_utente=""><valore>2</valore></utilita><supporto id_utente=""><valore>3</valore></supporto><utilita id_utente=""><valore>1</valore></utilita><supporto id_utente=""><valore>2</valore></supporto><utilita id_utente=""><valore>1</valore></utilita><supporto id_utente=""><valore>1</valore></supporto></recensione></recensioni></prodotto><prodotto><id_prodotto>2</id_prodotto><nome>rrfrfrf</nome><descrizione>gerfewdqw</descrizione><prezzo>98765</prezzo><tipologia>magliette</tipologia><immagine>../img/images-removebg-preview.png</immagine><recensioni><recensione id_prodotto="2"><autore>fede@gmail.com</autore><testo>tdfyguhjkj</testo><data>2024-01-30</data><ora>16:07:32</ora><id_recensione>65b910b7c6ab3</id_recensione><utilita id_utente="0"><valore>0</valore></utilita><supporto id_utente="0"><valore>0</valore></supporto><utilita id_utente=""><valore>2</valore></utilita><supporto id_utente=""><valore>1</valore></supporto><utilita id_utente=""><valore>2</valore></utilita><supporto id_utente=""><valore>1</valore></supporto></recensione></recensioni></prodotto></catalogo_prodotti>
+  <prodotto>
+    <id_prodotto>1</id_prodotto>
+    <nome>Maglia Rugby Italia 2022-2023 </nome>
+    <descrizione>Le caratteristiche tipiche di una maglietta da rugby includono collo a giro o a V, maniche lunghe o corte, e spesso la presenza del logo della federazione di rugby nazionale e del fornitore dell'abbigliamento sportivo. Il design può variare di anno in anno o in base agli eventi, ma spesso si riflette sulla storia e sulla cultura del paese.</descrizione>
+    <prezzo>100</prezzo>
+    <tipologia>magliette</tipologia>
+    <immagine>../img/rugby-removebg-preview.png</immagine>
+    <domande>
+      <domanda id_prodotto="1" id_utente="4">
+        <autore>fede@gmail.com</autore>
+        <testo>bello?&#13;
+</testo>
+        <id_domanda>65ba23ea25ef4</id_domanda>
+        <utilita>
+          <valore id_utente="4" reputazione_Vot="11">1</valore>
+        </utilita>
+        <supporto>
+          <valore id_utente="4" reputazione_Vot="11">1</valore>
+        </supporto>
+      </domanda>
+    </domande>
+  </prodotto>
+  <prodotto>
+    <id_prodotto>2</id_prodotto>
+    <nome>Maglia Rugby Italia 2022-2023 </nome>
+    <descrizione>Le caratteristiche tipiche di una maglietta da rugby includono collo a giro o a V, maniche lunghe o corte, e spesso la presenza del logo della federazione di rugby nazionale e del fornitore dell'abbigliamento sportivo. Il design può variare di anno in anno o in base agli eventi, ma spesso si riflette sulla storia e sulla cultura del paese.</descrizione>
+    <prezzo>100</prezzo>
+    <tipologia>magliette</tipologia>
+    <immagine>../img/rugby-removebg-preview.png</immagine>
+  </prodotto>
+</catalogo_prodotti>
