@@ -1,6 +1,7 @@
 <?php
-require_once('connection.php');
 session_start();
+require_once('connection.php');
+
 if(isset($_SESSION['loggato'])){
 $id_utente = $_SESSION['id'];
 $gestore = $_SESSION['gestore'];
