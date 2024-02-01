@@ -100,7 +100,6 @@ if(isset($_SESSION['loggato'])){
                 echo '<tr>';
                     echo '<td class="td">';
                         echo '<div class="box">';
-                            echo '<a href="domande_prodotti.php?id_prodotto=' . $id_prodotto . '&nome=' . urlencode($nome) . '&tipologia=' . urlencode($tipologia) . '&id=' . $id_utente . '">';
                             echo '<img src="' . $immagine . '" alt="' . $nome . '">';
                         echo '</div>';
                     echo '</td>';
@@ -229,13 +228,22 @@ else {
                 
                 // Stampa le informazioni del prodotto
                 echo '<div class="prodotto">';
-                echo '<h1 class="nome">' . $nome . '</h1>';
-                echo '<p class="des">' . $descrizione . '</p>';
-                echo '<p class="prezzo">Prezzo: ' . $prezzo . '€</p>';
-                echo '<div class="box">';
-                echo '<img class="img" src="' . $immagine . '" alt="' . $nome . '">';
-                echo '</div>';
-                echo '<a href="login_menu.php"><span id="cart" class="material-symbols-outlined">add_shopping_cart</span></a>';
+                echo '<h1 class="nome">';
+                echo $nome;
+                echo '</h1>';
+                echo '<table class="table">';
+                    echo '<tr>';
+                        echo '<td class="td">';
+                            echo '<div class="box">';
+                                echo '<img src="' . $immagine . '" alt="' . $nome . '">';
+                            echo '</div>';
+                        echo '</td>';
+                        echo '<td class="td">';
+                            echo '<p class="des">' . $descrizione . '</p>';
+                            echo '<p class="prezzo">Prezzo: ' . $prezzo . '€</p>';
+                            echo '<a href="../php/carrello.php"><span id="cart" class="material-symbols-outlined">add_shopping_cart</span></a>';
+                    echo '</tr>';
+                echo '</table>';
                 echo '</div>';
             }
             ?>

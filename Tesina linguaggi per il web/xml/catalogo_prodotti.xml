@@ -25,6 +25,21 @@
           <valore id_utente="2" reputazione_Vot="8">2</valore>
         </supporto>
       </recensione>
+      <recensione id_prodotto="1" id_utente="2">
+        <autore>federico@gmail.com</autore>
+        <testo>Bellissima forza roma</testo>
+        <data>2024-02-01</data>
+        <ora>11:46:21</ora>
+        <id_recensione>65bb768745751</id_recensione>
+        <utilita>
+          <valore id_utente="2" reputazione_Vot="5">2</valore>
+          <valore id_utente="3" reputazione_Vot="11">3</valore>
+        </utilita>
+        <supporto>
+          <valore id_utente="2" reputazione_Vot="5">3</valore>
+          <valore id_utente="3" reputazione_Vot="11">3</valore>
+        </supporto>
+      </recensione>
     </recensioni>
     <domande>
       <domanda id_prodotto="1" id_utente="2">
@@ -35,11 +50,13 @@
           <valore id_utente="2" reputazione_Vot="8">4</valore>
           <valore id_utente="3" reputazione_Vot="11">2</valore>
           <valore id_utente="4" reputazione_Vot="6">2</valore>
+          <valore id_utente="1" reputazione_Vot="5">2</valore>
         </utilita>
         <supporto>
           <valore id_utente="2" reputazione_Vot="8">3</valore>
           <valore id_utente="3" reputazione_Vot="11">3</valore>
           <valore id_utente="4" reputazione_Vot="6">3</valore>
+          <valore id_utente="1" reputazione_Vot="5">1</valore>
         </supporto>
         <risposte>
           <risposta id_prodotto="1" id_utente="2">
@@ -52,14 +69,57 @@
               <valore id_utente="2" reputazione_Vot="9">3</valore>
               <valore id_utente="3" reputazione_Vot="11">1</valore>
               <valore id_utente="4" reputazione_Vot="6">2</valore>
+              <valore id_utente="1" reputazione_Vot="5">5</valore>
             </utilita>
             <supporto>
               <valore id_utente="2" reputazione_Vot="9">3</valore>
               <valore id_utente="3" reputazione_Vot="11">1</valore>
               <valore id_utente="4" reputazione_Vot="6">2</valore>
+              <valore id_utente="1" reputazione_Vot="5">3</valore>
+            </supporto>
+          </risposta>
+          <risposta id_prodotto="1" id_utente="2">
+            <id_risposta>65bb76aa775c1</id_risposta>
+            <autore>federico@gmail.com</autore>
+            <data>2024-02-01</data>
+            <ora>11:47:06</ora>
+            <testo>bella</testo>
+            <utilita>
+              <valore id_utente="2" reputazione_Vot="6">2</valore>
+              <valore id_utente="1" reputazione_Vot="5">1</valore>
+              <valore id_utente="3" reputazione_Vot="11">2</valore>
+            </utilita>
+            <supporto>
+              <valore id_utente="2" reputazione_Vot="6">3</valore>
+              <valore id_utente="1" reputazione_Vot="5">1</valore>
+              <valore id_utente="3" reputazione_Vot="11">1</valore>
+            </supporto>
+          </risposta>
+          <risposta id_prodotto="1" id_utente="1">
+            <id_risposta>65bb76d6d07d5</id_risposta>
+            <autore>lorenzofrancescotti@gmail.com</autore>
+            <data>2024-02-01</data>
+            <ora>11:47:50</ora>
+            <testo>ciaociaociao</testo>
+            <utilita>
+              <valore id_utente="3" reputazione_Vot="11">4</valore>
+            </utilita>
+            <supporto>
+              <valore id_utente="3" reputazione_Vot="11">3</valore>
             </supporto>
           </risposta>
         </risposte>
+      </domanda>
+      <domanda id_prodotto="1" id_utente="3">
+        <autore>f@gmail.com</autore>
+        <testo>ciaociaocioc</testo>
+        <id_domanda>65bb783245ae4</id_domanda>
+        <utilita>
+          <valore id_utente="3" reputazione_Vot="11">2</valore>
+        </utilita>
+        <supporto>
+          <valore id_utente="3" reputazione_Vot="11">1</valore>
+        </supporto>
       </domanda>
     </domande>
   </prodotto>

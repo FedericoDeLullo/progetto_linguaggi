@@ -59,7 +59,7 @@ if ($domande->length > 0) {
 
     foreach ($domande as $domanda) {    
         echo '<tr>
-        <th>Autore Domanda</th><th>Domanda</th><th>Voto Utilità</th><th>Voto Supporto</th><th>Valutazione</th><th>Rispondi</th>
+        <th>Gestisci Domanda</th><th>Autore Domanda</th><th>Domanda</th><th>Voto Utilità</th><th>Voto Supporto</th><th>Valutazione</th><th>Rispondi</th>
         </tr>';
         
         $utilitaNode = $xpath->query("utilita/valore[@id_utente='$idUtenteSessione']", $domanda)->item(0);
@@ -74,6 +74,7 @@ if ($domande->length > 0) {
         $testoDomanda = $domanda->getElementsByTagName("testo")->item(0)->nodeValue;
     
         echo '<tr>';
+        echo '<td>' . ' <span id="ver" class="material-symbols-outlined">verified</span>'. '</td>';
         echo '<td>' . $autoreDomanda . '</td>';
         echo '<td>' . $testoDomanda . '</td>'; 
         echo '<td>' . $utilitaValue . '</td>';
@@ -126,7 +127,7 @@ if ($domande->length > 0) {
         // Mostra le risposte
         $risposte = $domanda->getElementsByTagName('risposta');
         if ($risposte->length > 0) {
-            echo '<tr><th class="risp">Autore Risposta</th><th class="risp">Risposta</th><th>Voto Utilità</th><th>Voto Supporto</th><th class="risp">Valutazione</th></tr>';
+            echo '<tr><th class="risp">Aggiungi FAQ</th><th class="risp">Autore Risposta</th><th class="risp">Risposta</th><th>Voto Utilità</th><th>Voto Supporto</th><th class="risp">Valutazione</th></tr>';
         
             foreach ($risposte as $risposta) {
 
@@ -145,6 +146,10 @@ if ($domande->length > 0) {
         
                 // Nuova riga per ogni risposta
                 echo '<tr>';
+                 echo '<td>';
+                echo '<strong>' . $autoreRisposta . '</strong> ha risposto il ' . $dataRisposta . ' alle ' . $oraRisposta;
+                echo '</td>';
+
                 echo '<td>';
                 echo '<strong>' . $autoreRisposta . '</strong> ha risposto il ' . $dataRisposta . ' alle ' . $oraRisposta;
                 echo '</td>';
