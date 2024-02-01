@@ -17,35 +17,34 @@
     <div class="wrapper">
 
         <form action="../res/gestore_register.php" method="post" class="form">
-            <h1 class="titolo">REGISTRAZIONE</h1>    <div class="data">Data di nascita:</div>
-
-
+            <h1 class="titolo">REGISTRAZIONE</h1>
+            <div class="data">Data di nascita:</div>
             <div class="inp nome">
-                <input type="text" name="nome" id="" class="input" placeholder="Nome">
+                <input type="text" name="nome" id="" class="input" placeholder="Nome" required>
             </div>
             <div class="inp cognome">
-                <input type="date" name="data_di_nascita" id="" class="input col" placeholder="Data di nascita">
+                <input type="date" name="data_di_nascita" id="" class="input col" placeholder="Data di nascita" required>
             </div>
-           
             <div class="inp dn">
-                <input type="text" name="cognome" id="" class="input" placeholder="Cognome">
+                <input type="text" name="cognome" id="" class="input" placeholder="Cognome" required>
             </div>
             <div class="inp email">
-                <input type="email" name="email" id="" class="input col" placeholder="Email">
-            </div> <div class="inp indirizzo">
-                <input type="text" name="indirizzo_di_residenza" id="" class="input" placeholder="Indirizzo di residenza">
+                <input type="email" name="email" id="" class="input col" placeholder="Email" required>
+            </div>
+            <div class="inp indirizzo">
+                <input type="text" name="indirizzo_di_residenza" id="" class="input" placeholder="Indirizzo di residenza" required>
             </div>
             <div class="inp cf">
-                <input type="number" name="cellulare" id="" class="input col" placeholder="Cellulare">
+                <input type="text" name="codice_fiscale" id="" class="input col" placeholder="Codice fiscale" maxlength="16" required>
             </div>
             <div class="inp cellulare">
-                <input type="text" name="codice_fiscale" id="" class="input" placeholder="Codice fiscale">
+                <input type="text" name="cellulare" class="input" placeholder="Numero di Cellulare" pattern="\d{10}" maxlength="10" required>
             </div>
             <div class="inp password">
-                <input type="password" name="password" id="" class="input col" placeholder="Password">
+                <input type="password" name="password" id="" class="input col" placeholder="Password" required>
             </div>
             <div class="inp codice">
-                <input type="number" name="codice" id="" class="input col" placeholder="Codice Gestore">
+                <input type="number" name="codice" id="" class="input col" placeholder="Codice Gestore" required>
             </div>
             <button class="submit_plus" type="submit">Crea Account</button>
             <p class="footer">Hai già un account?<a href="login_gestore.php" class="link">Accedi!</a></p>    
