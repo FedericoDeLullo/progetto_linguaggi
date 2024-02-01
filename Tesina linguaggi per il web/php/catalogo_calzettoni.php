@@ -1,10 +1,4 @@
-<?php
-require_once('../res/connection.php');
- 
-
-if(isset($_SESSION['loggato'])){   
-    ?>
-    <!DOCTYPE html>
+<!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -19,6 +13,12 @@ if(isset($_SESSION['loggato'])){
         include('../res/header.php');
         ?>
     </head>
+<?php
+require_once('../res/connection.php');
+if(isset($_SESSION['loggato'])){   
+
+    ?>
+
     <body>
         <div class="cont">
             <div class="container">
@@ -88,19 +88,28 @@ if(isset($_SESSION['loggato'])){
             }
             
             // Stampa le informazioni del prodotto
-            echo '<div class="prodotto">';      echo '<h1 class="nome"><a title="Lista delle domande" href="domande.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">
-            <span id="simbolo_recensione" class="material-symbols-outlined">question_mark</span></a><a title="Lascia una domanda" href="domande_prodotti.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">
-            <span id="simbolo_recensione" class="material-symbols-outlined">rate_review</span></a>' . $nome . '<a title="Lascia una recensione" href="recensione_cliente.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">
-            <span id="simbolo_recensione" class="material-symbols-outlined">note_stack_add</span></a>
-            <a title="Lista delle recensioni" href="lista_recensioni.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'"">
-            <span id="simbolo_recensione" class="material-symbols-outlined">reviews</span></a></h1>';
-            echo '<p class="des">' . $descrizione . '</p>';
-            echo '<p class="prezzo">Prezzo: ' . $prezzo . '€</p>';
-            echo '<div class="box">';
-            echo '<a href="domande_prodotti.php?id_prodotto=' . $id_prodotto . '&nome=' . urlencode($nome) . '&tipologia=' . urlencode($tipologia) . '&id=' . $id_utente . '">';
-            echo '<img class="img" src="' . $immagine . '" alt="' . $nome . '">';
-            echo '</div>';
-            echo '<a href="../php/carrello.php"><span id="cart" class="material-symbols-outlined">add_shopping_cart</span></a>';
+            echo '<div class="prodotto">';
+            echo '<h1 class="nome">';
+                echo '<a title="Lista delle domande" href="domande.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'"><span id="simbolo_recensione" class="material-symbols-outlined">question_mark</span></a>';
+                echo '<a title="Lascia una domanda" href="domande_prodotti.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'"><span id="simbolo_recensione" class="material-symbols-outlined">rate_review</span></a>';
+                echo $nome;
+                echo '<a title="Lascia una recensione" href="recensione_cliente.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'"><span id="simbolo_recensione" class="material-symbols-outlined">note_stack_add</span></a>';
+                echo '<a title="Lista delle recensioni" href="lista_recensioni.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'"><span id="simbolo_recensione" class="material-symbols-outlined">reviews</span></a>';
+            echo '</h1>';
+            echo '<table class="table">';
+                echo '<tr>';
+                    echo '<td class="td">';
+                        echo '<div class="box">';
+                            echo '<a href="domande_prodotti.php?id_prodotto=' . $id_prodotto . '&nome=' . urlencode($nome) . '&tipologia=' . urlencode($tipologia) . '&id=' . $id_utente . '">';
+                            echo '<img src="' . $immagine . '" alt="' . $nome . '">';
+                        echo '</div>';
+                    echo '</td>';
+                    echo '<td class="td">';
+                        echo '<p class="des">' . $descrizione . '</p>';
+                        echo '<p class="prezzo">Prezzo: ' . $prezzo . '€</p>';
+                        echo '<a href="../php/carrello.php"><span id="cart" class="material-symbols-outlined">add_shopping_cart</span></a>';
+                echo '</tr>';
+            echo '</table>';
             echo '</div>';
         }
         ?>
@@ -151,21 +160,6 @@ if(isset($_SESSION['loggato'])){
 } 
 else {
     ?>
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Catalogo Prodotti</title>
-        <link rel="stylesheet" href="../css/style_catalogo.css">
-        <link rel="stylesheet" href="../css/style_search.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-        <link rel="stylesheet" href="../css/style_header.css">
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <?php
-        include('../res/header.php');
-        ?>
-    </head>
     <body>
         <div class="cont">
             <div class="container">
