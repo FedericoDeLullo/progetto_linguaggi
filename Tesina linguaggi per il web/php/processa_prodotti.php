@@ -22,7 +22,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $domanda = $_POST['domanda'];
         $tipologia = $_POST['tipologia'];
         $id_utente = $_SESSION['id'];
-
         $id_domanda = uniqid();
 
         // Carica il file XML del catalogo

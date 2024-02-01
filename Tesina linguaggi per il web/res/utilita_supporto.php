@@ -5,6 +5,7 @@ $xmlFile = '../xml/catalogo_prodotti.xml';
 
 // Carica il file XML
 $dom = new DOMDocument();
+$dom->preserveWhiteSpace = false;
 $dom->load($xmlFile);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['vota'])) {
