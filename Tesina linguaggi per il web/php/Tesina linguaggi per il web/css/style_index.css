@@ -1,0 +1,87 @@
+*{scroll-behavior: smooth;}
+
+@font-face {
+  font-family: 'icons';
+  src: url('../icone_contatti/Icons\ 2019.ttf');
+}  
+
+body {
+  background: url('../img/sfondo.png') no-repeat center center; 
+  background-size: cover;
+}
+
+footer {
+  background-color: #011050;
+  height: 25vh;
+  margin-top: 100vh;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(50px,300px));
+  align-content: center;
+  color: white;
+  padding: 20px;
+  font-size: 17px;
+  border-radius: 10px;
+}
+footer .col {
+  margin-bottom: 20px;
+  display: inline-block;
+  width: 100%;
+}
+
+.center{
+  margin-right: auto;
+}
+
+footer h4 {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.social-media{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  font-size: 25px;
+}
+
+.social-media a {
+  color: white;
+  margin-right: 10px;
+}
+
+.fa-facebook-f:hover{
+  color: blue;
+}
+.fa-whatsapp:hover{
+  color: green;
+}
+.fa-tiktok:hover{
+  color:black;
+}
+.fa-instagram:hover{
+  color: red;
+}
+.fa-github:hover{
+  color: darkmagenta;
+}
+
+footer li{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  color: white;
+  list-style: none;
+  cursor: pointer;
+}
+
+footer li:hover{
+  color: gold;
+}
+
+#note{
+  color:red ;
+}

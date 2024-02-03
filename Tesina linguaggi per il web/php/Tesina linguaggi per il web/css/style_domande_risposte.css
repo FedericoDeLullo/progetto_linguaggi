@@ -1,0 +1,126 @@
+body {
+    background: #171d29;
+    color: white;
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+}
+
+.center-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px; /* Regola questa proprietà per spaziare dal bordo superiore */
+}
+table {
+    border: 3px solid #23c55e;
+    box-shadow: 0 0 50px 0 #23c55e;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #333;
+    padding: 10px;
+}
+
+td{
+    word-wrap: break-word; /* Per far andare a capo il testo */
+    white-space: normal; 
+    text-align: center;
+    max-width: 20vw;
+}
+
+
+th {
+    background-color: #23c55e;
+    color: #fff;
+    font-weight: bold;
+}
+
+.text {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #45a049;
+}
+
+#casa{
+    color: white;
+    font-size: 50px;
+}
+
+#casa:hover{
+    color: #23c55e;
+    transition: 0.2s;
+}
+.risp{
+    padding: 1px;
+    color: #171d29;
+}
+
+button{
+    border: none;
+    background: none;
+}
+
+#done{
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+#done:hover{
+    color: #23c55e;
+    transition: 0.5s;
+}
+
+.button {
+    margin-top: 10px;
+    background: transparent;
+    border: 3px solid green;
+    box-shadow: 0 0 20px 5px green;
+    outline: none;
+    width: 150px;
+    margin-left: 1.5vh;
+    padding: 10px 0;
+    font-size: 20px;
+    border-radius: 40px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    position: relative;
+    color: white;
+    overflow: hidden;
+}
+
+
+.button:hover {
+    transform: scale(0.9);
+    transition: 0.2s;
+    background: transparent;
+    box-shadow: 0 0 20px 5px green;
+}
+
+.uti{
+    margin-left: 15px;
+    margin-bottom: 10vh;
+}
+
+.util{
+    margin-bottom: 10px;
+    margin-left: 3px;
+}

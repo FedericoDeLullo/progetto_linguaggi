@@ -1,5 +1,4 @@
 <?php
-    session_start();
     require_once('connection.php');
 
     $email = $connessione->real_escape_string($_POST['email']);
