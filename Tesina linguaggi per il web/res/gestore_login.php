@@ -1,5 +1,4 @@
 <?php 
-    session_start();
     require_once('connection.php');
 
     $email = $connessione->real_escape_string($_POST['email']);
@@ -14,6 +13,7 @@
             if($result->num_rows === 1){
                 $row = $result->fetch_array(MYSQLI_ASSOC);
                 if($password === $row['passwd'] && $codice==$codice_gestore){
+                     session_start();
                     $_SESSION['loggato'] = true;
                     $_SESSION['id'] = $row['id'];
                     $_SESSION['email'] = $row['email'];

@@ -1,6 +1,7 @@
 <?php
-session_start();
+
 require_once('connection.php');
+session_start();
 $xmlFile = '../xml/catalogo_prodotti.xml';
 
 // Carica il file XML

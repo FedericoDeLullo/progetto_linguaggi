@@ -17,7 +17,6 @@
 <?php
 require_once('../res/connection.php');
 
-// Recupera i dati dal form in admin_approve.php
 $email = $_POST['email'];
 $importo = $_POST['importo'];
 $action = $_POST['action'];

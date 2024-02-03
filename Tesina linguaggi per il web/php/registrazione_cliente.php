@@ -14,43 +14,35 @@
 <body>
 
 <div class="cont">
-
-    <?php
-    if(isset($_SESSION['errore_email']) && $_SESSION['errore_email'] == 'true'){ //isset verifica se errore_email è settata
-        echo '<h2>EMAIL GIÀ ESISTENTE!</h2>';
-        unset($_SESSION['errore_email']); //la unsetto altrimenti rimarrebbe la scritta
-        unset($_SESSION['form_email']); //pulisco il form del campo email perché è errato
-    }
-    ?>
-
     <div class="wrapper">
 
         <form action="../res/cliente_register.php" method="post" class="form">
-            <h1 class="titolo">REGISTRAZIONE</h1>
-            <div class="data">Data di nascita:</div>
+            <h1 class="titolo">REGISTRAZIONE</h1>    <div class="data">Data di nascita:</div>
+
+
             <div class="inp nome">
-                <input type="text" name="nome" id="" class="input" placeholder="Nome" required>
+                <input type="text" name="nome" id="" class="input" placeholder="Nome">
             </div>
             <div class="inp cognome">
-                <input type="date" name="data_di_nascita" id="" class="input col" placeholder="Data di nascita" required>
+                <input type="date" name="data_di_nascita" id="" class="input col" placeholder="Data di nascita">
             </div>
+           
             <div class="inp dn">
-                <input type="text" name="cognome" id="" class="input" placeholder="Cognome" required>
+                <input type="text" name="cognome" id="" class="input" placeholder="Cognome">
             </div>
             <div class="inp email">
-                <input type="email" name="email" id="" class="input col" placeholder="Email"  value="<?php  if(isset($_SESSION['form_email'])) echo $_SESSION['form_email']; ?>" required>
-            </div>
-            <div class="inp indirizzo">
-                <input type="text" name="indirizzo_di_residenza" id="" class="input" placeholder="Indirizzo di residenza" required>
+                <input type="email" name="email" id="" class="input col" placeholder="Email">
+            </div> <div class="inp indirizzo">
+                <input type="text" name="indirizzo_di_residenza" id="" class="input" placeholder="Indirizzo di residenza">
             </div>
             <div class="inp cf">
-                <input type="text" name="codice_fiscale" id="" class="input col" placeholder="Codice fiscale" maxlength="16" required>
+                <input type="number" name="cellulare" id="" class="input col" placeholder="Cellulare">
             </div>
             <div class="inp cellulare">
-                <input type="text" name="cellulare" class="input" placeholder="Numero di Cellulare" pattern="\d{10}" maxlength="10" required>
+                <input type="text" name="codice_fiscale" id="" class="input" placeholder="Codice fiscale">
             </div>
             <div class="inp password">
-                <input type="password" name="password" id="" class="input col" placeholder="Password" required>
+                <input type="password" name="password" id="" class="input col" placeholder="Password">
             </div>
         <button class="submit" type="submit">Crea Account</button>
         <p class="footer1">Hai già un account?<a href="login_cliente.php" class="link">Accedi!</a></p>    

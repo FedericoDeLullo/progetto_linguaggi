@@ -1,7 +1,6 @@
 <?php
-session_start();
 require_once('connection.php');
-
+session_start();
 if(isset($_SESSION['loggato'])){
 $id_utente = $_SESSION['id'];
 $gestore = $_SESSION['gestore'];
@@ -55,7 +54,7 @@ $utente = $_SESSION['utente'];
                 <div class="header_menu_item">
                     <a href="#" class="stile">                   
                         <div class="header_menu_link" title="Carrello">
-                            <span class="material-symbols-outlined">shopping_cart</span>CARRELLO
+                            <span class="material-symbols-outlined">shopping_cart</span>
                         </div>
                     </a>
                 </div>
@@ -134,7 +133,7 @@ $utente = $_SESSION['utente'];
                 <div class="header_menu_item">
                     <a href="#" class="stile">                   
                         <div class="header_menu_link" title="Carrello">
-                            <span class="material-symbols-outlined">shopping_cart</span>CARRELLO
+                            <span class="material-symbols-outlined">shopping_cart</span>
                         </div>
                     </a>
                 </div>
@@ -143,6 +142,20 @@ $utente = $_SESSION['utente'];
         <?php
     }
     elseif($gestore == 1){
+        $xmlFile = '../xml/segnalazioni.xml';
+        $dom = new DOMDocument();
+        $dom->load($xmlFile);
+
+        $segnalazioni = $dom->getElementsByTagName('segnalazione');
+        $hasPendingRequests = false;
+
+        foreach ($segnalazioni as $segnalazione) {
+            $status = $segnalazione->getAttribute('status');
+
+            if ($status == 'pending') {
+                $hasPendingRequests = true;
+            }
+        }
         ?>
         <header class="header">
             <div class="header_menu">  
@@ -174,6 +187,22 @@ $utente = $_SESSION['utente'];
                     </a>
                 </div>
                 <div class="header_menu_item">
+                    <a href="../php/menu_segnalazioni.php" class="stile">
+                             <div class="header_menu_link" title="Segnalazioni">
+                             <?php
+                             if ($hasPendingRequests) {
+                                 echo '<span id="note" class="material-symbols-outlined">
+                                 report
+                                 </span>';
+                             }
+                             else { 
+                             ?>
+                                 <span class="material-symbols-outlined">report</span>
+                             <?php }?>SEGNALAZIONI
+                         </div>
+                    </a>
+                </div>
+                <div class="header_menu_item">
                 <a href="../php/gestione_utenti_gestore.php" class="stile">
                     <div class="header_menu_link" title="Profili Clienti">
                         <span class="material-symbols-outlined">group</span>PROFILI CLIENTI
@@ -190,7 +219,7 @@ $utente = $_SESSION['utente'];
                 <div class="header_menu_item">
                     <a href="#" class="stile">                   
                         <div class="header_menu_link" title="Carrello">
-                            <span class="material-symbols-outlined">shopping_cart</span>CARRELLO
+                            <span class="material-symbols-outlined">shopping_cart</span>
                         </div>
                     </a>
                 </div>
@@ -239,7 +268,7 @@ $utente = $_SESSION['utente'];
                 <div class="header_menu_item">
                     <a href="../php/login_menu.php" class="stile">                   
                         <div class="header_menu_link" title="Carrello">
-                            <span class="material-symbols-outlined">shopping_cart</span>CARRELLO
+                            <span class="material-symbols-outlined">shopping_cart</span>
                         </div>
                     </a>
                 </div>

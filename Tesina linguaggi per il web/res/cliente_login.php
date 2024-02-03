@@ -1,5 +1,4 @@
 <?php 
-    session_start();
     require_once('connection.php');
 
     $email = $connessione->real_escape_string($_POST['email']);
@@ -18,6 +17,7 @@
                         header("Location: ../php/utente_bannato.php"); // Reindirizza a pagina di errore ban
                         exit;
                     }
+                    session_start();
                      
                     $_SESSION['loggato'] = true;
                     $_SESSION['email'] = $row['email'];

@@ -72,9 +72,10 @@ if ($domande->length > 0) {
         $id_domanda = $domanda->getElementsByTagName("id_domanda")->item(0)->nodeValue;
         $autoreDomanda = $domanda->getElementsByTagName("autore")->item(0)->nodeValue;
         $testoDomanda = $domanda->getElementsByTagName("testo")->item(0)->nodeValue;
-    
+        
         echo '<tr>';
-        echo '<td>' . ' <span id="ver" class="material-symbols-outlined">verified</span>'. '</td>';
+        echo '<td><p><a href="segnalazione.php?id_domanda=' . urlencode($id_domanda) . '&testo_domanda=' . urlencode($testoDomanda) . '&id_prodotto=' . urlencode($id_prodotto) . '"><span class="material-symbols-outlined">report</span></a>';
+        echo '<a href="#" id="ver" class="material-symbols-outlined"><span>verified</span></a></p></td>';
         echo '<td>' . $autoreDomanda . '</td>';
         echo '<td>' . $testoDomanda . '</td>'; 
         echo '<td>' . $utilitaValue . '</td>';
@@ -127,7 +128,7 @@ if ($domande->length > 0) {
         // Mostra le risposte
         $risposte = $domanda->getElementsByTagName('risposta');
         if ($risposte->length > 0) {
-            echo '<tr><th class="risp">Aggiungi FAQ</th><th class="risp">Autore Risposta</th><th class="risp">Risposta</th><th>Voto Utilità</th><th>Voto Supporto</th><th class="risp">Valutazione</th></tr>';
+            echo '<tr><th class="risp">Gestisci Risposta</th><th class="risp">Autore Risposta</th><th class="risp">Risposta</th><th>Voto Utilità</th><th>Voto Supporto</th><th class="risp">Valutazione</th></tr>';
         
             foreach ($risposte as $risposta) {
 
@@ -144,12 +145,13 @@ if ($domande->length > 0) {
                 $oraRisposta = $risposta->getElementsByTagName("ora")->item(0)->nodeValue;
                 $testoRisposta = $risposta->getElementsByTagName("testo")->item(0)->nodeValue;
         
+                
                 // Nuova riga per ogni risposta
+              // Nuova riga per ogni risposta
                 echo '<tr>';
-                 echo '<td>';
-                echo '<strong>' . $autoreRisposta . '</strong> ha risposto il ' . $dataRisposta . ' alle ' . $oraRisposta;
-                echo '</td>';
-
+                echo '<td><p><a href="segnalazione.php?id_prodotto=' . urlencode($id_prodotto) . '&id_risposta=' . urlencode($id_risposta) . '&testo_risposta=' . urlencode($testoRisposta) . '">
+                <span class="material-symbols-outlined">report</span></a>';
+                echo '<a href="#" id="ver" class="material-symbols-outlined"><span>verified</span></a></p></td>';          
                 echo '<td>';
                 echo '<strong>' . $autoreRisposta . '</strong> ha risposto il ' . $dataRisposta . ' alle ' . $oraRisposta;
                 echo '</td>';
@@ -194,7 +196,7 @@ if ($domande->length > 0) {
         }
             }
         } else {
-            echo '<tr><td colspan="4"><p>Nessuna risposta disponibile.</p></td></tr>';
+            echo '<tr><td colspan="4"><p class="titolo">Nessuna risposta disponibile.</p></td></tr>';
         }
  
 ?>
