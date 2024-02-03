@@ -14,6 +14,15 @@
 <body>
 
 <div class="cont">
+        
+    <?php
+    if(isset($_SESSION['errore_email']) && $_SESSION['errore_email'] == 'true'){ //isset verifica se errore_email è settata
+        echo '<h2>EMAIL GIÀ ESISTENTE!</h2>';
+        unset($_SESSION['errore_email']); //la unsetto altrimenti rimarrebbe la scritta
+        unset($_SESSION['form_email']); //pulisco il form del campo email perché è errato
+    }
+    ?>
+
     <div class="wrapper">
 
         <form action="../res/gestore_register.php" method="post" class="form">
@@ -26,13 +35,11 @@
             <div class="inp cognome">
                 <input type="date" name="data_di_nascita" id="" class="input col" placeholder="Data di nascita" value="<?php  if(isset($_SESSION['form_data_di_nascita'])) echo $_SESSION['form_data_di_nascita']; ?>" required>
             </div>
-           
             <div class="inp dn">
                 <input type="text" name="cognome" id="" class="input" placeholder="Cognome" value="<?php  if(isset($_SESSION['form_cognome'])) echo $_SESSION['form_cognome']; ?>" required>
             </div>
             <div class="inp email">
-                <input type="email" name="email" id="" class="input col" placeholder="Email" value="<?php  if(isset($_SESSION['form_email'])) echo $_SESSION['form_email']; ?>" required>
-            </div>
+                <input type="email" name="email" id="" class="input col" placeholder="Email"  value="<?php  if(isset($_SESSION['form_email'])) echo $_SESSION['form_email']; ?>" required>            </div>
             <div class="inp indirizzo">
                 <input type="text" name="indirizzo_di_residenza" id="" class="input" placeholder="Indirizzo di residenza" value="<?php  if(isset($_SESSION['form_indirizzo_di_residenza'])) echo $_SESSION['form_indirizzo_di_residenza']; ?>" required>
             </div>

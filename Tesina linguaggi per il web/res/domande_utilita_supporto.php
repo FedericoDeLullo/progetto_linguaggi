@@ -1,9 +1,8 @@
 <?php
-
+session_start();
 require_once('connection.php');
  
 $xmlFile = '../xml/catalogo_prodotti.xml';
-session_start();
 // Carica il file XML
 $dom = new DOMDocument();
 $dom->preserveWhiteSpace = false;
@@ -120,4 +119,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['vota'])) {
     }
 }
 ?>
-

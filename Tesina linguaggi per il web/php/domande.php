@@ -58,9 +58,9 @@ if ($domande->length > 0) {
 
 
     foreach ($domande as $domanda) {    
-        echo '<tr>
-        <th>Gestisci Domanda</th><th>Autore Domanda</th><th>Domanda</th><th>Voto Utilità</th><th>Voto Supporto</th><th>Valutazione</th><th>Rispondi</th>
-        </tr>';
+        echo '<tr>';
+        echo '<th>Gestisci Domanda</th><th>Autore Domanda</th><th>Domanda</th><th>Voto Utilità</th><th>Voto Supporto</th><th>Valutazione</th><th>Rispondi</th>';
+        echo '</tr>';
         
         $utilitaNode = $xpath->query("utilita/valore[@id_utente='$idUtenteSessione']", $domanda)->item(0);
         $supportoNode = $xpath->query("supporto/valore[@id_utente='$idUtenteSessione']", $domanda)->item(0);
@@ -74,15 +74,17 @@ if ($domande->length > 0) {
         $testoDomanda = $domanda->getElementsByTagName("testo")->item(0)->nodeValue;
         
         echo '<tr>';
-        echo '<td><p><a href="segnalazione.php?id_domanda=' . urlencode($id_domanda) . '&testo_domanda=' . urlencode($testoDomanda) . '&id_prodotto=' . urlencode($id_prodotto) . '"><span class="material-symbols-outlined">report</span></a>';
-        echo '<a href="#" id="ver" class="material-symbols-outlined"><span>verified</span></a></p></td>';
+        echo '<td>';
+        echo '<p>';
+        echo '<a href="segnalazione.php?id_domanda=' . urlencode($id_domanda) . '&testo_domanda=' . urlencode($testoDomanda) . '&id_prodotto=' . urlencode($id_prodotto) . '"><span id="simbolo_recensione" class="material-symbols-outlined">report</span></a>';
+        echo '<a href="#"><span id="simbolo_recensione" class="material-symbols-outlined">verified</span></a>';
+        echo '</p>';
+        echo '</td>';
         echo '<td>' . $autoreDomanda . '</td>';
         echo '<td>' . $testoDomanda . '</td>'; 
         echo '<td>' . $utilitaValue . '</td>';
         echo '<td>' . $supportoValue . '</td>';
         
-
-
         // Ottieni l'id_utente dai nodi "valore" all'interno degli elementi "utilita" e "supporto"
         $utilitaIdUtente = $utilitaNode ? $utilitaNode->getAttribute("id_utente") : "N/A";
         $supportoIdUtente = $supportoNode ? $supportoNode->getAttribute("id_utente") : "N/A";
@@ -97,13 +99,13 @@ if ($domande->length > 0) {
         echo '<input type="hidden" name="id_prodotto" value="' . $id_prodotto . '"/>';
         echo '<input type="hidden" name="tipologia" value="' . $tipologia . '"/>';
     
-        echo '<label class="uti" for="votoUtilita">Utilità (da 1 a 5): </label>';
-        echo '<input class="util" type="number" name="votoUtilita" min="1" max="5" required/><br>';
+        echo '<label class="titolo" for="votoUtilita">Utilità (da 1 a 5): </label>';
+        echo '<input class="input" type="number" name="votoUtilita" min="1" max="5" required/><br>';
     
-        echo '<label for="votoSupporto">Supporto (da 1 a 3): </label>';
-        echo '<input type="number" name="votoSupporto" min="1" max="3" required/>';
+        echo '<label class="titolo" for="votoSupporto">Supporto (da 1 a 3): </label>';
+        echo '<input class="input" type="number" name="votoSupporto" min="1" max="3" required/>';
     
-        echo '<button class="done" type="submit" name="vota"><span id="done" title="Invia" class="material-symbols-outlined">
+        echo '<button class="done" type="submit" name="vota">CONFERMA <span id="done" title="Invia" class="material-symbols-outlined">
         done_outline
         </span></button>';
         echo '</form>';
@@ -149,9 +151,12 @@ if ($domande->length > 0) {
                 // Nuova riga per ogni risposta
               // Nuova riga per ogni risposta
                 echo '<tr>';
-                echo '<td><p><a href="segnalazione.php?id_prodotto=' . urlencode($id_prodotto) . '&id_risposta=' . urlencode($id_risposta) . '&testo_risposta=' . urlencode($testoRisposta) . '">
-                <span class="material-symbols-outlined">report</span></a>';
-                echo '<a href="#" id="ver" class="material-symbols-outlined"><span>verified</span></a></p></td>';          
+                echo '<td>';
+                echo '<p>';
+                echo '<a href="segnalazione.php?id_prodotto=' . urlencode($id_prodotto) . '&id_risposta=' . urlencode($id_risposta) . '&testo_risposta=' . urlencode($testoRisposta) . '"><span id="simbolo_recensione" class="material-symbols-outlined">report</span></a>';
+                echo '<a href="#"><span id="simbolo_recensione" class="material-symbols-outlined">verified</span></a>';
+                echo '</p>';
+                echo '</td>';          
                 echo '<td>';
                 echo '<strong>' . $autoreRisposta . '</strong> ha risposto il ' . $dataRisposta . ' alle ' . $oraRisposta;
                 echo '</td>';
@@ -179,11 +184,14 @@ if ($domande->length > 0) {
                 echo '<input type="hidden" name="id_prodotto" value="' . $id_prodotto . '"/>';
                 echo '<input type="hidden" name="tipologia" value="' . $tipologia . '"/>';
                 echo '<input type="hidden" name="nome" value="' . $nome . '"/>';            
-                echo '<label class="uti" for="votoUtilita">Utilità (da 1 a 5): </label>';
-                echo '<input class="util" type="number" name="votoUtilita" min="1" max="5" required/><br>';
-                echo '<label for="votoSupporto">Supporto (da 1 a 3): </label>';
-                echo '<input type="number" name="votoSupporto" min="1" max="3" required/>';
-                echo '<button class="done" type="submit" name="vota"><span  class="material-symbols-outlined">
+
+                echo '<label class="titolo" for="votoUtilita">Utilità (da 1 a 5): </label>';
+                echo '<input class="input" type="number" name="votoUtilita" min="1" max="5" required/><br>';
+            
+                echo '<label class="titolo" for="votoSupporto">Supporto (da 1 a 3): </label>';
+                echo '<input class="input" type="number" name="votoSupporto" min="1" max="3" required/>';
+            
+                echo '<button class="done" type="submit" name="vota">CONFERMA <span id="done" title="Invia" class="material-symbols-outlined">
                 done_outline
                 </span></button>';
                 echo '</form>';

@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once('connection.php');
 
     $email = $connessione->real_escape_string($_POST['email']);
@@ -14,9 +15,9 @@
     $utente=0;
     $admin_ok=0;
     $gestore=1;
+    $codice_gestore=4567;
     $crediti=0;
     $reputazione=11;
-    $codice_gestore=4567;
     $ban=0;
 
     $_SESSION['form_email'] = $email;
