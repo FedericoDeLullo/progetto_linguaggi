@@ -1,0 +1,184 @@
+body{
+    background-color: #9fd3c7;
+}
+
+.wrapper{
+    border-radius: 20px;
+    position:relative;
+    width: 800px;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 3px solid #011050;
+    box-shadow: 0 0 50px 25px #00b7ff;
+}
+
+.cont{
+    margin-top: 8vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+.form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.titolo{
+    margin-top: 2vh;
+    z-index: 99;
+    font-size: 35px;
+    margin-left: 50px;
+    color: #011050;
+    text-shadow: 2px 2px 2px #9fd3c7;
+}
+
+.inp{
+    margin-left: -50px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid black;
+}
+
+.nome{
+    z-index: 99;
+    margin-left: -400px;
+}
+
+
+.cognome{
+    margin-top: -70px;
+    z-index: 99;
+    margin-left: 470px;
+}
+
+.dn{
+    margin-top: 50px;
+    margin-left: -400px;
+}
+
+.data{
+    z-index: 2;
+    margin-left: 19vw;
+    margin-bottom: -5vh;
+    color: #00b7ff;
+}
+
+.email{
+z-index: 99;
+margin-top: -73px;
+margin-left: 470px;
+}
+
+.indirizzo{
+margin-top: 55px;
+margin-left: -400px;
+}
+
+.cf{
+z-index: 99;
+margin-top: -75px;
+margin-left: 470px;
+}
+
+.cellulare{
+margin-top: 60px;
+margin-left: -400px;
+}
+
+.password{
+    z-index: 99;
+    margin-top: -74px;
+    margin-left: 470px;
+}
+
+.input{
+    border: none;
+    outline: none;
+    background: none;
+    width: 260px;
+    margin-top: 40px;
+    padding-right: 10px;
+    font-size: 17px;
+    color: #011050;
+}
+
+.col{
+    color: #00b7ff;
+}
+
+.submit{
+    color: #9fd3c7;
+    margin-left: 50px;
+    border: none;
+    outline: none;
+    width: 288px;
+    margin-top: 40px;
+    padding: 10px 0;
+    font-size: 20px;
+    border-radius: 40px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    background: linear-gradient(45deg,#0021b4,#011050);
+}
+
+.submit_plus{
+    color: #9fd3c7;
+    margin-left: -25vw;
+    border: none;
+    outline: none;
+    width: 288px;
+    margin-top: -7vh;
+    padding: 10px 0;
+    font-size: 20px;
+    border-radius: 40px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    background: linear-gradient(45deg,#0021b4,#011050);
+}
+
+.footer{
+    color: #011050;
+    margin-left: -25vw;
+    margin-top: 10px;
+    letter-spacing: 0.5px;
+    font-size:14px;
+}
+
+.footer1{
+    color: #011050;
+    margin-left: 3.5vw;
+    margin-top: 10px;
+    letter-spacing: 0.5px;
+    font-size:14px;
+}
+
+.link{
+    color: #0021b4;
+    text-decoration: none;
+}
+
+.banner{
+    position: absolute;
+    border-radius: 15px;
+    top: 0;
+    right:0;
+    width: 55%;
+    height: 100%;
+    background: linear-gradient(to right, #0021b4,#011050);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 60% 100%);
+    padding-right: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.codice{
+    z-index: 2;
+    margin-left: 33vw;
+    margin-top: 5vh;
+}

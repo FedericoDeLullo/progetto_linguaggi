@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalogo_prodotti xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="catalogo_prodotti.xsd">
+  <prodotto>
+    <id_prodotto>1</id_prodotto>
+    <nome>Maglia AS Roma 2021-2022</nome>
+    <descrizione>Le caratteristiche tipiche di una maglietta da rugby includono collo a giro o a V, maniche lunghe o corte, e spesso la presenza del logo della federazione di rugby nazionale e del fornitore dell'abbigliamento sportivo. Il design può variare di anno in anno o in base agli eventi, ma spesso si riflette sulla storia e sulla cultura del paese.</descrizione>
+    <prezzo>35</prezzo>
+    <tipologia>magliette</tipologia>
+    <immagine>../img/images-removebg-preview.png</immagine>
+    <domande>
+      
+      <domanda id_prodotto="1" id_utente="4">
+        <autore>fede@gmail.com</autore>
+        <testo>HJKLK</testo>
+        <id_domanda>65be267fc9aca</id_domanda>
+        <risposte>
+          
+        </risposte>
+      </domanda>
+    </domande>
+  </prodotto>
+</catalogo_prodotti>

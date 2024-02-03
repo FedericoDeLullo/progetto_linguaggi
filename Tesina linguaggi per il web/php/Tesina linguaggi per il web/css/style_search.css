@@ -1,0 +1,79 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    gap: 100px; /* Aggiungi la distanza desiderata tra gli oggetti interni */
+    margin-bottom: 8vh;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #011050;
+    width: 13vw;
+    height: 5vh;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    border-radius: 50px;
+    border: 3px solid #011050;
+    box-shadow: 0 0 50px 25px #00b7ff;
+}
+
+.btn:hover{
+    background: #00b7ff;
+    color: #011050;
+    transition: 0.5s;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.scritta{
+    color: #011050;
+    font-size: 20px;
+}
+
+select {
+    background: #9fd3c7;
+    color: #0021b4;
+    border: 1px solid #9fd3c7;
+    box-shadow: 0 0 5px 0 #0021b4;
+    border-radius: 5px;
+    padding: 5px;
+    outline: none; /* Rimuove l'outline quando l'elemento è selezionato */
+}
+
+input::placeholder{
+    color: #0021b4;
+}
+
+input[type="text"]{
+    color: #0021b4;
+}
+
+.search-input{
+    background: #9fd3c7;
+    color: #0021b4;
+    border: 1px solid #9fd3c7;
+    box-shadow: 0 0 5px 0 #0021b4;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.btn_stilizzato{
+    cursor: pointer;
+    color: #011050;
+    border: none;
+    background: none;
+    vertical-align: middle;
+}

@@ -1,0 +1,60 @@
+body{
+    background-color: #9fd3c7;
+}
+
+.admin{
+    background: #011050;
+    width: 20vw;
+    height: 7vh;
+    justify-content: center;
+    align-content: center;
+    display: grid;
+    text-decoration: none;
+    font-size:25px;
+    color: white;
+    border-radius: 50px;
+    border: 3px solid #011050;
+    box-shadow: 0 0 50px 25px #00b7ff;
+}
+
+.admin:hover{
+    background: #00b7ff;
+    color: #011050;
+    transition: 0.5s;
+}
+ 
+.cont{  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sep{
+    border: 1px solid #011050;
+    position: absolute;
+    height: 75%;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Traslazione per centrare l'elemento, spostandolo di -50% della sua larghezza e -50% della sua altezza rispetto al suo punto di origine (il 50% della larghezza e altezza dell'elemento) */
+}
+
+table {
+    width: 100%;
+    margin: 60px auto;
+    border-collapse: collapse;
+}
+
+td.tre_bottoni {
+    padding: 50px;
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.due_bottoni {
+    padding: 209px;
+    justify-content: center;
+    align-items: center;
+}
