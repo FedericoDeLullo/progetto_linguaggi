@@ -38,7 +38,6 @@ if (isset($_SESSION['id'])) {
                     <th>Nome:</th>
                     <td><?php echo $utente['nome']; ?></td>
                     <td><a href="modifica_profilo.php?id=<?php echo $utente['id']; ?>"><span id="edit" class="material-symbols-outlined">edit</span></a></td>
-
                 </tr>
                 <tr>
                     <th>Cognome:</th>
@@ -61,21 +60,18 @@ if (isset($_SESSION['id'])) {
                 <tr>
                     <th>Crediti:</th>
                     <td><?php echo $utente['crediti']; ?></td>
-                    <td><a href="richiesta_crediti.php"><span id="edit" class="material-symbols-outlined">
-        edit
-        </span></a></td>
+                    <td><a href="richiesta_crediti.php"><span id="edit" class="material-symbols-outlined">add</span></a></td>
                 </tr>
-                <tr>
                 <tr>
                     <th>Reputazione:</th>
                     <td><?php echo $utente['reputazione']; ?></td>
-
                 </tr>
+                <tr>
                     <th>Cellulare:</th>
                     <td><?php echo $utente['cellulare']; ?></td>
                     <td><a href="modifica_profilo.php?id=<?php echo $utente['id']; ?>"><span id="edit" class="material-symbols-outlined">edit</span></a></td>
-
-                </tr><tr>
+                </tr>
+                <tr>
                     <th>Indirizzo di residenza:</th>
                     <td><?php echo $utente['indirizzo_di_residenza']; ?></td>
                     <td><a href="modifica_profilo.php?id=<?php echo $utente['id']; ?>"><span id="edit" class="material-symbols-outlined">edit</span></a></td>

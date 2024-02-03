@@ -29,25 +29,25 @@
             <h1 class="titolo">REGISTRAZIONE</h1>
             <div class="data">Data di nascita:</div>
             <div class="inp nome">
-                <input type="text" name="nome" id="" class="input" placeholder="Nome" required>
+                <input type="text" name="nome" id="" class="input" placeholder="Nome" value="<?php  if(isset($_SESSION['form_nome'])) echo $_SESSION['form_nome']; ?>" required>
             </div>
             <div class="inp cognome">
-                <input type="date" name="data_di_nascita" id="" class="input col" placeholder="Data di nascita" required>
+                <input type="date" name="data_di_nascita" id="" class="input col" placeholder="Data di nascita" value="<?php  if(isset($_SESSION['form_data_di_nascita'])) echo $_SESSION['form_data_di_nascita']; ?>" required>
             </div>
             <div class="inp dn">
-                <input type="text" name="cognome" id="" class="input" placeholder="Cognome" required>
+                <input type="text" name="cognome" id="" class="input" placeholder="Cognome" value="<?php  if(isset($_SESSION['form_cognome'])) echo $_SESSION['form_cognome']; ?>" required>
             </div>
             <div class="inp email">
-            <input type="email" name="email" id="" class="input col" placeholder="Email"  value="<?php  if(isset($_SESSION['form_email'])) echo $_SESSION['form_email']; ?>" required>
+                <input type="email" name="email" id="" class="input col" placeholder="Email" value="<?php  if(isset($_SESSION['form_email'])) echo $_SESSION['form_email']; ?>" required>
             </div>
             <div class="inp indirizzo">
-                <input type="text" name="indirizzo_di_residenza" id="" class="input" placeholder="Indirizzo di residenza" required>
+                <input type="text" name="indirizzo_di_residenza" id="" class="input" placeholder="Indirizzo di residenza" value="<?php  if(isset($_SESSION['form_indirizzo_di_residenza'])) echo $_SESSION['form_indirizzo_di_residenza']; ?>" required>
             </div>
             <div class="inp cf">
-                <input type="text" name="codice_fiscale" id="" class="input col" placeholder="Codice fiscale" maxlength="16" required>
+                <input type="text" name="codice_fiscale" id="" class="input col" placeholder="Codice fiscale" maxlength="16" value="<?php  if(isset($_SESSION['form_codice_fiscale'])) echo $_SESSION['form_codice_fiscale']; ?>" required>
             </div>
             <div class="inp cellulare">
-                <input type="text" name="cellulare" class="input" placeholder="Numero di Cellulare" pattern="\d{10}" maxlength="10" required>
+                <input type="text" name="cellulare" class="input" placeholder="Numero di Cellulare" pattern="\d{10}" maxlength="10" value="<?php  if(isset($_SESSION['form_cellulare'])) echo $_SESSION['form_cellulare']; ?>" required>
             </div>
             <div class="inp password">
                 <input type="password" name="password" id="" class="input col" placeholder="Password" required>

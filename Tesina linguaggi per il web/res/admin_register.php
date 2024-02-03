@@ -21,6 +21,12 @@
     $ban=0;
 
     $_SESSION['form_email'] = $email;
+    $_SESSION['form_nome'] = $nome;
+    $_SESSION['form_cognome'] = $cognome;
+    $_SESSION['form_data_di_nascita'] = $data_di_nascita;
+    $_SESSION['form_cellulare'] = $cellulare;
+    $_SESSION['form_indirizzo_di_residenza'] = $indirizzo_di_residenza;
+    $_SESSION['form_codice_fiscale'] = $codice_fiscale;
 
     //controllo email già esistente
     $controllo_email = "SELECT * FROM utenti u WHERE u.email = '$email'";
@@ -31,20 +37,25 @@
         header('Location: ../php/registrazione_admin.php');
         exit(1);
     }
-    
-    if(empty($codice) || empty($nome) || empty($email) || empty($password) || empty($cognome) || empty($data_di_nascita) || empty($codice_fiscale) || empty($indirizzo_di_residenza) || empty($cellulare) || $codice != $codice_admin ) {
-            header("Location: ../php/registrazione_fallita.php");
-            exit;
-    }
             
     $sql = "INSERT INTO utenti (email, nome, cognome, data_di_nascita, cellulare, indirizzo_di_residenza, codice_fiscale, passwd, crediti, ammin, utente, gestore, reputazione, ban) VALUES ('$email','$nome','$cognome','$data_di_nascita','$cellulare','$indirizzo_di_residenza', '$codice_fiscale','$password', '$crediti', '$admin_ok', '$utente', '$gestore', '$reputazione', '$ban')";
     
-try {
-      $connessione->query($sql);
-      header("Location: ../php/login_admin.php");
-} catch (Exception $e) {
-    header("Location: ../php/registrazione_ko.php");
-    exit;
-}
-    
+    try {
+        $connessione->query($sql);
+
+        //unsetto tutte le variabili di sessione utilizzate prima visto che il form è andato a buon fine
+        unset($_SESSION['form_email']);
+        unset($_SESSION['form_nome']);
+        unset($_SESSION['form_cognome']);
+        unset($_SESSION['form_data_di_nascita']);
+        unset($_SESSION['form_cellulare']);
+        unset($_SESSION['form_indirizzo_di_residenza']);
+        unset($_SESSION['form_codice_fiscale']);
+
+        header("Location: ../php/login_admin.php");
+    }
+    catch (Exception $e) {
+        header("Location: ../php/registrazione_fallita.php");
+        exit;
+    }
 ?>
