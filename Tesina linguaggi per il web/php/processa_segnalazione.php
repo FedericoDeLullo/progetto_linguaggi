@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,7 +49,7 @@ $segnalazione->setattribute('id_prodotto', $id_prodotto);
 $domanda_element = $dom->createElement('testo_domanda', $testo_domanda);
 $segnalazione->appendChild($domanda_element);
 
-$segnalazione_element = $dom->createElement('testo_segnalazione', $testo_segnalazione);
+$segnalazione_element = $dom->createElement('testo_segnalazione_dom', $testo_segnalazione);
 $segnalazione->appendChild($segnalazione_element);
 
 $root->appendChild($segnalazione);
@@ -88,7 +89,7 @@ echo "<h1 class='titolo'>Segnalazione inviata con successo. Attendere l'approvaz
     $risposta_element = $dom->createElement('testo_risposta', $testo_risposta);
     $segnalazione->appendChild($risposta_element);
     
-    $segnalazione_element = $dom->createElement('testo_segnalazione', $testo_segnalazione);
+    $segnalazione_element = $dom->createElement('testo_segnalazione_ris', $testo_segnalazione);
     $segnalazione->appendChild($segnalazione_element);
     
     $root->appendChild($segnalazione);

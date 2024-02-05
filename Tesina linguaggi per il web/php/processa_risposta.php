@@ -2,7 +2,6 @@
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $faq_id = htmlspecialchars($_POST['faq_id']);
     $answer_text = htmlspecialchars($_POST['answer']);
-    $user_email = htmlspecialchars($_POST['email']);
 
     $xmlFile = '../xml/faq.xml';
 
@@ -13,30 +12,34 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $id = $entry->attributes()->id;
 
             if ($id == $faq_id) {
+                // Cerca l'elemento <answers> se esiste già
+                $answers = $entry->xpath('answers');
+
                 // Verifica se l'elemento <answers> esiste già
-                if (!isset($entry->answers)) {
-                    // Se non esiste, crealo
+                if (empty($answers)) {
+                    // Se non esiste, crealo e aggiungi la nuova risposta
                     $answers = $entry->addChild('answers');
+                    $newAnswer = $answers->addChild('answer', $answer_text);
+                    $newAnswer->addAttribute('id', uniqid());
                 } else {
-                    // Se esiste già, utilizza l'elemento esistente
-                    $answers = $entry->answers;
+                    // Se esiste già, rimuovi le risposte esistenti
+                    unset($entry->answers->answer);
+
+                    // Aggiungi la nuova risposta all'elemento <answers>
+                    $newAnswer = $answers[0]->addChild('answer', $answer_text);
+                    $newAnswer->addAttribute('id', uniqid());
                 }
 
-                // Aggiungi una nuova risposta all'elemento <answers>
-                $newAnswer = $answers->addChild('answer', $answer_text);
-                $newAnswer->addAttribute('id', uniqid());
-                // Aggiungi l'email dell'utente come attributo
-                $newAnswer->addAttribute('email', $user_email);
-                break;
+                // Salva le modifiche nel file XML
+                $xml->asXML($xmlFile);
+                header('Location: faq.php');
+                exit();
             }
         }
 
-        $xml->asXML($xmlFile);
+        echo "Errore: Domanda non trovata.";
     } else {
         echo "Errore: Il file XML delle FAQ non esiste.";
     }
-
-    header('Location: faq.php');
-    exit();
 }
 ?>

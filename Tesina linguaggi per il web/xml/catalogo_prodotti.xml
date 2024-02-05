@@ -8,17 +8,31 @@
     <tipologia>magliette</tipologia>
     <immagine>../img/images-removebg-preview.png</immagine>
     <domande>
-      <domanda id_prodotto="1" id_utente="4">
-        <autore>fede@gmail.com</autore>
-        <testo>vfecwds</testo>
-        <id_domanda>65be16a0ec846</id_domanda>
+      <domanda id_prodotto="1" id_utente="2">
+        <autore>federico@gmail.com</autore>
+        <testo>refwediqwsjobnlk</testo>
+        <id_domanda>65bf509003841</id_domanda>
         <risposte>
           <risposta id_prodotto="1" id_utente="4">
-            <id_risposta>65be16a7000c7</id_risposta>
+            <id_risposta>65bfce21104c6</id_risposta>
             <autore>fede@gmail.com</autore>
-            <data>2024-02-03</data>
-            <ora>11:34:14</ora>
-            <testo>cfedw</testo>
+            <data>2024-02-04</data>
+            <ora>18:49:21</ora>
+            <testo>ciao</testo>
+          </risposta>
+        </risposte>
+      </domanda>
+      <domanda id_prodotto="1" id_utente="4">
+        <autore>fede@gmail.com</autore>
+        <testo>gjhkjblnk.m</testo>
+        <id_domanda>65bfbc9a7bd5b</id_domanda>
+        <risposte>
+          <risposta id_prodotto="1" id_utente="4">
+            <id_risposta>65bfd0d6527cb</id_risposta>
+            <autore>fede@gmail.com</autore>
+            <data>2024-02-04</data>
+            <ora>19:00:54</ora>
+            <testo>ters</testo>
           </risposta>
         </risposte>
       </domanda>

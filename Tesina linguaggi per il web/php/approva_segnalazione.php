@@ -20,7 +20,7 @@ require_once('../res/connection.php');
 if(isset($_POST['id_domanda'])){
 
 $domanda = $_POST['domanda'];
-$testo_segnalazione = $_POST['testo'];
+$testo_segnalazione_dom = $_POST['testo_dom'];
 $action = $_POST['action'];
 $id_domanda = $_POST['id_domanda'];
 $id_prodotto = $_POST['id_prodotto'];
@@ -40,12 +40,12 @@ $segnalazioni = $dom->getElementsByTagName('segnalazione');
 
         if ($statusElement == 'pending') {
             $domanda_element = $segnalazione->getElementsByTagName('testo_domanda')->item(0);
-            $testo_element = $segnalazione->getElementsByTagName('testo_segnalazione')->item(0);
+            $testo_element = $segnalazione->getElementsByTagName('testo_segnalazione_dom')->item(0);
 
             $requestDomanda = $domanda_element->nodeValue;
             $requestTesto = $testo_element->nodeValue;
 
-            if ($requestDomanda == $domanda && $requestTesto == $testo_segnalazione) {
+            if ($requestDomanda == $domanda && $requestTesto == $testo_segnalazione_dom) {
                 // Aggiorna lo stato della richiesta nel file XML
                 $segnalazione->setAttribute('status', 'Approvata');
                 $dom->save($xmlFile);
@@ -84,12 +84,12 @@ $segnalazioni = $dom->getElementsByTagName('segnalazione');
 
         if ($statusElement == 'pending') {
             $domanda_element = $segnalazione->getElementsByTagName('testo_domanda')->item(0);
-            $testo_element = $segnalazione->getElementsByTagName('testo_segnalazione')->item(0);
+            $testo_element = $segnalazione->getElementsByTagName('testo_segnalazione_dom')->item(0);
 
             $requestDomanda = $domanda_element->nodeValue;
             $requestTesto = $testo_element->nodeValue;
 
-            if ($requestDomanda == $domanda && $requestTesto == $testo_segnalazione) {
+            if ($requestDomanda == $domanda && $requestTesto == $testo_segnalazione_dom) {
                 // Aggiorna lo stato della richiesta nel file XML
                 $segnalazione->setAttribute('status', 'Rifiutata');
                 $dom->save($xmlFile);
@@ -101,7 +101,7 @@ $segnalazioni = $dom->getElementsByTagName('segnalazione');
 }
 elseif (isset($_POST['id_risposta'])){
     $risposta = $_POST['risposta'];
-$testo_segnalazione = $_POST['testo'];
+$testo_segnalazione_ris = $_POST['testo_ris'];
 $action = $_POST['action'];
 $id_risposta = $_POST['id_risposta'];
 $id_prodotto = $_POST['id_prodotto'];
@@ -120,12 +120,12 @@ $id_prodotto = $_POST['id_prodotto'];
         
                 if ($statusElement == 'pending') {
                     $risposta_element = $segnalazione->getElementsByTagName('testo_risposta')->item(0);
-                    $testo_element = $segnalazione->getElementsByTagName('testo_segnalazione')->item(0);
+                    $testo_element = $segnalazione->getElementsByTagName('testo_segnalazione_ris')->item(0);
         
                     $requestRisposta = $risposta_element->nodeValue;
                     $requestTesto = $testo_element->nodeValue;
         
-                    if ($requestRisposta == $risposta && $requestTesto == $testo_segnalazione) {
+                    if ($requestRisposta == $risposta && $requestTesto == $testo_segnalazione_ris) {
                         // Aggiorna lo stato della richiesta nel file XML
                         $segnalazione->setAttribute('status', 'Approvata');
                         $dom->save($xmlFile);
@@ -142,12 +142,16 @@ $id_prodotto = $_POST['id_prodotto'];
                         foreach ($xml->prodotto as $prodotto) {
                           
                                 // Cerca e rimuovi la domanda
-                                foreach ($prodotto->domande->domanda->risposte->risposta as $risposta) {
-                                    if ((string)$risposta->id_risposta == $idRispostaElement) {
+                                foreach ($prodotto->domande->domanda as $domanda) {
+                                    foreach ($domanda->risposte->risposta as $risposta) {
+                                        if ((string)$risposta->id_risposta == $idRispostaElement) {
                                         unset($risposta[0]);
                                         echo '<h1 class="titolo">Risposta rimossa con successo!!!</h1>';
                                         break;
                                     }
+                                    }
+                                }
+                                  
                                 }
                                 // Salva le modifiche
                                 $xml->asXML($xmlFile);
@@ -156,7 +160,7 @@ $id_prodotto = $_POST['id_prodotto'];
                   }
                 }      
               }
-            }elseif ($action=="Rifiuta"){
+            elseif ($action=="Rifiuta"){
                 foreach ($segnalazioni as $segnalazione) {
                 $statusElement = $segnalazione->getAttribute('status');
                 $idRispostaElement = $segnalazione->getAttribute('id_risposta');
@@ -164,21 +168,23 @@ $id_prodotto = $_POST['id_prodotto'];
         
                 if ($statusElement == 'pending') {
                     $risposta_element = $segnalazione->getElementsByTagName('testo_risposta')->item(0);
-                    $testo_element = $segnalazione->getElementsByTagName('testo_segnalazione')->item(0);
+                    $testo_element = $segnalazione->getElementsByTagName('testo_segnalazione_ris')->item(0);
         
                     $requestRisposta = $risposta_element->nodeValue;
                     $requestTesto = $testo_element->nodeValue;
         
-                    if ($requestRisposta == $risposta && $requestTesto == $testo_segnalazione) {
+                    if ($requestRisposta == $risposta && $requestTesto == $testo_segnalazione_ris) {
                         // Aggiorna lo stato della richiesta nel file XML
                         $segnalazione->setAttribute('status', 'Rifiutata');
                         $dom->save($xmlFile);
                         header("Location:index.php");
-                    }
-                    }
+                      }
+                  
+                   }
                 }
             }
-}
+        }
+
 ?>
 </body>
 </html>
