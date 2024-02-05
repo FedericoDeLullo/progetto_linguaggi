@@ -63,7 +63,7 @@ th {
     background: #0021b4;
     padding: 10px;
     border: 2px solid #011050;
-    margin: auto; /* Aggiungi questa riga */
+    margin: auto;
 }
 
 .btn:hover{
@@ -74,7 +74,7 @@ th {
 .titolo{
     margin-bottom: -5vh;
     color: #011050;
-    text-align: center; /* Centra il testo orizzontalmente */
+    text-align: center;
 }
 
 .contenitore{
