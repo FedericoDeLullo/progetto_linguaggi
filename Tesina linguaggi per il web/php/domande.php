@@ -97,7 +97,7 @@ if ($domande->length > 0) {
             echo '<td><p><span id="ver" class="material-symbols-outlined">verified</span></p></td>';
         }  else {
          // Colonna per i pulsanti di voto delle domande
-        echo '<td class="voting-buttons">';
+        echo '<td>';
         echo '<form action="../res/domande_utilita_supporto.php" method="post">';
         echo '<input type="hidden" name="id_domanda" value="' . $id_domanda . '"/>';
         echo '<input type="hidden" name="id_prodotto" value="' . $id_prodotto . '"/>';
@@ -180,7 +180,7 @@ if ($domande->length > 0) {
             echo '<p><span id="ver" class="material-symbols-outlined">verified</span></p>';
         }  else {
                 // Colonna per i pulsanti di voto delle risposte
-                echo '<div class="voting-buttons">';
+                echo '<div>';
                 echo '<form action="../res/risposte_utilita_supporto.php" method="post">';
                 echo '<input type="hidden" name="id_domanda" value="' . $id_domanda . '"/>';
                 echo '<input type="hidden" name="id_risposta" value="' . $id_risposta . '"/>';
@@ -371,7 +371,7 @@ if ($domande->length > 0) {
             echo '<p><span id="ver" class="material-symbols-outlined">verified</span></p>';
         }  else {
                 // Colonna per i pulsanti di voto delle risposte
-                echo '<div class="voting-buttons">';
+                echo '<div>';
                 echo '<form action="../res/risposte_utilita_supporto.php" method="post">';
                 echo '<input type="hidden" name="id_domanda" value="' . $id_domanda . '"/>';
                 echo '<input type="hidden" name="id_risposta" value="' . $id_risposta . '"/>';

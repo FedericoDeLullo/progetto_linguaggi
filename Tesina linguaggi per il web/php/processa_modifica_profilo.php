@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once('../res/connection.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -12,20 +13,58 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $cellulare = $_POST['cellulare'];
     $email = $_POST['email'];
 
-    // Esegui le opportune verifiche e validazioni sui dati
+    // Controlla se l'email inviata è diversa dall'email nella sessione
+    if ($email !== $_SESSION['email']) {
+        // Costruisci la query SQL per controllare se l'email esiste già nel database
+        $controllo_email = "SELECT email FROM utenti WHERE email = ?";
 
-    // Aggiorna i dati dell'utente nel database
-    $query = "UPDATE utenti SET nome = '$nome', email = '$email', passwd = '$password', cognome = '$cognome', indirizzo_di_residenza = '$indirizzo', cellulare = $cellulare WHERE id = $id_utente";
+        // Utilizza statement preparati per evitare SQL injection
+        $stmt = $connessione->prepare($controllo_email);
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $ris_e = $stmt->get_result();
+        if ($ris_e) { 
+            // Verifica se ci sono risultati (email già esistente)
+            if ($ris_e->num_rows == 0) {
+                // Nessuna email corrispondente trovata, quindi puoi procedere con l'aggiornamento dei dati dell'utente
+                $query = "UPDATE utenti SET nome = ?, email = ?, passwd = ?, cognome = ?, indirizzo_di_residenza = ?, cellulare = ? WHERE id = ?";
 
-    if ($connessione->query($query) === TRUE) {
-       header("Location:gestione_profilo.php");
+                // Utilizza statement preparati per evitare SQL injection
+                $stmt = $connessione->prepare($query);
+                $stmt->bind_param("ssssssi", $nome, $email, $password, $cognome, $indirizzo, $cellulare, $id_utente);
 
+                if ($stmt->execute()) {
+                    header("Location: gestione_profilo.php");
+                } else {
+                    echo 'Errore durante il salvataggio delle modifiche: ' . $stmt->error;
+                }
+            } else {
+                // L'email inviata è già presente nel database
+                echo 'L\'email inserita è già presente nel database.';
+            }
+        } else {
+            $_SESSION['errore_query'] = 'true';
+            header('Location: ../php/modifica_profilo.php');
+            exit(1);
+        }
     } else {
-        echo 'Errore durante il salvataggio delle modifiche: ' . $connessione->error;
+        // L'email inviata è uguale all'email nella sessione, aggiorna tutti gli altri parametri
+        $query = "UPDATE utenti SET nome = ?, passwd = ?, cognome = ?, indirizzo_di_residenza = ?, cellulare = ? WHERE id = ?";
+
+        // Utilizza statement preparati per evitare SQL injection
+        $stmt = $connessione->prepare($query);
+        $stmt->bind_param("sssssi", $nome, $password, $cognome, $indirizzo, $cellulare, $id_utente);
+
+        if ($stmt->execute()) {
+            header("Location: gestione_profilo.php");
+        } else {
+            echo 'Errore durante il salvataggio delle modifiche: ' . $stmt->error;
+        }
     }
 } else {
     echo 'Metodo di richiesta non valido.';
 }
 
+$stmt->close();
 $connessione->close();
 ?>
