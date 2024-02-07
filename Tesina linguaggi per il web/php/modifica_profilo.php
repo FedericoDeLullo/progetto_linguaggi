@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modifica Utente</title>
-
     <link rel="stylesheet" href="../css/style_standard.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="../css/style_header.css">
@@ -14,7 +13,9 @@
 </head>
 <body>
 
-    <?php
+<div class="cont">
+
+<?php
 require_once('../res/connection.php');
 
 // Verifica se è stato fornito un ID utente valido
@@ -29,12 +30,12 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         $utente = $result->fetch_assoc();
 
         if(isset($_SESSION['errore_query']) && $_SESSION['errore_query'] == 'true'){
-            echo "<h3>ERRORE DURANTE LA RICHIESTA!</h3>";
+            echo "<h2>Errore durante la richiesta!</h2>";
             unset($_SESSION['errore_query']);
         }
 
         if(isset($_SESSION['errore_email_ex']) && $_SESSION['errore_email_ex'] == 'true'){//isset verifica se errore è settata
-            echo "<h3>EMAIL GIÀ IN USO!</h3>";
+            echo "<h2>L'email '" . $_SESSION['email_errata'] . "' è già in uso!</h2>";
             unset($_SESSION['errore_email_ex']);//la unsetto altrimenti rimarrebbe la scritta
             unset($_SESSION['mod_mail']);//pulisco il form del campo email perché è errato
         }
@@ -58,7 +59,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                         <label class="nome" for="nome">Indirizzo di residenza:</label>
                         <input class="input" type="text" id="indirizzo" name="indirizzo" value="<?php echo $utente['indirizzo_di_residenza']; ?>" required><br>
                         <label class="nome" for="nome">Cellulare:</label>
-                        <input class="input" type="number" id="cellulare" name="cellulare" value="<?php echo $utente['cellulare']; ?>" required>
+                        <input class="input" type="text" id="cellulare" name="cellulare" pattern="\d{10}" maxlength="10" value="<?php echo $utente['cellulare']; ?>" required>
                         <br><br><br>
                         <input class="btn" type="submit" value="Salva Modifiche">
                     </form>
@@ -66,14 +67,18 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             </tr>
         </table>
         <?php
-    } else {
-        echo 'Utente non trovato.';
+    } 
+    else {
+        echo '<h2>Utente non trovato.</h2>';
     }
-} else {
-    echo 'ID utente non valido.';
+} 
+else {
+    echo '<h2>ID utente non valido.</h2>';
 }
 
 $connessione->close();
 ?>
+</div>
+
 </body>
 </html>

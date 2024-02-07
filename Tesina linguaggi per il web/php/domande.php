@@ -271,7 +271,7 @@ if ($domande->length > 0) {
         echo '<td>' . $testoDomanda . '</td>'; 
         echo '<td>' . $utilitaValue . '</td>';
         echo '<td>' . $supportoValue . '</td>';
-        echo '</tr>';
+
         
         
         // Ottieni l'id_utente dai nodi "valore" all'interno degli elementi "utilita" e "supporto"
@@ -354,7 +354,7 @@ if ($domande->length > 0) {
                 echo '<td>';
                 echo '<strong>' . $autoreRisposta . '</strong> ha risposto il ' . $dataRisposta . ' alle ' . $oraRisposta;
                 echo '</td>';
-                echo '<td>';
+                echo '<td style="max-width:300px; word-wrap: break-word;">';
                 echo $testoRisposta;
                 echo '</td>';
                 echo '<td>' . $utilitaValue . '</td>';

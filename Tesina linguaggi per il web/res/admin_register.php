@@ -34,6 +34,7 @@
 
     if(mysqli_num_rows($ris_email) > 0){
         $_SESSION['errore_email'] = 'true';
+        $_SESSION['email_errata'] = $email;
         header('Location: ../php/registrazione_admin.php');
         exit(1);
     }
