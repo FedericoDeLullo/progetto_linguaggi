@@ -225,6 +225,11 @@ if(isset($_SESSION['id'])){
    $idUtenteSessione = $_SESSION['id'];
 }
 
+if(isset($_GET['id_prodotto'])){
+    $id_prodotto = $_GET['id_prodotto']; 
+}
+
+
     // Carica il file XML del catalogo
     $xmlFile = '../xml/catalogo_prodotti.xml';
     $dom = new DOMDocument();
@@ -236,6 +241,13 @@ if(isset($_SESSION['id'])){
 
 // Mostra le domande e i form di risposta in una tabella
 
+
+if(isset($_GET['nome']) && isset($_GET['tipologia'])){
+    
+    $nome = $_GET['nome'];
+    $tipologia = $_GET['tipologia'];
+
+}
 
 if ($domande->length > 0) {
     echo '<h1 class="titolo">Domande Prodotto: ' . $nome . '</h1>';
@@ -266,11 +278,13 @@ if ($domande->length > 0) {
         echo '<input type="hidden" name="id_prodotto" value="' . $id_prodotto . '"/>';
         echo '<button class="done" type="submit" name="vota"><span id="done" title="Invia" class="material-symbols-outlined">edit</span></button>';
         echo '</form>';
+        echo '<a href="elimina_dom_risp.php?id_domanda=' . $id_domanda . '&id_prodotto=' . $id_prodotto . '&nome=' . $nome . '&tipologia=' . $tipologia . '"><span style="margin-top:10px;" id="done" class="material-symbols-outlined">delete</span></a>';
         echo '</td>';
-        echo '<td>' . $autoreDomanda . '</td>';
+        echo '<td><strong>' . $autoreDomanda . '</strong></td>';
         echo '<td>' . $testoDomanda . '</td>'; 
         echo '<td>' . $utilitaValue . '</td>';
         echo '<td>' . $supportoValue . '</td>';
+    
 
         
         
@@ -287,6 +301,8 @@ if ($domande->length > 0) {
         echo '<input type="hidden" name="id_domanda" value="' . $id_domanda . '"/>';
         echo '<input type="hidden" name="id_prodotto" value="' . $id_prodotto . '"/>';
         echo '<input type="hidden" name="tipologia" value="' . $tipologia . '"/>';
+        echo '<input type="hidden" name="nome" value="' . $nome . '"/>';
+
     
         echo '<label class="titolo" for="votoUtilita">Utilità (da 1 a 5): </label>';
         echo '<input class="input" type="number" name="votoUtilita" min="1" max="5" required/><br>';
@@ -339,17 +355,20 @@ if ($domande->length > 0) {
                 
                 // Nuova riga per ogni risposta
               // Nuova riga per ogni risposta
-                echo '<tr>';
-                echo '<td>';
-                echo '<form action="eleva_faq.php" method="post">';
-                echo '<input type="hidden" name="testo_risposta" value="' . htmlspecialchars($testoRisposta) . '"/>';
-                echo '<input type="hidden" name="id_risposta" value="' . $id_risposta . '"/>';
-                echo '<input type="hidden" name="id_domanda" value="' . $id_domanda . '"/>';
-                echo '<input type="hidden" name="id_prodotto" value="' . $id_prodotto . '"/>';
-                echo '<input type="hidden" name="testo_risposta" value="' . htmlspecialchars($testoRisposta) . '"/>';
-                echo '<input type="hidden" name="testo_domanda" value="' . htmlspecialchars($testoDomanda) . '"/>';
-                echo '<button class="done" type="submit" name="vota"><span id="done" title="Invia" class="material-symbols-outlined">edit</span></button>';
-                echo '</form>';
+              echo '<tr>';
+              echo '<td>';
+              echo '<form action="eleva_faq.php" method="post">';
+              echo '<input type="hidden" name="testo_risposta" value="' . htmlspecialchars($testoRisposta) . '"/>';
+              echo '<input type="hidden" name="id_risposta" value="' . $id_risposta . '"/>';
+              echo '<input type="hidden" name="id_domanda" value="' . $id_domanda . '"/>';
+              echo '<input type="hidden" name="id_prodotto" value="' . $id_prodotto . '"/>';
+              echo '<input type="hidden" name="testo_risposta" value="' . htmlspecialchars($testoRisposta) . '"/>';
+              echo '<input type="hidden" name="testo_domanda" value="' . htmlspecialchars($testoDomanda) . '"/>';
+              echo '<button class="done" type="submit" name="vota"><span id="done" title="Invia" class="material-symbols-outlined">edit</span></button>';
+              echo '</form>';
+              echo '<a href="elimina_dom_risp.php?id_risposta=' . $id_risposta . '&id_domanda=' . $id_domanda . '&id_prodotto=' . $id_prodotto . '&nome=' . $nome . '&tipologia=' . $tipologia . '">';             
+               echo '<span style="margin-top:10px;" id="done" class="material-symbols-outlined">delete</span>';
+              echo '</a>';              
                 echo '</td>';          
                 echo '<td>';
                 echo '<strong>' . $autoreRisposta . '</strong> ha risposto il ' . $dataRisposta . ' alle ' . $oraRisposta;
@@ -407,3 +426,5 @@ if ($domande->length > 0) {
 
 </body>
 </html>
+
+
