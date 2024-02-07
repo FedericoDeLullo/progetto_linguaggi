@@ -54,7 +54,7 @@ if (isset($_SESSION['id'])) {
                 <tr>
                     <th>Password:</th>
                     <td><?php echo $utente['passwd']; ?></td>
-                    <td><a href="modifica_profilo.php?id=<?php echo $utente['id']; ?>"><span id="edit" class="material-symbols-outlined">edit</span></a></td>
+                    <td><a href="modifica_password.php?id=<?php echo $utente['id']; ?>"><span id="edit" class="material-symbols-outlined">edit</span></a></td>
 
                 </tr>
                 <tr>

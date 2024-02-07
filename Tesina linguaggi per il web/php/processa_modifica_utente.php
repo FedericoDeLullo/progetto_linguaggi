@@ -8,7 +8,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST['nome'];
     $cognome = $_POST['cognome'];
     $crediti = $_POST['crediti'];
-    $password = $_POST['password'];
     $indirizzo = $_POST['indirizzo'];
     $cellulare = $_POST['cellulare'];
     $email = $_POST['email'];
@@ -38,11 +37,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // Verifica se ci sono risultati (email già esistente)
                 if ($ris_e->num_rows == 0) {
                     // Nessuna email corrispondente trovata, quindi puoi procedere con l'aggiornamento dei dati dell'utente
-                    $query = "UPDATE utenti SET nome = ?, email = ?, passwd = ?, cognome = ?, indirizzo_di_residenza = ?, cellulare = ? WHERE id = ?";
+                    $query = "UPDATE utenti SET nome = ?, email = ?, cognome = ?, indirizzo_di_residenza = ?, cellulare = ? WHERE id = ?";
 
                     // Utilizza statement preparati per evitare SQL injection
                     $stmt = $connessione->prepare($query);
-                    $stmt->bind_param("ssssssi", $nome, $email, $password, $cognome, $indirizzo, $cellulare, $id_utente);
+                    $stmt->bind_param("sssssi", $nome, $email, $cognome, $indirizzo, $cellulare, $id_utente);
 
                     if ($stmt->execute()) {
                         header("Location: gestione_profilo.php");
@@ -68,11 +67,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } 
         else {
             // L'email inviata è uguale all'email nella sessione, aggiorna tutti gli altri parametri
-            $query = "UPDATE utenti SET nome = ?, passwd = ?, cognome = ?, indirizzo_di_residenza = ?, cellulare = ? WHERE id = ?";
+            $query = "UPDATE utenti SET nome = ?, cognome = ?, indirizzo_di_residenza = ?, cellulare = ? WHERE id = ?";
 
             // Utilizza statement preparati per evitare SQL injection
             $stmt = $connessione->prepare($query);
-            $stmt->bind_param("sssssi", $nome, $password, $cognome, $indirizzo, $cellulare, $id_utente);
+            $stmt->bind_param("ssssi", $nome, $cognome, $indirizzo, $cellulare, $id_utente);
 
             if ($stmt->execute()) {
                 header("Location: gestione_utenti.php");

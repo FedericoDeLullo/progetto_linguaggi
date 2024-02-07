@@ -44,10 +44,10 @@
                 <input type="text" name="indirizzo_di_residenza" id="" class="input" placeholder="Indirizzo di residenza" value="<?php  if(isset($_SESSION['form_indirizzo_di_residenza'])) echo $_SESSION['form_indirizzo_di_residenza']; ?>" required>
             </div>
             <div class="inp cf">
-                <input type="text" name="codice_fiscale" id="" class="input col" placeholder="Codice fiscale" maxlength="16" value="<?php  if(isset($_SESSION['form_codice_fiscale'])) echo $_SESSION['form_codice_fiscale']; ?>" required>
+                <input type="text" name="codice_fiscale" id="" class="input col" placeholder="Codice fiscale" pattern="[A-Za-z]{6}\d{2}[A-Za-z]\d{2}[A-Za-z]\d{3}[A-Za-z]" maxlength="16" title="Inserisci un codice fiscale italiano valido. (es.XXXXXX00X00X000X)" value="<?php  if(isset($_SESSION['form_codice_fiscale'])) echo $_SESSION['form_codice_fiscale']; ?>" required>
             </div>
             <div class="inp cellulare">
-                <input type="text" name="cellulare" class="input" placeholder="Numero di Cellulare" pattern="\d{10}" maxlength="10" value="<?php  if(isset($_SESSION['form_cellulare'])) echo $_SESSION['form_cellulare']; ?>" required>
+                <input type="text" name="cellulare" class="input" placeholder="Numero di Cellulare" pattern="\d{10}" maxlength="10" title="Inserisci un numero di telefono valido.(formato da 10 numeri)" value="<?php  if(isset($_SESSION['form_cellulare'])) echo $_SESSION['form_cellulare']; ?>" required>
             </div>
             <div class="inp password">
                 <input type="password" name="password" id="" class="input col" placeholder="Password" required>

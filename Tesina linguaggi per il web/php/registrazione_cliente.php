@@ -21,11 +21,27 @@
         unset($_SESSION['errore_email']); //la unsetto altrimenti rimarrebbe la scritta
         unset($_SESSION['form_email']); //pulisco il form del campo email perché è errato
     }
+    
+    if(isset($_SESSION['errore_preg']) && $_SESSION['errore_preg'] == 'true'){
+        echo "<h2>La password non rispetta i criteri di sicurezza!</h2>";
+        unset($_SESSION['errore_preg']);
+    }
     ?>
 
     <div class="wrapper">
 
         <form action="../res/cliente_register.php" method="post" class="form">
+            <div class="tooltip">
+                <span class="tooltiptext">LA PASSWORD DEVE SODDISFARE I SEGUENTI REQUISITI:
+                    <ul>
+                        <li>DEVE ESSERE LUNGA ALMENO 7 CARATTERI</li>
+                        <li>DEVE CONTENERE ALMENO UNA LETTERA MAIUSCOLA E UNA MINUSCOLA</li>
+                        <li>DEVE CONTENERE ALMENO UN NUMERO</li>
+                        <li>DEVE CONTENERE ALMENO UN CARATTERE SPECIALE (!,@,#,$,%,^,&,*)</li>
+                    </ul>       
+                </span>
+                <i id="simbolo" class="material-symbols-outlined">info</i>
+            </div>
             <h1 class="titolo">REGISTRAZIONE</h1>
             <div class="data">Data di nascita:</div>
             <div class="inp nome">
@@ -44,10 +60,10 @@
                 <input type="text" name="indirizzo_di_residenza" id="" class="input" placeholder="Indirizzo di residenza" value="<?php  if(isset($_SESSION['form_indirizzo_di_residenza'])) echo $_SESSION['form_indirizzo_di_residenza']; ?>" required>
             </div>
             <div class="inp cf">
-                <input type="text" name="codice_fiscale" id="" class="input col" placeholder="Codice fiscale" maxlength="16" value="<?php  if(isset($_SESSION['form_codice_fiscale'])) echo $_SESSION['form_codice_fiscale']; ?>" required>
+                <input type="text" name="codice_fiscale" id="" class="input col" placeholder="Codice fiscale" pattern="[A-Za-z]{6}\d{2}[A-Za-z]\d{2}[A-Za-z]\d{3}[A-Za-z]" maxlength="16" title="Inserisci un codice fiscale italiano valido. (es.XXXXXX00X00X000X)" value="<?php  if(isset($_SESSION['form_codice_fiscale'])) echo $_SESSION['form_codice_fiscale']; ?>" required>
             </div>
             <div class="inp cellulare">
-                <input type="text" name="cellulare" class="input" placeholder="Numero di Cellulare" pattern="\d{10}" maxlength="10" value="<?php  if(isset($_SESSION['form_cellulare'])) echo $_SESSION['form_cellulare']; ?>" required>
+                <input type="text" name="cellulare" class="input" placeholder="Numero di Cellulare" pattern="\d{10}" maxlength="10" title="Inserisci un numero di telefono valido.(formato da 10 numeri)" value="<?php  if(isset($_SESSION['form_cellulare'])) echo $_SESSION['form_cellulare']; ?>" required>
             </div>
             <div class="inp password">
                 <input type="password" name="password" id="" class="input col" placeholder="Password" required>

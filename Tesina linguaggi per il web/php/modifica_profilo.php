@@ -54,12 +54,10 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                         <input class="input" type="text" id="cognome" name="cognome" value="<?php echo $utente['cognome']; ?>" required><br>
                         <label class="nome" for="email">Email:</label>
                         <input class="input" type="email" id="email" name="email" value="<?php echo $utente['email']; ?>" required><br>
-                        <label class="nome" for="nome">Password:</label>
-                        <input class="input" type="text" id="password" name="password" value="<?php echo $utente['passwd']; ?>" required><br>
                         <label class="nome" for="nome">Indirizzo di residenza:</label>
                         <input class="input" type="text" id="indirizzo" name="indirizzo" value="<?php echo $utente['indirizzo_di_residenza']; ?>" required><br>
                         <label class="nome" for="nome">Cellulare:</label>
-                        <input class="input" type="text" id="cellulare" name="cellulare" pattern="\d{10}" maxlength="10" value="<?php echo $utente['cellulare']; ?>" required>
+                        <input class="input" type="text" id="cellulare" name="cellulare" pattern="\d{10}" maxlength="10" title="Inserisci un numero di telefono valido.(formato da 10 numeri)" value="<?php echo $utente['cellulare']; ?>" required>
                         <br><br><br>
                         <input class="btn" type="submit" value="Salva Modifiche">
                     </form>

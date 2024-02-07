@@ -27,6 +27,26 @@
     color: #011050;
     transition: 0.5s;
 }
+.btn1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #00b7ff;
+    width: 13vw;
+    height: 5vh;
+    text-decoration: none;
+    font-size: 20px;
+    color: #011050;
+    border-radius: 50px;
+    border: 3px solid #011050;
+    margin-bottom:20px ;
+}
+
+.btn1:hover{
+    background:  #011050;
+    color:#00b7ff ;
+    transition: 0.5s;
+}
 
 table {
     width: 100%;

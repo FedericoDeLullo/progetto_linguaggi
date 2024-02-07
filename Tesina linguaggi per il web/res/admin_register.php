@@ -11,7 +11,8 @@
     $codice_fiscale = $connessione->real_escape_string($_POST['codice_fiscale']);
     $password = $connessione->real_escape_string($_POST['password']);
     $codice = $connessione->real_escape_string($_POST['codice']);
-    
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
     $utente=0;
     $admin_ok=1;
     $gestore=0;
@@ -38,8 +39,10 @@
         header('Location: ../php/registrazione_admin.php');
         exit(1);
     }
-            
-    $sql = "INSERT INTO utenti (email, nome, cognome, data_di_nascita, cellulare, indirizzo_di_residenza, codice_fiscale, passwd, crediti, ammin, utente, gestore, reputazione, ban) VALUES ('$email','$nome','$cognome','$data_di_nascita','$cellulare','$indirizzo_di_residenza', '$codice_fiscale','$password', '$crediti', '$admin_ok', '$utente', '$gestore', '$reputazione', '$ban')";
+    if($codice == $codice_admin){        
+
+
+    $sql = "INSERT INTO utenti (email, nome, cognome, data_di_nascita, cellulare, indirizzo_di_residenza, codice_fiscale, passwd, crediti, ammin, utente, gestore, reputazione, ban) VALUES ('$email','$nome','$cognome','$data_di_nascita','$cellulare','$indirizzo_di_residenza', '$codice_fiscale','$hashed_password', '$crediti', '$admin_ok', '$utente', '$gestore', '$reputazione', '$ban')";
     
     try {
         $connessione->query($sql);
@@ -58,5 +61,8 @@
     catch (Exception $e) {
         header("Location: ../php/registrazione_fallita.php");
         exit;
+    }}else{
+        header('Location: ../php/registrazione_admin.php');
+        exit(1);    
     }
 ?>

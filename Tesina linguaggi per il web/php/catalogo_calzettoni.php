@@ -28,9 +28,11 @@
                     </td>
                     <td>
                         <label class="scritta" for="ordina">Ordina per:</label>
-                        <select id="ordina">
-                            <option value="nome">Nome</option>
-                            <option value="prezzo">Prezzo</option>
+                        <select id="ordina"> 
+                            <option value="nomeCrescente">(A-Z)</option>
+                            <option value="nomeDecrescente">(Z-A)</option>                            
+                            <option value="prezzoCrescente">Prezzo crescente</option>
+                            <option value="prezzoDecrescente">Prezzo decrescente</option>
                         </select>
                         <button class="btn_stilizzato"><span class="material-symbols-outlined">check</span></button>
                     </td>
@@ -86,17 +88,63 @@
                 echo '<div class="prodotto">';
                 echo '<h1 class="nome">';
                 require_once('../res/connection.php');
-                if(isset($_SESSION['loggato'])){   
-                    echo '<a title="Lista delle domande" href="domande.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'"><span id="simbolo_recensione" class="material-symbols-outlined">question_mark</span></a>';
-                    echo '<a title="Lascia una domanda" href="domande_prodotti.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'"><span id="simbolo_recensione" class="material-symbols-outlined">rate_review</span></a>';
+                if(isset($_SESSION['loggato'])){
+                    $gestore = $_SESSION['gestore'];
+                    $admin = $_SESSION['ammin'];
+                    $utente = $_SESSION['utente'];
                     echo $nome;
-                    echo '<a title="Lascia una recensione" href="recensione_cliente.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'"><span id="simbolo_recensione" class="material-symbols-outlined">note_stack_add</span></a>';
-                    echo '<a title="Lista delle recensioni" href="lista_recensioni.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'"><span id="simbolo_recensione" class="material-symbols-outlined">reviews</span></a>';
-                }
-                else{
+                  if($gestore == 1){
+                     echo '</h1>';
+                    echo '<table class="table">';
+                        echo '<tr>';
+                        echo '<td>';
+                        echo '<a class="btn1"style="margin-left:10vw;" title="Lista delle domande" href="domande.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">Lista delle domande</a>';
+                        echo '<a class="btn1"style="margin-left:10vw;" title="Lascia una domanda" href="domande_prodotti.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">Scrivi una domanda</a>';
+                        echo '<a class="btn1"style="margin-left:10vw;"  title="Lascia una recensione" href="recensione_cliente.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">Scrivi una recensione</a>';
+                        echo '<a class="btn1" style="margin-left:10vw;"title="Lista delle recensioni" href="lista_recensioni.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">Lista delle recensioni</a>';
+                        echo '<a class="btn1" style="margin-left:10vw;" href="modifica_prodotti_form.php?id_prodotto=' . $id_prodotto . '">Modifica prodotto</a>';
+                        echo '</td>';
+                            echo '<td class="td">';
+                                  echo '<div class="box">';
+                                    echo '<img src="' . $immagine . '" alt="' . $nome . '">';
+                                echo '</div>';
+                            echo '</td>';
+                            echo '<td class="td">';
+                                echo '<p class="des">' . $descrizione . '</p>';
+                                echo '<p class="prezzo">Prezzo: ' . $prezzo . '€</p>';
+                                echo '<a href="login_gestore.php"><span id="cart" class="material-symbols-outlined">add_shopping_cart</span></a>';
+                        echo '</tr>';
+                    echo '</table>';
+                    echo '</div>';
+                } elseif($utente == 1 || $admin == 1){
+                    echo '</h1>';
+                    echo '<table class="table">';
+                        echo '<tr>';
+                        echo '<td>';
+                        echo '<a class="btn1"style="margin-left:8vw;" title="Lista delle domande" href="domande.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">Lista delle domande</a>';
+                        echo '<a class="btn1"style="margin-left:8vw;" title="Lascia una domanda" href="domande_prodotti.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">Scrivi una domanda</a>';
+                        echo '<a class="btn1"style="margin-left:8vw;"  title="Lascia una recensione" href="recensione_cliente.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">Scrivi una recensione</a>';
+                        echo '<a class="btn1" style="margin-left:8vw;"title="Lista delle recensioni" href="lista_recensioni.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">Lista delle recensioni</a>';
+                        echo '</td>';
+                            echo '<td class="td">';
+                                  echo '<div class="box">';
+                                    echo '<img class="img" src="' . $immagine . '" alt="' . $nome . '">';
+                                echo '</div>';
+                            echo '</td>';
+                            echo '<td class="td">';
+                                echo '<p class="des">' . $descrizione . '</p>';
+                                echo '<p class="prezzo">Prezzo: ' . $prezzo . '€</p>';
+                                echo '<a href="login_gestore.php"><span id="cart" class="material-symbols-outlined">add_shopping_cart</span></a>';
+                        echo '</tr>';
+                    echo '</table>';
+                    echo '</div>';
+                } 
+
+
+
+            }else{
                     echo $nome;
-                }
-                echo '</h1>';
+                     echo '</h1>';
                 echo '<table class="table">';
                     echo '<tr>';
                         echo '<td class="td">';
@@ -111,48 +159,80 @@
                     echo '</tr>';
                 echo '</table>';
                 echo '</div>';
-            }
+        }
+                }
             ?>
-            <script>
-                // Quando il documento è caricato
-                $(document).ready(function() {
-                    // Associo un'azione al bottone di ricerca "search-button"
-                    $('.search-button').on('click', function() {
-                        var searchText = $('.search-input').val().toLowerCase();
+                 <script>
+    // Quando il documento è caricato
+    $(document).ready(function() {
+        // Associo un'azione al bottone di ricerca "btn_stilizzato"
+        $('.btn_stilizzato').on('click', function() {
+            var searchText = $('.search-input').val().toLowerCase();
 
-                        $('.prodotto').each(function() {
-                            var titolo = $(this).find('.nome1').text().toLowerCase();
+            $('.prodotto').each(function() {
+                var titolo = $(this).find('.nome').text().toLowerCase();
 
-                            if (titolo.indexOf(searchText) !== -1) {
-                                $(this).show();
-                            } else {
-                                $(this).hide();
-                            }
-                        });
-                    });
+                if (titolo.indexOf(searchText) !== -1) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+        });
 
-                    // Associo un'azione alla barra di ricerca quando scrivo qualcosa sulla tastiera
-                    $('.search-input').on('keyup', function() {
-                        var searchText = $(this).val().toLowerCase();
+        // Associo un'azione alla barra di ricerca quando scrivo qualcosa sulla tastiera
+        $('.search-input').on('keyup', function() {
+            var searchText = $(this).val().toLowerCase();
 
-                        $('.prodotto').each(function() {
-                            var titolo = $(this).find('.nome1').text().toLowerCase();
+            $('.prodotto').each(function() {
+                var titolo = $(this).find('.nome').text().toLowerCase();
 
-                            if (titolo.indexOf(searchText) !== -1) {
-                                $(this).show();
-                            } else {
-                                $(this).hide();
-                            }
-                        });
-                    });
+                if (titolo.indexOf(searchText) !== -1) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+        });
 
-                    // Ordino i prodotti in base alla richiesta
-                    $('#filter').on('click', function() {
-                        var selectedOption = $('#ordina').val();
-                        window.location.href = 'catalogo_calzettoni.php?ordina=' + selectedOption;
-                    });
+        // Ordino i prodotti in base alla richiesta
+        // Ordino i prodotti in base alla richiesta
+        $('#ordina').on('change', function() {
+            var selectedOption = $(this).val();
+
+            if (selectedOption === 'prezzoCrescente' || selectedOption === 'prezzoDecrescente' || 
+                selectedOption === 'nomeCrescente' || selectedOption === 'nomeDecrescente') {
+                // Se l'opzione selezionata è prezzo o nome, ordina direttamente lato client
+                var prodottiArray = $('.prodotto').toArray();
+
+                prodottiArray.sort(function(a, b) {
+                    if (selectedOption.includes('prezzo')) {
+                        var prezzoA = parseFloat($(a).find('.prezzo').text().replace('Prezzo: ', '').replace('€', '').trim());
+                        var prezzoB = parseFloat($(b).find('.prezzo').text().replace('Prezzo: ', '').replace('€', '').trim());
+
+                        return selectedOption === 'prezzoCrescente' ? prezzoA - prezzoB : prezzoB - prezzoA;
+                    } else if (selectedOption.includes('nome')) {
+                        var nomeA = $(a).find('.nome').text().toLowerCase();
+                        var nomeB = $(b).find('.nome').text().toLowerCase();
+
+                        return selectedOption === 'nomeCrescente' ? nomeA.localeCompare(nomeB) : nomeB.localeCompare(nomeA);
+                    }
                 });
-            </script>
+
+                // Rimuovi tutti i prodotti attualmente visualizzati
+                $('.prodotto').remove();
+
+                // Itera attraverso i prodotti ordinati e stampali
+                for (var i = 0; i < prodottiArray.length; i++) {
+                    $('.cont').append(prodottiArray[i]);
+                }
+            } else {
+                // Se l'opzione selezionata non è prezzo o nome, gestisci l'ordinamento lato server con il normale ricaricamento della pagina
+                window.location.href = 'catalogo_magliette.php?ordina=' + selectedOption;
+            }
+        });
+    });
+</script>
         </div>
     </body>
     </html>

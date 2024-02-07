@@ -154,7 +154,7 @@ if (file_exists($xmlFile)) {
                                     echo '<form action="processa_modifica.php" method="post">';
                                     echo "<input type='hidden' name='faq_id' value='$id'>";
                                     echo '<label class="big" for="answer">Modifica domanda:</label>';
-                                    echo '<textarea class="input" name="answer" style="width: 500px; height: 50px;" required></textarea>';
+                                    echo '<input class="input" name="answer" style="width: 500px; height: 50px;" required></input>';
                                     echo '<button class="btn" type="submit">Modifica</button>';
                                     echo '</form>';
                                     echo "</td>";

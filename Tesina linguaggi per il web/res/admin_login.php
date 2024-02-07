@@ -13,7 +13,7 @@
         if($result = $connessione->query($sql_select)){
             if($result->num_rows === 1){
                 $row = $result->fetch_array(MYSQLI_ASSOC);
-                if($password === $row['passwd'] && $codice==$codice_admin){
+                if(password_verify($password, $row['passwd']) && $codice==$codice_admin){
 
                     $_SESSION['loggato'] = true;
                     $_SESSION['id'] = $row['id'];

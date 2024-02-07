@@ -27,7 +27,6 @@ $result = $connessione->query($sql);
 // Stampa la tabella degli utenti
 echo '<table border="1">';
 echo '<tr>';
-echo '<th>ID</th>';
 echo '<th>Nome</th>';
 echo '<th>Cognome</th>';
 echo '<th>Email</th>';
@@ -36,23 +35,26 @@ echo '<th>Crediti</th>';
 echo '<th>Indirizzo di residenza</th>';
 echo '<th>Cellulare</th>';
 echo '<th>Modifica</th>';
+echo '<th>Modifica Password</th>';
 echo '<th>Attiva/Disattiva Utente</th>';
 echo '</tr>';
 
 if ($result->num_rows > 0) {
+    $admin = $_SESSION['ammin'];
     while ($row = $result->fetch_assoc()) {
         echo '<tr>';
-        echo '<td>' . $row['id'] . '</td>';
         echo '<td>' . $row['nome'] . '</td>';
         echo '<td>' . $row['cognome'] . '</td>';
         echo '<td>' . $row['email'] . '</td>';
-        echo '<td>' . $row['passwd'] . '</td>';
+        echo '<td style="max-width:400px; word-wrap: break-word;" >' . $row['passwd'] . '</td>';
         echo '<td>' . $row['crediti'] . '</td>';
         echo '<td>' . $row['indirizzo_di_residenza'] . '</td>';
         echo '<td>' . $row['cellulare'] . '</td>';
         echo '<td><a href="modifica_utente.php?id=' . $row['id'] . '"><span id="edit" class="material-symbols-outlined">
         edit
         </span></a></td>';
+        echo '<td><a href="modifica_password.php?id=' . $row['id'] . '&admin=' . $admin . '"><span id="edit" class="material-symbols-outlined">edit</span></a></td>';
+
         if ($row['ban'] == 1) {
             // Utente disattivato
             echo '<td><a href="conferma_ban.php?id=' . $row['id'] . '&ban=' . $row['ban'] . '"><span id="done" class="material-symbols-outlined">visibility_off</span></a></td>';

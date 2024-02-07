@@ -12,7 +12,7 @@
                 $row = $result->fetch_array(MYSQLI_ASSOC);
                 
                 // Confronto diretto delle password (senza hashing)
-                if($password === $row['passwd']){
+                if(password_verify($password, $row['passwd'])){
                     // Verifica il campo 'ban'
                     if($row['ban'] == 1){
                         header("Location: ../php/utente_bannato.php"); // Reindirizza a pagina di errore ban

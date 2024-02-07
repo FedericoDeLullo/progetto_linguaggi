@@ -188,3 +188,46 @@ h2 {
     text-align: center;
     margin-bottom: 5vh;
 }
+
+h3 {
+    color: red;
+}
+
+
+#simbolo{
+    color: #0021b4;
+    margin-left: 1vh;
+    margin-right: 1vh;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  text-align: left; /* Imposta l'allineamento del testo a sinistra */
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  background-color: #00b7ff;
+  color: #011050;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  top: 100%; 
+  left: 50%;
+  margin-left: -60px; /* Regola la posizione del tooltip in base alla larghezza desiderata */
+  opacity: 0;
+  transition: opacity 0.3s;
+
+  font-size: 15px;
+
+  width: 300px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}

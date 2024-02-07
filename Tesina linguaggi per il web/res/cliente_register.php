@@ -10,6 +10,7 @@
     $indirizzo_di_residenza = $connessione->real_escape_string($_POST['indirizzo_di_residenza']);
     $codice_fiscale = $connessione->real_escape_string($_POST['codice_fiscale']);
     $password = $connessione->real_escape_string($_POST['password']);
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     $utente=1;
     $admin_ok=0;
@@ -37,7 +38,15 @@
         exit(1);
     }
             
-    $sql = "INSERT INTO utenti (email, nome, cognome, data_di_nascita, cellulare, indirizzo_di_residenza, codice_fiscale, passwd, crediti, utente, ammin, gestore, reputazione, ban) VALUES ('$email','$nome','$cognome','$data_di_nascita','$cellulare','$indirizzo_di_residenza', '$codice_fiscale','$password', '$crediti', '$utente', '$admin_ok', '$gestore', '$reputazione', '$ban')";
+    //controllo se la password rispetta i parametri
+    //~ è il carattere delimitatore dell'espressione regolare
+    if (!preg_match('~^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[0-9]).{8,}$~', $password)){
+        $_SESSION['errore_preg'] = 'true';
+        header('Location: ../php/registrazione_cliente.php');
+        exit(1);
+    }
+   
+    $sql = "INSERT INTO utenti (email, nome, cognome, data_di_nascita, cellulare, indirizzo_di_residenza, codice_fiscale, passwd, crediti, utente, ammin, gestore, reputazione, ban) VALUES ('$email','$nome','$cognome','$data_di_nascita','$cellulare','$indirizzo_di_residenza', '$codice_fiscale','$hashed_password', '$crediti', '$utente', '$admin_ok', '$gestore', '$reputazione', '$ban')";
     
     try {
         $connessione->query($sql);
