@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modifica Utente</title>
+
     <link rel="stylesheet" href="../css/style_standard.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="../css/style_header.css">
@@ -13,9 +14,7 @@
 </head>
 <body>
 
-<div class="cont">
-
-<?php
+    <?php
 require_once('../res/connection.php');
 
 // Verifica se è stato fornito un ID utente valido
@@ -30,12 +29,12 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         $utente = $result->fetch_assoc();
 
         if(isset($_SESSION['errore_query']) && $_SESSION['errore_query'] == 'true'){
-            echo "<h2>Errore durante la richiesta!</h2>";
+            echo "<h3>ERRORE DURANTE LA RICHIESTA!</h3>";
             unset($_SESSION['errore_query']);
         }
 
         if(isset($_SESSION['errore_email_ex']) && $_SESSION['errore_email_ex'] == 'true'){//isset verifica se errore è settata
-            echo "<h2>L'email '" . $_SESSION['email_errata'] . "' è già in uso!</h2>";
+            echo "<h3>EMAIL GIÀ IN USO!</h3>";
             unset($_SESSION['errore_email_ex']);//la unsetto altrimenti rimarrebbe la scritta
             unset($_SESSION['mod_mail']);//pulisco il form del campo email perché è errato
         }
@@ -67,18 +66,14 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             </tr>
         </table>
         <?php
-    } 
-    else {
-        echo '<h2>Utente non trovato.</h2>';
+    } else {
+        echo 'Utente non trovato.';
     }
-} 
-else {
-    echo '<h2>ID utente non valido.</h2>';
+} else {
+    echo 'ID utente non valido.';
 }
 
 $connessione->close();
 ?>
-</div>
-
 </body>
 </html>

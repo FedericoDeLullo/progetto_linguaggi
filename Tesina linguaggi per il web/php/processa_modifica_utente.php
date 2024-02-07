@@ -1,5 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/style_standard.css">
+    <link rel="stylesheet" href="../css/style_menu.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="../css/style_header.css">
+    <?php
+        include('../res/header.php');
+    ?>
+</head>
+<body>
+
 <?php
-session_start();
 require_once('../res/connection.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -13,80 +28,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $cellulare = $_POST['cellulare'];
     $email = $_POST['email'];
 
-    // Esegui una query per ottenere l'email attuale dell'utente dal database
-    $query_email_attuale = "SELECT email FROM utenti WHERE id = ?";
-    $stmt_email_attuale = $connessione->prepare($query_email_attuale);
-    $stmt_email_attuale->bind_param("i", $id_utente);
-    $stmt_email_attuale->execute();
-    $ris_email_attuale = $stmt_email_attuale->get_result();
+    // Verifica se l'email è diversa da tutte le email nel database
+    $query_check_email = "SELECT id FROM utenti WHERE email = '$email'";
+    $result_check_email = $connessione->query($query_check_email);
 
-    if ($ris_email_attuale) {
-        $row_email_attuale = $ris_email_attuale->fetch_assoc();
-        $email_attuale = $row_email_attuale['email'];
+    if ($result_check_email->num_rows === 0) {
+        // Email non presente, esegui l'aggiornamento
+        $query_update = "UPDATE utenti SET nome = '$nome', email = '$email', passwd = '$password', cognome = '$cognome', crediti = '$crediti', indirizzo_di_residenza = '$indirizzo', cellulare = $cellulare WHERE id = $id_utente";
 
-        // Controlla se l'email inviata è diversa dall'email attuale dell'utente nel database
-        if ($email !== $email_attuale) {
-            // Costruisci la query SQL per controllare se l'email esiste già nel database
-            $controllo_email = "SELECT email FROM utenti WHERE email = ?";
+        if ($connessione->query($query_update) === TRUE) {
+            header("Location: gestione_utenti.php");
+        } else {
+            echo 'Errore durante il salvataggio delle modifiche: ' . $connessione->error;
+        }
+    } else {
+        // Email già presente, verifica l'ID utente
+        $row = $result_check_email->fetch_assoc();
+        $id_utente_corrente = $row['id'];
 
-            // Utilizza statement preparati per evitare SQL injection
-            $stmt = $connessione->prepare($controllo_email);
-            $stmt->bind_param("s", $email);
-            $stmt->execute();
-            $ris_e = $stmt->get_result();
-            if ($ris_e) { 
-                // Verifica se ci sono risultati (email già esistente)
-                if ($ris_e->num_rows == 0) {
-                    // Nessuna email corrispondente trovata, quindi puoi procedere con l'aggiornamento dei dati dell'utente
-                    $query = "UPDATE utenti SET nome = ?, email = ?, passwd = ?, cognome = ?, indirizzo_di_residenza = ?, cellulare = ? WHERE id = ?";
+        if ($id_utente_corrente != $id_utente) {
+            echo '<h1 class =" titolo">L\'email fornita è già associata a un altro utente.</h1>';
+        } else {
+            // L'utente sta solo aggiornando i dati senza cambiare l'email
+            $query_update = "UPDATE utenti SET nome = '$nome', passwd = '$password', cognome = '$cognome', crediti = '$crediti', indirizzo_di_residenza = '$indirizzo', cellulare = $cellulare WHERE id = $id_utente";
 
-                    // Utilizza statement preparati per evitare SQL injection
-                    $stmt = $connessione->prepare($query);
-                    $stmt->bind_param("ssssssi", $nome, $email, $password, $cognome, $indirizzo, $cellulare, $id_utente);
-
-                    if ($stmt->execute()) {
-                        header("Location: gestione_profilo.php");
-                    } 
-                    else {
-                        echo 'Errore durante il salvataggio delle modifiche: ' . $stmt->error;
-                    }
-                } 
-                else {
-                    // L'email inviata è già presente nel database
-                    $_SESSION['errore_email_ex'] = 'true';
-                    $_SESSION['email_errata'] = $email;
-
-                    header("Location: ../php/modifica_utente.php?id=" . $id_utente);       
-                    exit(1);
-                }
-            } 
-            else {
-                $_SESSION['errore_query'] = 'true';
-                header('Location: ../php/modifica_utente.php');
-                exit(1);
-            }
-        } 
-        else {
-            // L'email inviata è uguale all'email nella sessione, aggiorna tutti gli altri parametri
-            $query = "UPDATE utenti SET nome = ?, passwd = ?, cognome = ?, indirizzo_di_residenza = ?, cellulare = ? WHERE id = ?";
-
-            // Utilizza statement preparati per evitare SQL injection
-            $stmt = $connessione->prepare($query);
-            $stmt->bind_param("sssssi", $nome, $password, $cognome, $indirizzo, $cellulare, $id_utente);
-
-            if ($stmt->execute()) {
+            if ($connessione->query($query_update) === TRUE) {
                 header("Location: gestione_utenti.php");
-            } 
-            else {
-                echo 'Errore durante il salvataggio delle modifiche: ' . $stmt->error;
+            } else {
+                echo 'Errore durante il salvataggio delle modifiche: ' . $connessione->error;
             }
         }
-    } 
-    else {
-        echo 'Metodo di richiesta non valido.';
     }
+} else {
+    echo 'Metodo di richiesta non valido.';
 }
 
-$stmt->close();
 $connessione->close();
 ?>
+</body>
+</html>
