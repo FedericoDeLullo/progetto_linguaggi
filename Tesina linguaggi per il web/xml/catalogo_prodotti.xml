@@ -8,7 +8,190 @@
     <tipologia>magliette</tipologia>
     <immagine>../img/images-removebg-preview.png</immagine>
     <domande>
-      
+      <domanda id_prodotto="1" id_utente="2">
+        <autore>federico@gmail.com</autore>
+        <testo>refwediqwsjobnlk</testo>
+        <id_domanda>65bf509003841</id_domanda>
+        <risposte>
+          <risposta id_prodotto="1" id_utente="4">
+            <id_risposta>65bfce21104c6</id_risposta>
+            <autore>fede@gmail.com</autore>
+            <data>2024-02-04</data>
+            <ora>18:49:21</ora>
+            <testo>ciao</testo>
+          </risposta>
+          <risposta id_prodotto="1" id_utente="4">
+            <id_risposta>65c265c2282e9</id_risposta>
+            <autore>fede@gmail.com</autore>
+            <data>2024-02-06</data>
+            <ora>18:00:50</ora>
+            <testo>ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg</testo>
+          </risposta>
+          <risposta id_prodotto="1" id_utente="4">
+            <id_risposta>65c2680fca3e3</id_risposta>
+            <autore>fede@gmail.com</autore>
+            <data>2024-02-06</data>
+            <ora>18:10:39</ora>
+            <testo>yguh</testo>
+          </risposta>
+          <risposta id_prodotto="1" id_utente="4">
+            <id_risposta>65c268cbe92a7</id_risposta>
+            <autore>fede@gmail.com</autore>
+            <data>2024-02-06</data>
+            <ora>18:13:47</ora>
+            <testo>yuogyf</testo>
+          </risposta>
+          <risposta id_prodotto="1" id_utente="4">
+            <id_risposta>65c268e9a6299</id_risposta>
+            <autore>fede@gmail.com</autore>
+            <data>2024-02-06</data>
+            <ora>18:14:17</ora>
+            <testo>itfyhghjkbjlnkòm</testo>
+          </risposta>
+          <risposta id_prodotto="1" id_utente="4">
+            <id_risposta>65c2696adee57</id_risposta>
+            <autore>fede@gmail.com</autore>
+            <data>2024-02-06</data>
+            <ora>18:16:26</ora>
+            <testo>iyujl</testo>
+          </risposta>
+          <risposta id_prodotto="1" id_utente="4">
+            <id_risposta>65c26b5400c7f</id_risposta>
+            <autore>fede@gmail.com</autore>
+            <data>2024-02-06</data>
+            <ora>18:24:36</ora>
+            <testo>vgtf</testo>
+          </risposta>
+          <risposta id_prodotto="1" id_utente="4">
+            <id_risposta>65c26b66d9e5f</id_risposta>
+            <autore>fede@gmail.com</autore>
+            <data>2024-02-06</data>
+            <ora>18:24:54</ora>
+            <testo>vvvv</testo>
+          </risposta>
+          <risposta id_prodotto="1" id_utente="4">
+            <id_risposta>65c26b7d1f0ba</id_risposta>
+            <autore>fede@gmail.com</autore>
+            <data>2024-02-06</data>
+            <ora>18:25:17</ora>
+            <testo>v</testo>
+          </risposta>
+          <risposta id_prodotto="1" id_utente="4">
+            <id_risposta>65c26b91511f6</id_risposta>
+            <autore>fede@gmail.com</autore>
+            <data>2024-02-06</data>
+            <ora>18:25:37</ora>
+            <testo>xxx</testo>
+          </risposta>
+          <risposta id_prodotto="1" id_utente="4">
+            <id_risposta>65c26fa801d30</id_risposta>
+            <autore>fede@gmail.com</autore>
+            <data>2024-02-06</data>
+            <ora>18:43:04</ora>
+            <testo>ciaooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo</testo>
+          </risposta>
+          <risposta id_prodotto="1" id_utente="4">
+            <id_risposta>65c26fc6799de</id_risposta>
+            <autore>fede@gmail.com</autore>
+            <data>2024-02-06</data>
+            <ora>18:43:34</ora>
+            <testo>ciciciciciciciciciciiciciciciciciiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</testo>
+          </risposta>
+          <risposta id_prodotto="1" id_utente="4">
+            <id_risposta>65c26fe012f1d</id_risposta>
+            <autore>fede@gmail.com</autore>
+            <data>2024-02-06</data>
+            <ora>18:44:00</ora>
+            <testo>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis quidem alias maiores libero excepturi, nulla at vitae voluptas! Iusto explicabo tenetur excepturi quas eos quasi, corrupti veritatis minima. Dolor, facilis.</testo>
+          </risposta>
+          <risposta id_prodotto="1" id_utente="4">
+            <id_risposta>65c2703393fd2</id_risposta>
+            <autore>fede@gmail.com</autore>
+            <data>2024-02-06</data>
+            <ora>18:45:23</ora>
+            <testo>xxx</testo>
+          </risposta>
+        </risposte>
+        <utilita>
+          <valore id_utente="4" reputazione_Vot="3">1</valore>
+        </utilita>
+        <supporto>
+          <valore id_utente="4" reputazione_Vot="3">2</valore>
+        </supporto>
+      </domanda>
+      <domanda id_prodotto="1" id_utente="4">
+        <autore>fede@gmail.com</autore>
+        <testo>gjhkjblnk.m</testo>
+        <id_domanda>65bfbc9a7bd5b</id_domanda>
+        <risposte>
+          <risposta id_prodotto="1" id_utente="4">
+            <id_risposta>65bfd0d6527cb</id_risposta>
+            <autore>fede@gmail.com</autore>
+            <data>2024-02-04</data>
+            <ora>19:00:54</ora>
+            <testo>ters</testo>
+            <utilita>
+              <valore id_utente="4" reputazione_Vot="6">2</valore>
+            </utilita>
+            <supporto>
+              <valore id_utente="4" reputazione_Vot="6">2</valore>
+            </supporto>
+          </risposta>
+          <risposta id_prodotto="1" id_utente="4">
+            <id_risposta>65c26973e5d2e</id_risposta>
+            <autore>fede@gmail.com</autore>
+            <data>2024-02-06</data>
+            <ora>18:16:35</ora>
+            <testo>jhk</testo>
+            <utilita>
+              <valore id_utente="4" reputazione_Vot="5">2</valore>
+            </utilita>
+            <supporto>
+              <valore id_utente="4" reputazione_Vot="5">2</valore>
+            </supporto>
+          </risposta>
+          <risposta id_prodotto="1" id_utente="4">
+            <id_risposta>65c26ab086c05</id_risposta>
+            <autore>fede@gmail.com</autore>
+            <data>2024-02-06</data>
+            <ora>18:21:52</ora>
+            <testo>ciaociao</testo>
+          </risposta>
+          <risposta id_prodotto="1" id_utente="4">
+            <id_risposta>65c26b3b02785</id_risposta>
+            <autore>fede@gmail.com</autore>
+            <data>2024-02-06</data>
+            <ora>18:24:11</ora>
+            <testo>gdfscd</testo>
+            <utilita>
+              <valore id_utente="4" reputazione_Vot="5">2</valore>
+            </utilita>
+            <supporto>
+              <valore id_utente="4" reputazione_Vot="5">3</valore>
+            </supporto>
+          </risposta>
+          <risposta id_prodotto="1" id_utente="4">
+            <id_risposta>65c26b5e35706</id_risposta>
+            <autore>fede@gmail.com</autore>
+            <data>2024-02-06</data>
+            <ora>18:24:46</ora>
+            <testo>gtvfc</testo>
+          </risposta>
+          <risposta id_prodotto="1" id_utente="4">
+            <id_risposta>65c26dff9e63e</id_risposta>
+            <autore>fede@gmail.com</autore>
+            <data>2024-02-06</data>
+            <ora>18:35:59</ora>
+            <testo>ciao</testo>
+          </risposta>
+        </risposte>
+        <utilita>
+          <valore id_utente="4" reputazione_Vot="3">2</valore>
+        </utilita>
+        <supporto>
+          <valore id_utente="4" reputazione_Vot="3">3</valore>
+        </supporto>
+      </domanda>
     </domande>
   </prodotto>
 </catalogo_prodotti>
