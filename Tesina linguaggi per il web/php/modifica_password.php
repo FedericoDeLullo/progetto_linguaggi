@@ -18,8 +18,15 @@
 <?php
 require_once('../res/connection.php');
 
+$admin = $_SESSION['ammin'];
+
+if(isset($_SESSION['errore_preg']) && $_SESSION['errore_preg'] == 'true'){
+    echo "<h2>La password non rispetta i criteri di sicurezza!</h2>";
+    unset($_SESSION['errore_preg']);
+}    
+
 // Verifica se è stato fornito un ID utente valido
-if (isset($_GET['id']) && is_numeric($_GET['id']) && !isset($_GET['admin'])) {
+if (isset($_GET['id']) && is_numeric($_GET['id']) && ($admin == 0)) {
     $id_utente = $_GET['id'];
 
     // Esegui una query per ottenere i dati dell'utente
@@ -36,7 +43,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id']) && !isset($_GET['admin'])) {
                 <td colspan="2">
                     <form class="form" action="processa_modifica_pass.php" method="post">
                     <input class="input" type="hidden" name="id" value="<?php echo $utente['id']; ?>">
-                    <input style="width:200px;" class="input" type="text" id="password" name="password" value="<?php echo $utente['passwd']; ?>" required><br>
+                    <input style="width:200px;" class="input" type="text" id="password" name="password" placeholder="INSERISCI NUOVA PASSWORD !" required><br>
                         <br><br><br>
                         <input class="btn" type="submit" value="Salva Password">
                     </form>
@@ -49,25 +56,27 @@ if (isset($_GET['id']) && is_numeric($_GET['id']) && !isset($_GET['admin'])) {
         echo '<h2>Utente non trovato.</h2>';
     }
 }
- elseif (isset($_GET['id']) && isset($_GET['admin'])) {
+ elseif (isset($_GET['id']) && ($admin == 1)) {
     $id_utente = $_GET['id'];
-    $admin = $_GET['admin'];
+    $admin = $_SESSION['admin'];
+
     // Esegui una query per ottenere i dati dell'utente
     $query = "SELECT * FROM utenti WHERE id = $id_utente";
     $result = $connessione->query($query);
 
     if ($result->num_rows == 1) {
         $utente = $result->fetch_assoc();
+        $email = $utente['email']; // Ottieni l'email dall'array dell'utente
         ?>
  
- <h1 class="titolo">Modifica Password</h1>
+ <h1 class="titolo">Modifica Password dell'account '<?php echo $email ?>'</h1>
         <table>
             <tr>
                 <td colspan="2">
                     <form class="form" action="processa_modifica_pass.php" method="post">
                     <input class="input" type="hidden" name="id" value="<?php echo $utente['id']; ?>">
                     <input class="input" type="hidden" name="admin" value="<?php echo $admin ?>">
-                    <input style="width:200px;" class="input" type="text" id="password" name="password" value="<?php echo $utente['passwd']; ?>" required><br>
+                    <input style="width:200px;" class="input" type="text" id="password" name="password" placeholder="INSERISCI NUOVA PASSWORD !" required><br>
                         <br><br><br>
                         <input class="btn" type="submit" value="Salva Password">
                     </form>
@@ -80,7 +89,6 @@ if (isset($_GET['id']) && is_numeric($_GET['id']) && !isset($_GET['admin'])) {
         echo '<h2>Utente non trovato.</h2>';
     }
 } 
-
 
 $connessione->close();
 ?>

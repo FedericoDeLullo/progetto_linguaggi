@@ -36,8 +36,20 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
         if(isset($_SESSION['errore_email_ex']) && $_SESSION['errore_email_ex'] == 'true'){//isset verifica se errore è settata
             echo "<h2>L'email '" . $_SESSION['email_errata'] . "' è già in uso!</h2>";
-            unset($_SESSION['errore_email_ex']);//la unsetto altrimenti rimarrebbe la scritta
-            unset($_SESSION['mod_mail']);//pulisco il form del campo email perché è errato
+            unset($_SESSION['errore_email_ex']); //la unsetto altrimenti rimarrebbe la scritta
+            unset($_SESSION['mod_mail']); //pulisco il form del campo email perché è errato
+        }
+
+        if(isset($_SESSION['errore_cellulare_ex']) && $_SESSION['errore_cellulare_ex'] == 'true'){
+            echo "<h2>Il numero di cellulare '" . $_SESSION['cellulare_errato'] . "' è già in uso!</h2>";
+            unset($_SESSION['errore_cellulare_ex']);
+            unset($_SESSION['mod_cellulare']);
+        }
+        
+        if(isset($_SESSION['errore_codice_fiscale_ex']) && $_SESSION['errore_codice_fiscale_ex'] == 'true'){
+            echo "<h2>Il codice fiscale '" . $_SESSION['codice_fiscale_errato'] . "' è già in uso!</h2>";
+            unset($_SESSION['errore_codice_fiscale_ex']);
+            unset($_SESSION['mod_codice_fiscale']);
         }
     
         ?>
@@ -47,7 +59,6 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                 <td colspan="2">
                     <form class="form" action="processa_modifica_profilo.php" method="post">
                         <input class="input" type="hidden" name="id" value="<?php echo $utente['id']; ?>">
-                        <input type="hidden" name="old_email" value="<?php echo $utente['email']; ?>">
                         <label class="nome" for="nome">Nome:</label>
                         <input class="input" type="text" id="nome" name="nome" value="<?php echo $utente['nome']; ?>" required><br>
                         <label class="nome" for="nome">Cognome:</label>

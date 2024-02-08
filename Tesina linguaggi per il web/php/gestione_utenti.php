@@ -46,14 +46,12 @@ if ($result->num_rows > 0) {
         echo '<td>' . $row['nome'] . '</td>';
         echo '<td>' . $row['cognome'] . '</td>';
         echo '<td>' . $row['email'] . '</td>';
-        echo '<td style="max-width:400px; word-wrap: break-word;" >' . $row['passwd'] . '</td>';
+        echo '<td>* * * * * * * * * *</td>';
         echo '<td>' . $row['crediti'] . '</td>';
         echo '<td>' . $row['indirizzo_di_residenza'] . '</td>';
         echo '<td>' . $row['cellulare'] . '</td>';
-        echo '<td><a href="modifica_utente.php?id=' . $row['id'] . '"><span id="edit" class="material-symbols-outlined">
-        edit
-        </span></a></td>';
-        echo '<td><a href="modifica_password.php?id=' . $row['id'] . '&admin=' . $admin . '"><span id="edit" class="material-symbols-outlined">edit</span></a></td>';
+        echo '<td><a href="modifica_utente.php?id=' . $row['id'] . '"><span id="edit" class="material-symbols-outlined">edit</span></a></td>';
+        echo '<td><a href="modifica_password.php?id=' . $row['id'] . '&admin=' . $admin . '"><span id="edit" class="material-symbols-outlined">key</span></a></td>';
 
         if ($row['ban'] == 1) {
             // Utente disattivato
