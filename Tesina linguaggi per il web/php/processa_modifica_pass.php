@@ -10,17 +10,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $query = "UPDATE utenti SET passwd = ? WHERE id = ?";
 
-                    // Utilizza statement preparati per evitare SQL injection
-                    $stmt = $connessione->prepare($query);
-                    $stmt->bind_param("si", $hashed_password, $id_utente);
+    // Utilizza statement preparati per evitare SQL injection
+    $stmt = $connessione->prepare($query);
+    $stmt->bind_param("si", $hashed_password, $id_utente);
 
-                    if ($stmt->execute()) {
-                        if(isset($_POST['admin'])){
-                        header("Location: gestione_utenti.php");
-                    }else {
-                        header("Location: gestione_profilo.php");
+    if ($stmt->execute()) {
+        if(isset($_POST['admin'])){
+            header("Location: gestione_utenti.php");
+        }
+        else {
+            header("Location: gestione_profilo.php");
 
-                    } }
-                    else {
-                        echo 'Errore durante il salvataggio delle modifiche: ' . $stmt->error;
-                    }}
+        }
+    }
+    else {
+        echo 'Errore durante il salvataggio delle modifiche: ' . $stmt->error;
+    }
+}
+?>

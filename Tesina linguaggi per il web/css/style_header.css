@@ -31,11 +31,12 @@
 
 .logo-text {
   position: absolute;
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
   top: 25px;
   left: 95px;
   font-size: 30px;
-  color: white;
-  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+  color: #011050;
+  text-shadow: -1px -1px 0 gold, 1px -1px 0 gold, -1px 1px 0 gold, 1px 1px 0 gold;
 }
   
 .header_menu_link {
