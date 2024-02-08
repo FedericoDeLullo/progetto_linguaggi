@@ -147,7 +147,7 @@ if (file_exists($xmlFile)) {
                     
                                     echo "<tr>";
                                     echo "<td>";
-                                    echo '<a href="elimina_faq.php?id=' . $id . '"><span id="done" class="material-symbols-outlined">delete</span></a>';
+                                    echo '<a href="../res/elimina_faq.php?id=' . $id . '"><span id="done" class="material-symbols-outlined">delete</span></a>';
                                     echo "</td>";
                                     echo "<td>";
                                     echo "<p class='big'><strong>$question</strong></p>";

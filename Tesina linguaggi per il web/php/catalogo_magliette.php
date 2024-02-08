@@ -33,9 +33,7 @@
                             <option value="nomeDecrescente">(Z-A)</option>
                             <option value="prezzoCrescente">Prezzo crescente</option>
                             <option value="prezzoDecrescente">Prezzo decrescente</option>
-
                         </select>
-                        <button class="btn_stilizzato"><span class="material-symbols-outlined">check</span></button>
                     </td>
                 </tr>
             </table>

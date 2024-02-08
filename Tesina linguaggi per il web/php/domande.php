@@ -14,7 +14,7 @@
     ?>
 </head>
 <body>
-
+<div class="cont">
 <?php
 if(isset($_GET['tipologia']) && isset($_GET['id_prodotto'])){
     $tipologia = $_GET['tipologia'];
@@ -157,7 +157,7 @@ if ($domande->length > 0) {
         }
         echo '<td>';
         // Form per rispondere alla domanda
-        echo '<form action="risposte.php" method="post">';
+        echo '<form action="../res/risposte.php" method="post">';
         echo '<input type="hidden" name="id_prodotto" value="' . $id_prodotto . '"/>';
         echo '<input type="hidden" name="tipologia" value="' . $tipologia . '"/>';
         echo '<input type="hidden" name="nome" value="' . $nome . '"/>';            
@@ -433,7 +433,7 @@ if ($domande->length > 0) {
         }
         echo '<td>';
         // Form per rispondere alla domanda
-        echo '<form action="risposte.php" method="post">';
+        echo '<form action="../res/risposte.php" method="post">';
         echo '<input type="hidden" name="id_prodotto" value="' . $id_prodotto . '"/>';
         echo '<input type="hidden" name="tipologia" value="' . $tipologia . '"/>';
         echo '<input type="hidden" name="nome" value="' . $nome . '"/>';            
@@ -573,8 +573,6 @@ if ($domande->length > 0) {
 }
 
 ?>
-
+</div>
 </body>
 </html>
-
-

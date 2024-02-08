@@ -22,7 +22,9 @@ footer {
   padding: 20px;
   font-size: 17px;
   border-radius: 10px;
+  font-family: sans-serif;
 }
+
 footer .col {
   margin-bottom: 20px;
   display: inline-block;

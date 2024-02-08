@@ -1,4 +1,5 @@
 <?php
+session_start();
 if ($_SERVER["REQUEST_METHOD"] === "GET") {
     // Verifica se è stato fornito un parametro "id" nell'URL
     if (isset($_GET['id'])) {
@@ -21,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
                 $xml->asXML($xmlFile);
 
                 // Reindirizza alla pagina delle FAQ
-                header('Location: faq.php');
+                header('Location: ../php/faq.php');
                 exit();
             } else {
                 echo "Errore: FAQ non trovata.";

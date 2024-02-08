@@ -1,5 +1,3 @@
-
-
 <?php
 if (isset($_GET['id_prodotto'])) {
     // Recupera l'id del prodotto dalla query string

@@ -27,7 +27,7 @@
     $_SESSION['form_indirizzo_di_residenza'] = $indirizzo_di_residenza;
     $_SESSION['form_codice_fiscale'] = $codice_fiscale;
 
-    //controllo email già esistente
+    //controllo se l'email è già esistente
     $controllo_email = "SELECT * FROM utenti u WHERE u.email = '$email'";
     $ris_email = mysqli_query($connessione, $controllo_email);
 
@@ -37,7 +37,29 @@
         header('Location: ../php/registrazione_cliente.php');
         exit(1);
     }
-            
+
+    //controllo se il numero di cellulare è già esistente
+    $controllo_cellulare = "SELECT* FROM utenti u WHERE u.cellulare = '$cellulare'";
+    $ris_cellulare = mysqli_query($connessione, $controllo_cellulare);
+
+    if(mysqli_num_rows($ris_cellulare) > 0){
+        $_SESSION['errore_cellulare'] = 'true';
+        $_SESSION['cellulare_errato'] = $cellulare;
+        header('Location: ../php/registrazione_cliente.php');
+        exit(1);
+    }
+
+    //controllo se il codice fiscale è già esistente
+    $controllo_codice_fiscale = "SELECT* FROM utenti u WHERE u.codice_fiscale = '$codice_fiscale'";
+    $ris_codice_fiscale = mysqli_query($connessione, $controllo_codice_fiscale);
+
+    if(mysqli_num_rows($ris_codice_fiscale) > 0){
+        $_SESSION['errore_codice_fiscale'] = 'true';
+        $_SESSION['codice_fiscale_errato'] = $codice_fiscale;
+        header('Location: ../php/registrazione_cliente.php');
+        exit(1);
+    }
+      
     //controllo se la password rispetta i parametri
     //~ è il carattere delimitatore dell'espressione regolare
     if (!preg_match('~^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[0-9]).{8,}$~', $password)){

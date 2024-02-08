@@ -1,7 +1,6 @@
 <?php
-
-require_once('../res/connection.php');
 session_start();
+require_once('connection.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Verifica se sono stati inviati dati del modulo
@@ -67,7 +66,7 @@ if ($domandaNode) {
     $dom->save($xmlFile);
 
     echo 'Risposta salvata con successo.';
-    header("Location: domande.php?tipologia=" . $tipologia . "&id_prodotto=" . $id_prodotto . "&nome=" . urlencode($nome));
+    header("Location: ../php/domande.php?tipologia=" . $tipologia . "&id_prodotto=" . $id_prodotto . "&nome=" . urlencode($nome));
 } else {
     echo 'Domanda non trovata.';
 }}}}

@@ -12,7 +12,7 @@
     ?>
 </head>
 <body>
-    
+<div class="cont">
 <?php
 require_once('../res/connection.php');
 
@@ -47,5 +47,6 @@ if (isset($_REQUEST['id_prodotto'])) {
     echo 'ID del prodotto mancante.';
 }
 ?>
+</div>
 </body>
 </html>

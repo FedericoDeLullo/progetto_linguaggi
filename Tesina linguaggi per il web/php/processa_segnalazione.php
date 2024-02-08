@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -103,7 +102,6 @@ echo "<h1 class='titolo'>Segnalazione inviata con successo. Attendere l'approvaz
     echo "<h1 class='titolo'>Segnalazione risposta inviata con successo. Attendere l'approvazione dell'amministratore...</h1>";
      
 }
-
 
 ?>
 </div>
