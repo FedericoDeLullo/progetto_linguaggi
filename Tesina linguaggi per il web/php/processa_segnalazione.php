@@ -28,6 +28,8 @@ $id_domanda = $_POST['id_domanda'];
 $testo_domanda = $_POST['testo_domanda'];
 $testo_segnalazione = $_POST['segnalazione'];
 $id_prodotto = $_POST['id_prodotto'];
+$autoreDomanda = $_POST['autoreDomanda'];
+
 
 $xmlFile = '../xml/segnalazioni.xml';  // Utilizzo di un percorso relativo
 $dom = new DOMDocument();
@@ -48,6 +50,9 @@ $segnalazione->setattribute('id_prodotto', $id_prodotto);
 $domanda_element = $dom->createElement('testo_domanda', $testo_domanda);
 $segnalazione->appendChild($domanda_element);
 
+$autore_element = $dom->createElement('autoreDomanda', $autoreDomanda);
+$segnalazione->appendChild($autore_element);
+
 $segnalazione_element = $dom->createElement('testo_segnalazione_dom', $testo_segnalazione);
 $segnalazione->appendChild($segnalazione_element);
 
@@ -59,7 +64,7 @@ try {
     die('Errore nel salvataggio del file XML: ' . $e->getMessage());
 }
 
-echo "<h1 class='titolo'>Segnalazione inviata con successo. Attendere l'approvazione dell'amministratore...</h1>";
+echo "<h1 class='titolo'>Segnalazione inviata con successo. Attendere l'approvazione del gestore...</h1>";
 }
  elseif(isset($_POST['id_risposta'])){
 
@@ -68,6 +73,9 @@ echo "<h1 class='titolo'>Segnalazione inviata con successo. Attendere l'approvaz
     $id_prodotto = $_POST['id_prodotto'];
     $testo_risposta = $_POST['testo_risposta'];
     $id_risposta = $_POST['id_risposta'];
+    $autoreRisposta = $_POST['autoreRisposta'];
+
+
 
     $xmlFile = '../xml/segnalazioni.xml'; 
     $dom = new DOMDocument();
@@ -88,6 +96,10 @@ echo "<h1 class='titolo'>Segnalazione inviata con successo. Attendere l'approvaz
     $risposta_element = $dom->createElement('testo_risposta', $testo_risposta);
     $segnalazione->appendChild($risposta_element);
     
+    
+$autore_element = $dom->createElement('autoreRisposta', $autoreRisposta);
+$segnalazione->appendChild($autore_element);
+
     $segnalazione_element = $dom->createElement('testo_segnalazione_ris', $testo_segnalazione);
     $segnalazione->appendChild($segnalazione_element);
     
@@ -101,6 +113,51 @@ echo "<h1 class='titolo'>Segnalazione inviata con successo. Attendere l'approvaz
     
     echo "<h1 class='titolo'>Segnalazione risposta inviata con successo. Attendere l'approvazione dell'amministratore...</h1>";
      
+}elseif(isset($_POST['id_recensione'])){
+    $id_recensione = $_POST['id_recensione'];
+$testo_recensione = $_POST['testo_recensione'];
+$testo_segnalazione = $_POST['segnalazione'];
+$id_prodotto = $_POST['id_prodotto'];
+$autoreRecensione = $_POST['autoreRecensione'];
+
+
+$xmlFile = '../xml/segnalazioni.xml';  // Utilizzo di un percorso relativo
+$dom = new DOMDocument();
+
+try {
+    $dom->load($xmlFile);
+} catch (Exception $e) {
+    die('Errore nel caricamento del file XML: ' . $e->getMessage());
+}
+
+$root = $dom->documentElement;
+
+$segnalazione = $dom->createElement('segnalazione');
+$segnalazione->setAttribute('status', 'pending');
+$segnalazione->setattribute('id_prodotto', $id_prodotto);
+$segnalazione->setattribute('id_recensione', $id_recensione);
+
+
+
+$recensione_element = $dom->createElement('testo', $testo_recensione);
+$segnalazione->appendChild($recensione_element);
+
+$autore_element = $dom->createElement('autore', $autoreRecensione);
+$segnalazione->appendChild($autore_element);
+
+$segnalazione_element = $dom->createElement('testo_segnalazione_rec', $testo_segnalazione);
+$segnalazione->appendChild($segnalazione_element);
+
+$root->appendChild($segnalazione);
+
+try {
+    $dom->save($xmlFile);
+} catch (Exception $e) {
+    die('Errore nel salvataggio del file XML: ' . $e->getMessage());
+}
+
+echo "<h1 class='titolo'>Segnalazione inviata con successo. Attendere l'approvazione del gestore...</h1>";
+
 }
 
 ?>

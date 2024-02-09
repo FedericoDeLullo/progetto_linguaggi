@@ -15,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['vota'])) {
     $id_prodotto = $_POST['id_prodotto'];
     $tipologia = $_POST['tipologia'];
     $id_utente = $_SESSION['id'];
+    $nome = $_POST['nome'];
 
     // Trova la recensione con l'id_recensione specificato
     $xpath = new DOMXPath($dom);

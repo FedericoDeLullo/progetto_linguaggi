@@ -8,45 +8,33 @@
     <tipologia>magliette</tipologia>
     <immagine>../img/images-removebg-preview.png</immagine>
     <domande>
-      <domanda id_prodotto="1" id_utente="2">
+      
+      
+    <domanda id_prodotto="1" id_utente="2"><autore>federico@gmail.com</autore><testo>cc</testo><id_domanda>65c6ad549b20d</id_domanda></domanda></domande>
+    <recensioni>
+      <recensione id_prodotto="1" id_utente="2">
         <autore>federico@gmail.com</autore>
-        <testo>rwexs</testo>
-        <id_domanda>65c5397a6437e</id_domanda>
+        <testo>esdc</testo>
+        <data>2024-02-09</data>
+        <ora>22:48:52</ora>
+        <id_recensione>65c69dc68dd33</id_recensione>
         <utilita>
-          <valore id_utente="6" reputazione_Vot="8">2</valore>
-          <valore id_utente="3" reputazione_Vot="4">2</valore>
+          <valore id_utente="4" reputazione_Vot="5">2</valore>
+          <valore id_utente="3" reputazione_Vot="3">2</valore>
         </utilita>
         <supporto>
-          <valore id_utente="6" reputazione_Vot="8">1</valore>
-          <valore id_utente="3" reputazione_Vot="4">2</valore>
+          <valore id_utente="4" reputazione_Vot="5">1</valore>
+          <valore id_utente="3" reputazione_Vot="3">1</valore>
         </supporto>
-        <risposte>
-          <risposta id_prodotto="1" id_utente="3">
-            <id_risposta>65c53a9277195</id_risposta>
-            <autore>f@gmail.com</autore>
-            <data>2024-02-08</data>
-            <ora>21:33:22</ora>
-            <testo>4ercwdsxa</testo>
-            <utilita>
-              <valore id_utente="7" reputazione_Vot="1">2</valore>
-            </utilita>
-            <supporto>
-              <valore id_utente="7" reputazione_Vot="1">1</valore>
-            </supporto>
-          </risposta>
-        </risposte>
-      </domanda>
-      <domanda id_prodotto="1" id_utente="3">
-        <autore>f@gmail.com</autore>
-        <testo>vrfecwdxsA</testo>
-        <id_domanda>65c53a99a01e9</id_domanda>
-        <utilita>
-          <valore id_utente="7" reputazione_Vot="1">4</valore>
-        </utilita>
-        <supporto>
-          <valore id_utente="7" reputazione_Vot="1">2</valore>
-        </supporto>
-      </domanda>
-    </domande>
+      </recensione>
+    </recensioni>
+  </prodotto>
+  <prodotto>
+    <id_prodotto>2</id_prodotto>
+    <nome>Maglia AS Roma 2021-2022</nome>
+    <descrizione>hikjlkn</descrizione>
+    <prezzo>9685</prezzo>
+    <tipologia>magliette</tipologia>
+    <immagine>../img/logo.jpg</immagine>
   </prodotto>
 </catalogo_prodotti>

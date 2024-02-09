@@ -21,7 +21,7 @@
 // Include il file di connessione al database
 require_once('../res/connection.php');
 // Query per ottenere gli utenti
-$sql = "SELECT id, nome, cognome, email, passwd, crediti, indirizzo_di_residenza, cellulare, ban FROM utenti WHERE utente = 1";
+$sql = "SELECT id, nome, cognome, email, passwd, crediti, indirizzo_di_residenza, cellulare, ban, reputazione FROM utenti WHERE utente = 1";
 $result = $connessione->query($sql);
 
 // Stampa la tabella degli utenti
@@ -32,6 +32,7 @@ echo '<th>Cognome</th>';
 echo '<th>Email</th>';
 echo '<th>Password</th>';
 echo '<th>Crediti</th>';
+echo '<th>Reputazione</th>';
 echo '<th>Indirizzo di residenza</th>';
 echo '<th>Cellulare</th>';
 echo '<th>Modifica</th>';
@@ -48,6 +49,7 @@ if ($result->num_rows > 0) {
         echo '<td>' . $row['email'] . '</td>';
         echo '<td>* * * * * * * * * *</td>';
         echo '<td>' . $row['crediti'] . '</td>';
+        echo '<td>' . $row['reputazione'] . '</td>';
         echo '<td>' . $row['indirizzo_di_residenza'] . '</td>';
         echo '<td>' . $row['cellulare'] . '</td>';
         echo '<td><a href="modifica_utente.php?id=' . $row['id'] . '"><span id="edit" class="material-symbols-outlined">edit</span></a></td>';

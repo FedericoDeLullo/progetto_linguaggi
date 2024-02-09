@@ -46,7 +46,7 @@ $requests = $dom->getElementsByTagName('request');
                 // Aggiorna i crediti dell'utente nel database
                 $sql_credit_update = "UPDATE utenti SET crediti = crediti + $importo WHERE email = '$email'";
                 if ($connessione->query($sql_credit_update) === TRUE) {
-                    echo '<h1 class="titolo">Richiesta approvata con successo. I crediti sono stati aggiunti all\'account di $email.</h1>';
+                    echo '<h1 class="titolo">Richiesta approvata con successo. I crediti sono stati aggiunti all\'account di "' . $email . '"</h1>';
                 } 
                 else {
                     echo '<h1 class="titolo">Errore nell\'aggiornamento dei crediti dell\'utente nel database: ' . $connessione->error . '</h1>';

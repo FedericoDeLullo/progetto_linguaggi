@@ -6,7 +6,7 @@
     $password = $connessione->real_escape_string($_POST['password']);
     
     if($_SERVER["REQUEST_METHOD"] === "POST"){
-        $sql_select = "SELECT * FROM utenti WHERE email = '$email'"; // Aggiungi la condizione per il ban
+        $sql_select = "SELECT * FROM utenti WHERE email = '$email' AND utente = 1"; // Aggiungi la condizione per il ban
         if($result = $connessione->query($sql_select)){
             if($result->num_rows === 1){
                 $row = $result->fetch_array(MYSQLI_ASSOC);

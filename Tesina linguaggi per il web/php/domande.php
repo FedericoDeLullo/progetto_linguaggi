@@ -120,7 +120,7 @@ if ($domande->length > 0) {
         echo '<tr>';
         echo '<td>';
         echo '<p>';
-        echo '<a href="segnalazione.php?id_domanda=' . urlencode($id_domanda) . '&testo_domanda=' . urlencode($testoDomanda) . '&id_prodotto=' . urlencode($id_prodotto) . '"><span id="simbolo_recensione" class="material-symbols-outlined">report</span></a>';
+        echo '<a href="segnalazione.php?id_domanda=' . urlencode($id_domanda) . '&testo_domanda=' . urlencode($testoDomanda) . '&id_prodotto=' . urlencode($id_prodotto) . '&autoreDomanda='. $autoreDomanda .'"><span id="simbolo_recensione" class="material-symbols-outlined">report</span></a>';
         echo '</p>';
         echo '</td>';
         echo '<td><strong>' . $autoreDomanda . '</strong></td>';
@@ -230,12 +230,11 @@ if ($domande->length > 0) {
                 $testoRisposta = $risposta->getElementsByTagName("testo")->item(0)->nodeValue;
         
                 
-                // Nuova riga per ogni risposta
               // Nuova riga per ogni risposta
                 echo '<tr>';
                 echo '<td>';
                 echo '<p>';
-                echo '<a href="segnalazione.php?id_prodotto=' . urlencode($id_prodotto) . '&id_risposta=' . urlencode($id_risposta) . '&testo_risposta=' . urlencode($testoRisposta) . '"><span id="simbolo_recensione" class="material-symbols-outlined">report</span></a>';
+                echo '<a href="segnalazione.php?id_prodotto=' . urlencode($id_prodotto) . '&id_risposta=' . urlencode($id_risposta) . '&testo_risposta=' . urlencode($testoRisposta) . '&autoreRisposta=' . $autoreRisposta . '"><span id="simbolo_recensione" class="material-symbols-outlined">report</span></a>';
                 echo '</p>';
                 echo '</td>';          
                 echo '<td>';
@@ -287,7 +286,7 @@ if ($domande->length > 0) {
         }
       }
     } else {
-            echo '<tr><td colspan="4"><p class="titolo">Nessuna risposta disponibile.</p></td></tr>';
+            echo '<tr><td colspan="4"><p class="titolo">Nessuna domanda disponibile.</p></td></tr>';
         }
     }
      elseif($gestore == 1 || $admin == 1){
@@ -567,7 +566,7 @@ if ($domande->length > 0) {
             
             }
      }}}}  else {
-            echo '<tr><td colspan="4"><p class="titolo">Nessuna risposta disponibile.</p></td></tr>';
+            echo '<tr><td colspan="4"><p class="titolo">Nessuna domanda disponibile.</p></td></tr>';
         }
     }
 }

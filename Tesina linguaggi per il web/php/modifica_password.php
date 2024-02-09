@@ -58,7 +58,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id']) && ($admin == 0)) {
 }
  elseif (isset($_GET['id']) && ($admin == 1)) {
     $id_utente = $_GET['id'];
-    $admin = $_SESSION['admin'];
+    $admin = $_SESSION['ammin'];
 
     // Esegui una query per ottenere i dati dell'utente
     $query = "SELECT * FROM utenti WHERE id = $id_utente";

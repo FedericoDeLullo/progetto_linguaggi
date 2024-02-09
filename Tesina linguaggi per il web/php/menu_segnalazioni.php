@@ -31,6 +31,7 @@ echo '<table>';
 echo '<thead>';
 echo '<tr>';
 echo '<th>Post Segnalato</th>';
+echo '<th>Autore Post Segnalato</th>';
 echo '<th>Segnalazione</th>';
 echo '<th>Azione</th>';
 echo '</tr>';
@@ -41,18 +42,27 @@ foreach ($segnalazioni as $segnalazione) {
     $status = $segnalazione->getAttribute('status');
     $id_domanda = $segnalazione->getAttribute('id_domanda');
     $id_risposta = $segnalazione->getAttribute('id_risposta');
+    $id_recensione = $segnalazione->getAttribute('id_recensione');
+    $id_prodotto = $segnalazione->getAttribute('id_prodotto');
 
     if ($status == 'pending') {
         $hasPendingRequests = true;
 
-        if ($id_domanda && !$id_risposta) {
+       
+
+        if ($id_domanda && !$id_risposta && !$id_recensione) {
             // Stampa solo la domanda
             $id_prodotto = $segnalazione->getAttribute('id_prodotto');
+
             $domandaElement = $segnalazione->getElementsByTagName('testo_domanda')->item(0)->nodeValue;
             $testoElementDom = $segnalazione->getElementsByTagName('testo_segnalazione_dom')->item(0)->nodeValue;
-           
+            $autore_dom = $segnalazione->getElementsByTagName('autoreDomanda')->item(0)->nodeValue;
+
+
+
             echo '<tr>';
             echo "<td>$domandaElement</td>";
+            echo "<td>$autore_dom</td>";
             echo "<td>$testoElementDom</td>";
             echo '<td>';
             echo '<form action="approva_segnalazione.php" method="post">';
@@ -65,15 +75,17 @@ foreach ($segnalazioni as $segnalazione) {
             echo '</form>';            
             echo '</td>';
             echo '</tr>';
-        } elseif (!$id_domanda && $id_risposta) {
+        } elseif (!$id_domanda && $id_risposta && !$id_recensione) {
             // Stampa solo la risposta
             $rispostaElement = $segnalazione->getElementsByTagName('testo_risposta')->item(0)->nodeValue;
             $testoElementRis = $segnalazione->getElementsByTagName('testo_segnalazione_ris')->item(0)->nodeValue;
             $id_prodotto = $segnalazione->getAttribute('id_prodotto');
+            $autore_risp = $segnalazione->getElementsByTagName('autoreRisposta')->item(0)->nodeValue;
 
 
             echo '<tr>';
             echo "<td>$rispostaElement</td>";
+            echo "<td>$autore_risp</td>";
             echo "<td>$testoElementRis</td>"; 
             echo '<td>';
             echo '<form action="approva_segnalazione.php" method="post">';
@@ -86,7 +98,7 @@ foreach ($segnalazioni as $segnalazione) {
             echo '</form>';            
             echo '</td>';
             echo '</tr>';
-        } elseif ($id_domanda && $id_risposta) {
+        } elseif ($id_domanda && $id_risposta && !$id_recensione) {
             // Stampa sia domanda che risposta
             $id_prodotto = $segnalazione->getAttribute('id_prodotto');
             $domandaElement = $segnalazione->getElementsByTagName('testo_domanda')->item(0)->nodeValue;
@@ -106,6 +118,79 @@ foreach ($segnalazioni as $segnalazione) {
             echo "<input type='hidden' name='id_domanda' value='$id_domanda'>";
             echo "<input type='hidden' name='id_prodotto' value='$id_prodotto'>";
             echo "<input type='hidden' name='testo_dom' value='$testoElementDom'>";
+            echo "<input type='hidden' name='testo_ris' value='$testoElementRis'>";
+            echo '<button class="done" type="submit" name="action" value="Approva"><span id="done" class="material-symbols-outlined">done</span></button>';
+            echo '<button class="done" type="submit" name="action" value="Rifiuta"><span id="done" class="material-symbols-outlined">close</span></button> ';
+            echo '</form>';            
+            echo '</td>';
+            echo '</tr>';
+        } elseif(!$id_domanda && !$id_risposta && $id_recensione){
+            $id_prodotto = $segnalazione->getAttribute('id_prodotto');
+            $recensioneElement = $segnalazione->getElementsByTagName('testo')->item(0)->nodeValue;
+            $testoElementRec = $segnalazione->getElementsByTagName('testo_segnalazione_rec')->item(0)->nodeValue;
+            $autore_rec = $segnalazione->getElementsByTagName('autore')->item(0)->nodeValue;
+
+
+
+            echo '<tr>';
+            echo "<td>$recensioneElement</td>";
+            echo "<td>$autore_rec</td>";
+            echo "<td>$testoElementRec</td>";
+            echo '<td>';
+            echo '<form action="approva_segnalazione.php" method="post">';
+            echo "<input type='hidden' name='recensione' value='$recensioneElement'>";
+            echo "<input type='hidden' name='id_recensione' value='$id_recensione'>";
+            echo "<input type='hidden' name='id_prodotto' value='$id_prodotto'>";
+            echo "<input type='hidden' name='testo_rec' value='$testoElementRec'>";
+            echo '<button class="done" type="submit" name="action" value="Approva"><span id="done" class="material-symbols-outlined">done</span></button>';
+            echo '<button class="done" type="submit" name="action" value="Rifiuta"><span id="done" class="material-symbols-outlined">close</span></button> ';
+            echo '</form>';            
+            echo '</td>';
+            echo '</tr>';
+        }elseif($id_domanda && !$id_risposta && $id_recensione){
+            $id_prodotto = $segnalazione->getAttribute('id_prodotto');
+            $domandaElement = $segnalazione->getElementsByTagName('testo_domanda')->item(0)->nodeValue;
+            $recensioneElement = $segnalazione->getElementsByTagName('testo')->item(0)->nodeValue;
+            $testoElementRec = $segnalazione->getElementsByTagName('testo_segnalazione_rec')->item(0)->nodeValue;
+            $testoElementDom = $segnalazione->getElementsByTagName('testo_segnalazione_dom')->item(0)->nodeValue;
+
+
+            echo '<tr>';
+            echo "<td>$domandaElement</td>";
+            echo "<td>$recensioneElement</td>";
+            echo '<td>';
+            echo '<form action="approva_segnalazione.php" method="post">';
+            echo "<input type='hidden' name='recensione' value='$recensioneElement'>";
+            echo "<input type='hidden' name='id_recensione' value='$id_recensione'>";
+            echo "<input type='hidden' name='domanda' value='$domandaElement'>";
+            echo "<input type='hidden' name='id_domanda' value='$id_domanda'>";
+            echo "<input type='hidden' name='id_prodotto' value='$id_prodotto'>";
+            echo "<input type='hidden' name='testo_dom' value='$testoElementDom'>";
+            echo "<input type='hidden' name='testo' value='$testoElementRec'>";
+            echo '<button class="done" type="submit" name="action" value="Approva"><span id="done" class="material-symbols-outlined">done</span></button>';
+            echo '<button class="done" type="submit" name="action" value="Rifiuta"><span id="done" class="material-symbols-outlined">close</span></button> ';
+            echo '</form>';            
+            echo '</td>';
+            echo '</tr>';
+        }elseif(!$id_domanda && $id_risposta && $id_recensione){
+            $id_prodotto = $segnalazione->getAttribute('id_prodotto');
+            $recensioneElement = $segnalazione->getElementsByTagName('testo')->item(0)->nodeValue;
+            $rispostaElement = $segnalazione->getElementsByTagName('testo_risposta')->item(0)->nodeValue;
+            $testoElementRis = $segnalazione->getElementsByTagName('testo_segnalazione_ris')->item(0)->nodeValue;
+            $testoElementRec = $segnalazione->getElementsByTagName('testo_segnalazione_rec')->item(0)->nodeValue;
+
+
+            echo '<tr>';
+            echo "<td>$recensioneElement</td>";
+            echo "<td>$rispostaElement</td>";
+            echo '<td>';
+            echo '<form action="approva_segnalazione.php" method="post">';
+            echo "<input type='hidden' name='risposta' value='$rispostaElement'>";
+            echo "<input type='hidden' name='id_risposta' value='$id_risposta'>";
+            echo "<input type='hidden' name='recensione' value='$recensioneElement'>";
+            echo "<input type='hidden' name='id_recensione' value='$id_recensione'>";
+            echo "<input type='hidden' name='id_prodotto' value='$id_prodotto'>";
+            echo "<input type='hidden' name='testo' value='$testoElementRec'>";
             echo "<input type='hidden' name='testo_ris' value='$testoElementRis'>";
             echo '<button class="done" type="submit" name="action" value="Approva"><span id="done" class="material-symbols-outlined">done</span></button>';
             echo '<button class="done" type="submit" name="action" value="Rifiuta"><span id="done" class="material-symbols-outlined">close</span></button> ';

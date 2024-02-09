@@ -37,7 +37,7 @@ foreach ($requests as $request) {
 // Include il file di connessione al database
 require_once('../res/connection.php');
 // Query per ottenere gli utenti
-$sql = "SELECT id, nome, cognome, crediti, reputazione FROM utenti WHERE utente = 1";
+$sql = "SELECT id, nome, cognome, crediti,email, reputazione FROM utenti WHERE utente = 1";
 $result = $connessione->query($sql);
 
 // Stampa la tabella degli utenti
@@ -46,6 +46,7 @@ echo '<tr>';
 echo '<th>ID</th>';
 echo '<th>Nome</th>';
 echo '<th>Cognome</th>';
+echo '<th>email</th>';
 echo '<th>Reputazione</th>';
 echo '<th>Crediti</th>';
 echo '</tr>';
@@ -56,6 +57,7 @@ if ($result->num_rows > 0) {
         echo '<td>' . $row['id'] . '</td>';
         echo '<td>' . $row['nome'] . '</td>';
         echo '<td>' . $row['cognome'] . '</td>';
+        echo '<td>' . $row['email'] . '</td>';
         echo '<td>' . $row['reputazione'] . '</td>';
         echo '<td>' . $row['crediti'] . '</td>';
         echo '</tr>';
