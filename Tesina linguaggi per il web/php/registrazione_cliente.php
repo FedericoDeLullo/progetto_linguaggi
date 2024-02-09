@@ -43,26 +43,15 @@
     <div class="wrapper">
 
         <form action="../res/cliente_register.php" method="post" class="form">
-            <div class="tooltip">
-                <span class="tooltiptext">LA PASSWORD DEVE SODDISFARE I SEGUENTI REQUISITI:
-                    <ul>
-                        <li>DEVE ESSERE LUNGA ALMENO 7 CARATTERI</li>
-                        <li>DEVE CONTENERE ALMENO UNA LETTERA MAIUSCOLA E UNA MINUSCOLA</li>
-                        <li>DEVE CONTENERE ALMENO UN NUMERO</li>
-                        <li>DEVE CONTENERE ALMENO UN CARATTERE SPECIALE (!,@,#,$,%,^,&,*)</li>
-                    </ul>       
-                </span>
-                <i id="simbolo" class="material-symbols-outlined">info</i>
-            </div>
             <h1 class="titolo">
                 <div class="tooltip">
                     <span class="tooltiptext">LA PASSWORD DEVE SODDISFARE I SEGUENTI REQUISITI:
-                        <ul>
-                            <li>DEVE ESSERE LUNGA ALMENO 7 CARATTERI</li>
-                            <li>DEVE CONTENERE ALMENO UNA LETTERA MAIUSCOLA E UNA MINUSCOLA</li>
-                            <li>DEVE CONTENERE ALMENO UN NUMERO</li>
-                            <li>DEVE CONTENERE ALMENO UN CARATTERE SPECIALE (!,@,#,$,%,^,&,*)</li>
-                        </ul>       
+                        <ol>
+                            <li>Deve essere lunga almeno 7 caratteri;</li>
+                            <li>Deve contenere almeno una lettera maiuscola e una minuscola;</li>
+                            <li>Deve contenere akmeno un numero;</li>
+                            <li>Deve contenere almeno un carattere speciale (!,@,#,$,%,^,&,*).</li>
+                        </ol>    
                     </span>
                     <i id="simbolo" class="material-symbols-outlined">info</i>
                 </div>

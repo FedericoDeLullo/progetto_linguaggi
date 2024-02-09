@@ -4,120 +4,49 @@
     <id_prodotto>1</id_prodotto>
     <nome>Maglia AS Roma 2021-2022</nome>
     <descrizione>Le caratteristiche tipiche di una maglietta da rugby includono collo a giro o a V, maniche lunghe o corte, e spesso la presenza del logo della federazione di rugby nazionale e del fornitore dell'abbigliamento sportivo. Il design può variare di anno in anno o in base agli eventi, ma spesso si riflette sulla storia e sulla cultura del paese.</descrizione>
-    <prezzo>35</prezzo>
+    <prezzo>52</prezzo>
     <tipologia>magliette</tipologia>
     <immagine>../img/images-removebg-preview.png</immagine>
     <domande>
-      
-    </domande>
-  </prodotto>
-  <prodotto>
-    <id_prodotto>2</id_prodotto>
-    <nome>Maglia Rugby Italia 2022-2023 </nome>
-    <descrizione>Le caratteristiche tipiche di una maglietta da rugby includono collo a giro o a V, maniche lunghe o corte, e spesso la presenza del logo della federazione di rugby nazionale e del fornitore dell'abbigliamento sportivo. Il design può variare di anno in anno o in base agli eventi, ma spesso si riflette sulla storia e sulla cultura del paese.</descrizione>
-    <prezzo>54</prezzo>
-    <tipologia>magliette</tipologia>
-    <immagine>../img/rugby-removebg-preview.png</immagine>
-  </prodotto>
-  <prodotto>
-    <id_prodotto>3</id_prodotto>
-    <nome>Federico</nome>
-    <descrizione>Le caratteristiche tipiche di una maglietta da rugby includono collo a giro o a V, maniche lunghe o corte, e spesso la presenza del logo della federazione di rugby nazionale e del fornitore dell'abbigliamento sportivo. Il design può variare di anno in anno o in base agli eventi, ma spesso si riflette sulla storia e sulla cultura del paese.</descrizione>
-    <prezzo>7654</prezzo>
-    <tipologia>magliette</tipologia>
-    <immagine>../img/rugby.png</immagine>
-    <domande>
-      <domanda id_prodotto="3" id_utente="2">
+      <domanda id_prodotto="1" id_utente="2">
         <autore>federico@gmail.com</autore>
-        <testo>t4gwe</testo>
-        <id_domanda>65c3bc6e5b271</id_domanda>
+        <testo>rwexs</testo>
+        <id_domanda>65c5397a6437e</id_domanda>
+        <utilita>
+          <valore id_utente="6" reputazione_Vot="8">2</valore>
+          <valore id_utente="3" reputazione_Vot="4">2</valore>
+        </utilita>
+        <supporto>
+          <valore id_utente="6" reputazione_Vot="8">1</valore>
+          <valore id_utente="3" reputazione_Vot="4">2</valore>
+        </supporto>
         <risposte>
-          <risposta id_prodotto="3" id_utente="1">
-            <id_risposta>65c3bfc1e3217</id_risposta>
-            <autore>lorenzofrancescotti@gmail.com</autore>
-            <data>2024-02-07</data>
-            <ora>18:37:05</ora>
-            <testo>ciaociaocioa</testo>
-            <utilita>
-              <valore id_utente="2" reputazione_Vot="5">2</valore>
-            </utilita>
-            <supporto>
-              <valore id_utente="2" reputazione_Vot="5">2</valore>
-            </supporto>
-          </risposta>
-          <risposta id_prodotto="3" id_utente="1">
-            <id_risposta>65c3c0b280ae5</id_risposta>
-            <autore>lorenzofrancescotti@gmail.com</autore>
-            <data>2024-02-07</data>
-            <ora>18:41:06</ora>
-            <testo>ciao</testo>
-            <utilita>
-              <valore id_utente="2" reputazione_Vot="5">1</valore>
-            </utilita>
-            <supporto>
-              <valore id_utente="2" reputazione_Vot="5">1</valore>
-            </supporto>
-          </risposta>
-          <risposta id_prodotto="3" id_utente="3">
-            <id_risposta>65c3e70af258f</id_risposta>
+          <risposta id_prodotto="1" id_utente="3">
+            <id_risposta>65c53a9277195</id_risposta>
             <autore>f@gmail.com</autore>
-            <data>2024-02-07</data>
-            <ora>21:24:42</ora>
-            <testo>iytujh</testo>
+            <data>2024-02-08</data>
+            <ora>21:33:22</ora>
+            <testo>4ercwdsxa</testo>
             <utilita>
-              <valore id_utente="2" reputazione_Vot="5">1</valore>
+              <valore id_utente="7" reputazione_Vot="1">2</valore>
             </utilita>
             <supporto>
-              <valore id_utente="2" reputazione_Vot="5">2</valore>
+              <valore id_utente="7" reputazione_Vot="1">1</valore>
             </supporto>
           </risposta>
         </risposte>
-        <utilita>
-          <valore id_utente="1" reputazione_Vot="9">2</valore>
-        </utilita>
-        <supporto>
-          <valore id_utente="1" reputazione_Vot="9">2</valore>
-        </supporto>
       </domanda>
-      <domanda id_prodotto="3" id_utente="3">
+      <domanda id_prodotto="1" id_utente="3">
         <autore>f@gmail.com</autore>
-        <testo>uyihk</testo>
-        <id_domanda>65c3e719aa93f</id_domanda>
+        <testo>vrfecwdxsA</testo>
+        <id_domanda>65c53a99a01e9</id_domanda>
         <utilita>
-          <valore id_utente="2" reputazione_Vot="5">3</valore>
+          <valore id_utente="7" reputazione_Vot="1">4</valore>
         </utilita>
         <supporto>
-          <valore id_utente="2" reputazione_Vot="5">1</valore>
+          <valore id_utente="7" reputazione_Vot="1">2</valore>
         </supporto>
-        <risposte>
-          <risposta id_prodotto="3" id_utente="2">
-            <id_risposta>65c3e73a42351</id_risposta>
-            <autore>federico@gmail.com</autore>
-            <data>2024-02-07</data>
-            <ora>21:25:30</ora>
-            <testo>ouyikj</testo>
-          </risposta>
-        </risposte>
       </domanda>
-    </domande>
-  </prodotto>
-  <prodotto>
-    <id_prodotto>4</id_prodotto>
-    <nome>z</nome>
-    <descrizione>fe</descrizione>
-    <prezzo>52</prezzo>
-    <tipologia>magliette</tipologia>
-    <immagine>../img/download.png</immagine>
-  </prodotto>
-  <prodotto>
-    <id_prodotto>5</id_prodotto>
-    <nome>maglia roma</nome>
-    <descrizione>frwed</descrizione>
-    <prezzo>57</prezzo>
-    <tipologia>pantaloncini</tipologia>
-    <immagine>../img/download.jpeg</immagine>
-    <domande>
-      
     </domande>
   </prodotto>
 </catalogo_prodotti>

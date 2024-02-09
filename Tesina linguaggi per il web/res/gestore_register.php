@@ -47,7 +47,7 @@
     if(mysqli_num_rows($ris_cellulare) > 0){
         $_SESSION['errore_cellulare'] = 'true';
         $_SESSION['cellulare_errato'] = $cellulare;
-        header('Location: ../php/registrazione_cliente.php');
+        header('Location: ../php/registrazione_gestore.php');
         exit(1);
     }
 
@@ -58,7 +58,7 @@
     if(mysqli_num_rows($ris_codice_fiscale) > 0){
         $_SESSION['errore_codice_fiscale'] = 'true';
         $_SESSION['codice_fiscale_errato'] = $codice_fiscale;
-        header('Location: ../php/registrazione_cliente.php');
+        header('Location: ../php/registrazione_gestore.php');
         exit(1);
     }
       
@@ -66,7 +66,7 @@
     //~ è il carattere delimitatore dell'espressione regolare
     if (!preg_match('~^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[0-9]).{8,}$~', $password)){
         $_SESSION['errore_preg'] = 'true';
-        header('Location: ../php/registrazione_cliente.php');
+        header('Location: ../php/registrazione_gestore.php');
         exit(1);
     }
     

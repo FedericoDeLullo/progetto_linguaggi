@@ -44,14 +44,14 @@ body{
 }
 
 .nome{
-    z-index: 99;
+    z-index: 2;
     margin-left: -400px;
 }
 
 
 .cognome{
     margin-top: -70px;
-    z-index: 99;
+    z-index: 2;
     margin-left: 470px;
 }
 
@@ -68,7 +68,7 @@ body{
 }
 
 .email{
-z-index: 99;
+z-index: 2;
 margin-top: -73px;
 margin-left: 470px;
 }
@@ -79,7 +79,7 @@ margin-left: -400px;
 }
 
 .cf{
-z-index: 99;
+z-index: 2;
 margin-top: -75px;
 margin-left: 470px;
 }
@@ -90,7 +90,7 @@ margin-left: -400px;
 }
 
 .password{
-    z-index: 99;
+    z-index: 2;
     margin-top: -74px;
     margin-left: 470px;
 }
@@ -210,7 +210,7 @@ h2 {
   border-radius: 5px;
   padding: 5px;
   position: absolute;
-  z-index: 1;
+  z-index: 99;
   top: 100%; 
   left: 50%;
   margin-left: -60px; /* Regola la posizione del tooltip in base alla larghezza desiderata */
@@ -225,4 +225,12 @@ h2 {
 .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
+}
+
+li{
+    text-align: left;
+}
+
+ol {
+    list-style-type: decimal;
 }

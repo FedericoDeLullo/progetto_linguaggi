@@ -9,7 +9,7 @@
     $codice_gestore=4567;
 
     if($_SERVER["REQUEST_METHOD"]==="POST"){
-        $sql_select = "SELECT * FROM utenti WHERE email = '$email'";
+        $sql_select = "SELECT * FROM utenti WHERE email = '$email' AND gestore = 1";
         if($result = $connessione->query($sql_select)){
             if($result->num_rows === 1){
                 $row = $result->fetch_array(MYSQLI_ASSOC);
