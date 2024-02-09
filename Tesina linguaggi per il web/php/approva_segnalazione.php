@@ -113,53 +113,53 @@ $id_prodotto = $_POST['id_prodotto'];
         
         $segnalazioni = $dom->getElementsByTagName('segnalazione');
         
-            foreach ($segnalazioni as $segnalazione) {
-                $statusElement = $segnalazione->getAttribute('status');
-                $idRispostaElement = $segnalazione->getAttribute('id_risposta');
+        foreach ($segnalazioni as $segnalazione) {
+            $statusElement = $segnalazione->getAttribute('status');
+            $idRispostaElement = $segnalazione->getAttribute('id_risposta');        
+        
+            if ($statusElement == 'pending') {
+                $risposta_element = $segnalazione->getElementsByTagName('testo_risposta')->item(0);
+                $testo_element = $segnalazione->getElementsByTagName('testo_segnalazione_ris')->item(0);
+        
+                $requestRisposta = $risposta_element->nodeValue;
+                $requestTesto = $testo_element->nodeValue;
+        
+                if ($requestRisposta == $risposta && $requestTesto == $testo_segnalazione_ris) {
+                    // Aggiorna lo stato della richiesta nel file XML
+                    $segnalazione->setAttribute('status', 'Approvata');
+                    $dom->save($xmlFile);
+        
+                }
                 
-        
-                if ($statusElement == 'pending') {
-                    $risposta_element = $segnalazione->getElementsByTagName('testo_risposta')->item(0);
-                    $testo_element = $segnalazione->getElementsByTagName('testo_segnalazione_ris')->item(0);
-        
-                    $requestRisposta = $risposta_element->nodeValue;
-                    $requestTesto = $testo_element->nodeValue;
-        
-                    if ($requestRisposta == $risposta && $requestTesto == $testo_segnalazione_ris) {
-                        // Aggiorna lo stato della richiesta nel file XML
-                        $segnalazione->setAttribute('status', 'Approvata');
-                        $dom->save($xmlFile);
-        
-                    }
+                if ($idRispostaElement == $id_risposta) {
+                    $xmlFile = '../xml/catalogo_prodotti.xml';
                 
-                    if ($idRispostaElement == $id_risposta) {
-                        $xmlFile = '../xml/catalogo_prodotti.xml';
-                    
-                        // Carica il file XML
-                        $xml = simplexml_load_file($xmlFile);
-                    
-                        // Cerca il prodotto
-                        foreach ($xml->prodotto as $prodotto) {
-                          
-                                // Cerca e rimuovi la domanda
-                                foreach ($prodotto->domande->domanda as $domanda){
-                                    foreach ($domanda->risposte->risposta as $risposta) {
-                                        if ((string)$risposta->id_risposta == $idRispostaElement) {
+                    // Carica il file XML
+                    $xml = simplexml_load_file($xmlFile);
+                
+                    // Cerca il prodotto
+                    foreach ($xml->prodotto as $prodotto) {
+                      
+                        // Cerca e rimuovi la domanda
+                        foreach ($prodotto->domande->domanda as $domanda){
+                            if (isset($domanda->risposte->risposta)) {
+                                foreach ($domanda->risposte->risposta as $risposta) {
+                                    if ((string)$risposta->id_risposta == $idRispostaElement) {
                                         unset($risposta[0]);
                                         echo '<h1 class="titolo">Risposta rimossa con successo!!!</h1>';
                                         break;
                                     }
-                                    }
                                 }
-                                  
-                                }
-                                // Salva le modifiche
-                                $xml->asXML($xmlFile);
-                                break;
+                            }
+                        }      
                     }
-                  }
-                }      
-              }
+                    // Salva le modifiche
+                    $xml->asXML($xmlFile);
+                    break;
+                }
+            }
+        }
+    }
             elseif ($action=="Rifiuta"){
                 foreach ($segnalazioni as $segnalazione) {
                 $statusElement = $segnalazione->getAttribute('status');
