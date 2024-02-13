@@ -14,75 +14,67 @@
     ?>
 </head>
 <body>
+    <div class="cont">
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] === "GET") {
 
+            // Load the XML file
+            $xmlFile = '../xml/catalogo_prodotti.xml';
+            $dom = new DOMDocument();
+            $dom->load($xmlFile);
 
-<?php
+            if (isset($_GET['id_domanda']) && !isset($_GET['id_risposta'])) {
+                // Specify the id_domanda you want to delete
+                $id_domanda = $_GET['id_domanda'];
+                $id_prodotto = $_GET['id_prodotto'];
+                $nome = $_GET['nome'];
+                $tipologia = $_GET['tipologia'];
 
+                // Use XPath to find the node to delete
+                $xpath = new DOMXPath($dom);
+                $query = "//domanda[id_domanda='{$id_domanda}']";
+                $domandaNodes = $xpath->query($query);
 
+                // Check if the node was found
+                if ($domandaNodes->length > 0) {
+                    // Remove the found node
+                    $domandaNode = $domandaNodes->item(0);
+                    $domandaNode->parentNode->removeChild($domandaNode);
 
-if ($_SERVER["REQUEST_METHOD"] === "GET") {
+                    // Save the changes back to the XML file
+                    $dom->save($xmlFile);
+                    header("Location: domande.php?id_prodotto=" . $id_prodotto . "&nome=" . urlencode($nome) . "&tipologia=" . urlencode($tipologia));
+                }
+            } elseif (isset($_GET['id_risposta'])) {
+                $id_domanda = $_GET['id_domanda'];
+                $id_risposta = $_GET['id_risposta'];
+                $id_prodotto = $_GET['id_prodotto'];
+                $nome = $_GET['nome'];
+                $tipologia = $_GET['tipologia'];
 
+                $questionXPath = "//domanda[./risposte/risposta[id_risposta='{$id_risposta}']]";
+                $xpath = new DOMXPath($dom);
+                $questionNodeList = $xpath->query($questionXPath);
 
-// Load the XML file
-$xmlFile = '../xml/catalogo_prodotti.xml';
-$xml = simplexml_load_file($xmlFile);
+                if ($questionNodeList->length > 0) {
+                    $answersXPath = "./risposte/risposta[id_risposta='{$id_risposta}']";
+                    $answerNodeList = $xpath->query($answersXPath, $questionNodeList->item(0));
 
-if(isset($_GET['id_domanda']) && !isset($_GET['id_risposta'])){
-// Specify the id_domanda you want to delete
-$id_domanda = $_GET['id_domanda'];
-$id_prodotto = $_GET['id_prodotto'];
-$nome = $_GET['nome'];
-$tipologia = $_GET['tipologia'];
-// Use XPath to find the node to delete
-$domanda = $xml->xpath("//domanda[id_domanda='{$id_domanda}']");
+                    if ($answerNodeList->length > 0) {
+                        $answerNode = $answerNodeList->item(0);
+                        $answerNode->parentNode->removeChild($answerNode);
 
-// Check if the node was found
-if (!empty($domanda)) {
-    // Remove the found node
-    unset($domanda[0][0]);
-
-    // Save the changes back to the XML file
-    $xml->asXML($xmlFile);
-    header("Location: domande.php?id_prodotto=" . $id_prodotto . "&nome=" . urlencode($nome) . "&tipologia=" . urlencode($tipologia));
-}
-} 
-
-elseif(isset($_GET['id_risposta'])){
-
-    $id_domanda = $_GET['id_domanda'];
-    $id_risposta = $_GET['id_risposta'];
-    $id_prodotto = $_GET['id_prodotto'];
-    $nome = $_GET['nome'];
-    $tipologia = $_GET['tipologia'];
-
-    $questionXPath = "//domanda[./risposte/risposta[id_risposta='{$id_risposta}']]";
-    $questionNodeList = $xml->xpath($questionXPath);
-
-    if (!empty($questionNodeList)) {
-
-        $answersXPath = "./risposte/risposta[id_risposta='{$id_risposta}']";
-        $answerNodeList = $questionNodeList[0]->xpath($answersXPath);
-
-        if (!empty($answerNodeList)) {
-
-            unset($answerNodeList[0][0]);
-
-            $xml->asXML('../xml/catalogo_prodotti.xml');
-            header("Location: domande.php?id_prodotto=" . $id_prodotto . "&nome=" . urlencode($nome) . "&tipologia=" . urlencode($tipologia));
-
-        } else {
-            echo "Answer with id_risposta '{$id_risposta}' not found within the specified question.";
+                        $dom->save('../xml/catalogo_prodotti.xml');
+                        header("Location: domande.php?id_prodotto=" . $id_prodotto . "&nome=" . urlencode($nome) . "&tipologia=" . urlencode($tipologia));
+                    } else {
+                        echo "Answer with id_risposta '{$id_risposta}' not found within the specified question.";
+                    }
+                } else {
+                    echo "Question containing the answer with id_risposta '{$id_risposta}' not found.";
+                }
+            }
         }
-    } else {
-        echo "Question containing the answer with id_risposta '{$id_risposta}' not found.";
-    }
-}
-
-
-}
-?>
-
+        ?>
+    </div>
 </body>
 </html>
-
-

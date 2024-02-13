@@ -13,37 +13,37 @@
     ?>
 </head>
 <body>
+    <div class="cont">
+        <?php
+        // Verifica che il form sia stato inviato
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            // Percorso del file XML
+            $xmlFile = '../xml/catalogo_prodotti.xml';
 
-<div class="cont">
-<?php
-// Verifica che il form sia stato inviato
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Percorso del file XML
-    $xmlFile = '../xml/catalogo_prodotti.xml';
+            // Carica il file XML
+            $dom = new DOMDocument();
+            $dom->load($xmlFile);
 
-    // Carica il file XML
-    $xml = simplexml_load_file($xmlFile);
+            $prodottoTrovato = false;
 
-    $prodottoTrovato = false;
+            // Cerca e rimuovi il prodotto
+            $xpath = new DOMXPath($dom);
+            $prodottoNodes = $xpath->query("/catalogo/prodotto[nome='{$_POST['nome']}']");
+            foreach ($prodottoNodes as $prodottoNode) {
+                $prodottoNode->parentNode->removeChild($prodottoNode);
+                $prodottoTrovato = true;
+                break; // Interrompi dopo aver trovato e rimosso il primo prodotto con lo stesso nome
+            }
 
-    // Cerca e rimuovi il prodotto
-    foreach ($xml->prodotto as $prodotto) {
-        if ((string)$prodotto->nome == $_POST['nome']) {
-            unset($prodotto[0]);
-            $prodottoTrovato = true;
-            break;
+            // Salva le modifiche solo se il prodotto è stato trovato
+            if ($prodottoTrovato) {
+                $dom->save($xmlFile);
+                echo '<h1 class="titolo">Prodotto rimosso con successo!!!</h1>';
+            } else {
+                echo '<h1 class="titolo">Prodotto inesistente, controlla che il nome del prodotto inserito sia nel catalogo...</h1>';
+            }
         }
-    }
-
-    // Salva le modifiche solo se il prodotto è stato trovato
-    if ($prodottoTrovato) {
-        $xml->asXML($xmlFile);
-        echo '<h1 class="titolo">Prodotto rimosso con successo!!!</h1>';
-    } else {
-        echo '<h1 class="titolo">Prodotto inesistente, controlla che il nome del prodotto inserito sia nel catalogo...</h1>';
-    }
-}
-?>
-</div>
+        ?>
+    </div>
 </body>
 </html>

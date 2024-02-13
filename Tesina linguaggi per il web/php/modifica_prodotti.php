@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,57 +9,65 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="../css/style_header.css">
     <?php
-    include('../res/header.php');
+        include('../res/header.php');
     ?>
 </head>
-
 <body>
+    <div class="cont">
+        <?php
 
-    <?php
-    // Verifica che il form sia stato inviato
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Percorso del file XML
-        $xmlFile = '../xml/catalogo_prodotti.xml';
+        // Verifica che il form sia stato inviato
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            // Percorso del file XML
+            $xmlFile = '../xml/catalogo_prodotti.xml';
 
-        // Carica il file XML
-        $xml = simplexml_load_file($xmlFile);
+            // Carica il file XML
+            $dom = new DOMDocument();
+            $dom->load($xmlFile);
 
-        // Identifica il prodotto da modificare (puoi sostituire questo passaggio con la tua logica specifica)
-        $prodottoDaModificare = null;
-        foreach ($xml->prodotto as $prodotto) {
-            $id = (int)$prodotto->id_prodotto;
-            if ($id == $_POST['id_prodotto']) {
-                $prodottoDaModificare = $prodotto;
-                break;
+            // Identifica il prodotto da modificare
+            $prodottoDaModificare = null;
+            foreach ($dom->getElementsByTagName('prodotto') as $prodotto) {
+                $id = (int)$prodotto->getElementsByTagName('id_prodotto')->item(0)->nodeValue;
+                if ($id == $_POST['id_prodotto']) {
+                    $prodottoDaModificare = $prodotto;
+                    break;
+                }
             }
-        }
 
-        // Verifica se il prodotto è stato trovato
-        if ($prodottoDaModificare) {
-            // Modifica le caratteristiche del prodotto
-            $prodottoDaModificare->nome = $_POST['nome'];
-            $prodottoDaModificare->descrizione = $_POST['descrizione'];
-            $prodottoDaModificare->prezzo = $_POST['prezzo'];
+            // Verifica se il prodotto è stato trovato
+            if ($prodottoDaModificare) {
+                // Modifica le caratteristiche del prodotto
+                $prodottoDaModificare->getElementsByTagName('nome')->item(0)->nodeValue = $_POST['nome'];
+                $prodottoDaModificare->getElementsByTagName('descrizione')->item(0)->nodeValue = $_POST['descrizione'];
+                $prodottoDaModificare->getElementsByTagName('prezzo')->item(0)->nodeValue = $_POST['prezzo'];
 
-            // Gestione dell'immagine solo se è stato caricato un nuovo file
-            if (!empty($_FILES['immagine']['name'])) {
-                $immaginePath = '../img/' . basename($_FILES['immagine']['name']);
-                move_uploaded_file($_FILES['immagine']['tmp_name'], $immaginePath);
-                $prodottoDaModificare->immagine = $immaginePath;
+                // Gestione dell'immagine solo se è stato caricato un nuovo file
+                if (!empty($_FILES['immagine']['name'])) {
+                    $immaginePath = '../img/' . basename($_FILES['immagine']['name']);
+                    move_uploaded_file($_FILES['immagine']['tmp_name'], $immaginePath);
+
+                    // Rimuovi l'immagine esistente (se presente)
+                    $immagineNode = $prodottoDaModificare->getElementsByTagName('immagine')->item(0);
+                    if ($immagineNode) {
+                        $prodottoDaModificare->removeChild($immagineNode);
+                    }
+
+                    // Aggiungi l'immagine nuova
+                    $newImmagineNode = $dom->createElement('immagine', $immaginePath);
+                    $prodottoDaModificare->appendChild($newImmagineNode);
+                }
+
+                // Salva le modifiche
+                $dom->save($xmlFile);
+                header("Location: catalogo_magliette.php");
+                exit(); // Termina l'esecuzione dopo la redirect
             } else {
-                // Se non è stato fornito un nuovo file, utilizza l'immagine esistente
-                $prodottoDaModificare->immagine = $_POST['immagine_esistente'];
+                echo '<p class="error">Prodotto non trovato.</p>';
             }
-
-            // Salva le modifiche
-            $xml->asXML($xmlFile);
-            header("Location: catalogo_magliette.php");
-            exit(); // Aggiunto per terminare l'esecuzione dopo la redirect
-        } else {
-            echo '<p class="error">Prodotto non trovato.</p>';
         }
-    }
-    ?>
-</body>
 
+        ?>
+    </div>
+</body>
 </html>

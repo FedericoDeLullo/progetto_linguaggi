@@ -22,7 +22,7 @@
                     <label class="nome" for="nome">Nome Prodotto:</label>
                     <input class="input" type="text" name="nome" required><br>
                     <label class="nome" for="descrizione">Descrizione Prodotto:</label>
-                    <input class="input" name="descrizione" required></input><br>
+                    <input class="input" name="descrizione" required><br>
                     <label class="nome" for="prezzo">Prezzo Prodotto:</label>
                     <input class="input" type="number" name="prezzo" step="0.01" required><br>
                     <label class="nome" for="immagine">Immagine Prodotto:</label>

@@ -14,42 +14,43 @@
     ?>
 </head>
 <body>
+    <div class="cont">
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] === "GET") {
+            // Percorso del file XML
+            $xmlFile = '../xml/catalogo_prodotti.xml';
 
+            // Carica il file XML
+            $dom = new DOMDocument();
+            $dom->load($xmlFile);
 
-<?php
+            if (isset($_GET['id_recensione'])) {
+                // Specifica l'id_recensione che si desidera eliminare
+                $id_recensione = $_GET['id_recensione'];
+                $id_prodotto = $_GET['id_prodotto'];
+                $nome = $_GET['nome'];
+                $tipologia = $_GET['tipologia'];
 
+                // Utilizza XPath per trovare il nodo da eliminare
+                $xpath = new DOMXPath($dom);
+                $query = "//recensione[id_recensione='{$id_recensione}']";
+                $recensioneNodes = $xpath->query($query);
 
+                // Verifica se il nodo è stato trovato
+                if ($recensioneNodes->length > 0) {
+                    // Rimuovi il nodo trovato
+                    $recensioneNode = $recensioneNodes->item(0);
+                    $recensioneNode->parentNode->removeChild($recensioneNode);
 
-if ($_SERVER["REQUEST_METHOD"] === "GET") {
+                    // Salva le modifiche nel file XML
+                    $dom->save($xmlFile);
 
-
-// Load the XML file
-$xmlFile = '../xml/catalogo_prodotti.xml';
-$xml = simplexml_load_file($xmlFile);
-
-if(isset($_GET['id_recensione'])){
-// Specify the id_domanda you want to delete
-$id_recensione = $_GET['id_recensione'];
-$id_prodotto = $_GET['id_prodotto'];
-$nome = $_GET['nome'];
-$tipologia = $_GET['tipologia'];
-
-$recensione = $xml->xpath("//recensione[id_recensione='{$id_recensione}']");
-
-// Check if the node was found
-if (!empty($recensione)) {
-    // Remove the found node
-    unset($recensione[0][0]);
-
-    // Save the changes back to the XML file
-    $xml->asXML($xmlFile);
-    header("Location: lista_recensioni.php?id_prodotto=" . $id_prodotto . "&nome=" . urlencode($nome) . "&tipologia=" . urlencode($tipologia));
-}
-} 
-}
-?>
-
+                    // Reindirizza alla pagina delle recensioni aggiornata
+                    header("Location: lista_recensioni.php?id_prodotto=" . $id_prodotto . "&nome=" . urlencode($nome) . "&tipologia=" . urlencode($tipologia));
+                }
+            }
+        }
+        ?>
+    </div>
 </body>
 </html>
-
-

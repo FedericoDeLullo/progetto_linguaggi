@@ -8,18 +8,21 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
         $xmlFile = '../xml/faq.xml';
 
         if (file_exists($xmlFile)) {
-            $xml = simplexml_load_file($xmlFile);
+            // Carica il file XML
+            $dom = new DOMDocument();
+            $dom->load($xmlFile);
 
             // Cerca l'elemento con l'ID corrispondente
-            $faq_entry = $xml->xpath("//entry[@id='$faq_id']");
+            $xpath = new DOMXPath($dom);
+            $faq_entry = $xpath->query("//entry[@id='$faq_id']");
 
             // Verifica se è stato trovato un elemento
-            if (!empty($faq_entry)) {
+            if ($faq_entry->length > 0) {
                 // Rimuovi l'elemento dal file XML
-                unset($faq_entry[0][0]);
+                $faq_entry->item(0)->parentNode->removeChild($faq_entry->item(0));
 
                 // Salva le modifiche nel file XML
-                $xml->asXML($xmlFile);
+                $dom->save($xmlFile);
 
                 // Reindirizza alla pagina delle FAQ
                 header('Location: ../php/faq.php');

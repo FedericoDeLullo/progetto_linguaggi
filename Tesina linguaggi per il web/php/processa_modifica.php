@@ -6,25 +6,32 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $xmlFile = '../xml/faq.xml';
 
     if (file_exists($xmlFile)) {
-        $xml = simplexml_load_file($xmlFile);
+        $dom = new DOMDocument();
+        $dom->load($xmlFile);
 
-        foreach ($xml->entry as $entry) {
-            $id = $entry->attributes()->id;
+        $xpath = new DOMXPath($dom);
+        $query = "//entry[@id='{$faq_id}']";
+        $entries = $xpath->query($query);
 
-            if ($id == $faq_id) {
-                // Aggiorna il testo della domanda
-                $entry->question = $new_question;
+        if ($entries->length > 0) {
+            $entry = $entries->item(0);
+
+            // Trova l'elemento question e aggiorna il suo testo
+            $questions = $xpath->query("question", $entry);
+            if ($questions->length > 0) {
+                $question = $questions->item(0);
+                $question->nodeValue = $new_question;
 
                 // Salva le modifiche nel file XML
-                $xml->asXML($xmlFile);
-
-                // Reindirizza alla pagina delle FAQ
+                $dom->save($xmlFile);
                 header('Location: faq.php');
                 exit();
+            } else {
+                echo "Errore: Elemento 'question' non trovato.";
             }
+        } else {
+            echo "Errore: Domanda non trovata.";
         }
-
-        echo "Errore: Domanda non trovata.";
     } else {
         echo "Errore: Il file XML delle FAQ non esiste.";
     }

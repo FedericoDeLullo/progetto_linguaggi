@@ -163,7 +163,7 @@ if ($domande->length > 0) {
         echo '<input type="hidden" name="nome" value="' . $nome . '"/>';            
         echo '<input type="hidden" name="autore" value="' . $email . '"/>';
         echo '<input type="hidden" name="id_domanda" value="' . $id_domanda . '"/>';
-        echo '<input class="input" name="risposta" rows="2" cols="30" placeholder="Inserisci la risposta" required></input>';
+        echo '<input class="input" name="risposta" rows="2" cols="30" placeholder="Inserisci la risposta" required>';
         echo '<button class="btn" type="submit">Invia risposta</button>';
         
 
@@ -438,7 +438,7 @@ if ($domande->length > 0) {
         echo '<input type="hidden" name="nome" value="' . $nome . '"/>';            
         echo '<input type="hidden" name="autore" value="' . $email . '"/>';
         echo '<input type="hidden" name="id_domanda" value="' . $id_domanda . '"/>';
-        echo '<input class="input" name="risposta" rows="2" cols="30" placeholder="Inserisci la risposta" required></input>';
+        echo '<input class="input" name="risposta" rows="2" cols="30" placeholder="Inserisci la risposta" required>';
         echo '<button class="btn" type="submit">Invia risposta</button>';
         
 

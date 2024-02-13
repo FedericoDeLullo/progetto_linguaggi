@@ -9,31 +9,25 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         // Verifica se il file XML esiste
         if (file_exists($xmlFile)) {
-            $xml = simplexml_load_file($xmlFile);
+            $dom = new DOMDocument();
+            $dom->load($xmlFile);
 
-            // Genera un ID univoco per la FAQ
-            $faq_id = uniqid();
+            $entry = $dom->createElement('entry');
+            $entry->setAttribute('id', uniqid());
 
-            // Aggiungi la nuova FAQ come un nuovo elemento <entry>
-            $newFaq = $xml->addChild('entry');
-            $newFaq->addAttribute('id', $faq_id);
+            $question = $dom->createElement('question', $faq_question);
+            $entry->appendChild($question);
 
-            // Aggiungi la domanda alla FAQ
-            $newFaq->addChild('question', $faq_question);
+            $answers = $dom->createElement('answers');
+            $answer = $dom->createElement('answer', $faq_answer);
+            $answer->setAttribute('id', uniqid());
+            $answers->appendChild($answer);
+            $entry->appendChild($answers);
 
-            // Crea l'elemento <answers> se non esiste
-            if (!isset($newFaq->answers)) {
-                $answers = $newFaq->addChild('answers');
-            } else {
-                $answers = $newFaq->answers;
-            }
-
-            // Aggiungi la risposta alla FAQ
-            $newAnswer = $answers->addChild('answer', $faq_answer);
-            $newAnswer->addAttribute('id', uniqid());
+            $dom->documentElement->appendChild($entry);
 
             // Salva le modifiche nel file XML
-            $xml->asXML($xmlFile);
+            $dom->save($xmlFile);
 
             header('Location: faq.php');
             exit();
