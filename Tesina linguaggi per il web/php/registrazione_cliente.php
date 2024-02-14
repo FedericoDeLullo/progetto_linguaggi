@@ -49,7 +49,7 @@
                         <ol>
                             <li>Deve essere lunga almeno 7 caratteri;</li>
                             <li>Deve contenere almeno una lettera maiuscola e una minuscola;</li>
-                            <li>Deve contenere akmeno un numero;</li>
+                            <li>Deve contenere almeno un numero;</li>
                             <li>Deve contenere almeno un carattere speciale (!,@,#,$,%,^,&,*).</li>
                         </ol>    
                     </span>

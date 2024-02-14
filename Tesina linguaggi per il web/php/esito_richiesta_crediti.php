@@ -1,21 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestione Crediti</title>
-    <link rel="stylesheet" href="../css/style_standard.css">
-    <link rel="stylesheet" href="../css/style_header.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <?php
-        include('../res/header.php');
-    ?>
-</head>
-<body>
-    
-<div class="cont">
 <?php
- 
+session_start();
 
 if (!isset($_SESSION['loggato'])) {
     header("Location: login_cliente.php");
@@ -25,7 +9,7 @@ if (!isset($_SESSION['loggato'])) {
 $email = $_SESSION['email'];
 $importo = $_POST['importo'];
 
-$xmlFile = '../xml/requests.xml';  // Utilizzo di un percorso relativo
+$xmlFile = '../xml/requests.xml';
 $dom = new DOMDocument();
 
 try {
@@ -53,8 +37,6 @@ try {
     die('Errore nel salvataggio del file XML: ' . $e->getMessage());
 }
 
-echo "<h1 class='titolo'>Richiesta inviata con successo. Attendere l'approvazione dell'amministratore...</h1>";
+$_SESSION['successo_richiesta'] = 'true';
+header("Location: richiesta_crediti.php");
 ?>
-</div>
-</body>
-</html>

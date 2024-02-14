@@ -69,9 +69,11 @@
                     // Salva le modifiche
                     $dom->save($xmlFile);
 
-                    echo '<h1 class="titolo">Prodotto aggiunto con successo!!!</h1>';
+                    $_SESSION['successo_aggiunta_prodotto'] = 'true';
+                    header("Location: menu_aggiungi_prodotto.php");
                 } else {
-                    echo '<h1 class="titolo">Errore durante il caricamento dell\'immagine...</h1>';
+                    $_SESSION['errore_immagine'] = 'true';
+                    header("Location: menu_aggiungi_prodotto.php");
                 }
             } else {
                 echo '<h1 class="titolo">Compila tutti i campi obbligatori...</h1>';

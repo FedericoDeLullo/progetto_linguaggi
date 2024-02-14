@@ -1,40 +1,199 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalogo_prodotti xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="catalogo_prodotti.xsd">
   <prodotto>
-    <id_prodotto>1</id_prodotto>
-    <nome>Maglia AS Roma 2021-2022</nome>
+    <id_prodotto>2</id_prodotto>
+    <nome>ws</nome>
     <descrizione>Le caratteristiche tipiche di una maglietta da rugby includono collo a giro o a V, maniche lunghe o corte, e spesso la presenza del logo della federazione di rugby nazionale e del fornitore dell'abbigliamento sportivo. Il design può variare di anno in anno o in base agli eventi, ma spesso si riflette sulla storia e sulla cultura del paese.</descrizione>
-    <prezzo>52</prezzo>
+    <prezzo>45</prezzo>
     <tipologia>magliette</tipologia>
-    <immagine>../img/images-removebg-preview.png</immagine>
+    <immagine>../img/download__1_-removebg-preview.png</immagine>
     <domande>
-      
-      
-    <domanda id_prodotto="1" id_utente="2"><autore>federico@gmail.com</autore><testo>cc</testo><id_domanda>65c6ad549b20d</id_domanda></domanda></domande>
-    <recensioni>
-      <recensione id_prodotto="1" id_utente="2">
+      <domanda id_prodotto="2" id_utente="2">
         <autore>federico@gmail.com</autore>
-        <testo>esdc</testo>
-        <data>2024-02-09</data>
-        <ora>22:48:52</ora>
-        <id_recensione>65c69dc68dd33</id_recensione>
+        <testo>edsw</testo>
+        <id_domanda>65cca6124ca63</id_domanda>
+        <risposte>
+          <risposta id_prodotto="2" id_utente="1">
+            <id_risposta>65ccaab65381f</id_risposta>
+            <autore>lorenzofrancescotti@gmail.com</autore>
+            <data>2024-02-14</data>
+            <ora>12:57:42</ora>
+            <testo>cc</testo>
+            <utilita>
+              <valore id_utente="13" reputazione_Vot="1">1</valore>
+              <valore id_utente="5" reputazione_Vot="1">1</valore>
+              <valore id_utente="5" reputazione_Vot="1">1</valore>
+              <valore id_utente="6" reputazione_Vot="11">1</valore>
+              <valore id_utente="7" reputazione_Vot="11">1</valore>
+              <valore id_utente="7" reputazione_Vot="11">1</valore>
+              <valore id_utente="7" reputazione_Vot="11">1</valore>
+              <valore id_utente="7" reputazione_Vot="11">1</valore>
+              <valore id_utente="6" reputazione_Vot="11">1</valore>
+              <valore id_utente="5" reputazione_Vot="6">1</valore>
+              <valore id_utente="6" reputazione_Vot="3">1</valore>
+              <valore id_utente="6" reputazione_Vot="3">1</valore>
+              <valore id_utente="7" reputazione_Vot="5">1</valore>
+              <valore id_utente="6" reputazione_Vot="4">1</valore>
+            </utilita>
+            <supporto>
+              <valore id_utente="13" reputazione_Vot="1">1</valore>
+              <valore id_utente="5" reputazione_Vot="1">1</valore>
+              <valore id_utente="5" reputazione_Vot="1">1</valore>
+              <valore id_utente="6" reputazione_Vot="11">1</valore>
+              <valore id_utente="7" reputazione_Vot="11">1</valore>
+              <valore id_utente="7" reputazione_Vot="11">1</valore>
+              <valore id_utente="7" reputazione_Vot="11">1</valore>
+              <valore id_utente="7" reputazione_Vot="11">1</valore>
+              <valore id_utente="6" reputazione_Vot="11">1</valore>
+              <valore id_utente="5" reputazione_Vot="6">1</valore>
+              <valore id_utente="6" reputazione_Vot="3">1</valore>
+              <valore id_utente="6" reputazione_Vot="3">1</valore>
+              <valore id_utente="7" reputazione_Vot="5">1</valore>
+              <valore id_utente="6" reputazione_Vot="4">1</valore>
+            </supporto>
+          </risposta>
+          <risposta id_prodotto="2" id_utente="13">
+            <id_risposta>65ccab330a86f</id_risposta>
+            <autore>f4@gmail.com</autore>
+            <data>2024-02-14</data>
+            <ora>12:59:47</ora>
+            <testo>errcd</testo>
+            <utilita>
+              <valore id_utente="5" reputazione_Vot="1">1</valore>
+              <valore id_utente="7" reputazione_Vot="11">1</valore>
+            </utilita>
+            <supporto>
+              <valore id_utente="5" reputazione_Vot="1">1</valore>
+              <valore id_utente="7" reputazione_Vot="11">1</valore>
+            </supporto>
+          </risposta>
+          <risposta id_prodotto="2" id_utente="5">
+            <id_risposta>65ccae46561b4</id_risposta>
+            <autore>rudy@gmail.com</autore>
+            <data>2024-02-14</data>
+            <ora>13:12:54</ora>
+            <testo>h</testo>
+            <utilita>
+              <valore id_utente="6" reputazione_Vot="11">4</valore>
+              <valore id_utente="7" reputazione_Vot="11">1</valore>
+            </utilita>
+            <supporto>
+              <valore id_utente="6" reputazione_Vot="11">3</valore>
+              <valore id_utente="7" reputazione_Vot="11">1</valore>
+            </supporto>
+          </risposta>
+          <risposta id_prodotto="2" id_utente="7">
+            <id_risposta>65ccb194b1fc3</id_risposta>
+            <autore>gestore@gmail.com</autore>
+            <data>2024-02-14</data>
+            <ora>13:27:00</ora>
+            <testo>k</testo>
+            <utilita>
+              <valore id_utente="6" reputazione_Vot="3">5</valore>
+            </utilita>
+            <supporto>
+              <valore id_utente="6" reputazione_Vot="3">3</valore>
+            </supporto>
+          </risposta>
+          <risposta id_prodotto="2" id_utente="6">
+            <id_risposta>65ccb2d086dd4</id_risposta>
+            <autore>admin@gmail.com</autore>
+            <data>2024-02-14</data>
+            <ora>13:32:16</ora>
+            <testo>l</testo>
+            <utilita>
+              <valore id_utente="7" reputazione_Vot="5">1</valore>
+            </utilita>
+            <supporto>
+              <valore id_utente="7" reputazione_Vot="5">1</valore>
+            </supporto>
+          </risposta>
+        </risposte>
         <utilita>
-          <valore id_utente="4" reputazione_Vot="5">2</valore>
+          <valore id_utente="1" reputazione_Vot="3">2</valore>
           <valore id_utente="3" reputazione_Vot="3">2</valore>
+          <valore id_utente="10" reputazione_Vot="11">1</valore>
+          <valore id_utente="13" reputazione_Vot="1">1</valore>
         </utilita>
         <supporto>
-          <valore id_utente="4" reputazione_Vot="5">1</valore>
-          <valore id_utente="3" reputazione_Vot="3">1</valore>
+          <valore id_utente="1" reputazione_Vot="3">2</valore>
+          <valore id_utente="3" reputazione_Vot="3">2</valore>
+          <valore id_utente="10" reputazione_Vot="11">1</valore>
+          <valore id_utente="13" reputazione_Vot="1">1</valore>
         </supporto>
-      </recensione>
-    </recensioni>
+      </domanda>
+    </domande>
   </prodotto>
   <prodotto>
-    <id_prodotto>2</id_prodotto>
-    <nome>Maglia AS Roma 2021-2022</nome>
-    <descrizione>hikjlkn</descrizione>
-    <prezzo>9685</prezzo>
+    <id_prodotto>3</id_prodotto>
+    <nome>Goelier</nome>
+    <descrizione>JJ</descrizione>
+    <prezzo>50</prezzo>
     <tipologia>magliette</tipologia>
-    <immagine>../img/logo.jpg</immagine>
+    <immagine>../img/2023-03-16 15 00 54_.jpeg</immagine>
+    <domande>
+      <domanda id_prodotto="3" id_utente="6">
+        <autore>admin@gmail.com</autore>
+        <testo>Genius&#13;
+</testo>
+        <id_domanda>65ccb2e59e361</id_domanda>
+        <utilita>
+          <valore id_utente="7" reputazione_Vot="11">1</valore>
+          <valore id_utente="5" reputazione_Vot="6">1</valore>
+          <valore id_utente="1" reputazione_Vot="3">5</valore>
+        </utilita>
+        <supporto>
+          <valore id_utente="7" reputazione_Vot="11">1</valore>
+          <valore id_utente="5" reputazione_Vot="6">1</valore>
+          <valore id_utente="1" reputazione_Vot="3">3</valore>
+        </supporto>
+        <risposte>
+          <risposta id_prodotto="3" id_utente="7">
+            <id_risposta>65ccb3171834e</id_risposta>
+            <autore>gestore@gmail.com</autore>
+            <data>2024-02-14</data>
+            <ora>13:33:27</ora>
+            <testo>gggg</testo>
+            <utilita>
+              <valore id_utente="5" reputazione_Vot="6">1</valore>
+              <valore id_utente="6" reputazione_Vot="3">4</valore>
+              <valore id_utente="1" reputazione_Vot="3">4</valore>
+            </utilita>
+            <supporto>
+              <valore id_utente="5" reputazione_Vot="6">1</valore>
+              <valore id_utente="6" reputazione_Vot="3">3</valore>
+              <valore id_utente="1" reputazione_Vot="3">3</valore>
+            </supporto>
+          </risposta>
+          <risposta id_prodotto="3" id_utente="5">
+            <id_risposta>65ccb372425d5</id_risposta>
+            <autore>rudy@gmail.com</autore>
+            <data>2024-02-14</data>
+            <ora>13:34:58</ora>
+            <testo>lll</testo>
+            <utilita>
+              <valore id_utente="6" reputazione_Vot="3">5</valore>
+              <valore id_utente="7" reputazione_Vot="5">1</valore>
+              <valore id_utente="1" reputazione_Vot="3">4</valore>
+            </utilita>
+            <supporto>
+              <valore id_utente="6" reputazione_Vot="3">1</valore>
+              <valore id_utente="7" reputazione_Vot="5">1</valore>
+              <valore id_utente="1" reputazione_Vot="3">2</valore>
+            </supporto>
+          </risposta>
+          <risposta id_prodotto="3" id_utente="1">
+            <id_risposta>65ccef07c8575</id_risposta>
+            <autore>lorenzofrancescotti@gmail.com</autore>
+            <data>2024-02-14</data>
+            <ora>17:49:11</ora>
+            <testo>molto bello</testo>
+          </risposta>
+        </risposte>
+      </domanda>
+    </domande>
+    <recensioni>
+      
+    </recensioni>
   </prodotto>
 </catalogo_prodotti>

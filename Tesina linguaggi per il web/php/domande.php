@@ -141,7 +141,8 @@ if ($domande->length > 0) {
         echo '<input type="hidden" name="id_domanda" value="' . $id_domanda . '"/>';
         echo '<input type="hidden" name="id_prodotto" value="' . $id_prodotto . '"/>';
         echo '<input type="hidden" name="tipologia" value="' . $tipologia . '"/>';
-    
+        echo '<input type="hidden" name="nome" value="' . $nome . '"/>';
+
         echo '<label class="titolo" for="votoUtilita">Utilità (da 1 a 5): </label>';
         echo '<input class="input" type="number" name="votoUtilita" min="1" max="5" required/><br>';
     

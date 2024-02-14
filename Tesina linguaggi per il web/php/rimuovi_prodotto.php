@@ -28,7 +28,7 @@
 
             // Cerca e rimuovi il prodotto
             $xpath = new DOMXPath($dom);
-            $prodottoNodes = $xpath->query("/catalogo/prodotto[nome='{$_POST['nome']}']");
+            $prodottoNodes = $xpath->query("/catalogo_prodotti/prodotto[nome='{$_POST['nome']}']");
             foreach ($prodottoNodes as $prodottoNode) {
                 $prodottoNode->parentNode->removeChild($prodottoNode);
                 $prodottoTrovato = true;
@@ -38,9 +38,13 @@
             // Salva le modifiche solo se il prodotto è stato trovato
             if ($prodottoTrovato) {
                 $dom->save($xmlFile);
-                echo '<h1 class="titolo">Prodotto rimosso con successo!!!</h1>';
+                $_SESSION['successo_rimozione_prodotto'] = 'true';
+                header("Location: menu_rimuovi_prodotto.php");
+                //echo '<h1 class="titolo">Prodotto rimosso con successo!!!</h1>';
             } else {
-                echo '<h1 class="titolo">Prodotto inesistente, controlla che il nome del prodotto inserito sia nel catalogo...</h1>';
+                $_SESSION['fallimento_rimozione_prodotto'] = 'true';
+                header("Location: menu_rimuovi_prodotto.php");
+                //echo '<h1 class="titolo">Prodotto inesistente, controlla che il nome del prodotto inserito sia nel catalogo...</h1>';
             }
         }
         ?>

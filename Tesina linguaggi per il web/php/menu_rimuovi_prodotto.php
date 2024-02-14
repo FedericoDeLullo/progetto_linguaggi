@@ -12,21 +12,30 @@
     ?>
 </head>
 <body>
-
-<div class="cont">
-    <h1 class="titolo">Rimuovi Prodotto</h1>
-    <table>
-        <tr>
-            <td colspan="2">
-                <form class="form" action="rimuovi_prodotto.php" method="post">
-                    <label class="nome" for="nome">Nome Prodotto:</label>
-                    <input class="input" type="text" name="nome" required>
-                    <br><br><br>
-                    <input class="btn" type="submit" value="Rimuovi Prodotto">
-                </form>
-            </td>
-        </tr>
-    </table>
-</div>
+    <?php
+        if(isset($_SESSION['successo_rimozione_prodotto']) && $_SESSION['successo_rimozione_prodotto'] == 'true'){
+            echo '<h2 id="successo">Prodotto rimosso con successo!!!</h2>';
+            unset($_SESSION['successo_rimozione_prodotto']);
+        }
+        if(isset($_SESSION['fallimento_rimozione_prodotto']) && $_SESSION['fallimento_rimozione_prodotto'] == 'true'){
+            echo '<h2>Prodotto inesistente, controlla che il nome del prodotto inserito sia nel catalogo...</h2>';
+            unset($_SESSION['fallimento_rimozione_prodotto']);
+        }
+        ?>
+    <div class="cont">
+        <h1 class="titolo">Rimuovi Prodotto</h1>
+        <table>
+            <tr>
+                <td colspan="2">
+                    <form class="form" action="rimuovi_prodotto.php" method="post">
+                        <label class="nome" for="nome">Nome Prodotto:</label>
+                        <input class="input" type="text" name="nome" required>
+                        <br><br><br>
+                        <input class="btn" type="submit" value="Rimuovi Prodotto">
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>

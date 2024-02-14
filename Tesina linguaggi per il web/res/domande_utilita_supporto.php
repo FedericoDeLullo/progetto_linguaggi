@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['vota'])) {
 
             // Ottieni il valore della reputazione dall'array associativo
             $reputazioneUtente = $row['reputazione'];
-        }
+        
 
         // Ottieni o crea i nodi "utilita" e "supporto"
         $utilitaNode = $domandaNode->getElementsByTagName("utilita")->item(0);
@@ -117,6 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['vota'])) {
 
             header("Location: ../php/domande.php?id_prodotto=" . $id_prodotto . "&tipologia=" . $tipologia . "&nome=" . $nome);
         }
-    }
+     }
+   }
 }
 ?>

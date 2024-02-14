@@ -46,10 +46,13 @@ $requests = $dom->getElementsByTagName('request');
                 // Aggiorna i crediti dell'utente nel database
                 $sql_credit_update = "UPDATE utenti SET crediti = crediti + $importo WHERE email = '$email'";
                 if ($connessione->query($sql_credit_update) === TRUE) {
-                    echo '<h1 class="titolo">Richiesta approvata con successo. I crediti sono stati aggiunti all\'account di "' . $email . '"</h1>';
+                    $_SESSION['successo_richiesta_approvata'] = 'true';
+                    $_SESSION['email'] = $email;
+                    header("Location: menu_richieste_crediti.php");
                 } 
                 else {
-                    echo '<h1 class="titolo">Errore nell\'aggiornamento dei crediti dell\'utente nel database: ' . $connessione->error . '</h1>';
+                    $_SESSION['fallimento_richiesta'] = 'true';
+                    header("Location: menu_richieste_crediti.php");
                 }
 
                 $connessione->close();
@@ -80,7 +83,8 @@ elseif ($action=="Rifiuta") {
                 $request->setAttribute('status', 'deny');
                 $dom->save($xmlFile);
 
-                echo '<h1 class="titolo">Richiesta rifiutata con successo!!!</h1>';
+                $_SESSION['successo_richiesta_rifiutata'] = 'true';
+                header("Location: menu_richieste_crediti.php");
                 $connessione->close();
                 exit();
             }

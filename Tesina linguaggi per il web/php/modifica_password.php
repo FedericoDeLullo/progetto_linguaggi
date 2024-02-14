@@ -13,8 +13,6 @@
 </head>
 <body>
 
-<div class="cont">
-
 <?php
 require_once('../res/connection.php');
 
@@ -24,7 +22,9 @@ if(isset($_SESSION['errore_preg']) && $_SESSION['errore_preg'] == 'true'){
     echo "<h2>La password non rispetta i criteri di sicurezza!</h2>";
     unset($_SESSION['errore_preg']);
 }    
-
+?>
+<div class="cont">
+<?php
 // Verifica se è stato fornito un ID utente valido
 if (isset($_GET['id']) && is_numeric($_GET['id']) && ($admin == 0)) {
     $id_utente = $_GET['id'];
@@ -37,7 +37,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id']) && ($admin == 0)) {
         $utente = $result->fetch_assoc();
         ?>
  
- <h1 class="titolo">Modifica Password</h1>
+        <h1 class="titolo">Modifica Password</h1>
         <table>
             <tr>
                 <td colspan="2">
