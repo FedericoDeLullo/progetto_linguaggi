@@ -187,6 +187,7 @@ if ($domande->length > 0) {
                 $utilitaValue = $utilitaNode ? $utilitaNode->nodeValue : "N/A";
                 $supportoValue = $supportoNode ? $supportoNode->nodeValue : "N/A";
             
+                $id_domanda = $risposta->getElementsByTagName("id_domanda")->item(0)->nodeValue;
                 $id_risposta = $risposta->getElementsByTagName("id_risposta")->item(0)->nodeValue;
                 $autoreRisposta = $risposta->getElementsByTagName("autore")->item(0)->nodeValue;
                 $dataRisposta = $risposta->getElementsByTagName("data")->item(0)->nodeValue;
@@ -194,7 +195,6 @@ if ($domande->length > 0) {
                 $testoRisposta = $risposta->getElementsByTagName("testo")->item(0)->nodeValue;
         
                 
-                // Nuova riga per ogni risposta
               // Nuova riga per ogni risposta
                 echo '<tr>';
                 echo '<td>';
@@ -235,7 +235,7 @@ if ($domande->length > 0) {
                 echo '<tr>';
                 echo '<td>';
                 echo '<p>';
-                echo '<a href="segnalazione.php?id_prodotto=' . urlencode($id_prodotto) . '&id_risposta=' . urlencode($id_risposta) . '&testo_risposta=' . urlencode($testoRisposta) . '&autoreRisposta=' . $autoreRisposta . '"><span id="simbolo_recensione" class="material-symbols-outlined">report</span></a>';
+                echo '<a href="segnalazione.php?id_prodotto=' . urlencode($id_prodotto) . '&id_risposta=' . urlencode($id_risposta) . '&testo_risposta=' . urlencode($testoRisposta) . '&autoreRisposta=' . $autoreRisposta . '&id_domanda=' . $id_domanda . '"><span id="simbolo_recensione" class="material-symbols-outlined">report</span></a>';
                 echo '</p>';
                 echo '</td>';          
                 echo '<td>';

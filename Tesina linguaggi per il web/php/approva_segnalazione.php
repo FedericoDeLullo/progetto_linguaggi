@@ -27,6 +27,8 @@ if(isset($_POST['id_domanda'])){
     if ($action == "Approva") {
         $xmlFile = '../xml/segnalazioni.xml';
         $dom = new DOMDocument();
+        $dom->preserveWhiteSpace = false;
+
         $dom->load($xmlFile);
 
         $segnalazioni = $dom->getElementsByTagName('segnalazione');
@@ -35,7 +37,22 @@ if(isset($_POST['id_domanda'])){
             $statusElement = $segnalazione->getAttribute('status');
             $idDomandaElement = $segnalazione->getAttribute('id_domanda');
 
-            if ($statusElement == 'pending') {
+            if ($idDomandaElement == $id_domanda && $statusElement == 'Approvata') {
+                echo 'Post già rimosso!!';
+
+           
+            if ($idDomandaElement == $id_domanda && $statusElement == 'pending') {
+                          $segnalazione->setAttribute('status', 'Approvata');
+            $dom->normalizeDocument();
+            $dom->formatOutput = true;  
+                $dom->save($xmlFile);
+                break;
+            }
+        }
+
+            elseif ($statusElement == 'pending' && $idDomandaElement == $id_domanda) {
+
+
                 $domanda_element = $segnalazione->getElementsByTagName('testo_domanda')->item(0);
                 $testo_element = $segnalazione->getElementsByTagName('testo_segnalazione_dom')->item(0);
 
@@ -51,6 +68,8 @@ if(isset($_POST['id_domanda'])){
                 if ($idDomandaElement == $id_domanda) {
                     $xmlFileCatalogo = '../xml/catalogo_prodotti.xml';
                     $xmlCatalogo = new DOMDocument();
+                    $dom->preserveWhiteSpace = false;
+
                     $xmlCatalogo->load($xmlFileCatalogo);
 
                     // Cerca il prodotto
@@ -66,6 +85,9 @@ if(isset($_POST['id_domanda'])){
                                 if ($idDomandaElementValue == $idDomandaElement) {
                                     $domande->removeChild($domandaNode);
                                     echo '<h1 class="titolo">Domanda rimossa con successo!!!</h1>';
+                                    
+            $dom->normalizeDocument();
+            $dom->formatOutput = true;
                                     $xmlCatalogo->save($xmlFileCatalogo);
                                     break 3;  // Exit all loops
                                 }
@@ -78,6 +100,8 @@ if(isset($_POST['id_domanda'])){
     } elseif ($action == "Rifiuta") {
         $xmlFile = '../xml/segnalazioni.xml';
         $dom = new DOMDocument();
+        $dom->preserveWhiteSpace = false;
+
         $dom->load($xmlFile);
 
         $segnalazioni = $dom->getElementsByTagName('segnalazione');
@@ -86,7 +110,7 @@ if(isset($_POST['id_domanda'])){
             $statusElement = $segnalazione->getAttribute('status');
             $idDomandaElement = $segnalazione->getAttribute('id_domanda');
 
-            if ($statusElement == 'pending') {
+            if ($statusElement == 'pending' && $idDomandaElement == $id_domanda) {
                 $domanda_element = $segnalazione->getElementsByTagName('testo_domanda')->item(0);
                 $testo_element = $segnalazione->getElementsByTagName('testo_segnalazione_dom')->item(0);
 
@@ -96,6 +120,9 @@ if(isset($_POST['id_domanda'])){
                 if ($requestDomanda == $domanda && $requestTesto == $testo_segnalazione_dom) {
                     // Aggiorna lo stato della richiesta nel file XML
                     $segnalazione->setAttribute('status', 'Rifiutata');
+                    
+            $dom->normalizeDocument();
+            $dom->formatOutput = true;
                     $dom->save($xmlFile);
                     header("Location:index.php");
                 }
@@ -108,10 +135,14 @@ if(isset($_POST['id_domanda'])){
     $action = $_POST['action'];
     $id_risposta = $_POST['id_risposta'];
     $id_prodotto = $_POST['id_prodotto'];
+    $id_domanda = $_POST['id_domanda_elem'];
+
 
     if ($action == "Approva") {
         $xmlFile = '../xml/segnalazioni.xml';
         $dom = new DOMDocument();
+        $dom->preserveWhiteSpace = false;
+
         $dom->load($xmlFile);
 
         $segnalazioni = $dom->getElementsByTagName('segnalazione');
@@ -119,8 +150,33 @@ if(isset($_POST['id_domanda'])){
         foreach ($segnalazioni as $segnalazione) {
             $statusElement = $segnalazione->getAttribute('status');
             $idRispostaElement = $segnalazione->getAttribute('id_risposta');
+            $idDomandaElement = $segnalazione->getAttribute('id_domanda');
 
-            if ($statusElement == 'pending') {
+            if ($idRispostaElement == $id_risposta && $statusElement == 'Approvata') {
+                echo 'Post già rimosso!!';
+
+           
+            if ($idRispostaElement == $id_risposta && $statusElement == 'pending') {
+                          $segnalazione->setAttribute('status', 'Approvata');
+            $dom->normalizeDocument();
+            $dom->formatOutput = true;  
+                $dom->save($xmlFile);
+                break;
+            }
+        }elseif($idDomandaElement == $id_domanda && $statusElement == 'Approvata') {
+                echo 'La domanda relativa alla risposta segnalata è già stata rimossa!!';
+                if ($idRispostaElement == $id_risposta && $statusElement == 'pending') {
+                    $segnalazione->setAttribute('status', 'Approvata');
+      $dom->normalizeDocument();
+      $dom->formatOutput = true;  
+          $dom->save($xmlFile);
+          break;
+      }
+            
+            
+            }
+
+            elseif ($statusElement == 'pending' && $idRispostaElement == $id_risposta) {
                 $risposta_element = $segnalazione->getElementsByTagName('testo_risposta')->item(0);
                 $testo_element = $segnalazione->getElementsByTagName('testo_segnalazione_ris')->item(0);
 
@@ -130,12 +186,17 @@ if(isset($_POST['id_domanda'])){
                 if ($requestRisposta == $risposta && $requestTesto == $testo_segnalazione_ris) {
                     // Aggiorna lo stato della richiesta nel file XML
                     $segnalazione->setAttribute('status', 'Approvata');
+                    
+            $dom->normalizeDocument();
+            $dom->formatOutput = true;
                     $dom->save($xmlFile);
                 }
 
                 if ($idRispostaElement == $id_risposta) {
                     $xmlFileCatalogo = '../xml/catalogo_prodotti.xml';
                     $xmlCatalogo = new DOMDocument();
+                    $dom->preserveWhiteSpace = false;
+
                     $xmlCatalogo->load($xmlFileCatalogo);
                 
                     // Cerca il prodotto
@@ -155,6 +216,9 @@ if(isset($_POST['id_domanda'])){
                                         if ($idRispostaElementNode !== null && $idRispostaElementNode->nodeValue == $idRispostaElement) {
                                             $risposte->removeChild($rispostaNode);
                                             echo '<h1 class="titolo">Risposta rimossa con successo!!!</h1>';
+                                            
+            $dom->normalizeDocument();
+            $dom->formatOutput = true;
                                             $xmlCatalogo->save($xmlFileCatalogo);
                                             break 4;  // Exit all loops
                                         }
@@ -170,6 +234,8 @@ if(isset($_POST['id_domanda'])){
     } elseif ($action == "Rifiuta") {
         $xmlFile = '../xml/segnalazioni.xml';
         $dom = new DOMDocument();
+        $dom->preserveWhiteSpace = false;
+
         $dom->load($xmlFile);
 
         $segnalazioni = $dom->getElementsByTagName('segnalazione');
@@ -178,7 +244,7 @@ if(isset($_POST['id_domanda'])){
             $statusElement = $segnalazione->getAttribute('status');
             $idRispostaElement = $segnalazione->getAttribute('id_risposta');
 
-            if ($statusElement == 'pending') {
+            if ($statusElement == 'pending' && $idRispostaElement == $id_risposta) {
                 $risposta_element = $segnalazione->getElementsByTagName('testo_risposta')->item(0);
                 $testo_element = $segnalazione->getElementsByTagName('testo_segnalazione_ris')->item(0);
 
@@ -188,6 +254,9 @@ if(isset($_POST['id_domanda'])){
                 if ($requestRisposta == $risposta && $requestTesto == $testo_segnalazione_ris) {
                     // Aggiorna lo stato della richiesta nel file XML
                     $segnalazione->setAttribute('status', 'Rifiutata');
+                    
+            $dom->normalizeDocument();
+            $dom->formatOutput = true;
                     $dom->save($xmlFile);
                     header("Location:index.php");
                 }
@@ -204,6 +273,8 @@ if(isset($_POST['id_domanda'])){
     if ($action == "Approva") {
         $xmlFile = '../xml/segnalazioni.xml';
         $dom = new DOMDocument();
+        $dom->preserveWhiteSpace = false;
+
         $dom->load($xmlFile);
 
         $segnalazioni = $dom->getElementsByTagName('segnalazione');
@@ -212,7 +283,20 @@ if(isset($_POST['id_domanda'])){
             $statusElement = $segnalazione->getAttribute('status');
             $idRecensioneElement = $segnalazione->getAttribute('id_recensione');
 
-            if ($statusElement == 'pending') {
+            if ($idRecensioneElement == $id_recensione && $statusElement == 'Approvata') {
+                echo 'Post già rimosso!!';
+
+           
+            if ($idRecensioneElement == $id_recensione && $statusElement == 'pending') {
+                          $segnalazione->setAttribute('status', 'Approvata');
+            $dom->normalizeDocument();
+            $dom->formatOutput = true;  
+                $dom->save($xmlFile);
+                break;
+            }
+        }
+
+            elseif ($statusElement == 'pending' && $idRecensioneElement == $id_recensione) {
                 $recensione_element = $segnalazione->getElementsByTagName('testo')->item(0);
                 $testo_element = $segnalazione->getElementsByTagName('testo_segnalazione_rec')->item(0);
 
@@ -222,25 +306,34 @@ if(isset($_POST['id_domanda'])){
                 if ($requestRecensione == $recensione && $requestTesto == $testo_segnalazione_rec) {
                     // Aggiorna lo stato della richiesta nel file XML
                     $segnalazione->setAttribute('status', 'Approvata');
+                    
+            $dom->normalizeDocument();
+            $dom->formatOutput = true;
                     $dom->save($xmlFile);
                 }
 
                 if ($idRecensioneElement == $id_recensione) {
                     $xmlFileCatalogo = '../xml/catalogo_prodotti.xml';
                     $xmlCatalogo = new DOMDocument();
+                    $dom->preserveWhiteSpace = false;
+
                     $xmlCatalogo->load($xmlFileCatalogo);
 
                     // Cerca il prodotto
                     $prodottoNodes = $xmlCatalogo->getElementsByTagName('prodotto');
                     foreach ($prodottoNodes as $prodotto) {
-                        // Cerca e rimuovi la domanda
                         $recensioniNodes = $prodotto->getElementsByTagName('recensioni');
                         foreach ($recensioniNodes as $recensioni) {
                             $recensioneNodes = $recensioni->getElementsByTagName('recensione');
                             foreach ($recensioneNodes as $recensioneNode) {
-                                if ($recensioneNode->getAttribute('id_recensione') == $idRecensioneElement) {
+                                $idRecensioneNode = $recensioneNode->getElementsByTagName('id_recensione')->item(0)->nodeValue;
+
+                                if ($idRecensioneNode == $idRecensioneElement) {
                                     $recensioni->removeChild($recensioneNode);
                                     echo '<h1 class="titolo">Recensione rimossa con successo!!!</h1>';
+                                    
+            $dom->normalizeDocument();
+            $dom->formatOutput = true;
                                     $xmlCatalogo->save($xmlFileCatalogo);
                                     break 3;  // Exit all loops
                                 }
@@ -253,6 +346,8 @@ if(isset($_POST['id_domanda'])){
     } elseif ($action == "Rifiuta") {
         $xmlFile = '../xml/segnalazioni.xml';
         $dom = new DOMDocument();
+        $dom->preserveWhiteSpace = false;
+
         $dom->load($xmlFile);
 
         $segnalazioni = $dom->getElementsByTagName('segnalazione');
@@ -261,7 +356,7 @@ if(isset($_POST['id_domanda'])){
             $statusElement = $segnalazione->getAttribute('status');
             $idRecensioneElement = $segnalazione->getAttribute('id_recensione');
 
-            if ($statusElement == 'pending') {
+            if ($statusElement == 'pending' && $idRecensioneElement == $id_recensione) {
                 $recensione_element = $segnalazione->getElementsByTagName('testo')->item(0);
                 $testo_element = $segnalazione->getElementsByTagName('testo_segnalazione_rec')->item(0);
 
@@ -271,6 +366,9 @@ if(isset($_POST['id_domanda'])){
                 if ($requestRecensione == $recensione && $requestTesto == $testo_segnalazione_rec) {
                     // Aggiorna lo stato della richiesta nel file XML
                     $segnalazione->setAttribute('status', 'Rifiutata');
+                    
+            $dom->normalizeDocument();
+            $dom->formatOutput = true;
                     $dom->save($xmlFile);
                     header("Location:index.php");
                 }

@@ -17,7 +17,7 @@
 <?php      
  require_once('../res/connection.php');
 
-if(isset($_GET['id_domanda'])){
+if(isset($_GET['id_domanda']) && !isset($_GET['id_risposta'])){
     $id_domanda = $_GET['id_domanda'];
     $testo_domanda = $_GET['testo_domanda'];
     $id_prodotto = $_GET['id_prodotto'];
@@ -40,17 +40,19 @@ if(isset($_GET['id_domanda'])){
         </tr>
     </table>
 <?php
-}elseif(isset($_GET['id_risposta'])){
+}elseif(isset($_GET['id_risposta']) && $_GET['id_domanda']){
     $id_risposta = $_GET['id_risposta'];
     $testo_risposta = $_GET['testo_risposta'];
     $id_prodotto = $_GET['id_prodotto'];
     $autoreRisposta = $_GET['autoreRisposta'];
+    $id_domanda = $_GET['id_domanda'];
  
 ?>
     <table>
         <tr>
             <td colspan="2">
                 <form class="form" action="processa_segnalazione.php" method="post">
+                    <input type="hidden" name="id_domanda" value="<?php echo $id_domanda; ?>">    
                     <input type="hidden" name="id_risposta" value="<?php echo $id_risposta; ?>">      
                     <input type="hidden" name="id_prodotto" value="<?php echo $id_prodotto; ?>">
                     <input type="hidden" name="testo_risposta" value="<?php echo $testo_risposta; ?>">

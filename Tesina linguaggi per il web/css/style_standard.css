@@ -50,6 +50,11 @@ th {
     box-shadow: 0 0 5px 0 #0021b4;
 }
 
+#input {
+    width: 80%;
+    text-align: center;
+}
+
 .btn {
     display: flex;
     justify-content: center;
@@ -131,12 +136,12 @@ th {
     margin-bottom: 7vh;
 }
 
-h2 {
+h2{
     color: red;
     text-align: center;
     margin-bottom: 5vh;
 }
 
-#successo {
+#successo{
     color: green;
 }

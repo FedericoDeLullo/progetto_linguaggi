@@ -40,12 +40,16 @@ if ($domandaNode) {
     $rispostaNode->setAttribute('id_utente', $id_utente);
     // Crea gli elementi 'id_risposta', 'autore', 'data', 'ora', 'testo'
     $idRispostaNode = $dom->createElement('id_risposta', uniqid());
+    $idDomandaNode = $dom->createElement('id_domanda', $id_domanda);
+
     $autoreRispostaNode = $dom->createElement('autore', $autore);
     $dataRispostaNode = $dom->createElement('data', $dataRisposta);
     $oraRispostaNode = $dom->createElement('ora', $oraRisposta);
     $testoRispostaNode = $dom->createElement('testo', $rispostaTesto);
     // Aggiungi gli elementi all'elemento 'risposta'
     $rispostaNode->appendChild($idRispostaNode);
+    $rispostaNode->appendChild($idDomandaNode);
+
     $rispostaNode->appendChild($autoreRispostaNode);
     $rispostaNode->appendChild($dataRispostaNode);
     $rispostaNode->appendChild($oraRispostaNode);

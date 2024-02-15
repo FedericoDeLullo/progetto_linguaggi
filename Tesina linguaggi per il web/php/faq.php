@@ -86,8 +86,7 @@
                     <tr>
                         <td>
                             <form action="processa_domanda.php" method="post">
-                                <label class="big" for="faq_question">Inserisci una domanda:</label>
-                                <input class="input" name="faq_question" rows="4" style="width: 500px; height: 50px;" required>
+                                <input class="input" id="input" name="faq_question" placeholder="Inserisci la tua domanda" required>
                                 <input type="hidden" name="faq_id" value="<?php echo $faq_id; ?>">
                                 <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
                                 <button class="btn" type="submit">Invia Domanda FAQ</button>
@@ -126,26 +125,24 @@
                                 <a href="../res/elimina_faq.php?id=<?php echo $id; ?>"><span id="done" class="material-symbols-outlined">delete</span></a>
                             </td>
                             <td>
-                                <p class='big'><strong><?php echo $questions[0]->nodeValue; ?></strong></p>
+                                <p><strong><?php echo $questions[0]->nodeValue; ?></strong></p>
                                 <form action="processa_modifica.php" method="post">
                                     <input type='hidden' name='faq_id' value='<?php echo $id; ?>'>
-                                    <label class="big" for="answer">Modifica domanda:</label>
-                                    <input class="input" name="answer" style="width: 500px; height: 50px;" required>
+                                    <input class="input" id="input" name="answer" placeholder="Modifica domanda" required>
                                     <button class="btn" type="submit">Modifica</button>
                                 </form>
                             </td>
                             <td>
                                 <?php
                                 foreach ($answers as $answer) {
-                                ?>
-                                <p class='big'><strong><?php echo $answer->nodeValue; ?></strong></p>
-                                <?php
+                                    ?>
+                                    <p><strong><?php echo $answer->nodeValue; ?></strong></p>
+                                    <?php
                                 }
                                 ?>
                                 <form action="processa_risposta.php" method="post">
                                     <input type='hidden' name='faq_id' value='<?php echo $id; ?>'>
-                                    <label class="big" for="answer">Modifica risposta:</label>
-                                    <input class="input" name="answer" rows="4" style="width: 500px; height: 50px;" required>
+                                    <input class="input" id="input" name="answer" placeholder="Modifica risposta" required>
                                     <input type='hidden' name='email' value='<?php echo $email; ?>'>
                                     <button class="btn" type="submit">Modifica</button>
                                 </form>
@@ -185,12 +182,12 @@
                             $answers = $entry->getElementsByTagName('answer');
                         ?>
                         <tr>
-                            <td class='big'><strong><?php echo $questions[0]->nodeValue; ?></strong></td>
+                            <td><strong><?php echo $questions[0]->nodeValue; ?></strong></td>
                             <td>
                                 <?php
                                 foreach ($answers as $answer) {
                                 ?>
-                                <p class='big'><strong><?php echo $answer->nodeValue; ?></strong></p>
+                                <p><strong><?php echo $answer->nodeValue; ?></strong></p>
                                 <?php
                                 }
                                 ?>
@@ -232,12 +229,12 @@
                         $answers = $entry->getElementsByTagName('answer');
                     ?>
                     <tr>
-                        <td class='big'><strong><?php echo $questions[0]->nodeValue; ?></strong></td>
+                        <td><strong><?php echo $questions[0]->nodeValue; ?></strong></td>
                         <td>
                             <?php
                             foreach ($answers as $answer) {
                             ?>
-                            <p class='big'><strong><?php echo $answer->nodeValue; ?></strong></p>
+                            <p><strong><?php echo $answer->nodeValue; ?></strong></p>
                             <?php
                             }
                             ?>

@@ -81,6 +81,7 @@ foreach ($segnalazioni as $segnalazione) {
             $testoElementRis = $segnalazione->getElementsByTagName('testo_segnalazione_ris')->item(0)->nodeValue;
             $id_prodotto = $segnalazione->getAttribute('id_prodotto');
             $autore_risp = $segnalazione->getElementsByTagName('autoreRisposta')->item(0)->nodeValue;
+            $id_domanda_elem = $segnalazione->getElementsByTagName('id_domanda')->item(0)->nodeValue;
 
 
             echo '<tr>';
@@ -91,6 +92,7 @@ foreach ($segnalazioni as $segnalazione) {
             echo '<form action="approva_segnalazione.php" method="post">';
             echo "<input type='hidden' name='risposta' value='$rispostaElement'>";
             echo "<input type='hidden' name='id_risposta' value='$id_risposta'>";
+            echo "<input type='hidden' name='id_domanda_elem' value='$id_domanda_elem'>";
             echo "<input type='hidden' name='id_prodotto' value='$id_prodotto'>";
             echo "<input type='hidden' name='testo_ris' value='$testoElementRis'>";
             echo '<button class="done" type="submit" name="action" value="Approva"><span id="done" class="material-symbols-outlined">done</span></button>';
@@ -105,6 +107,7 @@ foreach ($segnalazioni as $segnalazione) {
             $rispostaElement = $segnalazione->getElementsByTagName('testo_risposta')->item(0)->nodeValue;
             $testoElementRis = $segnalazione->getElementsByTagName('testo_segnalazione_ris')->item(0)->nodeValue;
             $testoElementDom = $segnalazione->getElementsByTagName('testo_segnalazione_dom')->item(0)->nodeValue;
+            $id_domanda_elem = $segnalazione->getElementsByTagName('id_domanda')->item(0)->nodeValue;
 
 
             echo '<tr>';
@@ -116,6 +119,7 @@ foreach ($segnalazioni as $segnalazione) {
             echo "<input type='hidden' name='id_risposta' value='$id_risposta'>";
             echo "<input type='hidden' name='domanda' value='$domandaElement'>";
             echo "<input type='hidden' name='id_domanda' value='$id_domanda'>";
+            echo "<input type='hidden' name='id_domanda_elem' value='$id_domanda_elem'>";
             echo "<input type='hidden' name='id_prodotto' value='$id_prodotto'>";
             echo "<input type='hidden' name='testo_dom' value='$testoElementDom'>";
             echo "<input type='hidden' name='testo_ris' value='$testoElementRis'>";
@@ -178,6 +182,7 @@ foreach ($segnalazioni as $segnalazione) {
             $rispostaElement = $segnalazione->getElementsByTagName('testo_risposta')->item(0)->nodeValue;
             $testoElementRis = $segnalazione->getElementsByTagName('testo_segnalazione_ris')->item(0)->nodeValue;
             $testoElementRec = $segnalazione->getElementsByTagName('testo_segnalazione_rec')->item(0)->nodeValue;
+            $id_domanda_elem = $segnalazione->getElementsByTagName('id_domanda')->item(0)->nodeValue;
 
 
             echo '<tr>';
@@ -189,6 +194,7 @@ foreach ($segnalazioni as $segnalazione) {
             echo "<input type='hidden' name='id_risposta' value='$id_risposta'>";
             echo "<input type='hidden' name='recensione' value='$recensioneElement'>";
             echo "<input type='hidden' name='id_recensione' value='$id_recensione'>";
+            echo "<input type='hidden' name='id_domanda_elem' value='$id_domanda_elem'>";
             echo "<input type='hidden' name='id_prodotto' value='$id_prodotto'>";
             echo "<input type='hidden' name='testo' value='$testoElementRec'>";
             echo "<input type='hidden' name='testo_ris' value='$testoElementRis'>";

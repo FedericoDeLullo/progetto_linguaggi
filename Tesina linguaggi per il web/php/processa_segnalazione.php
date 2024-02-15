@@ -23,7 +23,7 @@ if (!isset($_SESSION['loggato'])) {
 }
 
 
-if(isset($_POST['id_domanda'])){
+if(isset($_POST['id_domanda']) && !isset($_POST['id_risposta'])){
 $id_domanda = $_POST['id_domanda'];
 $testo_domanda = $_POST['testo_domanda'];
 $testo_segnalazione = $_POST['segnalazione'];
@@ -68,7 +68,7 @@ echo "<h1 class='titolo'>Segnalazione inviata con successo. Attendere l'approvaz
 }
  elseif(isset($_POST['id_risposta'])){
 
-
+    $id_domanda = $_POST['id_domanda'];
     $testo_segnalazione = $_POST['segnalazione'];
     $id_prodotto = $_POST['id_prodotto'];
     $testo_risposta = $_POST['testo_risposta'];
@@ -92,6 +92,10 @@ echo "<h1 class='titolo'>Segnalazione inviata con successo. Attendere l'approvaz
     $segnalazione->setAttribute('status', 'pending');
     $segnalazione->setAttribute('id_risposta', $id_risposta);
     $segnalazione->setattribute('id_prodotto', $id_prodotto);
+
+    
+    $domanda_element = $dom->createElement('id_domanda', $id_domanda);
+    $segnalazione->appendChild($domanda_element);
     
     $risposta_element = $dom->createElement('testo_risposta', $testo_risposta);
     $segnalazione->appendChild($risposta_element);
