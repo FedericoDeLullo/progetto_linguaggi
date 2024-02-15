@@ -18,8 +18,12 @@
         unset($_SESSION['successo_aggiunta_prodotto']);
     }
     if(isset($_SESSION['errore_immagine']) && $_SESSION['errore_immagine'] == 'true'){
-        echo '<h2 id="successo">Errore durante il caricamento dell\'immagine...</h2>';
+        echo '<h2>Errore durante il caricamento dell\'immagine...</h2>';
         unset($_SESSION['errore_immagine']);
+    }
+    if(isset($_SESSION['errore_campi_vuoti']) && $_SESSION['errore_campi_vuoti'] == 'true'){
+        echo '<h2>Compila tutti i campi obbligatori...</h2>';
+        unset($_SESSION['errore_campi_vuoti']);
     }
     ?>
     <div class="cont">
@@ -27,7 +31,7 @@
         <table>
             <tr>
                 <td colspan="2">
-                    <form class="form" action="aggiungi_prodotto.php" method="post" enctype="multipart/form-data">
+                    <form class="form" action="../res/aggiungi_prodotto.php" method="post" enctype="multipart/form-data">
                         <label class="nome" for="nome">Nome Prodotto:</label>
                         <input class="input" type="text" name="nome" required><br>
                         <label class="nome" for="descrizione">Descrizione Prodotto:</label>

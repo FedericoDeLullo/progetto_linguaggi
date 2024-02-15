@@ -5,7 +5,6 @@
     $email = $connessione->real_escape_string($_POST['email']);
     $password = $connessione->real_escape_string($_POST['password']);
     $codice = $connessione->real_escape_string($_POST['codice']);
-
     $codice_gestore=4567;
 
     if($_SERVER["REQUEST_METHOD"]==="POST"){
@@ -24,18 +23,21 @@
                     header("Location: ../php/index.php");
                 }
                 else{
-                    header("Location: ../php/login_ko.php");
+                    $_SESSION['errore_login'] = 'true';
+                    header("Location: ../php/login_gestore.php");
                     exit;
                 }
             }
             else{
-                header("Location: ../php/login_ko.php");
+                $_SESSION['errore_login'] = 'true';
+                header("Location: ../php/login_gestore.php");
                 exit;
             }
 
         }
         else{
-            echo "Errore in fase di login";
+            $_SESSION['errore_login'] = 'true';
+            header("Location: ../php/login_gestore.php");
         }
         $connessione->close();
     }

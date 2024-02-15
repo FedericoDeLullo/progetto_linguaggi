@@ -38,6 +38,11 @@
         unset($_SESSION['errore_codice_fiscale']);
         unset($_SESSION['form_codice_fiscale']);
     }
+
+    if(isset($_SESSION['errore_cod']) && $_SESSION['errore_cod'] == 'true'){
+        echo "<h2>Qualcosa è andato storto!</h2>";
+        unset($_SESSION['errore_cod']);
+    }
     ?>
 
     <div class="wrapper">

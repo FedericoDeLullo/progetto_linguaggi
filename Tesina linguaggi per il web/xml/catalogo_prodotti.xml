@@ -8,89 +8,7 @@
     <tipologia>magliette</tipologia>
     <immagine>../img/2023-03-16 15 00 54_.jpeg</immagine>
     <domande>
-      <domanda id_prodotto="3" id_utente="2">
-        <autore>federico@gmail.com</autore>
-        <testo>ccccc</testo>
-        <id_domanda>65cd3c9bc5c49</id_domanda>
-        <utilita>
-          <valore id_utente="1" reputazione_Vot="3">1</valore>
-          <valore id_utente="7" reputazione_Vot="6">4</valore>
-          <valore id_utente="6" reputazione_Vot="10">2</valore>
-        </utilita>
-        <supporto>
-          <valore id_utente="1" reputazione_Vot="3">1</valore>
-          <valore id_utente="7" reputazione_Vot="6">3</valore>
-          <valore id_utente="6" reputazione_Vot="10">2</valore>
-        </supporto>
-        <risposte>
-          <risposta id_prodotto="3" id_utente="1">
-            <id_risposta>65cd4ffea0727</id_risposta>
-            <id_domanda>65cd3c9bc5c49</id_domanda>
-            <autore>lorenzofrancescotti@gmail.com</autore>
-            <data>2024-02-15</data>
-            <ora>00:42:54</ora>
-            <testo>dio mio</testo>
-            <utilita>
-              <valore id_utente="7" reputazione_Vot="6">2</valore>
-              <valore id_utente="6" reputazione_Vot="10">5</valore>
-              <valore id_utente="2" reputazione_Vot="6">1</valore>
-            </utilita>
-            <supporto>
-              <valore id_utente="7" reputazione_Vot="6">3</valore>
-              <valore id_utente="6" reputazione_Vot="10">3</valore>
-              <valore id_utente="2" reputazione_Vot="6">1</valore>
-            </supporto>
-          </risposta>
-          <risposta id_prodotto="3" id_utente="7">
-            <id_risposta>65cd534ed5058</id_risposta>
-            <id_domanda>65cd3c9bc5c49</id_domanda>
-            <autore>gestore@gmail.com</autore>
-            <data>2024-02-15</data>
-            <ora>00:57:02</ora>
-            <testo>qua è andato..</testo>
-            <utilita>
-              <valore id_utente="1" reputazione_Vot="6">4</valore>
-              <valore id_utente="6" reputazione_Vot="10">2</valore>
-              <valore id_utente="2" reputazione_Vot="6">5</valore>
-            </utilita>
-            <supporto>
-              <valore id_utente="1" reputazione_Vot="6">3</valore>
-              <valore id_utente="6" reputazione_Vot="10">2</valore>
-              <valore id_utente="2" reputazione_Vot="6">3</valore>
-            </supporto>
-          </risposta>
-          <risposta id_prodotto="3" id_utente="1">
-            <id_risposta>65cd540b942ac</id_risposta>
-            <id_domanda>65cd3c9bc5c49</id_domanda>
-            <autore>lorenzofrancescotti@gmail.com</autore>
-            <data>2024-02-15</data>
-            <ora>01:00:11</ora>
-            <testo>meu deo</testo>
-            <utilita>
-              <valore id_utente="6" reputazione_Vot="10">1</valore>
-              <valore id_utente="2" reputazione_Vot="6">1</valore>
-            </utilita>
-            <supporto>
-              <valore id_utente="6" reputazione_Vot="10">3</valore>
-              <valore id_utente="2" reputazione_Vot="6">1</valore>
-            </supporto>
-          </risposta>
-          <risposta id_prodotto="3" id_utente="6">
-            <id_risposta>65cd552d2c846</id_risposta>
-            <id_domanda>65cd3c9bc5c49</id_domanda>
-            <autore>admin@gmail.com</autore>
-            <data>2024-02-15</data>
-            <ora>01:05:01</ora>
-            <testo>va pure quiii</testo>
-            <utilita>
-              <valore id_utente="2" reputazione_Vot="6">3</valore>
-            </utilita>
-            <supporto>
-              <valore id_utente="2" reputazione_Vot="6">2</valore>
-            </supporto>
-          </risposta>
-        </risposte>
-      </domanda>
+      
       <domanda id_prodotto="3" id_utente="1">
         <autore>lorenzofrancescotti@gmail.com</autore>
         <testo>accollo&#13;
@@ -163,59 +81,7 @@
     <tipologia>magliette</tipologia>
     <immagine>../img/images-removebg-preview.png</immagine>
     <domande>
-      <domanda id_prodotto="4" id_utente="7">
-        <autore>gestore@gmail.com</autore>
-        <testo>domanda 1</testo>
-        <id_domanda>65cd52e91689e</id_domanda>
-        <risposte>
-          <risposta id_prodotto="4" id_utente="1">
-            <id_risposta>65cd54520bf3e</id_risposta>
-            <id_domanda>65cd52e91689e</id_domanda>
-            <autore>lorenzofrancescotti@gmail.com</autore>
-            <data>2024-02-15</data>
-            <ora>01:01:22</ora>
-            <testo>risposta utente 1</testo>
-            <utilita>
-              <valore id_utente="6" reputazione_Vot="10">5</valore>
-              <valore id_utente="2" reputazione_Vot="6">1</valore>
-              <valore id_utente="2" reputazione_Vot="6">1</valore>
-              <valore id_utente="7" reputazione_Vot="6">1</valore>
-            </utilita>
-            <supporto>
-              <valore id_utente="6" reputazione_Vot="10">3</valore>
-              <valore id_utente="2" reputazione_Vot="6">1</valore>
-              <valore id_utente="2" reputazione_Vot="6">1</valore>
-              <valore id_utente="7" reputazione_Vot="6">1</valore>
-            </supporto>
-          </risposta>
-          <risposta id_prodotto="4" id_utente="6">
-            <id_risposta>65cd5586d0da7</id_risposta>
-            <id_domanda>65cd52e91689e</id_domanda>
-            <autore>admin@gmail.com</autore>
-            <data>2024-02-15</data>
-            <ora>01:06:30</ora>
-            <testo>risposta admin 1</testo>
-            <utilita>
-              <valore id_utente="2" reputazione_Vot="6">1</valore>
-              <valore id_utente="1" reputazione_Vot="8">5</valore>
-              <valore id_utente="7" reputazione_Vot="6">3</valore>
-            </utilita>
-            <supporto>
-              <valore id_utente="2" reputazione_Vot="6">1</valore>
-              <valore id_utente="1" reputazione_Vot="8">3</valore>
-              <valore id_utente="7" reputazione_Vot="6">3</valore>
-            </supporto>
-          </risposta>
-        </risposte>
-        <utilita>
-          <valore id_utente="1" reputazione_Vot="6">5</valore>
-          <valore id_utente="6" reputazione_Vot="10">3</valore>
-        </utilita>
-        <supporto>
-          <valore id_utente="1" reputazione_Vot="6">3</valore>
-          <valore id_utente="6" reputazione_Vot="10">2</valore>
-        </supporto>
-      </domanda>
+      
       <domanda id_prodotto="4" id_utente="2">
         <autore>federico@gmail.com</autore>
         <testo>domanda 3&#13;

@@ -27,7 +27,7 @@
         <table>
             <tr>
                 <td colspan="2">
-                    <form class="form" action="rimuovi_prodotto.php" method="post">
+                    <form class="form" action="../res/rimuovi_prodotto.php" method="post">
                         <label class="nome" for="nome">Nome Prodotto:</label>
                         <input class="input" type="text" name="nome" required>
                         <br><br><br>

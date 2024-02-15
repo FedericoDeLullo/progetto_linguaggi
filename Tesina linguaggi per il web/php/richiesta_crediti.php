@@ -40,7 +40,7 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <form class="form" action="esito_richiesta_crediti.php" method="post">
+                    <form class="form" action="../res/esito_richiesta_crediti.php" method="post">
                         <label for="importo">Importo richiesto:</label>
                         <input class="input" type="number" name="importo" required>
                         <br><br><br>

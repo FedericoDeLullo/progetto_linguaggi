@@ -94,6 +94,7 @@
         }
     }
     else{
+        $_SESSION['errore_cod'] = 'true';
         header('Location: ../php/registrazione_admin.php');
         exit(1);    
     }

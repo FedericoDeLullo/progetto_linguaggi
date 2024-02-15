@@ -94,6 +94,7 @@
         }
     }
     else{
+        $_SESSION['errore_cod'] = 'true';
         header('Location: ../php/registrazione_gestore.php');
         exit(1);
     }

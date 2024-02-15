@@ -5,7 +5,6 @@
     $email = $connessione->real_escape_string($_POST['email']);
     $password = $connessione->real_escape_string($_POST['password']);
     $codice = $connessione->real_escape_string($_POST['codice']);
-
     $codice_admin=1234;
 
     if($_SERVER["REQUEST_METHOD"]==="POST"){
@@ -14,7 +13,6 @@
             if($result->num_rows === 1){
                 $row = $result->fetch_array(MYSQLI_ASSOC);
                 if(password_verify($password, $row['passwd']) && $codice==$codice_admin){
-
                     $_SESSION['loggato'] = true;
                     $_SESSION['id'] = $row['id'];
                     $_SESSION['email'] = $row['email'];
@@ -25,18 +23,21 @@
                     header("Location: ../php/index.php");
                 }
                 else{
-                    header("Location: ../php/login_ko.php");
+                    $_SESSION['errore_login'] = 'true';
+                    header("Location: ../php/login_admin.php");
                     exit;
                 }
             }
             else{
-                header("Location: ../php/login_ko.php");
+                $_SESSION['errore_login'] = 'true';
+                header("Location: ../php/login_admin.php");
                 exit;
             }
 
         }
         else{
-            echo "Errore in fase di login";
+            $_SESSION['errore_login'] = 'true';
+            header("Location: ../php/login_admin.php");
         }
         $connessione->close();
     }

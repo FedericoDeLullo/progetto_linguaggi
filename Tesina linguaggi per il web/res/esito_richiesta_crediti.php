@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['loggato'])) {
-    header("Location: login_cliente.php");
+    header("Location: ../php/login_cliente.php");
     exit();
 }
 
@@ -38,5 +38,5 @@ try {
 }
 
 $_SESSION['successo_richiesta'] = 'true';
-header("Location: richiesta_crediti.php");
+header("Location: ../php/richiesta_crediti.php");
 ?>

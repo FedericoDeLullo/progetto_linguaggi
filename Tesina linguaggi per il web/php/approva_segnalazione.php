@@ -38,21 +38,18 @@ if(isset($_POST['id_domanda'])){
             $idDomandaElement = $segnalazione->getAttribute('id_domanda');
 
             if ($idDomandaElement == $id_domanda && $statusElement == 'Approvata') {
-                echo 'Post già rimosso!!';
+                //echo 'Post già rimosso!!';
+                $_SESSION['post_gia_rimosso'] = 'true';
+                header("Location: menu_segnalazioni.php");
 
-           
-            if ($idDomandaElement == $id_domanda && $statusElement == 'pending') {
-                          $segnalazione->setAttribute('status', 'Approvata');
-            $dom->normalizeDocument();
-            $dom->formatOutput = true;  
-                $dom->save($xmlFile);
-                break;
-            }
-        }
-
-            elseif ($statusElement == 'pending' && $idDomandaElement == $id_domanda) {
-
-
+                if ($idDomandaElement == $id_domanda && $statusElement == 'pending') {
+                    $segnalazione->setAttribute('status', 'Approvata');
+                    $dom->normalizeDocument();
+                    $dom->formatOutput = true;  
+                    $dom->save($xmlFile);
+                    break;
+                }
+            } elseif ($statusElement == 'pending' && $idDomandaElement == $id_domanda) {
                 $domanda_element = $segnalazione->getElementsByTagName('testo_domanda')->item(0);
                 $testo_element = $segnalazione->getElementsByTagName('testo_segnalazione_dom')->item(0);
 
@@ -84,10 +81,12 @@ if(isset($_POST['id_domanda'])){
                     
                                 if ($idDomandaElementValue == $idDomandaElement) {
                                     $domande->removeChild($domandaNode);
-                                    echo '<h1 class="titolo">Domanda rimossa con successo!!!</h1>';
+                                    //echo '<h1 class="titolo">Domanda rimossa con successo!!!</h1>';
+                                    $_SESSION['successo_domanda'] = 'true';
+                                    header("Location: menu_segnalazioni.php");
                                     
-            $dom->normalizeDocument();
-            $dom->formatOutput = true;
+                                    $dom->normalizeDocument();
+                                    $dom->formatOutput = true;
                                     $xmlCatalogo->save($xmlFileCatalogo);
                                     break 3;  // Exit all loops
                                 }
@@ -121,10 +120,11 @@ if(isset($_POST['id_domanda'])){
                     // Aggiorna lo stato della richiesta nel file XML
                     $segnalazione->setAttribute('status', 'Rifiutata');
                     
-            $dom->normalizeDocument();
-            $dom->formatOutput = true;
+                    $dom->normalizeDocument();
+                    $dom->formatOutput = true;
                     $dom->save($xmlFile);
-                    header("Location:index.php");
+                    $_SESSION['segnalazione_rifiutata'] = 'true';
+                    header("Location: menu_segnalazioni.php");
                 }
             }
         }
@@ -136,7 +136,6 @@ if(isset($_POST['id_domanda'])){
     $id_risposta = $_POST['id_risposta'];
     $id_prodotto = $_POST['id_prodotto'];
     $id_domanda = $_POST['id_domanda_elem'];
-
 
     if ($action == "Approva") {
         $xmlFile = '../xml/segnalazioni.xml';
@@ -153,30 +152,29 @@ if(isset($_POST['id_domanda'])){
             $idDomandaElement = $segnalazione->getAttribute('id_domanda');
 
             if ($idRispostaElement == $id_risposta && $statusElement == 'Approvata') {
-                echo 'Post già rimosso!!';
+                //echo 'Post già rimosso!!';
+                $_SESSION['post_gia_rimosso'] = 'true';
+                header("Location: menu_segnalazioni.php");
 
-           
-            if ($idRispostaElement == $id_risposta && $statusElement == 'pending') {
-                          $segnalazione->setAttribute('status', 'Approvata');
-            $dom->normalizeDocument();
-            $dom->formatOutput = true;  
-                $dom->save($xmlFile);
-                break;
-            }
-        }elseif($idDomandaElement == $id_domanda && $statusElement == 'Approvata') {
-                echo 'La domanda relativa alla risposta segnalata è già stata rimossa!!';
                 if ($idRispostaElement == $id_risposta && $statusElement == 'pending') {
                     $segnalazione->setAttribute('status', 'Approvata');
-      $dom->normalizeDocument();
-      $dom->formatOutput = true;  
-          $dom->save($xmlFile);
-          break;
-      }
-            
-            
-            }
-
-            elseif ($statusElement == 'pending' && $idRispostaElement == $id_risposta) {
+                    $dom->normalizeDocument();
+                    $dom->formatOutput = true;  
+                    $dom->save($xmlFile);
+                    break;
+                }
+            } elseif ($idDomandaElement == $id_domanda && $statusElement == 'Approvata') {
+                //echo 'La domanda relativa alla risposta segnalata è già stata rimossa!!';
+                $_SESSION['domanda_gia_rimossa'] = 'true';
+                header("Location: menu_segnalazioni.php");
+                if ($idRispostaElement == $id_risposta && $statusElement == 'pending') {
+                    $segnalazione->setAttribute('status', 'Approvata');
+                    $dom->normalizeDocument();
+                    $dom->formatOutput = true;  
+                    $dom->save($xmlFile);
+                    break;
+                }
+            } elseif ($statusElement == 'pending' && $idRispostaElement == $id_risposta) {
                 $risposta_element = $segnalazione->getElementsByTagName('testo_risposta')->item(0);
                 $testo_element = $segnalazione->getElementsByTagName('testo_segnalazione_ris')->item(0);
 
@@ -187,8 +185,8 @@ if(isset($_POST['id_domanda'])){
                     // Aggiorna lo stato della richiesta nel file XML
                     $segnalazione->setAttribute('status', 'Approvata');
                     
-            $dom->normalizeDocument();
-            $dom->formatOutput = true;
+                    $dom->normalizeDocument();
+                    $dom->formatOutput = true;
                     $dom->save($xmlFile);
                 }
 
@@ -215,10 +213,12 @@ if(isset($_POST['id_domanda'])){
                 
                                         if ($idRispostaElementNode !== null && $idRispostaElementNode->nodeValue == $idRispostaElement) {
                                             $risposte->removeChild($rispostaNode);
-                                            echo '<h1 class="titolo">Risposta rimossa con successo!!!</h1>';
+                                            //echo '<h1 class="titolo">Risposta rimossa con successo!!!</h1>';
+                                            $_SESSION['successo_risposta'] = 'true';
+                                            header("Location: menu_segnalazioni.php");
                                             
-            $dom->normalizeDocument();
-            $dom->formatOutput = true;
+                                            $dom->normalizeDocument();
+                                            $dom->formatOutput = true;
                                             $xmlCatalogo->save($xmlFileCatalogo);
                                             break 4;  // Exit all loops
                                         }
@@ -228,7 +228,6 @@ if(isset($_POST['id_domanda'])){
                         }
                     }
                 }
-                
             }
         }
     } elseif ($action == "Rifiuta") {
@@ -255,10 +254,11 @@ if(isset($_POST['id_domanda'])){
                     // Aggiorna lo stato della richiesta nel file XML
                     $segnalazione->setAttribute('status', 'Rifiutata');
                     
-            $dom->normalizeDocument();
-            $dom->formatOutput = true;
+                    $dom->normalizeDocument();
+                    $dom->formatOutput = true;
                     $dom->save($xmlFile);
-                    header("Location:index.php");
+                    $_SESSION['segnalazione_rifiutata'] = 'true';
+                    header("Location: menu_segnalazioni.php");
                 }
             }
         }
@@ -284,19 +284,18 @@ if(isset($_POST['id_domanda'])){
             $idRecensioneElement = $segnalazione->getAttribute('id_recensione');
 
             if ($idRecensioneElement == $id_recensione && $statusElement == 'Approvata') {
-                echo 'Post già rimosso!!';
+                //echo 'Post già rimosso!!';
+                $_SESSION['post_rimosso'] = 'true';
+                header("Location: menu_segnalazioni.php");
 
-           
-            if ($idRecensioneElement == $id_recensione && $statusElement == 'pending') {
-                          $segnalazione->setAttribute('status', 'Approvata');
-            $dom->normalizeDocument();
-            $dom->formatOutput = true;  
-                $dom->save($xmlFile);
-                break;
-            }
-        }
-
-            elseif ($statusElement == 'pending' && $idRecensioneElement == $id_recensione) {
+                if ($idRecensioneElement == $id_recensione && $statusElement == 'pending') {
+                    $segnalazione->setAttribute('status', 'Approvata');
+                    $dom->normalizeDocument();
+                    $dom->formatOutput = true;  
+                    $dom->save($xmlFile);
+                    break;
+                }
+            } elseif ($statusElement == 'pending' && $idRecensioneElement == $id_recensione) {
                 $recensione_element = $segnalazione->getElementsByTagName('testo')->item(0);
                 $testo_element = $segnalazione->getElementsByTagName('testo_segnalazione_rec')->item(0);
 
@@ -307,8 +306,8 @@ if(isset($_POST['id_domanda'])){
                     // Aggiorna lo stato della richiesta nel file XML
                     $segnalazione->setAttribute('status', 'Approvata');
                     
-            $dom->normalizeDocument();
-            $dom->formatOutput = true;
+                    $dom->normalizeDocument();
+                    $dom->formatOutput = true;
                     $dom->save($xmlFile);
                 }
 
@@ -330,10 +329,12 @@ if(isset($_POST['id_domanda'])){
 
                                 if ($idRecensioneNode == $idRecensioneElement) {
                                     $recensioni->removeChild($recensioneNode);
-                                    echo '<h1 class="titolo">Recensione rimossa con successo!!!</h1>';
+                                    //echo '<h1 class="titolo">Recensione rimossa con successo!!!</h1>';
+                                    $_SESSION['successo_recensione'] = 'true';
+                                    header("Location: menu_segnalazioni.php");
                                     
-            $dom->normalizeDocument();
-            $dom->formatOutput = true;
+                                    $dom->normalizeDocument();
+                                    $dom->formatOutput = true;
                                     $xmlCatalogo->save($xmlFileCatalogo);
                                     break 3;  // Exit all loops
                                 }
@@ -367,10 +368,11 @@ if(isset($_POST['id_domanda'])){
                     // Aggiorna lo stato della richiesta nel file XML
                     $segnalazione->setAttribute('status', 'Rifiutata');
                     
-            $dom->normalizeDocument();
-            $dom->formatOutput = true;
+                    $dom->normalizeDocument();
+                    $dom->formatOutput = true;
                     $dom->save($xmlFile);
-                    header("Location:index.php");
+                    $_SESSION['segnalazione_rifiutata'] = 'true';
+                    header("Location: menu_segnalazioni.php");
                 }
             }
         }
