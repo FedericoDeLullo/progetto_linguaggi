@@ -32,7 +32,7 @@ if(isset($_GET['id_domanda']) && !isset($_GET['id_risposta'])){
                     <input type="hidden" name="testo_domanda" value="<?php echo $testo_domanda; ?>">
                     <input type="hidden" name="autoreDomanda" value="<?php echo $autoreDomanda; ?>">
                     <label for="segnalazione">Segnalazione:</label>
-                    <input class="input" name="segnalazione" id="segnalazione" rows="4" cols="50">
+                    <input class="input" name="segnalazione" id="segnalazione" rows="4" cols="50" required>
                     <br><br><br>
                     <button type="submit" name="report" class="btn">Invia Segnalazione</span></button>
                 </form>
@@ -58,7 +58,7 @@ if(isset($_GET['id_domanda']) && !isset($_GET['id_risposta'])){
                     <input type="hidden" name="testo_risposta" value="<?php echo $testo_risposta; ?>">
                     <input type="hidden" name="autoreRisposta" value="<?php echo $autoreRisposta; ?>">
                     <label for="segnalazione">Segnalazione:</label>
-                    <input class="input" name="segnalazione" id="segnalazione" rows="4" cols="50">
+                    <input class="input" name="segnalazione" id="segnalazione" rows="4" cols="50" required>
                     <br><br><br>
                     <button type="submit" name="report" class="btn">Invia Segnalazione</span></button>
                 </form>
@@ -83,7 +83,7 @@ elseif(isset($_GET['id_recensione'])){
                 <input type="hidden" name="autoreRecensione" value="<?php echo $autoreRecensione; ?>">
                 <input type="hidden" name="id_recensione" value="<?php echo $id_recensione; ?>">
                 <label for="segnalazione">Segnalazione:</label>
-                <input class="input" name="segnalazione" id="segnalazione" rows="4" cols="50">
+                <input class="input" name="segnalazione" id="segnalazione" rows="4" cols="50" required>
                 <br><br><br>
                 <button type="submit" name="report" class="btn">Invia Segnalazione</span></button>
             </form>

@@ -13,9 +13,17 @@
 </head>
 <body>
     <?php
-    if(isset($_SESSION['post_gia_rimosso']) && $_SESSION['post_gia_rimosso'] == 'true'){
-        echo '<h2>Post già rimosso!!!</h2>';
-        unset($_SESSION['post_gia_rimosso']);
+    if(isset($_SESSION['domanda_gia_rimossa']) && $_SESSION['domanda_gia_rimossa'] == 'true'){
+        echo '<h2>Domanda già rimossa!!!</h2>';
+        unset($_SESSION['domanda_gia_rimossa']);
+    }
+    if(isset($_SESSION['risposta_gia_rimossa']) && $_SESSION['risposta_gia_rimossa'] == 'true'){
+        echo '<h2>Risposta già rimossa!!!</h2>';
+        unset($_SESSION['risposta_gia_rimossa']);
+    }
+    if(isset($_SESSION['recensione_gia_rimossa']) && $_SESSION['recensione_gia_rimossa'] == 'true'){
+        echo '<h2>Recensione già rimossa!!!</h2>';
+        unset($_SESSION['recensione_gia_rimossa']);
     }
     if(isset($_SESSION['successo_domanda']) && $_SESSION['successo_domanda'] == 'true'){
         echo '<h2 id="successo">Domanda rimossa con successo!!!</h2>';

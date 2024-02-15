@@ -134,4 +134,221 @@
     <autore>federico@gmail.com</autore>
     <testo_segnalazione_rec>ok</testo_segnalazione_rec>
   </segnalazione>
+  <segnalazione status="Approvata" id_risposta="65cd578175095" id_prodotto="4">
+    <id_domanda>65cd56e7f1b2c</id_domanda>
+    <testo_risposta>risposta utente 1</testo_risposta>
+    <autoreRisposta>lorenzofrancescotti@gmail.com</autoreRisposta>
+    <testo_segnalazione_ris>ff</testo_segnalazione_ris>
+  </segnalazione>
+  <segnalazione status="Approvata" id_risposta="65cd578175095" id_prodotto="4">
+    <id_domanda>65cd56e7f1b2c</id_domanda>
+    <testo_risposta>risposta utente 1</testo_risposta>
+    <autoreRisposta>lorenzofrancescotti@gmail.com</autoreRisposta>
+    <testo_segnalazione_ris>dddd</testo_segnalazione_ris>
+  </segnalazione>
+  <segnalazione status="Approvata" id_risposta="65cd578175095" id_prodotto="4">
+    <id_domanda>65cd56e7f1b2c</id_domanda>
+    <testo_risposta>risposta utente 1</testo_risposta>
+    <autoreRisposta>lorenzofrancescotti@gmail.com</autoreRisposta>
+    <testo_segnalazione_ris>dddd</testo_segnalazione_ris>
+  </segnalazione>
+  <segnalazione status="Approvata" id_risposta="65cd578175095" id_prodotto="4">
+    <id_domanda>65cd56e7f1b2c</id_domanda>
+    <testo_risposta>risposta utente 1</testo_risposta>
+    <autoreRisposta>lorenzofrancescotti@gmail.com</autoreRisposta>
+    <testo_segnalazione_ris>cccccc</testo_segnalazione_ris>
+  </segnalazione>
+  <segnalazione status="Rifiutata" id_domanda="65cd56e7f1b2c" id_prodotto="4">
+    <testo_domanda>domanda 3&#13;
+</testo_domanda>
+    <autoreDomanda>federico@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom/>
+  </segnalazione>
+  <segnalazione status="Rifiutata" id_domanda="65cd56e7f1b2c" id_prodotto="4">
+    <testo_domanda>domanda 3&#13;
+</testo_domanda>
+    <autoreDomanda>federico@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom/>
+  </segnalazione>
+  <segnalazione status="Approvata" id_domanda="65ce70c39798d" id_prodotto="1">
+    <testo_domanda>xxxxxxxxxxxxxxx</testo_domanda>
+    <autoreDomanda>federicodelullo@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>eeeeeeeeee</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Approvata" id_domanda="65ce70c39798d" id_prodotto="1">
+    <testo_domanda>xxxxxxxxxxxxxxx</testo_domanda>
+    <autoreDomanda>federicodelullo@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>eeeeeeeeee</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Approvata" id_domanda="65ce70c39798d" id_prodotto="1">
+    <testo_domanda>xxxxxxxxxxxxxxx</testo_domanda>
+    <autoreDomanda>federicodelullo@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>3333333333333</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Approvata" id_prodotto="1" id_recensione="65ce70c89c8f6">
+    <testo>eeeeeeeeeeeeeeeeeeee</testo>
+    <autore>federicodelullo@gmail.com</autore>
+    <testo_segnalazione_rec>fffffffffffffffff</testo_segnalazione_rec>
+  </segnalazione>
+  <segnalazione status="Approvata" id_prodotto="1" id_recensione="65ce70c89c8f6">
+    <testo>eeeeeeeeeeeeeeeeeeee</testo>
+    <autore>federicodelullo@gmail.com</autore>
+    <testo_segnalazione_rec>ggggggggggggg</testo_segnalazione_rec>
+  </segnalazione>
+  <segnalazione status="Approvata" id_prodotto="1" id_recensione="65ce70c89c8f6">
+    <testo>eeeeeeeeeeeeeeeeeeee</testo>
+    <autore>federicodelullo@gmail.com</autore>
+    <testo_segnalazione_rec>bhb</testo_segnalazione_rec>
+  </segnalazione>
+  <segnalazione status="Approvata" id_domanda="65ce7218f23cb" id_prodotto="1">
+    <testo_domanda>hjhgtrertghyt654</testo_domanda>
+    <autoreDomanda>federico@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>yyyyyy</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Approvata" id_domanda="65ce7218f23cb" id_prodotto="1">
+    <testo_domanda>hjhgtrertghyt654</testo_domanda>
+    <autoreDomanda>federico@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>uuuuuuuuuuu</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Approvata" id_domanda="65ce7218f23cb" id_prodotto="1">
+    <testo_domanda>hjhgtrertghyt654</testo_domanda>
+    <autoreDomanda>federico@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>iiiiiiiiiii</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Approvata" id_domanda="65ce76747cc55" id_prodotto="1">
+    <testo_domanda>zzzzzzzzzzzz</testo_domanda>
+    <autoreDomanda>federico@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>zzzzz</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Approvata" id_domanda="65ce76747cc55" id_prodotto="1">
+    <testo_domanda>zzzzzzzzzzzz</testo_domanda>
+    <autoreDomanda>federico@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>xxxxxxxxxxxxxx</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Approvata" id_domanda="65ce76747cc55" id_prodotto="1">
+    <testo_domanda>zzzzzzzzzzzz</testo_domanda>
+    <autoreDomanda>federico@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>cccccccccccccc</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Approvata" id_domanda="65ce76747cc55" id_prodotto="1">
+    <testo_domanda>zzzzzzzzzzzz</testo_domanda>
+    <autoreDomanda>federico@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>bbbbbbbbbbb</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Approvata" id_risposta="65ce776f9dd4b" id_prodotto="1">
+    <id_domanda>65ce775e8f6bc</id_domanda>
+    <testo_risposta>ddddddddddddddd</testo_risposta>
+    <autoreRisposta>lorenzofrancescotti@gmail.com</autoreRisposta>
+    <testo_segnalazione_ris>bbbbbbbbbbb</testo_segnalazione_ris>
+  </segnalazione>
+  <segnalazione status="Approvata" id_risposta="65ce776f9dd4b" id_prodotto="1">
+    <id_domanda>65ce775e8f6bc</id_domanda>
+    <testo_risposta>ddddddddddddddd</testo_risposta>
+    <autoreRisposta>lorenzofrancescotti@gmail.com</autoreRisposta>
+    <testo_segnalazione_ris>xxxxxxxxxx</testo_segnalazione_ris>
+  </segnalazione>
+  <segnalazione status="Approvata" id_risposta="65ce776f9dd4b" id_prodotto="1">
+    <id_domanda>65ce775e8f6bc</id_domanda>
+    <testo_risposta>ddddddddddddddd</testo_risposta>
+    <autoreRisposta>lorenzofrancescotti@gmail.com</autoreRisposta>
+    <testo_segnalazione_ris>wwwwwwwwwwwwww</testo_segnalazione_ris>
+  </segnalazione>
+  <segnalazione status="Approvata" id_domanda="65ce775e8f6bc" id_prodotto="1">
+    <testo_domanda>zzzzzzzzzz</testo_domanda>
+    <autoreDomanda>federico@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>hhhhhhhhhhh</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Approvata" id_domanda="65ce7fe66a226" id_prodotto="1">
+    <testo_domanda>fffffff</testo_domanda>
+    <autoreDomanda>federicodelullo@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>ciao</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Approvata" id_risposta="65ce81aed941d" id_prodotto="2">
+    <id_domanda>65ce8190997b1</id_domanda>
+    <testo_risposta>ffffff</testo_risposta>
+    <autoreRisposta>x@gmail.com</autoreRisposta>
+    <testo_segnalazione_ris>qq</testo_segnalazione_ris>
+  </segnalazione>
+  <segnalazione status="Approvata" id_risposta="65ce81aed941d" id_prodotto="2">
+    <id_domanda>65ce8190997b1</id_domanda>
+    <testo_risposta>ffffff</testo_risposta>
+    <autoreRisposta>x@gmail.com</autoreRisposta>
+    <testo_segnalazione_ris>wwwww</testo_segnalazione_ris>
+  </segnalazione>
+  <segnalazione status="Approvata" id_risposta="65ce81aed941d" id_prodotto="2">
+    <id_domanda>65ce8190997b1</id_domanda>
+    <testo_risposta>ffffff</testo_risposta>
+    <autoreRisposta>x@gmail.com</autoreRisposta>
+    <testo_segnalazione_ris>fff</testo_segnalazione_ris>
+  </segnalazione>
+  <segnalazione status="Approvata" id_prodotto="2" id_recensione="65ce82aa6c0f6">
+    <testo>jjjjjj</testo>
+    <autore>dio@gmail.com</autore>
+    <testo_segnalazione_rec>ffffffff</testo_segnalazione_rec>
+  </segnalazione>
+  <segnalazione status="Approvata" id_prodotto="2" id_recensione="65ce82aa6c0f6">
+    <testo>jjjjjj</testo>
+    <autore>dio@gmail.com</autore>
+    <testo_segnalazione_rec>gggggggggggg</testo_segnalazione_rec>
+  </segnalazione>
+  <segnalazione status="Approvata" id_prodotto="2" id_recensione="65ce82aa6c0f6">
+    <testo>jjjjjj</testo>
+    <autore>dio@gmail.com</autore>
+    <testo_segnalazione_rec>hhhhhhh</testo_segnalazione_rec>
+  </segnalazione>
+  <segnalazione status="Approvata" id_prodotto="2" id_recensione="65ce82aa6c0f6">
+    <testo>jjjjjj</testo>
+    <autore>dio@gmail.com</autore>
+    <testo_segnalazione_rec>bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</testo_segnalazione_rec>
+  </segnalazione>
+  <segnalazione status="Approvata" id_domanda="65ce8190997b1" id_prodotto="2">
+    <testo_domanda>ddddddd</testo_domanda>
+    <autoreDomanda>ff@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>ddddddddd</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Approvata" id_risposta="65ce84b5c1bcf" id_prodotto="2">
+    <id_domanda>65ce8190997b1</id_domanda>
+    <testo_risposta>ffffff</testo_risposta>
+    <autoreRisposta>dio@gmail.com</autoreRisposta>
+    <testo_segnalazione_ris>vvvvvvvvv</testo_segnalazione_ris>
+  </segnalazione>
+  <segnalazione status="Approvata" id_risposta="65ce84b5c1bcf" id_prodotto="2">
+    <id_domanda>65ce8190997b1</id_domanda>
+    <testo_risposta>ffffff</testo_risposta>
+    <autoreRisposta>dio@gmail.com</autoreRisposta>
+    <testo_segnalazione_ris>rrrrrrrrrvrvrv</testo_segnalazione_ris>
+  </segnalazione>
+  <segnalazione status="Approvata" id_risposta="65ce84b5c1bcf" id_prodotto="2">
+    <id_domanda>65ce8190997b1</id_domanda>
+    <testo_risposta>ffffff</testo_risposta>
+    <autoreRisposta>dio@gmail.com</autoreRisposta>
+    <testo_segnalazione_ris>qqqqqqqqqq</testo_segnalazione_ris>
+  </segnalazione>
+  <segnalazione status="Approvata" id_risposta="65ce84b5c1bcf" id_prodotto="2">
+    <id_domanda>65ce8190997b1</id_domanda>
+    <testo_risposta>ffffff</testo_risposta>
+    <autoreRisposta>dio@gmail.com</autoreRisposta>
+    <testo_segnalazione_ris>rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr</testo_segnalazione_ris>
+  </segnalazione>
+  <segnalazione status="Rifiutata" id_risposta="65ce84b5c1bcf" id_prodotto="2">
+    <id_domanda>65ce8190997b1</id_domanda>
+    <testo_risposta>ffffff</testo_risposta>
+    <autoreRisposta>dio@gmail.com</autoreRisposta>
+    <testo_segnalazione_ris>hhhhhhhhhhhhhh</testo_segnalazione_ris>
+  </segnalazione>
+  <segnalazione status="Approvata" id_prodotto="2" id_recensione="65ce87f326eb1">
+    <testo>ttttt</testo>
+    <autore>franco@gmail.com</autore>
+    <testo_segnalazione_rec>ddddd</testo_segnalazione_rec>
+  </segnalazione>
+  <segnalazione status="Approvata" id_prodotto="2" id_recensione="65ce87f326eb1">
+    <testo>ttttt</testo>
+    <autore>franco@gmail.com</autore>
+    <testo_segnalazione_rec>eeeeeeeee</testo_segnalazione_rec>
+  </segnalazione>
+  <segnalazione status="Approvata" id_prodotto="2" id_recensione="65ce87f326eb1">
+    <testo>ttttt</testo>
+    <autore>franco@gmail.com</autore>
+    <testo_segnalazione_rec>ggggggg</testo_segnalazione_rec>
+  </segnalazione>
 </segnalazioni>

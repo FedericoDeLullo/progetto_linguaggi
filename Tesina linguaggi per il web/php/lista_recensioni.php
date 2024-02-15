@@ -140,12 +140,12 @@ if ($recensioni->length > 0) {
 
             
             // Pulsanti per il voto di utilità
-            echo '<label class="nome" for="votoUtilita">Utilità (da 1 a 3): </label>';
-            echo '<input class="input" type="number" name="votoUtilita" min="1" max="3" required/><br>';
+            echo '<label class="nome" for="votoUtilita">Utilità (da 1 a 5): </label>';
+            echo '<input class="input" type="number" name="votoUtilita" min="1" max="5" required/><br>';
 
             // Pulsanti per il voto di supporto
-            echo '<label class="nome" for="votoSupporto">Supporto (da 1 a 5): </label>';
-            echo '<input class="input" type="number" name="votoSupporto" min="1" max="5" required/>';
+            echo '<label class="nome" for="votoSupporto">Supporto (da 1 a 3): </label>';
+            echo '<input class="input" type="number" name="votoSupporto" min="1" max="3" required/>';
 
             echo '<button class="done" type="submit" name="vota"><span title="Invia" class="material-symbols-outlined">done_outline</span></button>';
             echo '</form>';
@@ -158,7 +158,9 @@ if ($recensioni->length > 0) {
 
   }      echo '</table>';
 
- }
+ }else {
+    echo '<tr><td colspan="4"><p class="titolo">Nessuna recensione disponibile.</p></td></tr>';
+}
 }
 elseif($utente = 1){
     if (isset($_GET['tipologia']) && isset($_GET['id_prodotto'])) {
@@ -277,12 +279,12 @@ elseif($utente = 1){
 
                 
                 // Pulsanti per il voto di utilità
-                echo '<label class="nome" for="votoUtilita">Utilità (da 1 a 3): </label>';
-                echo '<input class="input" type="number" name="votoUtilita" min="1" max="3" required/><br>';
+                echo '<label class="nome" for="votoUtilita">Utilità (da 1 a 5): </label>';
+                echo '<input class="input" type="number" name="votoUtilita" min="1" max="5" required/><br>';
     
                 // Pulsanti per il voto di supporto
-                echo '<label class="nome" for="votoSupporto">Supporto (da 1 a 5): </label>';
-                echo '<input class="input" type="number" name="votoSupporto" min="1" max="5" required/>';
+                echo '<label class="nome" for="votoSupporto">Supporto (da 1 a 3): </label>';
+                echo '<input class="input" type="number" name="votoSupporto" min="1" max="3" required/>';
     
                 echo '<button class="done" type="submit" name="vota"><span title="Invia" class="material-symbols-outlined">done_outline</span></button>';
                 echo '</form>';

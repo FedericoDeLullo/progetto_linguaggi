@@ -83,7 +83,7 @@ if ($domande->length > 0) {
         echo '<tr>';
         echo '<td>';
         echo '<p>';
-        echo '<a href="elimina_dom_risp.php?id_domanda=' . urlencode($id_domanda) . '&testo_domanda=' . urlencode($testoDomanda) . '&id_prodotto=' . urlencode($id_prodotto) . '"><span id="simbolo_recensione" class="material-symbols-outlined">delete</span></a>';
+        echo '<a href="elimina_dom_risp.php?id_domanda=' . urlencode($id_domanda) . '&nome=' . $nome . '&testo_domanda=' . urlencode($testoDomanda) . '&id_prodotto=' . urlencode($id_prodotto) . '"><span id="simbolo_recensione" class="material-symbols-outlined">delete</span></a>';
         echo '</p>';
         echo '</td>';
         echo '<td><strong>' . $autoreDomanda . '</strong></td>';
@@ -120,7 +120,7 @@ if ($domande->length > 0) {
         echo '<tr>';
         echo '<td>';
         echo '<p>';
-        echo '<a href="segnalazione.php?id_domanda=' . urlencode($id_domanda) . '&testo_domanda=' . urlencode($testoDomanda) . '&id_prodotto=' . urlencode($id_prodotto) . '&autoreDomanda='. $autoreDomanda .'"><span id="simbolo_recensione" class="material-symbols-outlined">report</span></a>';
+        echo '<a href="segnalazione.php?id_domanda=' . urlencode($id_domanda) . '&nome=' . $nome . '&testo_domanda=' . urlencode($testoDomanda) . '&id_prodotto=' . urlencode($id_prodotto) . '&autoreDomanda='. $autoreDomanda .'"><span id="simbolo_recensione" class="material-symbols-outlined">report</span></a>';
         echo '</p>';
         echo '</td>';
         echo '<td><strong>' . $autoreDomanda . '</strong></td>';
@@ -199,13 +199,13 @@ if ($domande->length > 0) {
                 echo '<tr>';
                 echo '<td>';
                 echo '<p>';
-                echo '<a href="elimina_dom_risp.php?id_prodotto=' . urlencode($id_prodotto) . '&id_risposta=' . urlencode($id_risposta) . '&testo_risposta=' . urlencode($testoRisposta) . '"><span id="simbolo_recensione" class="material-symbols-outlined">delete</span></a>';
+                echo '<a href="elimina_dom_risp.php?id_prodotto=' . urlencode($id_prodotto) . '&nome=' . $nome . '&id_risposta=' . urlencode($id_risposta) . '&testo_risposta=' . urlencode($testoRisposta) . '"><span id="simbolo_recensione" class="material-symbols-outlined">delete</span></a>';
                 echo '</p>';
                 echo '</td>';          
                 echo '<td>';
                 echo '<strong>' . $autoreRisposta . '</strong> ha risposto il ' . $dataRisposta . ' alle ' . $oraRisposta;
                 echo '</td>';
-                echo '<td>';
+                echo '<td style="max-width:300px; word-wrap: break-word;">';
                 echo $testoRisposta;
                 echo '</td>';
                 echo '<td>';
@@ -235,13 +235,13 @@ if ($domande->length > 0) {
                 echo '<tr>';
                 echo '<td>';
                 echo '<p>';
-                echo '<a href="segnalazione.php?id_prodotto=' . urlencode($id_prodotto) . '&id_risposta=' . urlencode($id_risposta) . '&testo_risposta=' . urlencode($testoRisposta) . '&autoreRisposta=' . $autoreRisposta . '&id_domanda=' . $id_domanda . '"><span id="simbolo_recensione" class="material-symbols-outlined">report</span></a>';
+                echo '<a href="segnalazione.php?id_prodotto=' . urlencode($id_prodotto) . '&nome=' . $nome . '&id_risposta=' . urlencode($id_risposta) . '&testo_risposta=' . urlencode($testoRisposta) . '&autoreRisposta=' . $autoreRisposta . '&id_domanda=' . $id_domanda . '"><span id="simbolo_recensione" class="material-symbols-outlined">report</span></a>';
                 echo '</p>';
                 echo '</td>';          
                 echo '<td>';
                 echo '<strong>' . $autoreRisposta . '</strong> ha risposto il ' . $dataRisposta . ' alle ' . $oraRisposta;
                 echo '</td>';
-                echo '<td>';
+                echo '<td style="max-width:300px; word-wrap: break-word;">';
                 echo $testoRisposta;
                 echo '</td>';
                 echo '<td>' . $utilitaValue . '</td>';
@@ -356,7 +356,7 @@ if ($domande->length > 0) {
         echo '<tr>';
         echo '<td>';
         echo '<p>';
-        echo '<a href="elimina_dom_risp.php?id_domanda=' . urlencode($id_domanda) . '&testo_domanda=' . urlencode($testoDomanda) . '&id_prodotto=' . urlencode($id_prodotto) . '"><span id="simbolo_recensione" class="material-symbols-outlined">delete</span></a>';
+        echo '<a href="elimina_dom_risp.php?id_domanda=' . urlencode($id_domanda) . '&nome=' . $nome . '&testo_domanda=' . urlencode($testoDomanda) . '&id_prodotto=' . urlencode($id_prodotto) . '"><span id="simbolo_recensione" class="material-symbols-outlined">delete</span></a>';
         echo '</p>';
         echo '</td>';
         echo '<td><strong>' . $autoreDomanda . '</strong></td>';
@@ -398,7 +398,7 @@ if ($domande->length > 0) {
         echo '<input type="hidden" name="id_prodotto" value="' . $id_prodotto . '"/>';
         echo '<button class="done" type="submit" name="vota"><span id="done" title="Invia" class="material-symbols-outlined">edit</span></button>';
         echo '</form>';
-        echo '<a href="elimina_dom_risp.php?id_domanda=' . $id_domanda . '&id_prodotto=' . $id_prodotto . '&nome=' . $nome . '&tipologia=' . $tipologia . '"><span style="margin-top:10px;" id="done" class="material-symbols-outlined">delete</span></a>';
+        echo '<a href="elimina_dom_risp.php?id_domanda=' . $id_domanda . '&nome=' . $nome . '&id_prodotto=' . $id_prodotto . '&nome=' . $nome . '&tipologia=' . $tipologia . '"><span style="margin-top:10px;" id="done" class="material-symbols-outlined">delete</span></a>';
         echo '</td>';
         echo '<td><strong>' . $autoreDomanda . '</strong></td>';
         echo '<td>' . $testoDomanda . '</td>'; 
@@ -417,7 +417,8 @@ if ($domande->length > 0) {
         echo '<input type="hidden" name="id_domanda" value="' . $id_domanda . '"/>';
         echo '<input type="hidden" name="id_prodotto" value="' . $id_prodotto . '"/>';
         echo '<input type="hidden" name="tipologia" value="' . $tipologia . '"/>';
-    
+        echo '<input type="hidden" name="nome" value="' . $nome . '"/>';            
+
         echo '<label class="titolo" for="votoUtilita">Utilità (da 1 a 5): </label>';
         echo '<input class="input" type="number" name="votoUtilita" min="1" max="5" required/><br>';
     
@@ -473,13 +474,13 @@ if ($domande->length > 0) {
                 echo '<tr>';
                 echo '<td>';
                 echo '<p>';
-                echo '<a href="elimina_dom_risp.php?id_prodotto=' . urlencode($id_prodotto) . '&id_risposta=' . urlencode($id_risposta) . '&testo_risposta=' . urlencode($testoRisposta) . '"><span id="simbolo_recensione" class="material-symbols-outlined">delete</span></a>';
+                echo '<a href="elimina_dom_risp.php?id_prodotto=' . urlencode($id_prodotto) . '&nome=' . $nome . '&id_risposta=' . urlencode($id_risposta) . '&testo_risposta=' . urlencode($testoRisposta) . '"><span id="simbolo_recensione" class="material-symbols-outlined">delete</span></a>';
                 echo '</p>';
                 echo '</td>';          
                 echo '<td>';
                 echo '<strong>' . $autoreRisposta . '</strong> ha risposto il ' . $dataRisposta . ' alle ' . $oraRisposta;
                 echo '</td>';
-                echo '<td>';
+                echo '<td style="max-width:300px; word-wrap: break-word;">';
                 echo $testoRisposta;
                 echo '</td>';
                 echo '<td>';
@@ -513,11 +514,12 @@ if ($domande->length > 0) {
                 echo '<input type="hidden" name="id_risposta" value="' . $id_risposta . '"/>';
                 echo '<input type="hidden" name="id_domanda" value="' . $id_domanda . '"/>';
                 echo '<input type="hidden" name="id_prodotto" value="' . $id_prodotto . '"/>';
+                echo '<input type="hidden" name="nome" value="' . $nome . '"/>';            
                 echo '<input type="hidden" name="testo_risposta" value="' . htmlspecialchars($testoRisposta) . '"/>';
                 echo '<input type="hidden" name="testo_domanda" value="' . htmlspecialchars($testoDomanda) . '"/>';
                 echo '<button class="done" type="submit" name="vota"><span id="done" title="Invia" class="material-symbols-outlined">edit</span></button>';
                 echo '</form>';
-                echo '<a href="elimina_dom_risp.php?id_risposta=' . $id_risposta . '&id_domanda=' . $id_domanda . '&id_prodotto=' . $id_prodotto . '&nome=' . $nome . '&tipologia=' . $tipologia . '">';             
+                echo '<a href="elimina_dom_risp.php?id_risposta=' . $id_risposta . '&nome=' . $nome . '&id_domanda=' . $id_domanda . '&id_prodotto=' . $id_prodotto . '&nome=' . $nome . '&tipologia=' . $tipologia . '">';             
                  echo '<span style="margin-top:10px;" id="done" class="material-symbols-outlined">delete</span>';
                 echo '</a>';              
                   echo '</td>';          

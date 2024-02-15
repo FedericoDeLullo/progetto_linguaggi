@@ -24,6 +24,7 @@ $action = $_POST['action'];
 if ($action=="Approva") {
 $xmlFile = '../xml/requests.xml';
 $dom = new DOMDocument();
+$dom->preserveWhiteSpace = false;
 $dom->load($xmlFile);
 
 $requests = $dom->getElementsByTagName('request');
@@ -40,7 +41,9 @@ $requests = $dom->getElementsByTagName('request');
 
             if ($requestEmail == $email && $requestImporto == $importo) {
                 // Aggiorna lo stato della richiesta nel file XML
-                $request->setAttribute('status', 'approved');
+                $request->setAttribute('status', 'Approvato');
+                $dom->normalizeDocument();
+                $dom->formatOutput = true; 
                 $dom->save($xmlFile);
 
                 // Aggiorna i crediti dell'utente nel database
@@ -64,6 +67,7 @@ $requests = $dom->getElementsByTagName('request');
 elseif ($action=="Rifiuta") {
     $xmlFile = '../xml/requests.xml';
     $dom = new DOMDocument();
+    $dom->preserveWhiteSpace = false;
     $dom->load($xmlFile);
 
     $requests = $dom->getElementsByTagName('request');
@@ -80,7 +84,9 @@ elseif ($action=="Rifiuta") {
 
             if ($requestEmail == $email && $requestImporto == $importo) {
                 // Aggiorna lo stato della richiesta nel file XML a 'deny'
-                $request->setAttribute('status', 'deny');
+                $request->setAttribute('status', 'Rifiutato');
+                $dom->normalizeDocument();
+                $dom->formatOutput = true; 
                 $dom->save($xmlFile);
 
                 $_SESSION['successo_richiesta_rifiutata'] = 'true';

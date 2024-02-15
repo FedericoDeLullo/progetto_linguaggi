@@ -38,8 +38,7 @@ if(isset($_POST['id_domanda'])){
             $idDomandaElement = $segnalazione->getAttribute('id_domanda');
 
             if ($idDomandaElement == $id_domanda && $statusElement == 'Approvata') {
-                //echo 'Post già rimosso!!';
-                $_SESSION['post_gia_rimosso'] = 'true';
+                $_SESSION['domanda_gia_rimossa'] = 'true';
                 header("Location: menu_segnalazioni.php");
 
                 if ($idDomandaElement == $id_domanda && $statusElement == 'pending') {
@@ -81,7 +80,6 @@ if(isset($_POST['id_domanda'])){
                     
                                 if ($idDomandaElementValue == $idDomandaElement) {
                                     $domande->removeChild($domandaNode);
-                                    //echo '<h1 class="titolo">Domanda rimossa con successo!!!</h1>';
                                     $_SESSION['successo_domanda'] = 'true';
                                     header("Location: menu_segnalazioni.php");
                                     
@@ -152,8 +150,7 @@ if(isset($_POST['id_domanda'])){
             $idDomandaElement = $segnalazione->getAttribute('id_domanda');
 
             if ($idRispostaElement == $id_risposta && $statusElement == 'Approvata') {
-                //echo 'Post già rimosso!!';
-                $_SESSION['post_gia_rimosso'] = 'true';
+                $_SESSION['risposta_gia_rimossa'] = 'true';
                 header("Location: menu_segnalazioni.php");
 
                 if ($idRispostaElement == $id_risposta && $statusElement == 'pending') {
@@ -164,7 +161,6 @@ if(isset($_POST['id_domanda'])){
                     break;
                 }
             } elseif ($idDomandaElement == $id_domanda && $statusElement == 'Approvata') {
-                //echo 'La domanda relativa alla risposta segnalata è già stata rimossa!!';
                 $_SESSION['domanda_gia_rimossa'] = 'true';
                 header("Location: menu_segnalazioni.php");
                 if ($idRispostaElement == $id_risposta && $statusElement == 'pending') {
@@ -213,7 +209,6 @@ if(isset($_POST['id_domanda'])){
                 
                                         if ($idRispostaElementNode !== null && $idRispostaElementNode->nodeValue == $idRispostaElement) {
                                             $risposte->removeChild($rispostaNode);
-                                            //echo '<h1 class="titolo">Risposta rimossa con successo!!!</h1>';
                                             $_SESSION['successo_risposta'] = 'true';
                                             header("Location: menu_segnalazioni.php");
                                             
@@ -284,8 +279,7 @@ if(isset($_POST['id_domanda'])){
             $idRecensioneElement = $segnalazione->getAttribute('id_recensione');
 
             if ($idRecensioneElement == $id_recensione && $statusElement == 'Approvata') {
-                //echo 'Post già rimosso!!';
-                $_SESSION['post_rimosso'] = 'true';
+                $_SESSION['recensione_gia_rimossa'] = 'true';
                 header("Location: menu_segnalazioni.php");
 
                 if ($idRecensioneElement == $id_recensione && $statusElement == 'pending') {
@@ -329,7 +323,6 @@ if(isset($_POST['id_domanda'])){
 
                                 if ($idRecensioneNode == $idRecensioneElement) {
                                     $recensioni->removeChild($recensioneNode);
-                                    //echo '<h1 class="titolo">Recensione rimossa con successo!!!</h1>';
                                     $_SESSION['successo_recensione'] = 'true';
                                     header("Location: menu_segnalazioni.php");
                                     

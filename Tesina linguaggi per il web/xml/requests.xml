@@ -1,6 +1,263 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <requests xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="requests.xsd">
-
-  
-<request status="approved"><email>federico@gmail.com</email><importo>100</importo></request>
-<request status="approved"><email>federico@gmail.com</email><importo>1000</importo></request><request status="approved"><email>lorenzofrancescotti@gmail.com</email><importo>500</importo></request><request status="approved"><email>federico@gmail.com</email><importo>85</importo></request><request status="approved"><email>federico@gmail.com</email><importo>789</importo></request><request status="approved"><email>federico@gmail.com</email><importo>852</importo></request><request status="approved"><email>lorenzofrancescotti@gmail.com</email><importo>1256</importo></request><request status="deny"><email>lorenzofrancescotti@gmail.com</email><importo>7896</importo></request><request status="deny"><email>federico@gmail.com</email><importo>789</importo></request><request status="deny"><email>federico@gmail.com</email><importo>456</importo></request><request status="deny"><email>lorenzofrancescotti@gmail.com</email><importo>123</importo></request><request status="deny"><email>federico@gmail.com</email><importo>789</importo></request><request status="deny"><email>lorenzofrancescotti@gmail.com</email><importo>7899</importo></request><request status="deny"><email>federico@gmail.com</email><importo>45</importo></request><request status="deny"><email>federico@gmail.com</email><importo>785</importo></request><request status="approved"><email>federico@gmail.com</email><importo>1569</importo></request><request status="approved"><email>federico@gmail.com</email><importo>75</importo></request><request status="approved"><email>federico@gmail.com</email><importo>7852</importo></request><request status="approved"><email>federico@gmail.com</email><importo>754</importo></request><request status="deny"><email>federico@gmail.com</email><importo>456</importo></request><request status="deny"><email>federico@gmail.com</email><importo>147</importo></request><request status="approved"><email>federico@gmail.com</email><importo>45</importo></request><request status="deny"><email>federico@gmail.com</email><importo>789</importo></request><request status="approved"><email>federico@gmail.com</email><importo>2</importo></request><request status="approved"><email>federico@gmail.com</email><importo>45</importo></request><request status="approved"><email>federico@gmail.com</email><importo>2000</importo></request><request status="approved"><email>federico@gmail.com</email><importo>455</importo></request><request status="approved"><email>federico@gmail.com</email><importo>422</importo></request><request status="deny"><email>federico@gmail.com</email><importo>52</importo></request><request status="deny"><email>federico@gmail.com</email><importo>5255</importo></request><request status="approved"><email>federico@gmail.com</email><importo>536</importo></request><request status="approved"><email>federico@gmail.com</email><importo>85</importo></request><request status="approved"><email>federico@gmail.com</email><importo>74</importo></request><request status="deny"><email>federico@gmail.com</email><importo>45</importo></request><request status="approved"><email>federico@gmail.com</email><importo>45</importo></request><request status="approved"><email>fede@gmail.com</email><importo>555</importo></request><request status="approved"><email>federico@gmail.com</email><importo>875632</importo></request><request status="approved"><email>federico@gmail.com</email><importo>10</importo></request><request status="deny"><email>federico@gmail.com</email><importo>50</importo></request><request status="approved"><email>federico@gmail.com</email><importo>6</importo></request><request status="deny"><email>federico@gmail.com</email><importo>500</importo></request><request status="approved"><email>federico@gmail.com</email><importo>64</importo></request><request status="approved"><email>federico@gmail.com</email><importo>63</importo></request><request status="approved"><email>federico@gmail.com</email><importo>85423</importo></request><request status="approved"><email>rudy@gmail.com</email><importo>100</importo></request><request status="approved"><email>rudy@gmail.com</email><importo>200</importo></request><request status="approved"><email>rudy@gmail.com</email><importo>300</importo></request><request status="deny"><email>rudy@gmail.com</email><importo>400</importo></request><request status="deny"><email>rudy@gmail.com</email><importo>500</importo></request><request status="approved"><email>rudy@gmail.com</email><importo>600</importo></request><request status="deny"><email>rudy@gmail.com</email><importo>700</importo></request><request status="deny"><email>rudy@gmail.com</email><importo>900</importo></request><request status="deny"><email>rudy@gmail.com</email><importo>800</importo></request><request status="deny"><email>rudy@gmail.com</email><importo/></request><request status="approved"><email>rudy@gmail.com</email><importo>5</importo></request><request status="approved"><email>rudy@gmail.com</email><importo>10</importo></request><request status="deny"><email>rudy@gmail.com</email><importo>7</importo></request><request status="approved"><email>lorenzofrancescotti@gmail.com</email><importo>10</importo></request><request status="approved"><email>lorenzofrancescotti@gmail.com</email><importo>90</importo></request><request status="approved"><email>federico@gmail.com</email><importo>1000</importo></request></requests>
+  <request status="approved">
+    <email>federico@gmail.com</email>
+    <importo>100</importo>
+  </request>
+  <request status="approved">
+    <email>federico@gmail.com</email>
+    <importo>1000</importo>
+  </request>
+  <request status="approved">
+    <email>lorenzofrancescotti@gmail.com</email>
+    <importo>500</importo>
+  </request>
+  <request status="approved">
+    <email>federico@gmail.com</email>
+    <importo>85</importo>
+  </request>
+  <request status="approved">
+    <email>federico@gmail.com</email>
+    <importo>789</importo>
+  </request>
+  <request status="approved">
+    <email>federico@gmail.com</email>
+    <importo>852</importo>
+  </request>
+  <request status="approved">
+    <email>lorenzofrancescotti@gmail.com</email>
+    <importo>1256</importo>
+  </request>
+  <request status="deny">
+    <email>lorenzofrancescotti@gmail.com</email>
+    <importo>7896</importo>
+  </request>
+  <request status="deny">
+    <email>federico@gmail.com</email>
+    <importo>789</importo>
+  </request>
+  <request status="deny">
+    <email>federico@gmail.com</email>
+    <importo>456</importo>
+  </request>
+  <request status="deny">
+    <email>lorenzofrancescotti@gmail.com</email>
+    <importo>123</importo>
+  </request>
+  <request status="deny">
+    <email>federico@gmail.com</email>
+    <importo>789</importo>
+  </request>
+  <request status="deny">
+    <email>lorenzofrancescotti@gmail.com</email>
+    <importo>7899</importo>
+  </request>
+  <request status="deny">
+    <email>federico@gmail.com</email>
+    <importo>45</importo>
+  </request>
+  <request status="deny">
+    <email>federico@gmail.com</email>
+    <importo>785</importo>
+  </request>
+  <request status="approved">
+    <email>federico@gmail.com</email>
+    <importo>1569</importo>
+  </request>
+  <request status="approved">
+    <email>federico@gmail.com</email>
+    <importo>75</importo>
+  </request>
+  <request status="approved">
+    <email>federico@gmail.com</email>
+    <importo>7852</importo>
+  </request>
+  <request status="approved">
+    <email>federico@gmail.com</email>
+    <importo>754</importo>
+  </request>
+  <request status="deny">
+    <email>federico@gmail.com</email>
+    <importo>456</importo>
+  </request>
+  <request status="deny">
+    <email>federico@gmail.com</email>
+    <importo>147</importo>
+  </request>
+  <request status="approved">
+    <email>federico@gmail.com</email>
+    <importo>45</importo>
+  </request>
+  <request status="deny">
+    <email>federico@gmail.com</email>
+    <importo>789</importo>
+  </request>
+  <request status="approved">
+    <email>federico@gmail.com</email>
+    <importo>2</importo>
+  </request>
+  <request status="approved">
+    <email>federico@gmail.com</email>
+    <importo>45</importo>
+  </request>
+  <request status="approved">
+    <email>federico@gmail.com</email>
+    <importo>2000</importo>
+  </request>
+  <request status="approved">
+    <email>federico@gmail.com</email>
+    <importo>455</importo>
+  </request>
+  <request status="approved">
+    <email>federico@gmail.com</email>
+    <importo>422</importo>
+  </request>
+  <request status="deny">
+    <email>federico@gmail.com</email>
+    <importo>52</importo>
+  </request>
+  <request status="deny">
+    <email>federico@gmail.com</email>
+    <importo>5255</importo>
+  </request>
+  <request status="approved">
+    <email>federico@gmail.com</email>
+    <importo>536</importo>
+  </request>
+  <request status="approved">
+    <email>federico@gmail.com</email>
+    <importo>85</importo>
+  </request>
+  <request status="approved">
+    <email>federico@gmail.com</email>
+    <importo>74</importo>
+  </request>
+  <request status="deny">
+    <email>federico@gmail.com</email>
+    <importo>45</importo>
+  </request>
+  <request status="approved">
+    <email>federico@gmail.com</email>
+    <importo>45</importo>
+  </request>
+  <request status="approved">
+    <email>fede@gmail.com</email>
+    <importo>555</importo>
+  </request>
+  <request status="approved">
+    <email>federico@gmail.com</email>
+    <importo>875632</importo>
+  </request>
+  <request status="approved">
+    <email>federico@gmail.com</email>
+    <importo>10</importo>
+  </request>
+  <request status="deny">
+    <email>federico@gmail.com</email>
+    <importo>50</importo>
+  </request>
+  <request status="approved">
+    <email>federico@gmail.com</email>
+    <importo>6</importo>
+  </request>
+  <request status="deny">
+    <email>federico@gmail.com</email>
+    <importo>500</importo>
+  </request>
+  <request status="approved">
+    <email>federico@gmail.com</email>
+    <importo>64</importo>
+  </request>
+  <request status="approved">
+    <email>federico@gmail.com</email>
+    <importo>63</importo>
+  </request>
+  <request status="approved">
+    <email>federico@gmail.com</email>
+    <importo>85423</importo>
+  </request>
+  <request status="approved">
+    <email>rudy@gmail.com</email>
+    <importo>100</importo>
+  </request>
+  <request status="approved">
+    <email>rudy@gmail.com</email>
+    <importo>200</importo>
+  </request>
+  <request status="approved">
+    <email>rudy@gmail.com</email>
+    <importo>300</importo>
+  </request>
+  <request status="deny">
+    <email>rudy@gmail.com</email>
+    <importo>400</importo>
+  </request>
+  <request status="deny">
+    <email>rudy@gmail.com</email>
+    <importo>500</importo>
+  </request>
+  <request status="approved">
+    <email>rudy@gmail.com</email>
+    <importo>600</importo>
+  </request>
+  <request status="deny">
+    <email>rudy@gmail.com</email>
+    <importo>700</importo>
+  </request>
+  <request status="deny">
+    <email>rudy@gmail.com</email>
+    <importo>900</importo>
+  </request>
+  <request status="deny">
+    <email>rudy@gmail.com</email>
+    <importo>800</importo>
+  </request>
+  <request status="deny">
+    <email>rudy@gmail.com</email>
+    <importo/>
+  </request>
+  <request status="approved">
+    <email>rudy@gmail.com</email>
+    <importo>5</importo>
+  </request>
+  <request status="approved">
+    <email>rudy@gmail.com</email>
+    <importo>10</importo>
+  </request>
+  <request status="deny">
+    <email>rudy@gmail.com</email>
+    <importo>7</importo>
+  </request>
+  <request status="approved">
+    <email>lorenzofrancescotti@gmail.com</email>
+    <importo>10</importo>
+  </request>
+  <request status="approved">
+    <email>lorenzofrancescotti@gmail.com</email>
+    <importo>90</importo>
+  </request>
+  <request status="approved">
+    <email>federico@gmail.com</email>
+    <importo>1000</importo>
+  </request>
+  <request status="Approvato">
+    <email>dio@gmail.com</email>
+    <importo>50</importo>
+  </request>
+  <request status="Rifiutato">
+    <email>dio@gmail.com</email>
+    <importo>20</importo>
+  </request>
+  <request status="Rifiutato">
+    <email>lorenzofrancescotti@gmail.com</email>
+    <importo>1</importo>
+  </request>
+  <request status="Approvato">
+    <email>lorenzofrancescotti@gmail.com</email>
+    <importo>900</importo>
+  </request>
+  <request status="pending">
+    <email>lorenzofrancescotti@gmail.com</email>
+    <importo>3</importo>
+  </request>
+<request status="pending"><email>federico@gmail.com</email><importo>1</importo></request><request status="pending"><email>federico@gmail.com</email><importo>2</importo></request><request status="pending"><email>federico@gmail.com</email><importo>3</importo></request></requests>
