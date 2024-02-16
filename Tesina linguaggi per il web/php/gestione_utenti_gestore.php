@@ -24,7 +24,7 @@ $hasPendingRequests = false;
 foreach ($requests as $request) {
   $status = $request->getAttribute('status');
 
-  if ($status == 'pending') {
+  if ($status == 'In Attesa') {
       $hasPendingRequests = true;
       }
     }

@@ -351,4 +351,184 @@
     <autore>franco@gmail.com</autore>
     <testo_segnalazione_rec>ggggggg</testo_segnalazione_rec>
   </segnalazione>
+  <segnalazione status="Rifiutata" id_domanda="65ce87eabefac" id_prodotto="2">
+    <testo_domanda>ggggg</testo_domanda>
+    <autoreDomanda>franco@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>bubba</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Rifiutata" id_risposta="65ce880397b02" id_prodotto="2">
+    <id_domanda>65ce87eabefac</id_domanda>
+    <testo_risposta>fff</testo_risposta>
+    <autoreRisposta>ff@gmail.com</autoreRisposta>
+    <testo_segnalazione_ris>g</testo_segnalazione_ris>
+  </segnalazione>
+  <segnalazione status="Rifiutata" id_risposta="65ce880397b02" id_prodotto="2">
+    <id_domanda>65ce87eabefac</id_domanda>
+    <testo_risposta>fff</testo_risposta>
+    <autoreRisposta>ff@gmail.com</autoreRisposta>
+    <testo_segnalazione_ris>h</testo_segnalazione_ris>
+  </segnalazione>
+  <segnalazione status="Rifiutata" id_domanda="65ce87eabefac" id_prodotto="2">
+    <testo_domanda>ggggg</testo_domanda>
+    <autoreDomanda>franco@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>ff</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Approvata" id_domanda="65ce87eabefac" id_prodotto="2">
+    <testo_domanda>ggggg</testo_domanda>
+    <autoreDomanda>franco@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>as</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Rifiutata" id_domanda="65ce87eabefac" id_prodotto="2">
+    <testo_domanda>ggggg</testo_domanda>
+    <autoreDomanda>franco@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>lol</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Approvata" id_domanda="65ce87eabefac" id_prodotto="2">
+    <testo_domanda>ggggg</testo_domanda>
+    <autoreDomanda>franco@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>k</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Approvata" id_domanda="65ce87eabefac" id_prodotto="2">
+    <testo_domanda>ggggg</testo_domanda>
+    <autoreDomanda>franco@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>h</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Approvata" id_domanda="65ce87eabefac" id_prodotto="2">
+    <testo_domanda>ggggg</testo_domanda>
+    <autoreDomanda>franco@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>asd</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Rifiutata" id_domanda="65ce87eabefac" id_prodotto="2">
+    <testo_domanda>ggggg</testo_domanda>
+    <autoreDomanda>franco@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>ghj</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Approvata" id_domanda="65ce87eabefac" id_prodotto="2">
+    <testo_domanda>ggggg</testo_domanda>
+    <autoreDomanda>franco@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>asw</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Approvata" id_domanda="65ce87eabefac" id_prodotto="2">
+    <testo_domanda>ggggg</testo_domanda>
+    <autoreDomanda>franco@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>was</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Approvata" id_risposta="65ce880397b02" id_prodotto="2">
+    <id_domanda>65ce87eabefac</id_domanda>
+    <testo_risposta>fff</testo_risposta>
+    <autoreRisposta>ff@gmail.com</autoreRisposta>
+    <testo_segnalazione_ris>nh</testo_segnalazione_ris>
+  </segnalazione>
+  <segnalazione status="Rifiutata" id_domanda="65ce87eabefac" id_prodotto="2">
+    <testo_domanda>ggggg</testo_domanda>
+    <autoreDomanda>franco@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>domanda</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Approvata" id_risposta="65ce880397b02" id_prodotto="2">
+    <id_domanda>65ce87eabefac</id_domanda>
+    <testo_risposta>fff</testo_risposta>
+    <autoreRisposta>ff@gmail.com</autoreRisposta>
+    <testo_segnalazione_ris>fds</testo_segnalazione_ris>
+  </segnalazione>
+  <segnalazione status="Approvata" id_domanda="65ce87eabefac" id_prodotto="2">
+    <testo_domanda>ggggg</testo_domanda>
+    <autoreDomanda>franco@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>gfds</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Approvata" id_domanda="65ce87eabefac" id_prodotto="2">
+    <testo_domanda>ggggg</testo_domanda>
+    <autoreDomanda>franco@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>fgg</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Approvata" id_risposta="65ce880397b02" id_prodotto="2">
+    <id_domanda>65ce87eabefac</id_domanda>
+    <testo_risposta>fff</testo_risposta>
+    <autoreRisposta>ff@gmail.com</autoreRisposta>
+    <testo_segnalazione_ris>klk</testo_segnalazione_ris>
+  </segnalazione>
+  <segnalazione status="Approvata" id_domanda="65ce87eabefac" id_prodotto="2">
+    <testo_domanda>ggggg</testo_domanda>
+    <autoreDomanda>franco@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>sasa</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Approvata" id_domanda="65ce87eabefac" id_prodotto="2">
+    <testo_domanda>ggggg</testo_domanda>
+    <autoreDomanda>franco@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>lpo</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Approvata" id_risposta="65ce880397b02" id_prodotto="2">
+    <id_domanda>65ce87eabefac</id_domanda>
+    <testo_risposta>fff</testo_risposta>
+    <autoreRisposta>ff@gmail.com</autoreRisposta>
+    <testo_segnalazione_ris>gfdre</testo_segnalazione_ris>
+  </segnalazione>
+  <segnalazione status="Approvata" id_risposta="65ce880397b02" id_prodotto="2">
+    <id_domanda>65ce87eabefac</id_domanda>
+    <testo_risposta>fff</testo_risposta>
+    <autoreRisposta>ff@gmail.com</autoreRisposta>
+    <testo_segnalazione_ris>awq</testo_segnalazione_ris>
+  </segnalazione>
+  <segnalazione status="Approvata" id_risposta="65ce880397b02" id_prodotto="2">
+    <id_domanda>65ce87eabefac</id_domanda>
+    <testo_risposta>fff</testo_risposta>
+    <autoreRisposta>ff@gmail.com</autoreRisposta>
+    <testo_segnalazione_ris>iiii</testo_segnalazione_ris>
+  </segnalazione>
+  <segnalazione status="Approvata" id_risposta="65ce880397b02" id_prodotto="2">
+    <id_domanda>65ce87eabefac</id_domanda>
+    <testo_risposta>fff</testo_risposta>
+    <autoreRisposta>ff@gmail.com</autoreRisposta>
+    <testo_segnalazione_ris>dsd</testo_segnalazione_ris>
+  </segnalazione>
+  <segnalazione status="Approvata" id_prodotto="2" id_recensione="65cea11a48f46">
+    <testo>hgfdsasdf</testo>
+    <autore>lorenzofrancescotti@gmail.com</autore>
+    <testo_segnalazione_rec>jk</testo_segnalazione_rec>
+  </segnalazione>
+  <segnalazione status="Approvata" id_prodotto="2" id_recensione="65cea11a48f46">
+    <testo>hgfdsasdf</testo>
+    <autore>lorenzofrancescotti@gmail.com</autore>
+    <testo_segnalazione_rec>a</testo_segnalazione_rec>
+  </segnalazione>
+  <segnalazione status="Approvata" id_prodotto="2" id_recensione="65cea11a48f46">
+    <testo>hgfdsasdf</testo>
+    <autore>lorenzofrancescotti@gmail.com</autore>
+    <testo_segnalazione_rec>ciao</testo_segnalazione_rec>
+  </segnalazione>
+  <segnalazione status="Rifiutata" id_prodotto="2" id_recensione="65cea11a48f46">
+    <testo>hgfdsasdf</testo>
+    <autore>lorenzofrancescotti@gmail.com</autore>
+    <testo_segnalazione_rec>dfgh</testo_segnalazione_rec>
+  </segnalazione>
+  <segnalazione status="Approvata" id_domanda="65ce87eabefac" id_prodotto="2">
+    <testo_domanda>ggggg</testo_domanda>
+    <autoreDomanda>franco@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>hhh</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Approvata" id_risposta="65ce880397b02" id_prodotto="2">
+    <id_domanda>65ce87eabefac</id_domanda>
+    <testo_risposta>fff</testo_risposta>
+    <autoreRisposta>ff@gmail.com</autoreRisposta>
+    <testo_segnalazione_ris>sdfgh</testo_segnalazione_ris>
+  </segnalazione>
+  <segnalazione status="Approvata" id_prodotto="2" id_recensione="65cea11a48f46">
+    <testo>hgfdsasdf</testo>
+    <autore>lorenzofrancescotti@gmail.com</autore>
+    <testo_segnalazione_rec>was</testo_segnalazione_rec>
+  </segnalazione>
+  <segnalazione status="Approvata" id_domanda="65ce87eabefac" id_prodotto="2">
+    <testo_domanda>ggggg</testo_domanda>
+    <autoreDomanda>franco@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>sdfg</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Approvata" id_domanda="65ce87eabefac" id_prodotto="2">
+    <testo_domanda>ggggg</testo_domanda>
+    <autoreDomanda>franco@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>sasa</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Approvata" id_prodotto="2" id_recensione="65cea11a48f46">
+    <testo>hgfdsasdf</testo>
+    <autore>lorenzofrancescotti@gmail.com</autore>
+    <testo_segnalazione_rec>ghg</testo_segnalazione_rec>
+  </segnalazione>
 </segnalazioni>

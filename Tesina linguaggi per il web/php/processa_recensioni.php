@@ -22,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $recensione = $_POST['recensione'];
             $data = $_POST['data_recensione'];
             $ora = $_POST['orario_recensione'];
+            $nome = $_POST['nome'];
             $tipologia = $_POST['tipologia'];
             $id_recensione = uniqid();
             $id_utente = $_SESSION['id'];
@@ -78,8 +79,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $dom->save($xmlFile);
 
                 echo 'Recensione salvata con successo.';
-                header("Location: recensione_ok.php?tipologia=" . $tipologia);
-            }
+                $_SESSION['creazione_recensione'] = 'true';
+                header("Location: ../php/lista_recensioni.php?id_prodotto=$id_prodotto&tipologia=$tipologia&nome=$nome&id=$id_utente");            }
             else {
                 echo 'Prodotto non trovato.';
             }

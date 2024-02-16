@@ -39,7 +39,7 @@
     echo '<table border="1">';
     echo '<tr>';
     echo '<th>Importo</th>';
-    echo '<th>Status</th>';
+    echo '<th>Stato</th>';
     echo '</tr>';
 
     // Loop attraverso le richieste

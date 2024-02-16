@@ -8,41 +8,37 @@
     <tipologia>magliette</tipologia>
     <immagine>../img/download-removebg-preview.png</immagine>
     <domande>
-      
+      <domanda id_prodotto="1" id_utente="2">
+        <autore>federico@gmail.com</autore>
+        <testo>ghiro</testo>
+        <id_domanda>65cea7fa821da</id_domanda>
+      </domanda>
     </domande>
   </prodotto>
   <prodotto>
     <id_prodotto>2</id_prodotto>
-    <nome>ccccccc</nome>
+    <nome>cccccccc</nome>
     <descrizione>Le caratteristiche tipiche di una maglietta da rugby includono collo a giro o a V, maniche lunghe o corte, e spesso la presenza del logo della federazione di rugby nazionale e del fornitore dell'abbigliamento sportivo. Il design può variare di anno in anno o in base agli eventi, ma spesso si riflette sulla storia e sulla cultura del paese.</descrizione>
     <prezzo>35</prezzo>
     <tipologia>magliette</tipologia>
     <immagine>../img/download-removebg-preview.png</immagine>
     <domande>
-      <domanda id_prodotto="2" id_utente="14">
-        <autore>franco@gmail.com</autore>
-        <testo>ggggg</testo>
-        <id_domanda>65ce87eabefac</id_domanda>
-        <risposte>
-          <risposta id_prodotto="2" id_utente="9">
-            <id_risposta>65ce880397b02</id_risposta>
-            <id_domanda>65ce87eabefac</id_domanda>
-            <autore>ff@gmail.com</autore>
-            <data>2024-02-15</data>
-            <ora>22:54:11</ora>
-            <testo>fff</testo>
-          </risposta>
-        </risposte>
-        <utilita>
-          <valore id_utente="13" reputazione_Vot="1">1</valore>
-        </utilita>
-        <supporto>
-          <valore id_utente="13" reputazione_Vot="1">1</valore>
-        </supporto>
+      
+      <domanda id_prodotto="2" id_utente="2">
+        <autore>federico@gmail.com</autore>
+        <testo>sasa</testo>
+        <id_domanda>65cea7dc45b85</id_domanda>
       </domanda>
     </domande>
     <recensioni>
       
+      <recensione id_prodotto="2" id_utente="2">
+        <autore>federico@gmail.com</autore>
+        <testo>bella</testo>
+        <data>2024-02-16</data>
+        <ora>01:19:08</ora>
+        <id_recensione>65ceaa02e7888</id_recensione>
+      </recensione>
     </recensioni>
   </prodotto>
 </catalogo_prodotti>

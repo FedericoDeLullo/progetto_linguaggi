@@ -34,6 +34,7 @@
                 <form class="form" method="post" action="processa_recensioni.php">
                     <input type="hidden" name="id" value="<?php echo $id_utente; ?>">
                     <input type="hidden" name="id_prodotto" value="<?php echo $id_prodotto; ?>">
+                    <input type="hidden" name="nome" value="<?php echo $nome_prodotto; ?>">
                     <input type="hidden" name="tipologia" value="<?php echo $tipologia; ?>">
                     <input type="hidden" name="autore" value="<?php echo $email_utente; ?>">
                     <input type="hidden" name="orario_recensione" value="<?php echo date('H:i:s'); ?>">

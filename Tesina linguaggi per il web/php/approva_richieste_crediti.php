@@ -32,7 +32,7 @@ $requests = $dom->getElementsByTagName('request');
     foreach ($requests as $request) {
         $statusElement = $request->getAttribute('status');
 
-        if ($statusElement == 'pending') {
+        if ($statusElement == 'In Attesa') {
             $emailElement = $request->getElementsByTagName('email')->item(0);
             $importoElement = $request->getElementsByTagName('importo')->item(0);
 
@@ -75,7 +75,7 @@ elseif ($action=="Rifiuta") {
     foreach ($requests as $request) {
         $statusElement = $request->getAttribute('status');
 
-        if ($statusElement == 'pending') {
+        if ($statusElement == 'In Attesa') {
             $emailElement = $request->getElementsByTagName('email')->item(0);
             $importoElement = $request->getElementsByTagName('importo')->item(0);
 

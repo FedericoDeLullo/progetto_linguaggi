@@ -75,7 +75,7 @@
         $id_recensione = $segnalazione->getAttribute('id_recensione');
         $id_prodotto = $segnalazione->getAttribute('id_prodotto');
 
-        if ($status == 'pending') {
+        if ($status == 'In Attesa') {
             $hasPendingRequests = true;
 
         

@@ -15,7 +15,14 @@
 
 <div class="cont">
 <?php
-
+if(isset($_SESSION['successo_segnalazione_recensione']) && $_SESSION['successo_segnalazione_recensione'] == 'true'){
+    echo '<h2 id="successo">Segnalazione della recensione inviata con successo. Attendere l\'approvazione del gestore...</h2>';
+    unset($_SESSION['successo_segnalazione_recensione']);
+}
+if(isset($_SESSION['creazione_recensione']) && $_SESSION['creazione_recensione'] == 'true'){
+    echo '<h2 id="successo">Recensione aggiunta con successo!</h2>';
+    unset($_SESSION['creazione_recensione']);
+}
 require_once('../res/connection.php');
 if(isset($_SESSION['loggato'])){
  $id_utente = $_SESSION['id'];
@@ -251,7 +258,7 @@ elseif($utente = 1){
             echo '<tr>';
             echo '<td>';
             echo '<p>';
-            echo '<a href="segnalazione.php?id_prodotto=' . urlencode($id_prodotto) . '&id_recensione=' . $id_recensione. '&testo_recensione='. $testo .'&autoreRecensione='. $autore .'"><span id="simbolo_recensione" class="material-symbols-outlined">report</span></a>';
+            echo '<a href="segnalazione.php?id_prodotto=' . urlencode($id_prodotto) . '&id_recensione=' . $id_recensione. '&testo_recensione='. $testo .'&autoreRecensione='. $autore . '&nome=' . $nome . '&tipologia='. $tipologia .'"><span id="simbolo_recensione" class="material-symbols-outlined">report</span></a>';
             echo '</p>';
             echo '</td>';
             echo '<td><strong>' . $autore . '</strong></td>';

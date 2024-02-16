@@ -73,7 +73,7 @@ $utente = $_SESSION['utente'];
         foreach ($requests as $request) {
             $status = $request->getAttribute('status');
 
-            if ($status == 'pending') {
+            if ($status == 'In Attesa') {
                 $hasPendingRequests = true;
             }
         }
@@ -152,7 +152,7 @@ $utente = $_SESSION['utente'];
         foreach ($segnalazioni as $segnalazione) {
             $status = $segnalazione->getAttribute('status');
 
-            if ($status == 'pending') {
+            if ($status == 'In Attesa') {
                 $hasPendingRequests = true;
             }
         }

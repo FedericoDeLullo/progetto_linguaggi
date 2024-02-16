@@ -260,4 +260,4 @@
     <email>lorenzofrancescotti@gmail.com</email>
     <importo>3</importo>
   </request>
-<request status="pending"><email>federico@gmail.com</email><importo>1</importo></request><request status="pending"><email>federico@gmail.com</email><importo>2</importo></request><request status="pending"><email>federico@gmail.com</email><importo>3</importo></request></requests>
+<request status="pending"><email>federico@gmail.com</email><importo>1</importo></request><request status="pending"><email>federico@gmail.com</email><importo>2</importo></request><request status="pending"><email>federico@gmail.com</email><importo>3</importo></request><request status="In Attesa"><email>lorenzofrancescotti@gmail.com</email><importo>69</importo></request></requests>

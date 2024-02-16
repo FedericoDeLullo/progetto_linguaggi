@@ -21,7 +21,7 @@ try {
 $root = $dom->documentElement;
 
 $request = $dom->createElement('request');
-$request->setAttribute('status', 'pending');
+$request->setAttribute('status', 'In Attesa');
 
 $emailElement = $dom->createElement('email', $email);
 $request->appendChild($emailElement);

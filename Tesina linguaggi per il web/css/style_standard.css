@@ -136,6 +136,17 @@ th {
     margin-bottom: 7vh;
 }
 
+#simbolo_recensione{
+    color: #011050;
+    margin-left: 1vh;
+    margin-right: 1vh;
+}
+
+#simbolo_recensione:hover{
+    color: #0021b4;
+    transition: 0.2s;
+}
+
 h2{
     color: red;
     text-align: center;

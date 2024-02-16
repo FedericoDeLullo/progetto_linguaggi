@@ -21,6 +21,19 @@ if(isset($_GET['tipologia']) && isset($_GET['id_prodotto'])){
     $id_prodotto = $_GET['id_prodotto'];
     $nome = $_GET['nome'];
 }
+
+if(isset($_SESSION['successo_segnalazione_domanda']) && $_SESSION['successo_segnalazione_domanda'] == 'true'){
+    echo '<h2 id="successo">Segnalazione della domanda inviata con successo. Attendere l\'approvazione del gestore...</h2>';
+    unset($_SESSION['successo_segnalazione_domanda']);
+}
+if(isset($_SESSION['successo_segnalazione_risposta']) && $_SESSION['successo_segnalazione_risposta'] == 'true'){
+    echo '<h2 id="successo">Segnalazione della risposta inviata con successo. Attendere l\'approvazione del gestore...</h2>';
+    unset($_SESSION['successo_segnalazione_risposta']);
+}
+if(isset($_SESSION['creazione_domanda']) && $_SESSION['creazione_domanda'] == 'true'){
+    echo '<h2 id="successo">Domanda aggiunta con successo!</h2>';
+    unset($_SESSION['creazione_domanda']);
+}
 ?>
 
 <?php
@@ -120,7 +133,7 @@ if ($domande->length > 0) {
         echo '<tr>';
         echo '<td>';
         echo '<p>';
-        echo '<a href="segnalazione.php?id_domanda=' . urlencode($id_domanda) . '&nome=' . $nome . '&testo_domanda=' . urlencode($testoDomanda) . '&id_prodotto=' . urlencode($id_prodotto) . '&autoreDomanda='. $autoreDomanda .'"><span id="simbolo_recensione" class="material-symbols-outlined">report</span></a>';
+        echo '<a href="segnalazione.php?id_domanda=' . urlencode($id_domanda) . '&nome=' . $nome . '&testo_domanda=' . urlencode($testoDomanda) . '&id_prodotto=' . urlencode($id_prodotto) . '&autoreDomanda='. $autoreDomanda . '&tipologia='. $tipologia .'"><span id="simbolo_recensione" class="material-symbols-outlined">report</span></a>';
         echo '</p>';
         echo '</td>';
         echo '<td><strong>' . $autoreDomanda . '</strong></td>';
@@ -235,7 +248,7 @@ if ($domande->length > 0) {
                 echo '<tr>';
                 echo '<td>';
                 echo '<p>';
-                echo '<a href="segnalazione.php?id_prodotto=' . urlencode($id_prodotto) . '&nome=' . $nome . '&id_risposta=' . urlencode($id_risposta) . '&testo_risposta=' . urlencode($testoRisposta) . '&autoreRisposta=' . $autoreRisposta . '&id_domanda=' . $id_domanda . '"><span id="simbolo_recensione" class="material-symbols-outlined">report</span></a>';
+                echo '<a href="segnalazione.php?id_prodotto=' . urlencode($id_prodotto) . '&nome=' . $nome . '&id_risposta=' . urlencode($id_risposta) . '&testo_risposta=' . urlencode($testoRisposta) . '&autoreRisposta=' . $autoreRisposta . '&id_domanda=' . $id_domanda . '&tipologia='. $tipologia .'"><span id="simbolo_recensione" class="material-symbols-outlined">report</span></a>';
                 echo '</p>';
                 echo '</td>';          
                 echo '<td>';

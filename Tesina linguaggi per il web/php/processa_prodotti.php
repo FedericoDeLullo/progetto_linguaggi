@@ -21,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $autore = $_POST['autore'];
         $domanda = $_POST['domanda'];
         $tipologia = $_POST['tipologia'];
+        $nome = $_POST['nome'];
         $id_utente = $_SESSION['id'];
         $id_domanda = uniqid();
 
@@ -67,7 +68,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $dom->save($xmlFile);
 
             echo 'Domanda inviata con successo.';
-            header("Location: domanda_ok.php?tipologia=" . $tipologia);
+            $_SESSION['creazione_domanda'] = 'true';
+            header("Location: ../php/domande.php?id_prodotto=$id_prodotto&nome=$nome&tipologia=$tipologia&id=$id_utente");
         } else {
             echo 'Prodotto non trovato.';
         }

@@ -41,14 +41,14 @@ if(isset($_POST['id_domanda'])){
                 $_SESSION['domanda_gia_rimossa'] = 'true';
                 header("Location: menu_segnalazioni.php");
 
-                if ($idDomandaElement == $id_domanda && $statusElement == 'pending') {
+                if ($idDomandaElement == $id_domanda && $statusElement == 'In Attesa') {
                     $segnalazione->setAttribute('status', 'Approvata');
                     $dom->normalizeDocument();
                     $dom->formatOutput = true;  
                     $dom->save($xmlFile);
                     break;
                 }
-            } elseif ($statusElement == 'pending' && $idDomandaElement == $id_domanda) {
+            } elseif ($statusElement == 'In Attesa' && $idDomandaElement == $id_domanda) {
                 $domanda_element = $segnalazione->getElementsByTagName('testo_domanda')->item(0);
                 $testo_element = $segnalazione->getElementsByTagName('testo_segnalazione_dom')->item(0);
 
@@ -107,7 +107,7 @@ if(isset($_POST['id_domanda'])){
             $statusElement = $segnalazione->getAttribute('status');
             $idDomandaElement = $segnalazione->getAttribute('id_domanda');
 
-            if ($statusElement == 'pending' && $idDomandaElement == $id_domanda) {
+            if ($statusElement == 'In Attesa' && $idDomandaElement == $id_domanda) {
                 $domanda_element = $segnalazione->getElementsByTagName('testo_domanda')->item(0);
                 $testo_element = $segnalazione->getElementsByTagName('testo_segnalazione_dom')->item(0);
 
@@ -153,7 +153,7 @@ if(isset($_POST['id_domanda'])){
                 $_SESSION['risposta_gia_rimossa'] = 'true';
                 header("Location: menu_segnalazioni.php");
 
-                if ($idRispostaElement == $id_risposta && $statusElement == 'pending') {
+                if ($idRispostaElement == $id_risposta && $statusElement == 'In Attesa') {
                     $segnalazione->setAttribute('status', 'Approvata');
                     $dom->normalizeDocument();
                     $dom->formatOutput = true;  
@@ -163,14 +163,14 @@ if(isset($_POST['id_domanda'])){
             } elseif ($idDomandaElement == $id_domanda && $statusElement == 'Approvata') {
                 $_SESSION['domanda_gia_rimossa'] = 'true';
                 header("Location: menu_segnalazioni.php");
-                if ($idRispostaElement == $id_risposta && $statusElement == 'pending') {
+                if ($idRispostaElement == $id_risposta && $statusElement == 'In Attesa') {
                     $segnalazione->setAttribute('status', 'Approvata');
                     $dom->normalizeDocument();
                     $dom->formatOutput = true;  
                     $dom->save($xmlFile);
                     break;
                 }
-            } elseif ($statusElement == 'pending' && $idRispostaElement == $id_risposta) {
+            } elseif ($statusElement == 'In Attesa' && $idRispostaElement == $id_risposta) {
                 $risposta_element = $segnalazione->getElementsByTagName('testo_risposta')->item(0);
                 $testo_element = $segnalazione->getElementsByTagName('testo_segnalazione_ris')->item(0);
 
@@ -238,7 +238,7 @@ if(isset($_POST['id_domanda'])){
             $statusElement = $segnalazione->getAttribute('status');
             $idRispostaElement = $segnalazione->getAttribute('id_risposta');
 
-            if ($statusElement == 'pending' && $idRispostaElement == $id_risposta) {
+            if ($statusElement == 'In Attesa' && $idRispostaElement == $id_risposta) {
                 $risposta_element = $segnalazione->getElementsByTagName('testo_risposta')->item(0);
                 $testo_element = $segnalazione->getElementsByTagName('testo_segnalazione_ris')->item(0);
 
@@ -282,14 +282,14 @@ if(isset($_POST['id_domanda'])){
                 $_SESSION['recensione_gia_rimossa'] = 'true';
                 header("Location: menu_segnalazioni.php");
 
-                if ($idRecensioneElement == $id_recensione && $statusElement == 'pending') {
+                if ($idRecensioneElement == $id_recensione && $statusElement == 'In Attesa') {
                     $segnalazione->setAttribute('status', 'Approvata');
                     $dom->normalizeDocument();
                     $dom->formatOutput = true;  
                     $dom->save($xmlFile);
                     break;
                 }
-            } elseif ($statusElement == 'pending' && $idRecensioneElement == $id_recensione) {
+            } elseif ($statusElement == 'In Attesa' && $idRecensioneElement == $id_recensione) {
                 $recensione_element = $segnalazione->getElementsByTagName('testo')->item(0);
                 $testo_element = $segnalazione->getElementsByTagName('testo_segnalazione_rec')->item(0);
 
@@ -350,7 +350,7 @@ if(isset($_POST['id_domanda'])){
             $statusElement = $segnalazione->getAttribute('status');
             $idRecensioneElement = $segnalazione->getAttribute('id_recensione');
 
-            if ($statusElement == 'pending' && $idRecensioneElement == $id_recensione) {
+            if ($statusElement == 'In Attesa' && $idRecensioneElement == $id_recensione) {
                 $recensione_element = $segnalazione->getElementsByTagName('testo')->item(0);
                 $testo_element = $segnalazione->getElementsByTagName('testo_segnalazione_rec')->item(0);
 
