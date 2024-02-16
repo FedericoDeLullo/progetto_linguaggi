@@ -18,6 +18,7 @@
 
         // Verifica che il form sia stato inviato
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $id_prodotto = $_POST['id_prodotto'];
             // Percorso del file XML
             $xmlFile = '../xml/catalogo_prodotti.xml';
 
@@ -28,11 +29,21 @@
             // Identifica il prodotto da modificare
             $prodottoDaModificare = null;
             foreach ($dom->getElementsByTagName('prodotto') as $prodotto) {
+                $nomeNode = $prodotto->getElementsByTagName('nome')->item(0);
+                $nomeEsistente = $nomeNode->nodeValue;
+        
+                // Verifica se il nome è già presente
+                if ($_POST['nome'] == $nomeEsistente) {
+                    $_SESSION['errore_nome_esistente'] = 'true';
+                    header("Location: ../php/modifica_prodotti_form.php?id_prodotto=$id_prodotto");
+                    exit(); // Esce dal ciclo se il nome è già presente
+                }else{
                 $id = (int)$prodotto->getElementsByTagName('id_prodotto')->item(0)->nodeValue;
                 if ($id == $_POST['id_prodotto']) {
                     $prodottoDaModificare = $prodotto;
                     break;
-                }
+                  } 
+                 }
             }
 
             // Verifica se il prodotto è stato trovato

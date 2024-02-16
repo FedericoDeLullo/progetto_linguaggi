@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalogo_prodotti xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="catalogo_prodotti.xsd">
   
-</catalogo_prodotti>
+<prodotto><id_prodotto>1</id_prodotto><nome>ff</nome><descrizione>f</descrizione><prezzo>35</prezzo><tipologia>magliette</tipologia><immagine>../img/calzettoni_all_blacks-removebg-preview.png</immagine></prodotto><prodotto><id_prodotto>2</id_prodotto><nome>mm</nome><descrizione>e</descrizione><prezzo>52</prezzo><tipologia>magliette</tipologia><immagine>../img/australia.jpeg</immagine></prodotto></catalogo_prodotti>
