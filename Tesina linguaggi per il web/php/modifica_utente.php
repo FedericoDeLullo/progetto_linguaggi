@@ -66,7 +66,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                         <label class="nome" for="email">Email:</label>
                         <input class="input" type="email" id="email" name="email" value="<?php echo $utente['email']; ?>" required><br>
                         <label class="nome" for="nome">Crediti:</label>
-                        <input class="input" type="number" id="crediti" name="crediti" value="<?php echo $utente['crediti']; ?>" required><br>
+                        <input class="input" type="number" id="crediti" name="crediti" value="<?php echo $utente['crediti']; ?>" min="0" required><br>
                         <label class="nome" for="nome">Indirizzo di residenza:</label>
                         <input class="input" type="text" id="indirizzo" name="indirizzo" value="<?php echo $utente['indirizzo_di_residenza']; ?>" required><br>
                         <label class="nome" for="nome">Cellulare:</label>

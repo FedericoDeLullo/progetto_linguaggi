@@ -37,7 +37,18 @@ if (isset($_GET['id']) && is_numeric($_GET['id']) && ($admin == 0)) {
         $utente = $result->fetch_assoc();
         ?>
  
-        <h1 class="titolo">Modifica Password</h1>
+        <h1 class="titolo"><div class="tooltip">
+                    <span class="tooltiptext">LA PASSWORD DEVE SODDISFARE I SEGUENTI REQUISITI:
+                        <ol>
+                            <li>Deve essere lunga almeno 7 caratteri;</li>
+                            <li>Deve contenere almeno una lettera maiuscola e una minuscola;</li>
+                            <li>Deve contenere almeno un numero;</li>
+                            <li>Deve contenere almeno un carattere speciale (!,@,#,$,%,^,&,*).</li>
+                        </ol>       
+                    </span>
+                    <i id="simbolo" class="material-symbols-outlined">info</i>
+                </div>
+            Modifica Password</h1>
         <table>
             <tr>
                 <td colspan="2">
@@ -69,7 +80,18 @@ if (isset($_GET['id']) && is_numeric($_GET['id']) && ($admin == 0)) {
         $email = $utente['email']; // Ottieni l'email dall'array dell'utente
         ?>
  
- <h1 class="titolo">Modifica Password dell'account '<?php echo $email ?>'</h1>
+ <h1 class="titolo"> <div class="tooltip">
+                    <span class="tooltiptext">LA PASSWORD DEVE SODDISFARE I SEGUENTI REQUISITI:
+                        <ol>
+                            <li>Deve essere lunga almeno 7 caratteri;</li>
+                            <li>Deve contenere almeno una lettera maiuscola e una minuscola;</li>
+                            <li>Deve contenere almeno un numero;</li>
+                            <li>Deve contenere almeno un carattere speciale (!,@,#,$,%,^,&,*).</li>
+                        </ol>       
+                    </span>
+                    <i id="simbolo" class="material-symbols-outlined">info</i>
+                </div>
+    Modifica Password dell'account '<?php echo $email ?>'</h1>
         <table>
             <tr>
                 <td colspan="2">

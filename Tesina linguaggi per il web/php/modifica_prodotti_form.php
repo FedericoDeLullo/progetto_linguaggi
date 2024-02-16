@@ -61,7 +61,7 @@ if (isset($_GET['id_prodotto'])) {
             </tr>
             <tr>
                 <td><label for="prezzo">Prezzo:</label></td>
-                <td><input class="input" type="text" name="prezzo" value="<?php echo $prezzo; ?>" required></td>
+                <td><input class="input" type="number" name="prezzo" value="<?php echo $prezzo; ?>" min="0" required></td>
             </tr>
             <tr>
                <td><label for="immagine">Immagine:</label></td>

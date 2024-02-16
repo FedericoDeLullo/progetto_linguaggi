@@ -531,4 +531,24 @@
     <autore>lorenzofrancescotti@gmail.com</autore>
     <testo_segnalazione_rec>ghg</testo_segnalazione_rec>
   </segnalazione>
+  <segnalazione status="Approvata" id_domanda="65cea7dc45b85" id_prodotto="2">
+    <testo_domanda>sasa</testo_domanda>
+    <autoreDomanda>federico@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>cdccc</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Approvata" id_prodotto="2" id_recensione="65ceaa02e7888">
+    <testo>bella</testo>
+    <autore>federico@gmail.com</autore>
+    <testo_segnalazione_rec>eeee</testo_segnalazione_rec>
+  </segnalazione>
+  <segnalazione status="Approvata" id_prodotto="2" id_recensione="65ceaa02e7888">
+    <testo>bella</testo>
+    <autore>federico@gmail.com</autore>
+    <testo_segnalazione_rec>rr</testo_segnalazione_rec>
+  </segnalazione>
+  <segnalazione status="Approvata" id_prodotto="2" id_recensione="65ceaa02e7888">
+    <testo>bella</testo>
+    <autore>federico@gmail.com</autore>
+    <testo_segnalazione_rec>tttt</testo_segnalazione_rec>
+  </segnalazione>
 </segnalazioni>

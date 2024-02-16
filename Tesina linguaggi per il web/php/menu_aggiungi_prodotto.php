@@ -25,6 +25,10 @@
         echo '<h2>Compila tutti i campi obbligatori...</h2>';
         unset($_SESSION['errore_campi_vuoti']);
     }
+    if(isset($_SESSION['errore_nome_esistente']) && $_SESSION['errore_nome_esistente'] == 'true'){
+        echo '<h2>Nome prodotto già esistente...</h2>';
+        unset($_SESSION['errore_nome_esistente']);
+    }
     ?>
     <div class="cont">
         <h1 class="titolo">Aggiungi Prodotto</h1>
@@ -37,7 +41,7 @@
                         <label class="nome" for="descrizione">Descrizione Prodotto:</label>
                         <input class="input" name="descrizione" required><br>
                         <label class="nome" for="prezzo">Prezzo Prodotto:</label>
-                        <input class="input" type="number" name="prezzo" step="0.01" required><br>
+                        <input class="input" type="number" name="prezzo" step="0.01" min="0" required><br>
                         <label class="nome" for="immagine">Immagine Prodotto:</label>
                         <input class="input" type="file" name="immagine" accept="image/*" required><br>
                         <label class="nome" for="tipologia">Tipologia Prodotto</label>

@@ -10,16 +10,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Carica il file XML
         $dom = new DOMDocument();
         $dom->load($xmlFile);
-
+    
         // Trova l'ultimo ID nel catalogo
         $ultimoID = 0;
         $prodottoList = $dom->getElementsByTagName('prodotto');
+    
+        // Flag per verificare se il nome è già presente
+        $nomePresente = false;
+    
         foreach ($prodottoList as $prodottoNode) {
+            $nomeNode = $prodottoNode->getElementsByTagName('nome')->item(0);
+            $nomeEsistente = $nomeNode->nodeValue;
+    
+            // Verifica se il nome è già presente
+            if ($_POST['nome'] == $nomeEsistente) {
+                $_SESSION['errore_nome_esistente'] = 'true';
+                header('Location:../php/menu_aggiungi_prodotto.php');
+                exit(); // Esce dal ciclo se il nome è già presente
+            }else{
+    
             $idNode = $prodottoNode->getElementsByTagName('id_prodotto')->item(0);
             $id = (int)$idNode->nodeValue;
             if ($id > $ultimoID) {
                 $ultimoID = $id;
             }
+          }
         }
 
         // Calcola il prossimo ID disponibile
