@@ -17,6 +17,10 @@
             echo '<h2>Errore in fase di login...</h2>';
             unset($_SESSION['errore_login']);
         }
+        if(isset($_SESSION['registrazione_ok']) && $_SESSION['registrazione_ok'] == 'true'){
+            echo '<h2 id="successo">Registrazione effettuata con successo!!!</h2>';
+            unset($_SESSION['registrazione_ok']);
+        }
     ?>
     <div class="cont">
         <div class="wrapper">

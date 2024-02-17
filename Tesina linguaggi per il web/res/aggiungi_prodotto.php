@@ -64,6 +64,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Verifica che l'upload dell'immagine sia avvenuto con successo
         if (move_uploaded_file($_FILES['immagine']['tmp_name'], $immaginePath)) {
+            $immagineInfo = getimagesize($immaginePath);
+
+            if ($immagineInfo !== false) {
+            
             $immagine = $dom->createElement('immagine', $immaginePath);
             $prodotto->appendChild($immagine);
 
@@ -72,7 +76,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $_SESSION['successo_aggiunta_prodotto'] = 'true';
             header("Location: ../php/menu_aggiungi_prodotto.php");
-        } else {
+        }else{
+            $_SESSION['errore_immagine'] = 'true';
+            header("Location: ../php/menu_aggiungi_prodotto.php");
+        }
+    
+    } else {
             $_SESSION['errore_immagine'] = 'true';
             header("Location: ../php/menu_aggiungi_prodotto.php");
         }

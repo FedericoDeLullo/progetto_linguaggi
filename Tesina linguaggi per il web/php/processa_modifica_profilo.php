@@ -10,6 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $indirizzo = $_POST['indirizzo'];
     $cellulare = $_POST['cellulare'];
     $email = $_POST['email'];
+    $email_vecchia = $_POST['email_vecchia'];
 
     // Esegui una query per verificare se l'email è già presente nel database
     $query_email_esistente = "SELECT id FROM utenti WHERE email = ? AND id != ?";
@@ -47,7 +48,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $query_aggiornamento = "UPDATE utenti SET nome = ?, cognome = ?, indirizzo_di_residenza = ?, email = ?, cellulare = ? WHERE id = ?";
     $stmt_aggiornamento = $connessione->prepare($query_aggiornamento);
     $stmt_aggiornamento->bind_param("sssssi", $nome, $cognome, $indirizzo, $email, $cellulare, $id_utente);
+    $_SESSION['email'] = $email;
 
+    
+    // Carica il tuo file XML con DOMDocument
+    $dom = new DOMDocument;
+    $dom->load('../xml/catalogo_prodotti.xml');
+    
+    // Cerca tutti gli elementi <autore> che sono uguali a $email_vecchia
+    $xpath = new DOMXPath($dom);
+    $autoriDaAggiornare = $xpath->query("//domanda/autore[text()='$email_vecchia'] | //domanda/risposte/risposta/autore[text()='$email_vecchia'] | //recensione/autore[text()='$email_vecchia']");
+    if($autoriDaAggiornare !== 0){
+    // Aggiorna gli autori con il nuovo valore $email
+    foreach ($autoriDaAggiornare as $autoreDaAggiornare) {
+        $autoreDaAggiornare->nodeValue = $email;
+    }
+    
+    // Salva il documento XML aggiornato
+    $dom->save('../xml/catalogo_prodotti.xml');
+    }
+
+   
     if ($stmt_aggiornamento->execute()) {
         // Aggiornamento dei dati avvenuto con successo
         header("Location: gestione_profilo.php");

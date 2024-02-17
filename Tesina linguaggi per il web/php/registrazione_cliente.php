@@ -38,6 +38,11 @@
         unset($_SESSION['errore_codice_fiscale']);
         unset($_SESSION['form_codice_fiscale']);
     }
+
+    if(isset($_SESSION['errore_registrazione']) && $_SESSION['errore_registrazione'] == 'true'){
+        echo "<h2>Errore in fase di registrazione</h2>";
+        unset($_SESSION['errore_registrazione']);
+    }
     ?>
 
     <div class="wrapper">

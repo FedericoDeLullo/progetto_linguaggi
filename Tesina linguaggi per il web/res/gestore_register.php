@@ -86,10 +86,12 @@
             unset($_SESSION['form_indirizzo_di_residenza']);
             unset($_SESSION['form_codice_fiscale']);
 
+            $_SESSION['registrazione_ok'] = 'true';
             header("Location: ../php/login_gestore.php");
         }
         catch (Exception $e) {
-            header("Location: ../php/registrazione_fallita.php");
+            $_SESSION['errore_registrazione'] = 'true';
+            header("Location: ../php/registrazione_admin.php");
             exit;
         }
     }

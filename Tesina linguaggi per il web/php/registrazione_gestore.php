@@ -43,6 +43,11 @@
         echo "<h2>Qualcosa è andato storto!</h2>";
         unset($_SESSION['errore_cod']);
     }
+
+    if(isset($_SESSION['errore_registrazione']) && $_SESSION['errore_registrazione'] == 'true'){
+        echo "<h2>Errore in fase di registrazione</h2>";
+        unset($_SESSION['errore_registrazione']);
+    }
     ?>
 
     <div class="wrapper">

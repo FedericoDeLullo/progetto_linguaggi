@@ -15,13 +15,11 @@
     
 <div class="cont">
 <?php
- 
 
 if (!isset($_SESSION['loggato'])) {
     header("Location: login_cliente.php");
     exit();
 }
-
 
 if(isset($_POST['id_domanda']) && !isset($_POST['id_risposta'])){
 $id_domanda = $_POST['id_domanda'];
@@ -65,7 +63,6 @@ try {
     die('Errore nel salvataggio del file XML: ' . $e->getMessage());
 }
 
-//echo "<h1 class='titolo'>Segnalazione della domanda inviata con successo. Attendere l'approvazione del gestore...</h1>";
 $_SESSION['successo_segnalazione_domanda'] = 'true';
 header("Location: ../php/domande.php?id_prodotto=$id_prodotto&nome=$nome&tipologia=$tipologia&id=$id_utente");
 }
@@ -117,7 +114,6 @@ $segnalazione->appendChild($autore_element);
     } catch (Exception $e) {
         die('Errore nel salvataggio del file XML: ' . $e->getMessage());
     }
-    //echo "<h1 class='titolo'>Segnalazione della risposta inviata con successo. Attendere l'approvazione dell'amministratore...</h1>";
     $_SESSION['successo_segnalazione_risposta'] = 'true';
     header("Location: ../php/domande.php?id_prodotto=$id_prodotto&nome=$nome&tipologia=$tipologia&id=$id_utente");
      
@@ -165,7 +161,6 @@ try {
     die('Errore nel salvataggio del file XML: ' . $e->getMessage());
 }
 
-//echo "<h1 class='titolo'>Segnalazione della recensione inviata con successo. Attendere l'approvazione del gestore...</h1>";
 $_SESSION['successo_segnalazione_recensione'] = 'true';
 header("Location: ../php/lista_recensioni.php?id_prodotto=$id_prodotto&tipologia=$tipologia&nome=$nome&id=$id_utente");
 }

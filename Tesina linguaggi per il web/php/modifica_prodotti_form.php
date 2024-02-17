@@ -46,7 +46,13 @@ if (isset($_GET['id_prodotto'])) {
     if(isset($_SESSION['errore_nome_esistente']) && $_SESSION['errore_nome_esistente'] == 'true'){
     echo '<h2>Nome prodotto già esistente...</h2>';
     unset($_SESSION['errore_nome_esistente']);
-}?>
+    }
+    if(isset($_SESSION['errore_immagine']) && $_SESSION['errore_immagine'] == 'true'){
+        echo '<h2>Tipo file non supportato!!!</h2>';
+        unset($_SESSION['errore_immagine']);
+    }
+    $_SESSION['nome_prodotto_attuale'] = $nome;
+?>
         <div class="cont">
 
     <h1 class="titolo" >Modifica Prodotto</h1>

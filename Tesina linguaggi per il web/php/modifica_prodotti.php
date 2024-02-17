@@ -1,21 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestione Catalogo</title>
-    <link rel="stylesheet" href="../css/style_catalogo.css">
-    <link rel="stylesheet" href="../css/style_search.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <link rel="stylesheet" href="../css/style_header.css">
-    <?php
-        include('../res/header.php');
-    ?>
-</head>
-<body>
-    <div class="cont">
         <?php
-
+        session_start();
         // Verifica che il form sia stato inviato
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $id_prodotto = $_POST['id_prodotto'];
@@ -33,7 +17,7 @@
                 $nomeEsistente = $nomeNode->nodeValue;
         
                 // Verifica se il nome è già presente
-                if ($_POST['nome'] == $nomeEsistente) {
+                if ($_POST['nome'] == $nomeEsistente && $_SESSION['nome_prodotto_attuale'] != $nomeEsistente) {
                     $_SESSION['errore_nome_esistente'] = 'true';
                     header("Location: ../php/modifica_prodotti_form.php?id_prodotto=$id_prodotto");
                     exit(); // Esce dal ciclo se il nome è già presente
@@ -52,33 +36,39 @@
                 $prodottoDaModificare->getElementsByTagName('nome')->item(0)->nodeValue = $_POST['nome'];
                 $prodottoDaModificare->getElementsByTagName('descrizione')->item(0)->nodeValue = $_POST['descrizione'];
                 $prodottoDaModificare->getElementsByTagName('prezzo')->item(0)->nodeValue = $_POST['prezzo'];
-
+            
                 // Gestione dell'immagine solo se è stato caricato un nuovo file
                 if (!empty($_FILES['immagine']['name'])) {
                     $immaginePath = '../img/' . basename($_FILES['immagine']['name']);
-                    move_uploaded_file($_FILES['immagine']['tmp_name'], $immaginePath);
-
-                    // Rimuovi l'immagine esistente (se presente)
-                    $immagineNode = $prodottoDaModificare->getElementsByTagName('immagine')->item(0);
-                    if ($immagineNode) {
-                        $prodottoDaModificare->removeChild($immagineNode);
+            
+                    // Verifica che il file sia un'immagine valida con getimagesize
+                    $immagineInfo = @getimagesize($_FILES['immagine']['tmp_name']);
+                    if ($immagineInfo !== false) {
+                        // Rimuovi l'immagine esistente (se presente)
+                        $immagineNode = $prodottoDaModificare->getElementsByTagName('immagine')->item(0);
+                        if ($immagineNode) {
+                            $prodottoDaModificare->removeChild($immagineNode);
+                        }
+            
+                        // Aggiungi l'immagine nuova
+                        $newImmagineNode = $dom->createElement('immagine', $immaginePath);
+                        $prodottoDaModificare->appendChild($newImmagineNode);
+            
+                    } else {
+                        // Messaggio di errore se il file non è un'immagine valida
+                        $_SESSION['errore_immagine'] = 'true';
+                        header("Location: ../php/modifica_prodotti_form.php?id_prodotto=$id_prodotto");
+                        exit();
                     }
-
-                    // Aggiungi l'immagine nuova
-                    $newImmagineNode = $dom->createElement('immagine', $immaginePath);
-                    $prodottoDaModificare->appendChild($newImmagineNode);
                 }
-
                 // Salva le modifiche
                 $dom->save($xmlFile);
                 header("Location: catalogo_magliette.php");
-                exit(); // Termina l'esecuzione dopo la redirect
-            } else {
+                exit();
+            }
+             else {
                 echo '<p class="error">Prodotto non trovato.</p>';
             }
         }
 
         ?>
-    </div>
-</body>
-</html>

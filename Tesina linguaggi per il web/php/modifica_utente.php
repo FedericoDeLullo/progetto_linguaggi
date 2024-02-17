@@ -59,6 +59,8 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                 <td colspan="2">
                     <form class="form" action="processa_modifica_utente.php" method="post">
                         <input class="input" type="hidden" name="id" value="<?php echo $utente['id']; ?>">
+                        <input class="input" type="hidden" id="email_vecchia" name="email_vecchia" value="<?php echo $utente['email']; ?>" required><br>
+
                         <label class="nome" for="nome">Nome:</label>
                         <input class="input" type="text" id="nome" name="nome" value="<?php echo $utente['nome']; ?>" required><br>
                         <label class="nome" for="nome">Cognome:</label>

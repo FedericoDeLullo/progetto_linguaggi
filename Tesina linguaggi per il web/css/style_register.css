@@ -189,6 +189,10 @@ h2 {
     margin-bottom: 5vh;
 }
 
+#successo{
+    color: green;
+}
+
 #simbolo{
     color: #0021b4;
     margin-left: 1vh;

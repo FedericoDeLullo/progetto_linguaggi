@@ -12,4 +12,8 @@
     <email>fede@gmail.com</email>
     <importo>100</importo>
   </request>
+  <request status="Approvato">
+    <email>frendrup@gmail.com</email>
+    <importo>10</importo>
+  </request>
 </requests>
