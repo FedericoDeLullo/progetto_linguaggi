@@ -43,6 +43,9 @@
             $id_utente = $_SESSION['id'];
             }
 
+            // Inizializza la variabile booleana per verificare se ci sono prodotti di tipo 'magliette'
+            $magliettePresenti = false;
+
             $ordinaPer = isset($_GET['ordina']) ? $_GET['ordina'] : 'nome';
 
             // Leggi il file XML del catalogo
@@ -82,6 +85,9 @@
                     continue; // Salta il prodotto se la tipologia non è 'maglietta'
                 }
 
+                // Imposta la variabile booleana a true se almeno un prodotto è di tipo 'magliette'
+                $magliettePresenti = true;
+
                 // Stampa le informazioni del prodotto
                 echo '<div class="prodotto">';
                 echo '<h1 class="nome">';
@@ -91,9 +97,9 @@
                     $admin = $_SESSION['ammin'];
                     $utente = $_SESSION['utente'];
                     echo $nome;
-                  if($gestore == 1){
-                     echo '</h1>';
-                    echo '<table class="table">';
+                    if($gestore == 1){
+                        echo '</h1>';
+                        echo '<table class="table">';
                         echo '<tr>';
                         echo '<td>';
                         echo '<a class="btn1"style="margin-left:10vw;" title="Lista delle domande" href="domande.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">Lista delle domande</a>';
@@ -102,21 +108,21 @@
                         echo '<a class="btn1" style="margin-left:10vw;"title="Lista delle recensioni" href="lista_recensioni.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">Liste delle recensioni</a>';
                         echo '<a class="btn1" style="margin-left:10vw;" href="modifica_prodotti_form.php?id_prodotto=' . $id_prodotto . '">Modifica prodotto</a>';
                         echo '</td>';
-                            echo '<td class="td">';
-                                  echo '<div class="box">';
-                                    echo '<img class="img" src="' . $immagine . '" alt="' . $nome . '">';
-                                echo '</div>';
-                            echo '</td>';
-                            echo '<td class="td">';
-                                echo '<p class="des">' . $descrizione . '</p>';
-                                echo '<p class="prezzo">Prezzo: ' . $prezzo . '€</p>';
-                                echo '<a href="#"><span id="cart" class="material-symbols-outlined">add_shopping_cart</span></a>';
+                        echo '<td class="td">';
+                        echo '<div class="box">';
+                        echo '<img class="img" src="' . $immagine . '" alt="' . $nome . '">';
+                        echo '</div>';
+                        echo '</td>';
+                        echo '<td class="td">';
+                        echo '<p class="des">' . $descrizione . '</p>';
+                        echo '<p class="prezzo">Prezzo: ' . $prezzo . '€</p>';
+                        echo '<a href="#"><span id="cart" class="material-symbols-outlined">add_shopping_cart</span></a>';
                         echo '</tr>';
-                    echo '</table>';
-                    echo '</div>';
-                } elseif($utente == 1 || $admin == 1){
-                    echo '</h1>';
-                    echo '<table class="table">';
+                        echo '</table>';
+                        echo '</div>';
+                    } elseif($utente == 1 || $admin == 1){
+                        echo '</h1>';
+                        echo '<table class="table">';
                         echo '<tr>';
                         echo '<td>';
                         echo '<a class="btn1"style="margin-left:10vw;" title="Lista delle domande" href="domande.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">Lista delle domande</a>';
@@ -124,46 +130,43 @@
                         echo '<a class="btn1"style="margin-left:10vw;"  title="Lascia una recensione" href="recensione_cliente.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">Scrivi una recensione</a>';
                         echo '<a class="btn1" style="margin-left:10vw;"title="Lista delle recensioni" href="lista_recensioni.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">Lista delle recensioni</a>';
                         echo '</td>';
-                            echo '<td class="td">';
-                                  echo '<div class="box">';
-                                    echo '<img class="img" src="' . $immagine . '" alt="' . $nome . '">';
-                                echo '</div>';
-                            echo '</td>';
-                            echo '<td class="td">';
-                                echo '<p class="des">' . $descrizione . '</p>';
-                                echo '<p class="prezzo">Prezzo: ' . $prezzo . '€</p>';
-                                echo '<a href="#"><span id="cart" class="material-symbols-outlined">add_shopping_cart</span></a>';
-                        echo '</tr>';
-                    echo '</table>';
-                    echo '</div>';
-                } 
-
-
-
-            }else{
-                    echo $nome;
-                     echo '</h1>';
-                echo '<table class="table">';
-                    echo '<tr>';
                         echo '<td class="td">';
-                            echo '<div class="box">';
-                                echo '<img class="img" src="' . $immagine . '" alt="' . $nome . '">';
-                            echo '</div>';
+                        echo '<div class="box">';
+                        echo '<img class="img" src="' . $immagine . '" alt="' . $nome . '">';
+                        echo '</div>';
                         echo '</td>';
                         echo '<td class="td">';
-                            echo '<p class="des">' . $descrizione . '</p>';
-                            echo '<p class="prezzo">Prezzo: ' . $prezzo . '€</p>';
-                            echo '<a href="#"><span id="cart" class="material-symbols-outlined">add_shopping_cart</span></a>';
+                        echo '<p class="des">' . $descrizione . '</p>';
+                        echo '<p class="prezzo">Prezzo: ' . $prezzo . '€</p>';
+                        echo '<a href="#"><span id="cart" class="material-symbols-outlined">add_shopping_cart</span></a>';
+                        echo '</tr>';
+                        echo '</table>';
+                        echo '</div>';
+                    } 
+                }else{
+                    echo $nome;
+                    echo '</h1>';
+                    echo '<table class="table">';
+                    echo '<tr>';
+                    echo '<td class="td">';
+                    echo '<div class="box">';
+                    echo '<img class="img" src="' . $immagine . '" alt="' . $nome . '">';
+                    echo '</div>';
+                    echo '</td>';
+                    echo '<td class="td">';
+                    echo '<p class="des">' . $descrizione . '</p>';
+                    echo '<p class="prezzo">Prezzo: ' . $prezzo . '€</p>';
+                    echo '<a href="#"><span id="cart" class="material-symbols-outlined">add_shopping_cart</span></a>';
                     echo '</tr>';
-                echo '</table>';
-                echo '</div>';
-        }
+                    echo '</table>';
+                    echo '</div>';
                 }
-                
-                
-                
-                
-                
+            }
+
+            if (!$magliettePresenti) {
+                echo '<h3 class="titolo">Il catalogo delle magliette è vuoto :(</h3>';
+            }
+
             ?>
            <script>
     // Quando il documento è caricato

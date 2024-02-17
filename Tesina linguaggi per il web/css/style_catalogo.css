@@ -85,3 +85,9 @@ td {
     width: fit-content;
     margin-bottom: 5vh;
 }
+
+.titolo{
+    margin-bottom: -5vh;
+    color: #011050;
+    text-align: center;
+}

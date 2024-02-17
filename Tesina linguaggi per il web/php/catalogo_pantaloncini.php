@@ -43,6 +43,9 @@
                 $id_utente = $_SESSION['id'];
             }
 
+            // Inizializza la variabile booleana per verificare se ci sono prodotti di tipo 'pantaloncini'
+            $pantalonciniPresenti = false;
+
             $ordinaPer = isset($_GET['ordina']) ? $_GET['ordina'] : 'nome';
 
             // Leggi il file XML del catalogo
@@ -82,6 +85,9 @@
                 if ($tipologia !== 'pantaloncini') {
                     continue; // Salta il prodotto se la tipologia non è 'maglietta'
                 }
+
+                // Imposta la variabile booleana a true se almeno un prodotto è di tipo 'pantaloncini'
+                $pantalonciniPresenti = true;
 
                 // Stampa le informazioni del prodotto
                 echo '<div class="prodotto">';
@@ -161,6 +167,11 @@
                 echo '</div>';
         }
                 }
+
+                if (!$pantalonciniPresenti) {
+                    echo '<h3 class="titolo">il catalogo dei pantaloncini è vuoto :(</h3>';
+                }
+
             ?>
             <script>
     // Quando il documento è caricato
