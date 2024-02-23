@@ -193,8 +193,8 @@ if ($domande->length > 0) {
             foreach ($risposte as $risposta) {
                 $id_utente_risposta=$risposta->getAttribute('id_utente');
                 if($id_utente_risposta == $id_utente){
-                $utilitaNode = $xpath->query("utilita/valore[@id_utente='$idUtenteSessione']", $risposta)->item(0);
-                $supportoNode = $xpath->query("supporto/valore[@id_utente='$idUtenteSessione']", $risposta)->item(0);
+                $utilitaNode = $xpath->query("utilita_risposta/valore[@id_utente='$idUtenteSessione']", $risposta)->item(0);
+                $supportoNode = $xpath->query("supporto_risposta/valore[@id_utente='$idUtenteSessione']", $risposta)->item(0);
             
                 // Ottieni i valori di utilità e supporto o imposta "N/A" se non presenti
                 $utilitaValue = $utilitaNode ? $utilitaNode->nodeValue : "N/A";
@@ -230,8 +230,8 @@ if ($domande->length > 0) {
                 echo '</td>'; 
                 
             } else {
-                $utilitaNode = $xpath->query("utilita/valore[@id_utente='$idUtenteSessione']", $risposta)->item(0);
-                $supportoNode = $xpath->query("supporto/valore[@id_utente='$idUtenteSessione']", $risposta)->item(0);
+                $utilitaNode = $xpath->query("utilita_risposta/valore[@id_utente='$idUtenteSessione']", $risposta)->item(0);
+                $supportoNode = $xpath->query("supporto_risposta/valore[@id_utente='$idUtenteSessione']", $risposta)->item(0);
             
                 // Ottieni i valori di utilità e supporto o imposta "N/A" se non presenti
                 $utilitaValue = $utilitaNode ? $utilitaNode->nodeValue : "N/A";
@@ -469,8 +469,8 @@ if ($domande->length > 0) {
             foreach ($risposte as $risposta) {
                 $id_utente_risposta=$risposta->getAttribute('id_utente');
                 if($id_utente_risposta == $id_utente){
-                $utilitaNode = $xpath->query("utilita/valore[@id_utente='$idUtenteSessione']", $risposta)->item(0);
-                $supportoNode = $xpath->query("supporto/valore[@id_utente='$idUtenteSessione']", $risposta)->item(0);
+                $utilitaNode = $xpath->query("utilita_risposta/valore[@id_utente='$idUtenteSessione']", $risposta)->item(0);
+                $supportoNode = $xpath->query("supporto_risposta/valore[@id_utente='$idUtenteSessione']", $risposta)->item(0);
             
                 // Ottieni i valori di utilità e supporto o imposta "N/A" se non presenti
                 $utilitaValue = $utilitaNode ? $utilitaNode->nodeValue : "N/A";
@@ -505,8 +505,8 @@ if ($domande->length > 0) {
                 echo '</td>'; 
                 
             } else {
-                $utilitaNode = $xpath->query("utilita/valore[@id_utente='$idUtenteSessione']", $risposta)->item(0);
-                $supportoNode = $xpath->query("supporto/valore[@id_utente='$idUtenteSessione']", $risposta)->item(0);
+                $utilitaNode = $xpath->query("utilita_risposta/valore[@id_utente='$idUtenteSessione']", $risposta)->item(0);
+                $supportoNode = $xpath->query("supporto_risposta/valore[@id_utente='$idUtenteSessione']", $risposta)->item(0);
             
                 // Ottieni i valori di utilità e supporto o imposta "N/A" se non presenti
                 $utilitaValue = $utilitaNode ? $utilitaNode->nodeValue : "N/A";

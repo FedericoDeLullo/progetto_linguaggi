@@ -37,14 +37,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['vota'])) {
             $reputazioneUtente = $row['reputazione'];
 
             // Ottieni o crea i nodi "utilita" e "supporto" all'interno della risposta
-            $utilitaNode = $rispostaNode->getElementsByTagName("utilita")->item(0);
+            $utilitaNode = $rispostaNode->getElementsByTagName("utilita_risposta")->item(0);
             if (!$utilitaNode) {
-                $utilitaNode = $rispostaNode->appendChild($dom->createElement("utilita"));
+                $utilitaNode = $rispostaNode->appendChild($dom->createElement("utilita_risposta"));
             }
 
-            $supportoNode = $rispostaNode->getElementsByTagName("supporto")->item(0);
+            $supportoNode = $rispostaNode->getElementsByTagName("supporto_risposta")->item(0);
             if (!$supportoNode) {
-                $supportoNode = $rispostaNode->appendChild($dom->createElement("supporto"));
+                $supportoNode = $rispostaNode->appendChild($dom->createElement("supporto_risposta"));
             }
 
             // Aggiungi il nodo "valore" per "utilita"

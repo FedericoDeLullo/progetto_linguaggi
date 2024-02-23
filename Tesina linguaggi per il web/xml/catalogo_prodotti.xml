@@ -1,36 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalogo_prodotti xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="catalogo_prodotti.xsd">
   <prodotto>
-    <id_prodotto>1</id_prodotto>
-    <nome>Chiesa</nome>
-    <descrizione>segna te prego</descrizione>
-    <prezzo>34</prezzo>
-    <tipologia>magliette</tipologia>
-    
-  <immagine>../img/all blacks.png</immagine></prodotto>
+    <id_prodotto>3</id_prodotto>
+    <nome>dasdasd</nome>
+    <descrizione>asdas</descrizione>
+    <prezzo>0.01</prezzo>
+    <tipologia>pantaloncini</tipologia>
+    <immagine>../img/photo_5953891654257721224_y.jpg</immagine>
+  </prodotto>
   <prodotto>
-    <id_prodotto>2</id_prodotto>
-    <nome>Cambiaso</nome>
-    <descrizione>te prego</descrizione>
-    <prezzo>20</prezzo>
+    <id_prodotto>4</id_prodotto>
+    <nome>ciao ciao</nome>
+    <descrizione>dsfsdf</descrizione>
+    <prezzo>0.28</prezzo>
     <tipologia>magliette</tipologia>
-    <immagine>../img/rugby-removebg-preview.png</immagine>
+    <immagine>../img/photo_5953891654257721224_y.jpg</immagine>
     <domande>
-      <domanda id_prodotto="2" id_utente="6">
-        <autore>immobile@gmail.com</autore>
-        <testo>vabe fa niente</testo>
-        <id_domanda>65d0fd493bfd3</id_domanda>
-      </domanda>
+      
     </domande>
     <recensioni>
-      <recensione id_prodotto="2" id_utente="6">
-        <autore>immobile@gmail.com</autore>
-        <testo>gucci&#13;
-</testo>
-        <data>2024-02-17</data>
-        <ora>19:39:40</ora>
-        <id_recensione>65d0fd7138532</id_recensione>
+      <recensione id_prodotto="4" id_utente="2">
+        <autore>federico@gmail.com</autore>
+        <testo>recensione</testo>
+        <data>2024-02-23</data>
+        <ora>15:09:14</ora>
+        <id_recensione>65d8a70e3a517</id_recensione>
+      </recensione>
+      <recensione id_prodotto="4" id_utente="3">
+        <autore>danieleeeeeeeeee@gmail.com</autore>
+        <testo>sdfsdfsdf</testo>
+        <data>2024-02-23</data>
+        <ora>15:18:32</ora>
+        <id_recensione>65d8a93a90635</id_recensione>
       </recensione>
     </recensioni>
+  </prodotto>
+  <prodotto>
+    <id_prodotto>5</id_prodotto>
+    <nome>sdfsd</nome>
+    <descrizione>fsdfsdf</descrizione>
+    <prezzo>0.05</prezzo>
+    <tipologia>magliette</tipologia>
+    <immagine>../img/photo_5953891654257721224_y.jpg</immagine>
   </prodotto>
 </catalogo_prodotti>

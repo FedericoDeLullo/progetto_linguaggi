@@ -1,23 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <faq>
-    <entry id="1">
-        <user>
-            <userId>1</userId>
-        </user>
-        <question>Qual è il costo della spedizione?</question>
-        <answers>
-            <answer id="1" email="utente1@example.com">Il costo della spedizione dipende dalla destinazione e dal peso del pacco.</answer>
-            <answer id="2" email="utente2@example.com">Offriamo opzioni di spedizione standard e express con tariffe competitive.</answer>
-            <answer id="65b90b60e40b2" email="federico@gmail.com">5 euro</answer>
-</answers>
-    </entry>
+    
     <entry id="2">
         <user>
             <userId>3</userId>
         </user>
         <question>Come posso restituire un prodotto?</question>
-        <answers>
-            <answer id="3" email="utente3@example.com">Puoi richiedere la restituzione entro 30 giorni dalla data di acquisto. Contattaci per ottenere istruzioni dettagliate.</answer>
-        </answers>
+        <answers><answer id="65d8b21e0efcd">ffffffffsssssssssss</answer><answer id="65d8b221e9282">sdfffffffffffffffffff</answer><answer id="65d8b225181dd">sfffffffffffffffffffffffffffff</answer></answers>
     </entry>
-<entry id="65bb8156ecc58"><question>Quanto ci vuole per la spedizione?</question><answers><answer id="65bb8160be4e7" email="federico@gmail.com">Troppo</answer><answer id="65bfba165a4f8" email="fede@gmail.com">vcxz</answer></answers></entry><entry id="65bfd24c7af8c"><question>bello bello </question><answers><answer id="65bfd24c7afaa">ciao</answer></answers></entry><entry id="65bfd25db6ae7"><question>malemale</question><answers><answer id="65bfd25db6b08">ciao</answer></answers></entry><entry id="65cd5268c64cb"><question>cv</question><answers><answer id="65cd526db5f23">ccc</answer></answers></entry></faq>
+<entry id="65bb8156ecc58"><question>Quanto ci vuole per la spedizione?</question><answers><answer id="65bb8160be4e7" email="federico@gmail.com">Troppo</answer><answer id="65bfba165a4f8" email="fede@gmail.com">vcxz</answer></answers></entry><entry id="65bfd24c7af8c"><question>bello bello </question><answers><answer id="65bfd24c7afaa">ciao</answer></answers></entry><entry id="65bfd25db6ae7"><question>malemale</question><answers><answer id="65bfd25db6b08">ciao</answer></answers></entry><entry id="65cd5268c64cb"><question>cv</question><answers><answer id="65cd526db5f23">ccc</answer></answers></entry><entry id="65d8b2bfe124b"><question>ciao ciao ciao???</question></entry></faq>
