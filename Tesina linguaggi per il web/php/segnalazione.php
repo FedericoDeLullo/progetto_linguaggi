@@ -35,8 +35,7 @@
                             <input type="hidden" name="autoreDomanda" value="<?php echo $autoreDomanda; ?>">
                             <input type="hidden" name="nome" value="<?php echo $nome; ?>">
                             <input type="hidden" name="tipologia" value="<?php echo $tipologia; ?>">
-                            <label for="segnalazione">Testo Segnalazione Domanda:</label>
-                            <input class="input" name="segnalazione" id="segnalazione" rows="4" cols="50" required>
+                            <textarea style="width:500px; height:100px; resize:none; vertical-align:top;" class="input" name="segnalazione" placeholder="Testo Segnalazione Domanda..." required></textarea>
                             <br><br><br>
                             <button type="submit" name="report" class="btn">Invia Segnalazione</span></button>
                         </form>
@@ -62,8 +61,7 @@
                             <input type="hidden" name="autoreRisposta" value="<?php echo $autoreRisposta; ?>">
                             <input type="hidden" name="nome" value="<?php echo $nome; ?>">
                             <input type="hidden" name="tipologia" value="<?php echo $tipologia; ?>">
-                            <label for="segnalazione">Testo Segnalazione Risposta:</label>
-                            <input class="input" name="segnalazione" id="segnalazione" rows="4" cols="50" required>
+                            <textarea style="width:500px; height:100px; resize:none; vertical-align:top;" class="input" name="segnalazione" placeholder="Testo Segnalazione Risposta..." required></textarea>
                             <br><br><br>
                             <button type="submit" name="report" class="btn">Invia Segnalazione</span></button>
                         </form>
@@ -87,8 +85,7 @@
                             <input type="hidden" name="id_recensione" value="<?php echo $id_recensione; ?>">
                             <input type="hidden" name="nome" value="<?php echo $nome; ?>">
                             <input type="hidden" name="tipologia" value="<?php echo $tipologia; ?>">
-                            <label for="segnalazione">Testo Segnalazione Recensione:</label>
-                            <input class="input" name="segnalazione" id="segnalazione" rows="4" cols="50" required>
+                            <textarea style="width:500px; height:100px; resize:none; vertical-align:top;" class="input" name="segnalazione" placeholder="Testo Segnalazione Recensione..." required></textarea>
                             <br><br><br>
                             <button type="submit" name="report" class="btn">Invia Segnalazione</span></button>
                         </form>

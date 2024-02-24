@@ -28,7 +28,7 @@
             <tr>
                 <td colspan="2">
                     <form class="form" action="../res/rimuovi_prodotto.php" method="post">
-                        <label class="nome" for="nome">Nome Prodotto:</label>
+                        <label class="nome" for="nome">Inserire il Nome del Prodotto:</label>
                         <input class="input" type="text" name="nome" required>
                         <br><br><br>
                         <input class="btn" type="submit" value="Rimuovi Prodotto">

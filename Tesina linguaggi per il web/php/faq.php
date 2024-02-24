@@ -30,7 +30,7 @@
                     $dom->load($xmlFile);
                     $entries = $dom->getElementsByTagName('entry');
                 ?>
-                <table>
+                <table style="width:80vw;">
                     <thead>
                         <tr>
                             <th>Domanda</th>
@@ -67,7 +67,7 @@
                 }
                 ?>
             <?php
-            } elseif($gestore == 1 || $admin == 1){
+            } else{
             ?>
                 <?php
                 if (isset($_SESSION['id'])) {
@@ -79,14 +79,14 @@
                 $faq_id = uniqid();
                 ?>
                 <h1 class="titolo">Inserisci una nuova FAQ</h1>
-                <table class="up">
+                <table style="width:80vw;" class="up">
                     <tr>
                         <th>Invia una domanda FAQ</th>
                     </tr>
                     <tr>
                         <td>
                             <form action="processa_domanda.php" method="post">
-                                <input class="input" id="input" name="faq_question" placeholder="Inserisci la tua domanda" required>
+                                <textarea style="width:500px; height:100px; resize:none; vertical-align:top;" class="input" name="faq_question" placeholder="Inserisci la tua domanda..."required></textarea><br>
                                 <input type="hidden" name="faq_id" value="<?php echo $faq_id; ?>">
                                 <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
                                 <button class="btn" type="submit">Invia Domanda FAQ</button>
@@ -105,7 +105,7 @@
                     $dom->load($xmlFile);
                     $entries = $dom->getElementsByTagName('entry');
                 ?>
-                <table>
+                <table style="width:80vw;">
                     <thead>
                         <tr>
                             <th>Elimina</th>
@@ -128,7 +128,7 @@
                                 <p><strong><?php echo $questions[0]->nodeValue; ?></strong></p>
                                 <form action="processa_modifica.php" method="post">
                                     <input type='hidden' name='faq_id' value='<?php echo $id; ?>'>
-                                    <input class="input" id="input" name="answer" placeholder="Modifica domanda" required>
+                                    <textarea style="width:500px; height:100px; resize:none; vertical-align:top;" class="input" name="answer" placeholder="Modifica domanda..."required></textarea><br>
                                     <button class="btn" type="submit">Modifica</button>
                                 </form>
                             </td>
@@ -142,7 +142,7 @@
                                 ?>
                                 <form action="processa_risposta.php" method="post">
                                     <input type='hidden' name='faq_id' value='<?php echo $id; ?>'>
-                                    <input class="input" id="input" name="answer" placeholder="Modifica risposta" required>
+                                    <textarea style="width:500px; height:100px; resize:none; vertical-align:top;" class="input" name="answer" placeholder="Modifica risposta..."required></textarea><br>
                                     <input type='hidden' name='email' value='<?php echo $email; ?>'>
                                     <button class="btn" type="submit">Modifica</button>
                                 </form>
@@ -157,54 +157,9 @@
                 } else {
                     echo "Errore: Il file XML delle FAQ non esiste.";
                 }
-                ?>
-            <?php } else { ?>
-                <h1 class="titolo">Tutte le FAQ</h1>
-                <?php
-                $xmlFile = '../xml/faq.xml';
-                if (file_exists($xmlFile)) {
-                    $dom = new DOMDocument();
-                    $dom->load($xmlFile);
-                    $entries = $dom->getElementsByTagName('entry');
-                ?>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Domanda</th>
-                            <th>Risposte</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        foreach ($entries as $entry) {
-                            $id = $entry->getAttribute('id');
-                            $questions = $entry->getElementsByTagName('question');
-                            $answers = $entry->getElementsByTagName('answer');
-                        ?>
-                        <tr>
-                            <td><strong><?php echo $questions[0]->nodeValue; ?></strong></td>
-                            <td>
-                                <?php
-                                foreach ($answers as $answer) {
-                                ?>
-                                <p><strong><?php echo $answer->nodeValue; ?></strong></p>
-                                <?php
-                                }
-                                ?>
-                            </td>
-                        </tr>
-                        <?php
-                        }
-                        ?>
-                    </tbody>
-                </table>
-                <?php
-                } else {
-                    echo "Errore: Il file XML delle FAQ non esiste.";
-                }
-                ?>
-            <?php } 
-        } else { 
+            } 
+        }
+        else { 
         ?>
             <h1 class="titolo">Tutte le FAQ</h1>
             <?php
@@ -214,7 +169,7 @@
                 $dom->load($xmlFile);
                 $entries = $dom->getElementsByTagName('entry');
             ?>
-            <table>
+            <table style="width:80vw;">
                 <thead>
                     <tr>
                         <th>Domanda</th>

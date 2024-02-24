@@ -154,7 +154,8 @@ if ($recensioni->length > 0) {
             echo '<label class="nome" for="votoSupporto">Supporto (da 1 a 3): </label>';
             echo '<input class="input" type="number" name="votoSupporto" min="1" max="3" required/>';
 
-            echo '<button class="done" type="submit" name="vota"><span title="Invia" class="material-symbols-outlined">done_outline</span></button>';
+            echo '<button class="done" type="submit" name="vota">CONFERMA<span id="done" title="Invia" class="material-symbols-outlined">done_outline</span></button>';
+
             echo '</form>';
         }
 
@@ -291,9 +292,9 @@ elseif($utente = 1){
     
                 // Pulsanti per il voto di supporto
                 echo '<label class="nome" for="votoSupporto">Supporto (da 1 a 3): </label>';
-                echo '<input class="input" type="number" name="votoSupporto" min="1" max="3" required/>';
+                echo '<input class="input" type="number" name="votoSupporto" min="1" max="3" required/><br>';
     
-                echo '<button class="done" type="submit" name="vota"><span title="Invia" class="material-symbols-outlined">done_outline</span></button>';
+                echo '<button class="done" type="submit" name="vota">CONFERMA<span id="done" title="Invia" class="material-symbols-outlined">done_outline</span></button>';
                 echo '</form>';
             }
     

@@ -162,9 +162,7 @@ if ($domande->length > 0) {
         echo '<label class="titolo" for="votoSupporto">Supporto (da 1 a 3): </label>';
         echo '<input class="input" type="number" name="votoSupporto" min="1" max="3" required/>';
     
-        echo '<button class="done" type="submit" name="vota"><span id="done" title="Invia" class="material-symbols-outlined">
-        done_outline
-        </span></button>';
+        echo '<button class="done" type="submit" name="vota">CONFERMA<span id="done" title="Invia" class="material-symbols-outlined">done_outline</span></button>';
         echo '</form>';
    
         echo '</td>';
@@ -177,7 +175,7 @@ if ($domande->length > 0) {
         echo '<input type="hidden" name="nome" value="' . $nome . '"/>';            
         echo '<input type="hidden" name="autore" value="' . $email . '"/>';
         echo '<input type="hidden" name="id_domanda" value="' . $id_domanda . '"/>';
-        echo '<input class="input" name="risposta" rows="2" cols="30" placeholder="Inserisci la risposta" required>';
+        echo '<textarea style="height:50px; resize:none; vertical-align:top;" class="input" name="risposta" placeholder="Inserisci la risposta..." required></textarea>';
         echo '<button class="btn" type="submit">Invia risposta</button>';
         
 
@@ -285,9 +283,7 @@ if ($domande->length > 0) {
                 echo '<label class="titolo" for="votoSupporto">Supporto (da 1 a 3): </label>';
                 echo '<input class="input" type="number" name="votoSupporto" min="1" max="3" required/>';
             
-                echo '<button class="done" type="submit" name="vota"><span id="done" title="Invia" class="material-symbols-outlined">
-                done_outline
-                </span></button>';
+                echo '<button class="done" type="submit" name="vota">CONFERMA<span id="done" title="Invia" class="material-symbols-outlined">done_outline</span></button>';
                 echo '</form>';
                    }
                 echo '</div>';
@@ -438,9 +434,7 @@ if ($domande->length > 0) {
         echo '<label class="titolo" for="votoSupporto">Supporto (da 1 a 3): </label>';
         echo '<input class="input" type="number" name="votoSupporto" min="1" max="3" required/>';
     
-        echo '<button class="done" type="submit" name="vota"><span id="done" title="Invia" class="material-symbols-outlined">
-        done_outline
-        </span></button>';
+        echo '<button class="done" type="submit" name="vota">CONFERMA<span id="done" title="Invia" class="material-symbols-outlined">done_outline</span></button>';
         echo '</form>';
    
         echo '</td>';
@@ -453,7 +447,7 @@ if ($domande->length > 0) {
         echo '<input type="hidden" name="nome" value="' . $nome . '"/>';            
         echo '<input type="hidden" name="autore" value="' . $email . '"/>';
         echo '<input type="hidden" name="id_domanda" value="' . $id_domanda . '"/>';
-        echo '<input class="input" name="risposta" rows="2" cols="30" placeholder="Inserisci la risposta" required>';
+        echo '<textarea style="height:50px; resize:none; vertical-align:top;" class="input" name="risposta" placeholder="Inserisci la risposta..." required></textarea>';
         echo '<button class="btn" type="submit">Invia risposta</button>';
         
 
@@ -570,9 +564,7 @@ if ($domande->length > 0) {
                 echo '<label class="titolo" for="votoSupporto">Supporto (da 1 a 3): </label>';
                 echo '<input class="input" type="number" name="votoSupporto" min="1" max="3" required/>';
             
-                echo '<button class="done" type="submit" name="vota"><span id="done" title="Invia" class="material-symbols-outlined">
-                done_outline
-                </span></button>';
+                echo '<button class="done" type="submit" name="vota">CONFERMA<span id="done" title="Invia" class="material-symbols-outlined">done_outline</span></button>';
                 echo '</form>';
                    }
                 echo '</div>';

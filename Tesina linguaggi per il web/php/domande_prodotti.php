@@ -36,8 +36,8 @@ if (isset($_REQUEST['id_prodotto'])) {
         <input type="hidden" name="autore" value="<?php echo $email_utente; ?>">
         <input type="hidden" name="nome" value="<?php echo $nome_prodotto; ?>">
 
-        <textarea class="input" name="domanda" rows="4" cols="50" required></textarea>
-            <input class="btn" type="submit" value="Invia Domanda">
+        <textarea style="width:300px; height:100px; resize:none; vertical-align:top;" class="input" name="domanda" placeholder="Scrivi una domanda..." required></textarea>
+        <input class="btn" type="submit" value="Invia Domanda">
     </form>
     </td>
         </tr>

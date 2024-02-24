@@ -36,15 +36,14 @@
             <tr>
                 <td colspan="2">
                     <form class="form" action="../res/aggiungi_prodotto.php" method="post" enctype="multipart/form-data">
-                        <label class="nome" for="nome">Nome Prodotto:</label>
+                        <label class="nome" for="nome">Nome:</label>
                         <input class="input" type="text" name="nome" required><br>
-                        <label class="nome" for="descrizione">Descrizione Prodotto:</label>
-                        <input class="input" name="descrizione" required><br>
-                        <label class="nome" for="prezzo">Prezzo Prodotto:</label>
-                        <input class="input" type="number" name="prezzo" step="0.01" min="0" required><br>
-                        <label class="nome" for="immagine">Immagine Prodotto:</label>
+                        <textarea style="width:500px; height:100px; resize:none; vertical-align:top;" class="input" name="descrizione" placeholder="Inserisci la DESCRIZIONE..."required></textarea><br>
+                        <label class="nome" for="prezzo">Prezzo:</label>
+                        <input class="input" type="number" name="prezzo" min="1" required><br>
+                        <label class="nome" for="immagine">Immagine:</label>
                         <input class="input" type="file" name="immagine" accept="image/*" required><br>
-                        <label class="nome" for="tipologia">Tipologia Prodotto</label>
+                        <label class="nome" for="tipologia">Tipologia:</label>
                         <select select id="tipologia" name="tipologia">
                             <option value="magliette">Maglietta</option>
                             <option value="pantaloncini">Pantaloncino</option>

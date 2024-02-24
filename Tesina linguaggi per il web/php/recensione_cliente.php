@@ -39,7 +39,7 @@
                     <input type="hidden" name="autore" value="<?php echo $email_utente; ?>">
                     <input type="hidden" name="orario_recensione" value="<?php echo date('H:i:s'); ?>">
                     <input type="hidden" name="data_recensione" value="<?php echo date('Y-m-d'); ?>">
-                    <textarea class="input" name="recensione" rows="4" cols="50" required></textarea>
+                    <textarea style="width:300px; height:100px; resize:none; vertical-align:top;" class="input" name="recensione" placeholder="Scrivi una recensione..." required></textarea>
                     <br><br><br>
                     <input class="btn" type="submit" value="Lascia Recensione">
                 </form>

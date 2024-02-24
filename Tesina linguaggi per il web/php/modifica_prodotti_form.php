@@ -64,19 +64,19 @@ if (isset($_GET['id_prodotto'])) {
                 <td>
                     <label for="nome">Nome:</label></td>
                 <td>
-                    <input style="min-width:300px;" class="input" type="text" name="nome" value="<?php echo $nome; ?>" required></td>
+                    <input class="input" type="text" name="nome" value="<?php echo $nome; ?>" required></td>
             </tr>
             <tr>
                 <td><label for="descrizione">Descrizione:</label></td>
-                <td><textarea style="min-width:300px; min-height:100px;" class="input" name="descrizione" required><?php echo $descrizione; ?></textarea></td>
+                <td><textarea style="width:250px; height:100px; resize:none;" class="input" name="descrizione" required><?php echo $descrizione; ?></textarea></td>
             </tr>
             <tr>
                 <td><label for="prezzo">Prezzo:</label></td>
-                <td><input class="input" type="number" name="prezzo" value="<?php echo $prezzo; ?>" min="0" required></td>
+                <td><input class="input" type="number" name="prezzo" value="<?php echo $prezzo; ?>" min="1" required></td>
             </tr>
             <tr>
                <td><label for="immagine">Immagine:</label></td>
-                <td><input type="file" name="immagine" accept="image/*" ></td>
+                <td><input type="file" class="input" name="immagine" accept="image/*" ></td>
                 <input type="hidden" name="immagine_esistente" value="<?php echo $immagine; ?>">
 
            </tr>
