@@ -1,23 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <requests xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="requests.xsd">
-  <request status="Rifiutato">
-    <email>federicodelullo@gmail.com</email>
-    <importo>52</importo>
-  </request>
   <request status="Approvato">
-    <email>federicodelullo@gmail.com</email>
-    <importo>5396</importo>
-  </request>
-  <request status="Approvato">
-    <email>immobile@gmail.com</email>
-    <importo>30</importo>
-  </request>
-  <request status="Rifiutato">
-    <email>immobile@gmail.com</email>
+    <email>federicodelullo84@gmail.com</email>
     <importo>50</importo>
   </request>
-  <request status="Approvato">
-    <email>immobile@gmail.com</email>
-    <importo>20</importo>
+  <request status="Rifiutato">
+    <email>lorenzo@gmail.com</email>
+    <importo>200</importo>
   </request>
 </requests>

@@ -1,2 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<segnalazioni xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="segnalazioni.xsd"><segnalazione status="Approvata" id_domanda="65d8a70491cfb" id_prodotto="4"><testo_domanda>????</testo_domanda><autoreDomanda>federico@gmail.com</autoreDomanda><testo_segnalazione_dom>non va bene</testo_segnalazione_dom></segnalazione><segnalazione status="Rifiutata" id_domanda="65d8a70491cfb" id_prodotto="4"><testo_domanda>????</testo_domanda><autoreDomanda>federico@gmail.com</autoreDomanda><testo_segnalazione_dom>sadasd</testo_segnalazione_dom></segnalazione><segnalazione status="Approvata" id_domanda="65d8a70491cfb" id_prodotto="4"><testo_domanda>????</testo_domanda><autoreDomanda>federico@gmail.com</autoreDomanda><testo_segnalazione_dom>asdasdsa</testo_segnalazione_dom></segnalazione><segnalazione status="Approvata" id_domanda="65d8a70491cfb" id_prodotto="4"><testo_domanda>????</testo_domanda><autoreDomanda>federico@gmail.com</autoreDomanda><testo_segnalazione_dom>fsfsfd</testo_segnalazione_dom></segnalazione><segnalazione status="Rifiutata" id_prodotto="4" id_recensione="65d8a70e3a517"><testo>recensione</testo><autore>federico@gmail.com</autore><testo_segnalazione_rec>sdfsdfsd</testo_segnalazione_rec></segnalazione><segnalazione status="Approvata" id_domanda="65d9cd84084ae" id_prodotto="4"><testo_domanda>hhhhh</testo_domanda><autoreDomanda>federicodelullo@gmail.com</autoreDomanda><testo_segnalazione_dom>52</testo_segnalazione_dom></segnalazione></segnalazioni>
+<segnalazioni>
+  <segnalazione status="Rifiutata" id_domanda="65dc73d48686a" id_prodotto="5">
+    <testo_domanda>Che taglie sono disponibili?</testo_domanda>
+    <autoreDomanda>federicodelullo84@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>Brutto</testo_segnalazione_dom>
+  </segnalazione>
+</segnalazioni>

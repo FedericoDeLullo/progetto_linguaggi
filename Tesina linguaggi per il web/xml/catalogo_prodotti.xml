@@ -1,107 +1,165 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalogo_prodotti xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="catalogo_prodotti.xsd">
   <prodotto>
-    <id_prodotto>3</id_prodotto>
-    <nome>dasdasd</nome>
-    <descrizione>asdas</descrizione>
-    <prezzo>0.01</prezzo>
+    <id_prodotto>1</id_prodotto>
+    <nome>Maglia Rugby Italia 2022-2023</nome>
+    <descrizione>Una maglia per lottare e giocarsi la partita fino all'ultima meta, anche sul campo avversario. La nuova maglia Italia Rugby 2022/23 presenta una texture embossata sul fronte composta dalla forma dell'elmo di un gladiatore.&#13;
+&#13;
+L'embossatura sul retro in basso invece rappresenta il Colosseo stilizzato.&#13;
+&#13;
+Sulle maniche spicca il richiamo al tricolore e l'ispirazione si rifa a una maglia storica 95-97. Il retrocollo reca la scritta ITALIA, sempre in emboss, e sotto il tricolore. Il tessuto Eco garantisce massima traspirabilità.</descrizione>
+    <prezzo>120</prezzo>
+    <tipologia>magliette</tipologia>
+    <immagine>../img/rugby-removebg-preview.png</immagine>
+  </prodotto>
+  <prodotto>
+    <id_prodotto>2</id_prodotto>
+    <nome>Pantaloncini Rugby Italia 2022-2023</nome>
+    <descrizione>Pantaloncini Rugby Italia Gara FIR&#13;
+Versione Away in colore BLU&#13;
+Materiale tecnico ad alta resistente ed asciugatura rapida&#13;
+Grip interno in silicone, Spandex tra le gambe per una libertà di movimento totale</descrizione>
+    <prezzo>60</prezzo>
     <tipologia>pantaloncini</tipologia>
-    <immagine>../img/photo_5953891654257721224_y.jpg</immagine>
+    <immagine>../img/download-removebg-preview.png</immagine>
+  </prodotto>
+  <prodotto>
+    <id_prodotto>3</id_prodotto>
+    <nome>Calzettoni Rugby Italia 2022-2023</nome>
+    <descrizione>Pensati per giocare ad altissimo livello sul campo da rugby, questi calzettoni adidas nei colori dell' Italia ti aiutano a mantenere la stabilità durante gli sprint e i movimenti laterali grazie al filato antiscivolo sul plantare. La tecnologia a compressione Techfit garantisce un supporto ottimale dal primo all'ultimo minuto di gioco.</descrizione>
+    <prezzo>15</prezzo>
+    <tipologia>calzettoni</tipologia>
+    <immagine>../img/download__1_-removebg-preview.png</immagine>
   </prodotto>
   <prodotto>
     <id_prodotto>4</id_prodotto>
-    <nome>ciao ciao</nome>
-    <descrizione>dsfsdf</descrizione>
-    <prezzo>1</prezzo>
-    <tipologia>magliette</tipologia>
-    <immagine>../img/photo_5953891654257721224_y.jpg</immagine>
+    <nome>Calzettoni Rugby All-Blacks 2022-2023</nome>
+    <descrizione>Pensati per giocare ad altissimo livello sul campo da rugby, questi calzettoni adidas nei colori dei mitici All Blacks ti aiutano a mantenere la stabilità durante gli sprint e i movimenti laterali grazie al filato antiscivolo sul plantare. La tecnologia a compressione Techfit garantisce un supporto ottimale dal primo all'ultimo minuto di gioco.</descrizione>
+    <prezzo>20</prezzo>
+    <tipologia>calzettoni</tipologia>
+    <immagine>../img/calzettoni_all_blacks-removebg-preview.png</immagine>
     <domande>
-      <domanda id_prodotto="4" id_utente="1">
-        <autore>lorenzofrancescotti@gmail.com</autore>
-        <testo>bye bye&#13;
-&#13;
-:P&#13;
-</testo>
-        <id_domanda>65da09407952c</id_domanda>
-        <risposte>
-          <risposta id_prodotto="4" id_utente="2">
-            <id_risposta>65da151bbadc5</id_risposta>
-            <id_domanda>65da09407952c</id_domanda>
-            <autore>federico@gmail.com</autore>
-            <data>2024-02-24</data>
-            <ora>17:11:07</ora>
-            <testo>wefgh</testo>
-            <utilita_risposta>
-              <valore id_utente="6" reputazione_Vot="1">3</valore>
-            </utilita_risposta>
-            <supporto_risposta>
-              <valore id_utente="6" reputazione_Vot="1">2</valore>
-            </supporto_risposta>
-          </risposta>
-          <risposta id_prodotto="4" id_utente="6">
-            <id_risposta>65da1f1b35c0f</id_risposta>
-            <id_domanda>65da09407952c</id_domanda>
-            <autore>immobile@gmail.com</autore>
-            <data>2024-02-24</data>
-            <ora>17:53:47</ora>
-            <testo>qwsdfg</testo>
-          </risposta>
-        </risposte>
+      <domanda id_prodotto="4" id_utente="3">
+        <autore>federicodelullo84@gmail.com</autore>
+        <testo>Che taglie sono disponibili?</testo>
+        <id_domanda>65dc740606e63</id_domanda>
         <utilita>
-          <valore id_utente="2" reputazione_Vot="8">1</valore>
-          <valore id_utente="6" reputazione_Vot="1">1</valore>
+          <valore id_utente="4" reputazione_Vot="1">5</valore>
         </utilita>
         <supporto>
-          <valore id_utente="2" reputazione_Vot="8">1</valore>
-          <valore id_utente="6" reputazione_Vot="1">1</valore>
+          <valore id_utente="4" reputazione_Vot="1">3</valore>
         </supporto>
       </domanda>
+      <domanda id_prodotto="4" id_utente="4">
+        <autore>lorenzo@gmail.com</autore>
+        <testo>Sono disponibili anche altri colori?</testo>
+        <id_domanda>65dc7496cb719</id_domanda>
+      </domanda>
     </domande>
-    <recensioni>
-      <recensione id_prodotto="4" id_utente="2">
-        <autore>federico@gmail.com</autore>
-        <testo>recensione</testo>
-        <data>2024-02-23</data>
-        <ora>15:09:14</ora>
-        <id_recensione>65d8a70e3a517</id_recensione>
-        <utilita>
-          <valore id_utente="1" reputazione_Vot="11">4</valore>
-        </utilita>
-        <supporto>
-          <valore id_utente="1" reputazione_Vot="11">2</valore>
-        </supporto>
-      </recensione>
-      <recensione id_prodotto="4" id_utente="3">
-        <autore>danieleeeeeeeeee@gmail.com</autore>
-        <testo>sdfsdfsdf</testo>
-        <data>2024-02-23</data>
-        <ora>15:18:32</ora>
-        <id_recensione>65d8a93a90635</id_recensione>
-        <utilita>
-          <valore id_utente="1" reputazione_Vot="11">5</valore>
-          <valore id_utente="2" reputazione_Vot="8">1</valore>
-        </utilita>
-        <supporto>
-          <valore id_utente="1" reputazione_Vot="11">3</valore>
-          <valore id_utente="2" reputazione_Vot="8">1</valore>
-        </supporto>
-      </recensione>
-    </recensioni>
   </prodotto>
   <prodotto>
     <id_prodotto>5</id_prodotto>
-    <nome>sdfsd</nome>
-    <descrizione>fsdfsdf</descrizione>
-    <prezzo>55</prezzo>
+    <nome>Maglia Rugby All-Blacks 2022-2023</nome>
+    <descrizione>Le prime uniformi della nazionale neozelandese di rugby consistevano in una maglia nera con una felce argentata e calzoni bianchi. Dal loro tour del 1905 cominciarono a presentarsi in tenuta tutta nera, eccezion fatta per la felce argentata, e fu da allora che nacque il soprannome "All Blacks".</descrizione>
+    <prezzo>130</prezzo>
     <tipologia>magliette</tipologia>
-    <immagine>../img/photo_5953891654257721224_y.jpg</immagine>
+    <immagine>../img/all blacks.png</immagine>
+    <domande>
+      <domanda id_prodotto="5" id_utente="3">
+        <autore>federicodelullo84@gmail.com</autore>
+        <testo>Che taglie sono disponibili?</testo>
+        <id_domanda>65dc73d48686a</id_domanda>
+        <utilita>
+          <valore id_utente="4" reputazione_Vot="1">3</valore>
+          <valore id_utente="2" reputazione_Vot="11">5</valore>
+        </utilita>
+        <supporto>
+          <valore id_utente="4" reputazione_Vot="1">3</valore>
+          <valore id_utente="2" reputazione_Vot="11">3</valore>
+        </supporto>
+        <risposte>
+          <risposta id_prodotto="5" id_utente="2">
+            <id_risposta>65dc74e9afaae</id_risposta>
+            <id_domanda>65dc73d48686a</id_domanda>
+            <autore>federico@gmail.com</autore>
+            <data>2024-02-26</data>
+            <ora>12:24:25</ora>
+            <testo>XS, S, M, L, XL, XXL</testo>
+          </risposta>
+        </risposte>
+      </domanda>
+      <domanda id_prodotto="5" id_utente="4">
+        <autore>lorenzo@gmail.com</autore>
+        <testo>Sono disponibili anche altri colori?</testo>
+        <id_domanda>65dc747eb9ce2</id_domanda>
+        <risposte>
+          <risposta id_prodotto="5" id_utente="2">
+            <id_risposta>65dc751159d67</id_risposta>
+            <id_domanda>65dc747eb9ce2</id_domanda>
+            <autore>federico@gmail.com</autore>
+            <data>2024-02-26</data>
+            <ora>12:25:05</ora>
+            <testo>Sono disponibili alcune magliette delle stagioni passate.</testo>
+          </risposta>
+        </risposte>
+        <utilita>
+          <valore id_utente="2" reputazione_Vot="11">2</valore>
+        </utilita>
+        <supporto>
+          <valore id_utente="2" reputazione_Vot="11">1</valore>
+        </supporto>
+      </domanda>
+    </domande>
   </prodotto>
   <prodotto>
     <id_prodotto>6</id_prodotto>
-    <nome>ggg</nome>
-    <descrizione>ff</descrizione>
-    <prezzo>4</prezzo>
-    <tipologia>magliette</tipologia>
+    <nome>Pantaloncini Rugby All-Blacks 2022-2023</nome>
+    <descrizione>Si può sempre migliorare. Creati per le sessioni più intense in palestra, questi short da rugby adidas fanno parte della linea di allenamento degli All Blacks. Morbido e leggero, il tessuto interlock assicura una libertà di movimento totale senza distrazioni, mentre il taglio al ginocchio offre una copertura ottimale ripetizione dopo ripetizione. La tecnologia antiumidità AEROREADY ti aiuta a mantenere la pelle asciutta fino al rientro negli spogliatoi.&#13;
+</descrizione>
+    <prezzo>70</prezzo>
+    <tipologia>pantaloncini</tipologia>
+    <immagine>../img/Pantaloncini-Short-All-Blacks-Pantaloncino-All-Blacks-l-removebg-preview.png</immagine>
+    <domande>
+      <domanda id_prodotto="6" id_utente="3">
+        <autore>federicodelullo84@gmail.com</autore>
+        <testo>Che taglie sono disponibili?</testo>
+        <id_domanda>65dc73fe0b20c</id_domanda>
+        <utilita>
+          <valore id_utente="4" reputazione_Vot="1">1</valore>
+        </utilita>
+        <supporto>
+          <valore id_utente="4" reputazione_Vot="1">3</valore>
+        </supporto>
+      </domanda>
+      <domanda id_prodotto="6" id_utente="4">
+        <autore>lorenzo@gmail.com</autore>
+        <testo>Sono disponibili anche altri colori?</testo>
+        <id_domanda>65dc748f5d10a</id_domanda>
+      </domanda>
+    </domande>
+  </prodotto>
+  <prodotto>
+    <id_prodotto>7</id_prodotto>
+    <nome>Pantaloncini Rugby Australia 2022-2023</nome>
+    <descrizione>Questi pantaloncini multifunzionali sono estremamente comodi! Sono dotati di un inserto in rete nella parte posteriore per una migliore ventilazione. Le due tasche laterali (abbastanza grandi per le palline da tennis) sono chiuse da una zip. I pantaloncini hanno anche una coulisse in vita.</descrizione>
+    <prezzo>40</prezzo>
+    <tipologia>pantaloncini</tipologia>
     <immagine>../img/australia_pantaloncini-removebg-preview.png</immagine>
+  </prodotto>
+  <prodotto>
+    <id_prodotto>8</id_prodotto>
+    <nome>Maglia Rugby Australia 2022-2023</nome>
+    <descrizione>Le prime uniformi della nazionale australiana di rugby consistevano in una maglia nera con una felce argentata e calzoni bianchi. Dal loro tour del 1905 cominciarono a presentarsi in tenuta tutta nera, eccezion fatta per la felce dorata.</descrizione>
+    <prezzo>90</prezzo>
+    <tipologia>magliette</tipologia>
+    <immagine>../img/australia-removebg-preview.png</immagine>
+  </prodotto>
+  <prodotto>
+    <id_prodotto>9</id_prodotto>
+    <nome>Calzettoni Rugby Australia 2022-2023</nome>
+    <descrizione>Pensati per giocare ad altissimo livello sul campo da rugby, questi calzettoni adidas nei colori dell' Australia ti aiutano a mantenere la stabilità durante gli sprint e i movimenti laterali grazie al filato antiscivolo sul plantare. La tecnologia a compressione Techfit garantisce un supporto ottimale dal primo all'ultimo minuto di gioco.</descrizione>
+    <prezzo>10</prezzo>
+    <tipologia>calzettoni</tipologia>
+    <immagine>../img/calzettoni_australiani-removebg-preview.png</immagine>
   </prodotto>
 </catalogo_prodotti>

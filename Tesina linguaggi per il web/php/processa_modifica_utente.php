@@ -65,6 +65,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
  // Salva il documento XML aggiornato
  $dom->save('../xml/catalogo_prodotti.xml');
  }
+ 
+ $dom1 = new DOMDocument;
+ $dom1->load('../xml/requests.xml');
+ 
+ // Cerca tutti gli elementi <autore> che sono uguali a $email_vecchia
+ $xpath1 = new DOMXPath($dom1);
+ $emailsDaAggiornare = $xpath1->query("//request/email[text()='$email_vecchia']");
+ if($emailsDaAggiornare !== 0){
+ // Aggiorna gli autori con il nuovo valore $email
+ foreach ($emailsDaAggiornare as $emailDaAggiornare) {
+     $emailDaAggiornare->nodeValue = $email;
+ }
+ 
+ // Salva il documento XML aggiornato
+ $dom1->save('../xml/requests.xml');
+ }
+
+
+
+ $dom2 = new DOMDocument;
+ $dom2->load('../xml/segnalazioni.xml');
+ 
+ // Cerca tutti gli elementi <autore> che sono uguali a $email_vecchia
+ $xpath2 = new DOMXPath($dom2);
+ $domandeDaAggiornare = $xpath2->query("//segnalazione/autoreDomanda[text()='$email_vecchia']");
+ if($domandeDaAggiornare !== 0){
+ // Aggiorna gli autori con il nuovo valore $email
+ foreach ($domandeDaAggiornare as $domandaDaAggiornare) {
+     $domandaDaAggiornare->nodeValue = $email;
+ }
+ 
+ // Salva il documento XML aggiornato
+ $dom2->save('../xml/segnalazioni.xml');
+ }
     if ($stmt_aggiornamento->execute()) {
         // Aggiornamento dei dati avvenuto con successo
         header("Location: gestione_utenti.php");
