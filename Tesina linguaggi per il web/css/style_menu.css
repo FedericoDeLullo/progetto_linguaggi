@@ -44,15 +44,6 @@ table {
     border-collapse: collapse;
 }
 
-td.tre_bottoni {
-    padding: 50px;
-    text-align: center;
-    vertical-align: middle;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .due_bottoni {
     padding: 209px;
     justify-content: center;

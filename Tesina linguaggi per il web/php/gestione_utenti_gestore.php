@@ -31,19 +31,24 @@ foreach ($requests as $request) {
     ?>
 
 <div class="cont">
-<h1 class="titolo">PROFILI CLIENTI</h1>
+<h1 class="titolo">PROFILI UTENTI</h1>
 
 <?php
 // Include il file di connessione al database
 require_once('../res/connection.php');
 // Query per ottenere gli utenti
-$sql = "SELECT id, nome, cognome, crediti,email, reputazione FROM utenti WHERE utente = 1";
+$sql = "SELECT id, nome, cognome, crediti,email, reputazione, ammin, gestore FROM utenti ORDER BY
+  CASE 
+    WHEN ammin = 1 THEN 1
+    WHEN gestore = 1 THEN 2
+    ELSE 3
+  END";
 $result = $connessione->query($sql);
 
 // Stampa la tabella degli utenti
 echo '<table border="1">';
 echo '<tr>';
-echo '<th>ID</th>';
+echo '<th>Ruolo</th>';
 echo '<th>Nome</th>';
 echo '<th>Cognome</th>';
 echo '<th>email</th>';
@@ -53,8 +58,16 @@ echo '</tr>';
 
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
+        $ruolo = '';
+        if ($row['ammin'] == 1) {
+            $ruolo = 'Admin';
+        } elseif ($row['gestore'] == 1) {
+            $ruolo = 'Gestore';
+        } else {
+            $ruolo = 'Cliente';
+        }
         echo '<tr>';
-        echo '<td>' . $row['id'] . '</td>';
+        echo '<td><strong>' . $ruolo . '</strong></td>';
         echo '<td>' . $row['nome'] . '</td>';
         echo '<td>' . $row['cognome'] . '</td>';
         echo '<td>' . $row['email'] . '</td>';

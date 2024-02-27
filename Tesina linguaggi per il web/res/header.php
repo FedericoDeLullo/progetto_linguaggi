@@ -204,8 +204,8 @@ $utente = $_SESSION['utente'];
                 </div>
                 <div class="header_menu_item">
                 <a href="../php/gestione_utenti_gestore.php" class="stile">
-                    <div class="header_menu_link" title="Profili Clienti">
-                        <span class="material-symbols-outlined">group</span>PROFILI CLIENTI
+                    <div class="header_menu_link" title="Profili Utenti">
+                        <span class="material-symbols-outlined">group</span>PROFILI UTENTI
                     </div>
                 </a>
             </div>
@@ -252,14 +252,14 @@ $utente = $_SESSION['utente'];
                     </a>
                 </div>
                 <div class="header_menu_item">
-                    <a href="../php/login_menu.php" class="stile">                   
+                    <a href="../php/login_cliente.php" class="stile">                   
                         <div class="header_menu_link" title="Login">
                             <span class="material-symbols-outlined">login</span>LOGIN
                         </div>
                     </a>
                 </div>
                 <div class="header_menu_item">
-                    <a href="../php/login_menu.php" class="stile">                   
+                    <a href="../php/login_cliente.php" class="stile">                   
                         <div class="header_menu_link" title="Carrello">
                             <span class="material-symbols-outlined">shopping_cart</span>
                         </div>

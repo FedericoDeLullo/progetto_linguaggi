@@ -100,11 +100,34 @@ th {
     cursor: pointer;
     color: #0021b4;
     vertical-align: middle;
+    text-decoration: none;
+    background: none;
+    border: none;
+}
+
+#plus{
+    cursor: pointer;
+    color: green;
+    vertical-align: middle;
+    text-decoration: none;
+    background: none;
+    border: none;
+}
+
+#minus{
+    cursor: pointer;
+    color: red;
+    vertical-align: middle;
+    text-decoration: none;
+    background: none;
+    border: none;
 }
 
 .done{
     cursor: pointer;    
     color: #0021b4;
+    vertical-align: middle;
+    text-decoration: none;
     background: none;
     border: none;
 }
