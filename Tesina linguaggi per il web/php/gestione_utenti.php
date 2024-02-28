@@ -72,11 +72,11 @@ if ($result->num_rows > 0) {
             // questo è l'utente attuale
             echo '<td><span id="done" class="material-symbols-outlined">ar_on_you</span></a></td>';
         } elseif ($row['ammin'] == 1) {
-            echo '<td><a id="minus" href="conferma_ban.php?id=' . $row['id'] . '&ban=' . $row['ban'] . '"><span id="minus" class="material-symbols-outlined">keyboard_double_arrow_down</span> Retrocedi</a></td>';
+            echo '<td><a id="minus" href="../res/retrocedi.php?id=' . $row['id'] . '&ban=' . $row['ban'] . '"><span id="minus" class="material-symbols-outlined">keyboard_double_arrow_down</span> Retrocedi</a></td>';
         } elseif ($row['gestore'] == 1) {
             echo '<td>
-                <a id="plus" href="conferma_ban.php?id=' . $row['id'] . '&ban=' . $row['ban'] . '"><span id="plus" class="material-symbols-outlined">keyboard_double_arrow_up</span> Promuovi</a><br>
-                <a id="minus" href="conferma_ban.php?id=' . $row['id'] . '&ban=' . $row['ban'] . '"><span id="minus" class="material-symbols-outlined">keyboard_double_arrow_down</span> Retrocedi</a>
+                <a id="plus" href="../res/promuovi.php?id=' . $row['id'] . '&ban=' . $row['ban'] . '"><span id="plus" class="material-symbols-outlined">keyboard_double_arrow_up</span> Promuovi</a><br>
+                <a id="minus" href="../res/retrocedi.php?id=' . $row['id'] . '&ban=' . $row['ban'] . '"><span id="minus" class="material-symbols-outlined">keyboard_double_arrow_down</span> Retrocedi</a>
             </td>';
         } else {
             if ($row['ban'] == 1) {
@@ -85,7 +85,7 @@ if ($result->num_rows > 0) {
             } else {
                 // Utente attivato
                 echo '<td>
-                    <a id="plus" href="conferma_ban.php?id=' . $row['id'] . '&ban=' . $row['ban'] . '"><span id="plus" class="material-symbols-outlined">keyboard_double_arrow_up</span> Promuovi</a><br>
+                    <a id="plus" href="../res/promuovi.php?id=' . $row['id'] . '&ban=' . $row['ban'] . '"><span id="plus" class="material-symbols-outlined">keyboard_double_arrow_up</span> Promuovi</a><br>
                     <a class="done" href="conferma_ban.php?id=' . $row['id'] . '&ban=' . $row['ban'] . '"><span id="done" class="material-symbols-outlined">visibility</span> Disattiva</a>
                 </td>';
             }
