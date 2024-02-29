@@ -98,12 +98,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['vota'])) {
         // Calcola il risultato finale
         $risultatoFinale = (10/8) * ($sommaVotiUtilitaSupporto / $sommaReputazioni);
 
-        $query = "SELECT reputazione FROM utenti WHERE id = $id_utente_dom";
+        $query = "SELECT reputazione, ammin, gestore, utente FROM utenti WHERE id = $id_utente_dom";
         $result = $connessione->query($query);
+
 
         if ($result->num_rows == 1) {
             // Ottieni la riga risultante dalla query
             $row = $result->fetch_assoc();
+
+           if ($row['ammin'] == 1 || $row['gestore'] == 1){
+            $updateQuery1 = "UPDATE utenti SET reputazione = 11 WHERE id = $id_utente_dom";
+            $connessione->query($updateQuery1);
+            header("Location: ../php/domande.php?id_prodotto=" . $id_prodotto . "&tipologia=" . $tipologia . "&nome=" . $nome);
+
+           }
+           else {
+
 
             // Ottieni il valore della reputazione dall'array associativo
             $reputazioneUtenteDom = $row['reputazione'];
@@ -116,6 +126,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['vota'])) {
             $connessione->query($updateQuery);
 
             header("Location: ../php/domande.php?id_prodotto=" . $id_prodotto . "&tipologia=" . $tipologia . "&nome=" . $nome);
+           }
         }
      }
    }

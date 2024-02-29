@@ -24,7 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $nome = $_POST['nome'];
         $id_utente = $_SESSION['id'];
         $id_domanda = uniqid();
-
+        $segnalato = 0;
+        
         // Carica il file XML del catalogo
         $xmlFile = '../xml/catalogo_prodotti.xml';
         $dom = new DOMDocument();
@@ -48,6 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $domandaNode = $dom->createElement('domanda');
             $domandaNode->setAttribute('id_prodotto', $id_prodotto);
             $domandaNode->setAttribute('id_utente', $id_utente);
+            $domandaNode->setAttribute('segnalato', $segnalato);
 
             // Aggiungi gli elementi 'autore', 'testo' e 'data e ora' all'elemento 'domanda'
             $autoreNode = $dom->createElement('autore', $autore);

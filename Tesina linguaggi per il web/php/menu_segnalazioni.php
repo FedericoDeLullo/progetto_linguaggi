@@ -16,35 +16,85 @@
     if(isset($_SESSION['domanda_gia_rimossa']) && $_SESSION['domanda_gia_rimossa'] == 'true'){
         echo '<h2>Domanda già rimossa!!!</h2>';
         unset($_SESSION['domanda_gia_rimossa']);
-    }
-    if(isset($_SESSION['risposta_gia_rimossa']) && $_SESSION['risposta_gia_rimossa'] == 'true'){
-        echo '<h2>Risposta già rimossa!!!</h2>';
         unset($_SESSION['risposta_gia_rimossa']);
-    }
-    if(isset($_SESSION['recensione_gia_rimossa']) && $_SESSION['recensione_gia_rimossa'] == 'true'){
-        echo '<h2>Recensione già rimossa!!!</h2>';
         unset($_SESSION['recensione_gia_rimossa']);
-    }
-    if(isset($_SESSION['successo_domanda']) && $_SESSION['successo_domanda'] == 'true'){
-        echo '<h2 id="successo">Domanda rimossa con successo!!!</h2>';
         unset($_SESSION['successo_domanda']);
-    }
-    if(isset($_SESSION['domanda_gia_rimossa']) && $_SESSION['domanda_gia_rimossa'] == 'true'){
-        echo '<h2>La domanda relativa alla risposta segnalata è già stata rimossa!!!</h2>';
         unset($_SESSION['domanda_gia_rimossa']);
-    }
-    if(isset($_SESSION['successo_risposta']) && $_SESSION['successo_risposta'] == 'true'){
-        echo '<h2 id="successo">Risposta rimossa con successo!!!</h2>';
         unset($_SESSION['successo_risposta']);
-    }
-    if(isset($_SESSION['successo_recensione']) && $_SESSION['successo_recensione'] == 'true'){
-        echo '<h2 id="successo">Recensione rimossa con successo!!!</h2>';
         unset($_SESSION['successo_recensione']);
-    }
-    if(isset($_SESSION['segnalazione_rifiutata']) && $_SESSION['segnalazione_rifiutata'] == 'true'){
-        echo '<h2 id="successo">Segnalazione rifiutata con successo!!!</h2>';
         unset($_SESSION['segnalazione_rifiutata']);
     }
+    elseif(isset($_SESSION['risposta_gia_rimossa']) && $_SESSION['risposta_gia_rimossa'] == 'true'){
+        echo '<h2>Risposta già rimossa!!!</h2>';
+        unset($_SESSION['domanda_gia_rimossa']);
+        unset($_SESSION['risposta_gia_rimossa']);
+        unset($_SESSION['recensione_gia_rimossa']);
+        unset($_SESSION['successo_domanda']);
+        unset($_SESSION['domanda_gia_rimossa']);
+        unset($_SESSION['successo_risposta']);
+        unset($_SESSION['successo_recensione']);
+        unset($_SESSION['segnalazione_rifiutata']);    }
+    elseif(isset($_SESSION['recensione_gia_rimossa']) && $_SESSION['recensione_gia_rimossa'] == 'true'){
+        echo '<h2>Recensione già rimossa!!!</h2>';
+        unset($_SESSION['domanda_gia_rimossa']);
+        unset($_SESSION['risposta_gia_rimossa']);
+        unset($_SESSION['recensione_gia_rimossa']);
+        unset($_SESSION['successo_domanda']);
+        unset($_SESSION['domanda_gia_rimossa']);
+        unset($_SESSION['successo_risposta']);
+        unset($_SESSION['successo_recensione']);
+        unset($_SESSION['segnalazione_rifiutata']);
+    }
+    elseif(isset($_SESSION['successo_domanda']) && $_SESSION['successo_domanda'] == 'true'){
+        echo '<h2 id="successo">Domanda rimossa con successo!!!</h2>';
+        unset($_SESSION['domanda_gia_rimossa']);
+        unset($_SESSION['risposta_gia_rimossa']);
+        unset($_SESSION['recensione_gia_rimossa']);
+        unset($_SESSION['successo_domanda']);
+        unset($_SESSION['domanda_gia_rimossa']);
+        unset($_SESSION['successo_risposta']);
+        unset($_SESSION['successo_recensione']);
+        unset($_SESSION['segnalazione_rifiutata']);    }
+    elseif(isset($_SESSION['domanda_gia_rimossa']) && $_SESSION['domanda_gia_rimossa'] == 'true'){
+        echo '<h2>La domanda relativa alla risposta segnalata è già stata rimossa!!!</h2>';
+        unset($_SESSION['domanda_gia_rimossa']);
+        unset($_SESSION['risposta_gia_rimossa']);
+        unset($_SESSION['recensione_gia_rimossa']);
+        unset($_SESSION['successo_domanda']);
+        unset($_SESSION['domanda_gia_rimossa']);
+        unset($_SESSION['successo_risposta']);
+        unset($_SESSION['successo_recensione']);
+        unset($_SESSION['segnalazione_rifiutata']);    }
+    elseif(isset($_SESSION['successo_risposta']) && $_SESSION['successo_risposta'] == 'true'){
+        echo '<h2 id="successo">Risposta rimossa con successo!!!</h2>';
+        unset($_SESSION['domanda_gia_rimossa']);
+        unset($_SESSION['risposta_gia_rimossa']);
+        unset($_SESSION['recensione_gia_rimossa']);
+        unset($_SESSION['successo_domanda']);
+        unset($_SESSION['domanda_gia_rimossa']);
+        unset($_SESSION['successo_risposta']);
+        unset($_SESSION['successo_recensione']);
+        unset($_SESSION['segnalazione_rifiutata']);    }
+    elseif(isset($_SESSION['successo_recensione']) && $_SESSION['successo_recensione'] == 'true'){
+        echo '<h2 id="successo">Recensione rimossa con successo!!!</h2>';
+        unset($_SESSION['domanda_gia_rimossa']);
+        unset($_SESSION['risposta_gia_rimossa']);
+        unset($_SESSION['recensione_gia_rimossa']);
+        unset($_SESSION['successo_domanda']);
+        unset($_SESSION['domanda_gia_rimossa']);
+        unset($_SESSION['successo_risposta']);
+        unset($_SESSION['successo_recensione']);
+        unset($_SESSION['segnalazione_rifiutata']);    }
+    elseif(isset($_SESSION['segnalazione_rifiutata']) && $_SESSION['segnalazione_rifiutata'] == 'true'){
+        echo '<h2 id="successo">Segnalazione rifiutata con successo!!!</h2>';
+        unset($_SESSION['domanda_gia_rimossa']);
+        unset($_SESSION['risposta_gia_rimossa']);
+        unset($_SESSION['recensione_gia_rimossa']);
+        unset($_SESSION['successo_domanda']);
+        unset($_SESSION['domanda_gia_rimossa']);
+        unset($_SESSION['successo_risposta']);
+        unset($_SESSION['successo_recensione']);
+        unset($_SESSION['segnalazione_rifiutata']);    }
 
     $xmlFile = '../xml/segnalazioni.xml';
     $dom = new DOMDocument();
@@ -60,6 +110,7 @@
     echo '<table>';
     echo '<thead>';
     echo '<tr>';
+    echo '<th>Autore Segnalazione</th>';
     echo '<th>Post Segnalato</th>';
     echo '<th>Autore Post Segnalato</th>';
     echo '<th>Segnalazione</th>';
@@ -69,6 +120,8 @@
     echo '<tbody>';
 
     foreach ($segnalazioni as $segnalazione) {
+
+        $segnalatore = $segnalazione->getAttribute('autore_segnalazione');
         $status = $segnalazione->getAttribute('status');
         $id_domanda = $segnalazione->getAttribute('id_domanda');
         $id_risposta = $segnalazione->getAttribute('id_risposta');
@@ -91,6 +144,7 @@
 
 
                 echo '<tr>';
+                echo "<td>$segnalatore</td>";
                 echo "<td>$domandaElement</td>";
                 echo "<td>$autore_dom</td>";
                 echo "<td>$testoElementDom</td>";
@@ -115,6 +169,7 @@
 
 
                 echo '<tr>';
+                echo "<td>$segnalatore</td>";
                 echo "<td>$rispostaElement</td>";
                 echo "<td>$autore_risp</td>";
                 echo "<td>$testoElementRis</td>"; 
@@ -141,6 +196,7 @@
 
 
                 echo '<tr>';
+                echo "<td>$segnalatore</td>";
                 echo "<td>$domandaElement</td>";
                 echo "<td>$rispostaElement</td>";
                 echo '<td>';
@@ -167,6 +223,7 @@
 
 
                 echo '<tr>';
+                echo "<td>$segnalatore</td>";
                 echo "<td>$recensioneElement</td>";
                 echo "<td>$autore_rec</td>";
                 echo "<td>$testoElementRec</td>";
@@ -190,6 +247,7 @@
 
 
                 echo '<tr>';
+                echo "<td>$segnalatore</td>";
                 echo "<td>$domandaElement</td>";
                 echo "<td>$recensioneElement</td>";
                 echo '<td>';
@@ -216,6 +274,7 @@
 
 
                 echo '<tr>';
+                echo "<td>$segnalatore</td>";
                 echo "<td>$recensioneElement</td>";
                 echo "<td>$rispostaElement</td>";
                 echo '<td>';

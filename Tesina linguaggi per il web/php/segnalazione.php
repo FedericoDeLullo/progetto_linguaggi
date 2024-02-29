@@ -25,6 +25,7 @@
                 $autoreDomanda = $_GET['autoreDomanda'];
                 $nome = $_GET['nome'];
                 $tipologia = $_GET['tipologia'];
+                $segnalatore = $_SESSION['email'];
                 ?>
                 <tr>
                     <td colspan="2">
@@ -34,6 +35,7 @@
                             <input type="hidden" name="testo_domanda" value="<?php echo $testo_domanda; ?>">
                             <input type="hidden" name="autoreDomanda" value="<?php echo $autoreDomanda; ?>">
                             <input type="hidden" name="nome" value="<?php echo $nome; ?>">
+                            <input type="hidden" name="segnalatore" value="<?php echo $segnalatore; ?>">
                             <input type="hidden" name="tipologia" value="<?php echo $tipologia; ?>">
                             <textarea style="width:500px; height:100px; resize:none; vertical-align:top;" class="input" name="segnalazione" placeholder="Testo Segnalazione Domanda..." required></textarea>
                             <br><br><br>
@@ -50,6 +52,7 @@
                 $id_domanda = $_GET['id_domanda'];
                 $nome = $_GET['nome'];
                 $tipologia = $_GET['tipologia'];
+                $segnalatore = $_SESSION['email'];
                 ?>
                 <tr>
                     <td colspan="2">
@@ -58,6 +61,7 @@
                             <input type="hidden" name="id_risposta" value="<?php echo $id_risposta; ?>">      
                             <input type="hidden" name="id_prodotto" value="<?php echo $id_prodotto; ?>">
                             <input type="hidden" name="testo_risposta" value="<?php echo $testo_risposta; ?>">
+                            <input type="hidden" name="segnalatore" value="<?php echo $segnalatore; ?>">
                             <input type="hidden" name="autoreRisposta" value="<?php echo $autoreRisposta; ?>">
                             <input type="hidden" name="nome" value="<?php echo $nome; ?>">
                             <input type="hidden" name="tipologia" value="<?php echo $tipologia; ?>">
@@ -74,6 +78,7 @@
                 $autoreRecensione = $_GET['autoreRecensione'];
                 $id_recensione = $_GET['id_recensione'];
                 $nome = $_GET['nome'];
+                $segnalatore = $_SESSION['email'];
                 $tipologia = $_GET['tipologia'];
                 ?>
                 <tr>
@@ -83,6 +88,7 @@
                             <input type="hidden" name="testo_recensione" value="<?php echo $testo_recensione; ?>">
                             <input type="hidden" name="autoreRecensione" value="<?php echo $autoreRecensione; ?>">
                             <input type="hidden" name="id_recensione" value="<?php echo $id_recensione; ?>">
+                            <input type="hidden" name="segnalatore" value="<?php echo $segnalatore; ?>">
                             <input type="hidden" name="nome" value="<?php echo $nome; ?>">
                             <input type="hidden" name="tipologia" value="<?php echo $tipologia; ?>">
                             <textarea style="width:500px; height:100px; resize:none; vertical-align:top;" class="input" name="segnalazione" placeholder="Testo Segnalazione Recensione..." required></textarea>

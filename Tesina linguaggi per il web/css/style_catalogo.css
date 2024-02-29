@@ -6,6 +6,25 @@ body{
     margin-top: 8vh;
 }
 
+.input {
+    padding: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #9fd3c7;
+    border-radius: 5px;
+    box-sizing: content-box;
+    color: #0021b4;
+    background: #9fd3c7;
+    box-shadow: 0 0 5px 0 #0021b4;
+}
+.linea{
+    width: fit-content;
+ margin-left: 9vw;
+}
+.linea form {
+    display: flex;
+    align-items: center;
+}
+
 .prodotto{
     width: 90%;
     margin: 3vh auto;

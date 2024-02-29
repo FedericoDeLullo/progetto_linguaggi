@@ -57,42 +57,38 @@ if(isset($_POST['id_domanda'])){
 
                 if ($requestDomanda == $domanda && $requestTesto == $testo_segnalazione_dom) {
                     // Aggiorna lo stato della richiesta nel file XML
+
                     $segnalazione->setAttribute('status', 'Approvata');
-                    $dom->save($xmlFile);
-                }
+                    $dom->normalizeDocument();
+                    $dom->formatOutput = true; 
+                    $dom->save($xmlFile); 
 
-                if ($idDomandaElement == $id_domanda) {
-                    $xmlFileCatalogo = '../xml/catalogo_prodotti.xml';
-                    $xmlCatalogo = new DOMDocument();
-                    $dom->preserveWhiteSpace = false;
 
-                    $xmlCatalogo->load($xmlFileCatalogo);
-
-                    // Cerca il prodotto
-                    $prodottoNodes = $xmlCatalogo->getElementsByTagName('prodotto');
-                    foreach ($prodottoNodes as $prodotto) {
-                        // Cerca e rimuovi la domanda
-                        $domandeNodes = $prodotto->getElementsByTagName('domande');
-                        foreach ($domandeNodes as $domande) {
-                            $domandaNodes = $domande->getElementsByTagName('domanda');
-                            foreach ($domandaNodes as $domandaNode) {
-                                $idDomandaElementValue = $domandaNode->getElementsByTagName('id_domanda')->item(0)->nodeValue;
+                    $xmlFile1 = '../xml/catalogo_prodotti.xml';
+                    $dom1 = new DOMDocument();
+                    $dom1->preserveWhiteSpace = false;
                     
-                                if ($idDomandaElementValue == $idDomandaElement) {
-                                    $domande->removeChild($domandaNode);
-                                    $_SESSION['successo_domanda'] = 'true';
-                                    header("Location: menu_segnalazioni.php");
-                                    
-                                    $dom->normalizeDocument();
-                                    $dom->formatOutput = true;
-                                    $xmlCatalogo->save($xmlFileCatalogo);
-                                    break 3;  // Exit all loops
-                                }
+                    $dom1->load($xmlFile1);
+                    $xpath = new DOMXPath($dom1);
+                    $domande = $xpath->query("//domande/domanda[@id_prodotto='$id_prodotto']");
+                    if ($domande->length > 0) {
+                        foreach ($domande as $domanda) {  
+                            $id_dom =  $domanda->getElementsByTagName('id_domanda')->item(0)->nodeValue; 
+                            if ($id_dom == $id_domanda) {
+                                $domanda->setAttribute("segnalato", 1);
                             }
                         }
                     }
+                    $dom1->normalizeDocument();
+                    $dom1->formatOutput = true; 
+                    $dom1->save($xmlFile1);
+                    $_SESSION['successo_domanda'] = 'true';
+                    header("Location: menu_segnalazioni.php");
+                    
                 }
+              
             }
+            
         }
     } elseif ($action == "Rifiuta") {
         $xmlFile = '../xml/segnalazioni.xml';
@@ -184,44 +180,28 @@ if(isset($_POST['id_domanda'])){
                     $dom->normalizeDocument();
                     $dom->formatOutput = true;
                     $dom->save($xmlFile);
-                }
-
-                if ($idRispostaElement == $id_risposta) {
-                    $xmlFileCatalogo = '../xml/catalogo_prodotti.xml';
-                    $xmlCatalogo = new DOMDocument();
-                    $dom->preserveWhiteSpace = false;
-
-                    $xmlCatalogo->load($xmlFileCatalogo);
-                
-                    // Cerca il prodotto
-                    $prodottoNodes = $xmlCatalogo->getElementsByTagName('prodotto');
-                    foreach ($prodottoNodes as $prodotto) {
-                        // Cerca e rimuovi la domanda
-                        $domandeNodes = $prodotto->getElementsByTagName('domande');
-                        foreach ($domandeNodes as $domande) {
-                            $domandaNodes = $domande->getElementsByTagName('domanda');
-                            foreach ($domandaNodes as $domandaNode) {
-                                $risposteNodes = $domandaNode->getElementsByTagName('risposte');
-                                foreach ($risposteNodes as $risposte) {
-                                    $rispostaNodes = $risposte->getElementsByTagName('risposta');
-                                    foreach ($rispostaNodes as $rispostaNode) {
-                                        $idRispostaElementNode = $rispostaNode->getElementsByTagName('id_risposta')->item(0);
-                
-                                        if ($idRispostaElementNode !== null && $idRispostaElementNode->nodeValue == $idRispostaElement) {
-                                            $risposte->removeChild($rispostaNode);
-                                            $_SESSION['successo_risposta'] = 'true';
-                                            header("Location: menu_segnalazioni.php");
-                                            
-                                            $dom->normalizeDocument();
-                                            $dom->formatOutput = true;
-                                            $xmlCatalogo->save($xmlFileCatalogo);
-                                            break 4;  // Exit all loops
-                                        }
-                                    }
-                                }
+                    
+                    $xmlFile1 = '../xml/catalogo_prodotti.xml';
+                    $dom1 = new DOMDocument();
+                    $dom1->preserveWhiteSpace = false;
+                    
+                    $dom1->load($xmlFile1);
+                    $xpath = new DOMXPath($dom1);
+                    $risposte = $xpath->query("//domande/domanda/risposte/risposta[@id_prodotto='$id_prodotto']");
+                    if ($risposte->length > 0) {
+                        foreach ($risposte as $risposta) {  
+                            $id_risp =  $risposta->getElementsByTagName('id_risposta')->item(0)->nodeValue; 
+                            if ($id_risp == $id_risposta) {
+                                $risposta->setAttribute("segnalato", 1);
                             }
                         }
                     }
+                    $dom1->normalizeDocument();
+                    $dom1->formatOutput = true; 
+                    $dom1->save($xmlFile1);
+                    $_SESSION['successo_risposta'] = 'true';
+                    header("Location: menu_segnalazioni.php");
+                    
                 }
             }
         }
@@ -303,37 +283,26 @@ if(isset($_POST['id_domanda'])){
                     $dom->normalizeDocument();
                     $dom->formatOutput = true;
                     $dom->save($xmlFile);
-                }
-
-                if ($idRecensioneElement == $id_recensione) {
-                    $xmlFileCatalogo = '../xml/catalogo_prodotti.xml';
-                    $xmlCatalogo = new DOMDocument();
-                    $dom->preserveWhiteSpace = false;
-
-                    $xmlCatalogo->load($xmlFileCatalogo);
-
-                    // Cerca il prodotto
-                    $prodottoNodes = $xmlCatalogo->getElementsByTagName('prodotto');
-                    foreach ($prodottoNodes as $prodotto) {
-                        $recensioniNodes = $prodotto->getElementsByTagName('recensioni');
-                        foreach ($recensioniNodes as $recensioni) {
-                            $recensioneNodes = $recensioni->getElementsByTagName('recensione');
-                            foreach ($recensioneNodes as $recensioneNode) {
-                                $idRecensioneNode = $recensioneNode->getElementsByTagName('id_recensione')->item(0)->nodeValue;
-
-                                if ($idRecensioneNode == $idRecensioneElement) {
-                                    $recensioni->removeChild($recensioneNode);
-                                    $_SESSION['successo_recensione'] = 'true';
-                                    header("Location: menu_segnalazioni.php");
-                                    
-                                    $dom->normalizeDocument();
-                                    $dom->formatOutput = true;
-                                    $xmlCatalogo->save($xmlFileCatalogo);
-                                    break 3;  // Exit all loops
-                                }
+                    $xmlFile1 = '../xml/catalogo_prodotti.xml';
+                    $dom1 = new DOMDocument();
+                    $dom1->preserveWhiteSpace = false;
+                    
+                    $dom1->load($xmlFile1);
+                    $xpath = new DOMXPath($dom1);
+                    $recensioni = $xpath->query("//recensioni/recensione[@id_prodotto='$id_prodotto']");
+                    if ($recensioni->length > 0) {
+                        foreach ($recensioni as $recensione) {  
+                            $id_rec =  $recensione->getElementsByTagName('id_recensione')->item(0)->nodeValue; 
+                            if ($id_rec == $id_recensione) {
+                                $recensione->setAttribute("segnalato", 1);
                             }
                         }
                     }
+                    $dom1->normalizeDocument();
+                    $dom1->formatOutput = true; 
+                    $dom1->save($xmlFile1);
+                    $_SESSION['successo_recensione'] = 'true';
+                    header("Location: menu_segnalazioni.php");
                 }
             }
         }

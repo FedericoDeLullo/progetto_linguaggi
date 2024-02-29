@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $tipologia = $_POST['tipologia'];
             $id_recensione = uniqid();
             $id_utente = $_SESSION['id'];
-          
+            $segnalato = 0;          
 
             // Carica il file XML del catalogo
             $xmlFile = '../xml/catalogo_prodotti.xml';
@@ -52,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $recensioneNode = $dom->createElement('recensione');
                 $recensioneNode->setAttribute('id_prodotto', $id_prodotto);
                 $recensioneNode->setAttribute('id_utente', $id_utente);
+                $recensioneNode->setAttribute('segnalato', $segnalato);
 
 
                 // Aggiungi gli elementi 'autore', 'testo' e 'data e ora' all'elemento 'recensione'

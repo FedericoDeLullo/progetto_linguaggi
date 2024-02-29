@@ -13,10 +13,10 @@ if(isset($_GET['id']) && isset($_GET['ban'])) {
         $row = $result_check_ammin->fetch_assoc();
         if ($row['gestore'] == 0) {
             // L'utente aveva gestore=0, aggiorna il campo utente a 0 e il campo gestore a 1
-            $query = "UPDATE utenti SET utente = 0, gestore = 1 WHERE id = $id";
+            $query = "UPDATE utenti SET utente = 0, gestore = 1, reputazione = 11 WHERE id = $id";
         } else {
             // L'utente aveva gestore=1, aggiorna il campo gestore a 0 e il campo ammin a 1
-            $query = "UPDATE utenti SET gestore = 0, ammin = 1 WHERE id = $id";
+            $query = "UPDATE utenti SET gestore = 0, ammin = 1, reputazione = 11 WHERE id = $id";
         }
 
         // Esegui la query di aggiornamento

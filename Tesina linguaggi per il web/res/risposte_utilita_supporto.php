@@ -100,12 +100,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['vota'])) {
             // Calcola il risultato finale
             $risultatoFinale = (10/8) * ($sommaVotiUtilitaSupporto / $sommaReputazioni);
 
-            $query = "SELECT reputazione FROM utenti WHERE id = $id_utente_risp";
+            $query = "SELECT reputazione, ammin, gestore, utente FROM utenti WHERE id = $id_utente_risp";
             $result = $connessione->query($query);
 
             if ($result && $result->num_rows == 1) {
                 // Ottieni la riga risultante dalla query
                 $row = $result->fetch_assoc();
+
+                if ($row['ammin'] == 1 || $row['gestore'] == 1){
+                    $updateQuery1 = "UPDATE utenti SET reputazione = 11 WHERE id = $id_utente_risp";
+                    $connessione->query($updateQuery1);
+                    header("Location: ../php/domande.php?id_prodotto=" . $id_prodotto . "&tipologia=" . $tipologia . "&nome=" . $nome);
+                   }
+                   else {
+        
 
                 // Ottieni il valore della reputazione dall'array associativo
                 $reputazioneUtenteDom = $row['reputazione'];
@@ -120,10 +128,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['vota'])) {
                 header("Location: ../php/domande.php?id_prodotto=" . $id_prodotto . "&tipologia=" . $tipologia . "&nome=" . $nome);
                 exit; // Aggiunto exit per terminare l'esecuzione dopo il redirect
             }
+          }
         }
     }
 }
 
-// Se il flusso di controllo non è entrato nella sezione di aggiornamento, esegui un'azione alternativa o mostra un messaggio di errore
 echo "Errore durante l'aggiornamento della risposta.";
 ?>
