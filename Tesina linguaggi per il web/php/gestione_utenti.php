@@ -68,7 +68,7 @@ if ($result->num_rows > 0) {
         echo '<td><a href="modifica_utente.php?id=' . $row['id'] . '"><span id="edit" class="material-symbols-outlined">edit</span></a></td>';
         echo '<td><a href="modifica_password.php?id=' . $row['id'] . '&admin=' . $row['ammin'] . '"><span id="edit" class="material-symbols-outlined">key</span></a></td>';
 
-        if ($row['email'] == $_SESSION['email']) {
+        if ($row['id'] == $_SESSION['id']) {
             // questo è l'utente attuale
             echo '<td><span id="done" class="material-symbols-outlined">ar_on_you</span></a></td>';
         } elseif ($row['ammin'] == 1) {

@@ -117,7 +117,15 @@
                             echo '<td class="td">';
                                 echo '<p class="des">' . $descrizione . '</p>';
                                 echo '<p class="prezzo">Prezzo: ' . $prezzo . '€</p>';
-                                echo '<a href="#"><span id="cart" class="material-symbols-outlined">add_shopping_cart</span></a>';
+                                echo '<div class="linea">';
+                        echo '<form action="catalogo_magliette.php" method="post">';
+                        echo '<input type="hidden" name="id_prodotto" value="' . $id_prodotto . '">';
+                        echo '<input type="hidden" name="nome" value="' . $nome . '">';
+                        echo '<input type="hidden" name="prezzo" value="' . $prezzo . '">';
+                        echo ' <input class="input" type="number" name="quantita" value="0" min="1" step="1" size="3" max="99" />';
+                        echo '<button style="border:none; background:none; cursor:pointer;" type="submit" name="azione" value="aggiungi_al_carrello"><span id="cart" class="material-symbols-outlined">add_shopping_cart</span></button>';
+                        echo '</form>';
+                        echo '</div>'; 
                                 echo '</td>';
                                 echo '</tr>';
                     echo '</table>';
@@ -140,8 +148,16 @@
                             echo '<td class="td">';
                                 echo '<p class="des">' . $descrizione . '</p>';
                                 echo '<p class="prezzo">Prezzo: ' . $prezzo . '€</p>';
-                                echo '<a href="#"><span id="cart" class="material-symbols-outlined">add_shopping_cart</span></a>';
-                        echo '</tr>';
+                                echo '<div class="linea">';
+                                echo '<form action="catalogo_magliette.php" method="post">';
+                                echo '<input type="hidden" name="id_prodotto" value="' . $id_prodotto . '">';
+                                echo '<input type="hidden" name="nome" value="' . $nome . '">';
+                                echo '<input type="hidden" name="prezzo" value="' . $prezzo . '">';
+                                echo ' <input class="input" type="number" name="quantita" value="0" min="1" step="1" size="3" max="99" />';
+                                echo '<button style="border:none; background:none; cursor:pointer;" type="submit" name="azione" value="aggiungi_al_carrello"><span id="cart" class="material-symbols-outlined">add_shopping_cart</span></button>';
+                                echo '</form>';
+                                echo '</div>';
+                                echo '</tr>';
                     echo '</table>';
                     echo '</div>';
                 } 
@@ -173,6 +189,26 @@
                 }
 
             ?>
+               <?php if (isset($_POST['azione']) && $_POST['azione'] === 'aggiungi_al_carrello') {
+                        $id_prodotto = $_POST['id_prodotto'];
+                        $nome = $_POST['nome'];
+                        $prezzo = $_POST['prezzo'];
+                        $quantita = $_POST['quantita'];
+                    
+                        // Inizializza o ottieni il carrello dalla sessione
+                        if (!isset($_SESSION['carrello'])) {
+                            $_SESSION['carrello'] = array();
+                        }
+                    
+                        // Aggiungi il prodotto al carrello
+                        $_SESSION['carrello'][] = array(
+                            'id_prodotto' => $id_prodotto,
+                            'nome' => $nome,
+                            'prezzo' => $prezzo,
+                            'quantita' => $quantita,
+                        );
+                    }
+                    ?>    
             <script>
     // Quando il documento è caricato
     $(document).ready(function() {

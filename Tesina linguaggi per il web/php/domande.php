@@ -74,12 +74,17 @@ if ($domande->length > 0) {
     echo '<h1 class="titolo">Domande Prodotto: ' . $nome . '</h1>';
     echo '<table>';
 
+    $almenoUnPostSenzaSegnalazione = false;
 
     foreach ($domande as $domanda) {    
         $id_utente_domanda = $domanda->getAttribute("id_utente");
         $post_segnalato =  $domanda->getAttribute("segnalato");
+
         if($post_segnalato == 0){
-        if($id_utente == $id_utente_domanda ){
+
+            $almenoUnPostSenzaSegnalazione = true;
+        
+            if($id_utente == $id_utente_domanda ){
             echo '<tr>';
         echo '<th>Gestisci Domanda</th><th>Autore Domanda</th><th>Domanda</th><th>Voto Utilità</th><th>Voto Supporto</th><th>Valutazione</th><th>Rispondi</th>';
         echo '</tr>';
@@ -301,7 +306,11 @@ if ($domande->length > 0) {
           }
         }
        }
-      }
+      } if (!$almenoUnPostSenzaSegnalazione) {
+        // Nessun post trovato con "segnalato" a 0, stampa un errore
+        echo '<p style="margin-top:10vh;" class="titolo">Nessuna domanda disponibile.</p>';
+    }
+      
     } else {
             echo '<tr><td colspan="4"><p class="titolo">Nessuna domanda disponibile.</p></td></tr>';
         }
@@ -348,12 +357,15 @@ if(isset($_GET['nome']) && isset($_GET['tipologia'])){
 if ($domande->length > 0) {
     echo '<h1 class="titolo">Domande Prodotto: ' . $nome . '</h1>';
     echo '<table>';
+    $almenoUnPostSenzaSegnalazione = false;
 
 
     foreach ($domande as $domanda) { 
         $id_utente_domanda = $domanda->getAttribute("id_utente");
         $post_segnalato = $domanda->getAttribute("segnalato");
         if($post_segnalato == 0){
+            $almenoUnPostSenzaSegnalazione = true;
+
         if($id_utente == $id_utente_domanda){
 
             echo '<tr>';
@@ -589,7 +601,10 @@ if ($domande->length > 0) {
            }
          }
       }
-   }
+   }if (!$almenoUnPostSenzaSegnalazione) {
+    // Nessun post trovato con "segnalato" a 0, stampa un errore
+    echo '<p style="margin-top:10vh;" class="titolo">Nessuna domanda disponibile.</p>';
+}
 }  else {
             echo '<tr><td colspan="4"><p class="titolo">Nessuna domanda disponibile.</p></td></tr>';
         }

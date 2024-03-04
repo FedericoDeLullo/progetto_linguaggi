@@ -54,12 +54,15 @@ if ($recensioni->length > 0) {
     echo '<h1 class="titolo">Recensioni del prodotto: ' . $nome . '</h1>';
     echo '<table>';
 
+    $almenoUnPostSenzaSegnalazione = false;
 
 
     foreach ($recensioni as $recensione) {  
           $id_utente_recensione = $recensione->getAttribute("id_utente");
           $post_segnalato =  $recensione->getAttribute("segnalato");
         if($post_segnalato == 0){
+            $almenoUnPostSenzaSegnalazione = true;
+
          if($id_utente == $id_utente_recensione){
           echo '<tr><th>Gestione Recensione</th><th>Autore</th><th>Recensione</th><th>Data e Ora</th><th>Voto Utilità</th><th>Voto Supporto</th><th>Azione</th></tr>';
 
@@ -166,7 +169,10 @@ if ($recensioni->length > 0) {
     }
 
 
-  } }     echo '</table>';
+  } }if (!$almenoUnPostSenzaSegnalazione) {
+    // Nessun post trovato con "segnalato" a 0, stampa un errore
+    echo '<p style="margin-top:10vh;" class="titolo">Nessuna recensione disponibile.</p>';
+}     echo '</table>';
 
  }else {
     echo '<tr><td colspan="4"><p class="titolo">Nessuna recensione disponibile.</p></td></tr>';
@@ -195,12 +201,15 @@ elseif($utente = 1){
         echo '<h1 class="titolo">Recensioni del prodotto: ' . $nome . '</h1>';
         echo '<table>';
     
-    
+        $almenoUnPostSenzaSegnalazione = false;
+
     
         foreach ($recensioni as $recensione) {  
               $id_utente_recensione = $recensione->getAttribute("id_utente");
               $post_segnalato =  $recensione->getAttribute("segnalato");
               if($post_segnalato == 0){
+                $almenoUnPostSenzaSegnalazione = true;
+
               
              if($id_utente == $id_utente_recensione){
               echo '<tr><th>Gestione Recensione</th><th>Autore</th><th>Recensione</th><th>Data e Ora</th><th>Voto Utilità</th><th>Voto Supporto</th><th>Azione</th></tr>';
@@ -308,7 +317,10 @@ elseif($utente = 1){
         }
     
     
-         } }      echo '</table>';
+         } }if (!$almenoUnPostSenzaSegnalazione) {
+            // Nessun post trovato con "segnalato" a 0, stampa un errore
+            echo '<p style="margin-top:10vh;" class="titolo">Nessuna recensione disponibile.</p>';
+        }      echo '</table>';
     
      } else {
         echo '<tr><td colspan="4"><p class="titolo">Nessuna recensione disponibile.</p></td></tr>';

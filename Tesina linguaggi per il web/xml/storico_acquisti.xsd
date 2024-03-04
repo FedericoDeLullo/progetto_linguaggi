@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Definizione del tipo di dato per il prezzo -->
+  <xs:simpleType name="tipoPrezzo">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+
+  <!-- Definizione del tipo di dato per la quantità -->
+  <xs:simpleType name="tipoQuantita">
+    <xs:restriction base="xs:positiveInteger"/>
+  </xs:simpleType>
+
+  <!-- Definizione del tipo di dato per l'ID utente -->
+  <xs:simpleType name="tipoIdUtente">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+
+  <!-- Elemento root -->
+  <xs:element name="acquisti">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="prodotto" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_prodotto" type="xs:positiveInteger"/>
+              <xs:element name="nome" type="xs:string"/>
+              <xs:element name="prezzo" type="tipoPrezzo"/>
+              <xs:element name="quantita" type="tipoQuantita"/>
+            </xs:sequence>
+            <xs:attribute name="id_utente" type="tipoIdUtente"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

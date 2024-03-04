@@ -11,6 +11,7 @@
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <?php
         include('../res/header.php');
+        include('../res/funzioni.php');
         ?>
     </head>
     <body>
@@ -108,6 +109,7 @@
                         echo '<a class="btn1"style="margin-left:10vw;"  title="Lascia una recensione" href="recensione_cliente.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">Scrivi una recensione</a>';
                         echo '<a class="btn1" style="margin-left:10vw;"title="Lista delle recensioni" href="lista_recensioni.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">Liste delle recensioni</a>';
                         echo '<a class="btn1" style="margin-left:10vw;" href="modifica_prodotti_form.php?id_prodotto=' . $id_prodotto . '">Modifica prodotto</a>';
+                        echo '<a class="btn1" style="margin-left:10vw;" href="aggiungi_sconto_form.php?id_prodotto=' . $id_prodotto . '">Aggiungi Sconto</a>';
                         echo '</td>';
                         echo '<td class="td">';
                         echo '<div class="box">';
@@ -117,10 +119,36 @@
                         echo '<td class="td">';
                         echo '<p class="des">' . $descrizione . '</p>';
                         echo '<p class="prezzo">Prezzo: ' . $prezzo . '€</p>';
+                        $xmlPath = "../xml/catalogo_prodotti.xml";
+
+                        if(isset($_SESSION['loggato']) && $_SESSION['loggato'] == true){
+                            $prezzoScontato = calcolaScontoProdotto($xmlPath, $id_prodotto, $prezzo);
+                        }
+        
+                        echo "<div class=\"info-sconto\">";
+        
+        
+                            echo "<div class=\"info-field\">";
+                                echo "<span class=\"field-label\">SCONTO GENERICO: </span>";
+                                echo "<span class=\"field-value\">" . $sconto_generico . "&#37; </span>";
+                            echo "</div>";
+        
+                            if(isset($_SESSION['sconto parametrico']) && $_SESSION['sconto parametrico'] = true){
+                                echo "<div class=\"info-field\">";
+                                    echo "<span class=\"field-label\">SCONTO PARAMETRICO ATTIVATO => PREZZO FINALE: </span>";
+                                    echo "<span class=\"field-value\">" . $prezzoScontato . " CREDITI </span>";
+                                echo "</div>";
+        
+                                unset($_SESSION['sconto parametrico']);
+                            }
+                        echo '<div class="linea">';
                         echo '<div class="linea">';
                         echo '<form action="catalogo_magliette.php" method="post">';
-                        echo '<input class="input" type="number" name="quantita" value="0" min="1" step="1" size="3" max="99" />';
-                        echo '<button style="border:none; background:none; cursor:pointer;" type="submit" name="azione" value="aggiungi"><span id="cart" class="material-symbols-outlined">add_shopping_cart</span></button>';
+                        echo '<input type="hidden" name="id_prodotto" value="' . $id_prodotto . '">';
+                        echo '<input type="hidden" name="nome" value="' . $nome . '">';
+                        echo '<input type="hidden" name="prezzo" value="' . $prezzo . '">';
+                        echo ' <input class="input" type="number" name="quantita" value="0" min="1" step="1" size="3" max="99" />';
+                        echo '<button style="border:none; background:none; cursor:pointer;" type="submit" name="azione" value="aggiungi_al_carrello"><span id="cart" class="material-symbols-outlined">add_shopping_cart</span></button>';
                         echo '</form>';
                         echo '</div>';
                         echo '</tr>';

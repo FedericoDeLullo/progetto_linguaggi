@@ -25,6 +25,7 @@
                     $_SESSION['utente'] = $row['utente'];
                     $_SESSION['gestore'] = $row['gestore'];
                     $_SESSION['ammin'] = $row['ammin'];
+                    $_SESSION['indirizzo'] = $row['indirizzo_di_residenza'];
                     header("Location: ../php/index.php");
                 } else {
                     $_SESSION['errore_login'] = 'true';

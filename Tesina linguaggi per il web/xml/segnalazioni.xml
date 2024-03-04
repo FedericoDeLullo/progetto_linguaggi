@@ -296,4 +296,55 @@
     <autoreRisposta>immobile@gmail.com</autoreRisposta>
     <testo_segnalazione_ris>3 risposta segalazione</testo_segnalazione_ris>
   </segnalazione>
+  <segnalazione status="Approvata" id_domanda="65e1decb8859b" id_prodotto="3" autore_segnalazione="federicodelullo@gmail.com">
+    <testo_domanda>tegrwfeqdsl</testo_domanda>
+    <autoreDomanda>federicodelullo84@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>jhgjh</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Approvata" id_domanda="65e1ded0697c3" id_prodotto="3" autore_segnalazione="federicodelullo@gmail.com">
+    <testo_domanda>ouylikjòbln</testo_domanda>
+    <autoreDomanda>federicodelullo84@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>6541263</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Rifiutata" id_prodotto="3" id_recensione="65e1def5cbb47">
+    <testo>3rewfsd</testo>
+    <autore>federicodelullo84@gmail.com</autore>
+    <testo_segnalazione_rec>mmmm</testo_segnalazione_rec>
+  </segnalazione>
+  <segnalazione status="Rifiutata" id_prodotto="3" id_recensione="65e1defb87c1f">
+    <testo>rgevfwcdas</testo>
+    <autore>federicodelullo84@gmail.com</autore>
+    <testo_segnalazione_rec>7777</testo_segnalazione_rec>
+  </segnalazione>
+  <segnalazione status="Approvata" id_domanda="65e1decb8859b" id_prodotto="3" autore_segnalazione="federicodelullo@gmail.com">
+    <testo_domanda>tegrwfeqdsl</testo_domanda>
+    <autoreDomanda>federicodelullo84@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>aaaaaaaaaaaaaaa</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Approvata" id_prodotto="3" id_recensione="65e1def5cbb47" autore_segnalazione="federicodelullo@gmail.com">
+    <testo>3rewfsd</testo>
+    <autore>federicodelullo84@gmail.com</autore>
+    <testo_segnalazione_rec>ddddddddddddddddd</testo_segnalazione_rec>
+  </segnalazione>
+  <segnalazione status="Rifiutata" id_risposta="65e1e00e681d1" id_prodotto="3" autore_segnalazione="federicodelullo84@gmail.com">
+    <id_domanda>65e1decb8859b</id_domanda>
+    <testo_risposta>eeeeeeeeeeee</testo_risposta>
+    <autoreRisposta>federicodelullo@gmail.com</autoreRisposta>
+    <testo_segnalazione_ris>cccccccccccccc</testo_segnalazione_ris>
+  </segnalazione>
+  <segnalazione status="Approvata" id_domanda="65e1e2f142c59" id_prodotto="2" autore_segnalazione="federicodelullo84@gmail.com">
+    <testo_domanda>vvvv</testo_domanda>
+    <autoreDomanda>lorenzofrancescotti@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>ddd</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Approvata" id_domanda="65e1e8d0d80cb" id_prodotto="3" autore_segnalazione="federicodelullo@gmail.com">
+    <testo_domanda>bgbb</testo_domanda>
+    <autoreDomanda>federicodelullo84@gmail.com</autoreDomanda>
+    <testo_segnalazione_dom>53</testo_segnalazione_dom>
+  </segnalazione>
+  <segnalazione status="Approvata" id_prodotto="3" id_recensione="65e1defb87c1f" autore_segnalazione="federicodelullo@gmail.com">
+    <testo>rgevfwcdas</testo>
+    <autore>federicodelullo84@gmail.com</autore>
+    <testo_segnalazione_rec>cccccccccc</testo_segnalazione_rec>
+  </segnalazione>
 </segnalazioni>

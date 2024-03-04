@@ -59,6 +59,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $tipologia = $dom->createElement('tipologia', $_POST['tipologia']);
         $prodotto->appendChild($tipologia);
 
+        $sconto_generico = $dom->createElement('sconto_generico', '0');
+        $prodotto->appendChild($sconto_generico);
+
+        $sconto = $dom->createElement('sconto');
+        $prodotto->appendChild($sconto);
+
+        $x = $dom->createElement('x', '0');
+        $sconto->appendChild($x);
+        $y = $dom->createElement('y', '0');
+        $sconto->appendChild($y);
+        $m = $dom->createElement('m', '0');
+        $sconto->appendChild($m);
+        $data_m = $dom->createElement('data_m', '0');
+        $sconto->appendChild($data_m);
+        $n = $dom->createElement('n', '0');
+        $sconto->appendChild($n);
+        $r = $dom->createElement('r', '0');
+        $sconto->appendChild($r);
+        $ha_acqu = $dom->createElement('ha_acquistato', '0');
+        $sconto->appendChild($ha_acqu);
         // Gestione dell'immagine
         $immaginePath = '../img/' . basename($_FILES['immagine']['name']);
 

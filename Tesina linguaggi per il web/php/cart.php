@@ -68,68 +68,83 @@ if (isset($_POST['azione'])) {
     } elseif (isset($_POST['azione']) && $_POST['azione'] === 'conferma_acquisto') {
         // Gestisci l'azione di conferma acquisto
         $crediti_utente = isset($_SESSION['crediti']) ? $_SESSION['crediti'] : 0;
-    
+
         // Calcola il totale dell'acquisto
         $totale_acquisto = 0;
         $prodotti_acquistati = array();
-    
+
         foreach ($_SESSION['carrello'] as $prodotto_carrello) {
             $totale_acquisto += $prodotto_carrello['prezzo'] * $prodotto_carrello['quantita'];
-            $prodotti_acquistati[] = $prodotto_carrello;
         }
-    
+
         // Verifica se i crediti sono sufficienti per l'acquisto
-        if ($crediti_utente >= $totale_acquisto) {
+        if ($_SESSION['crediti'] >= $totale_acquisto) {
             // Sottrai i crediti dal totale dell'acquisto
-            $crediti_utente -= $totale_acquisto;
-    
-            // Aggiorna i crediti dell'utente nella sessione
-            $_SESSION['crediti'] = $crediti_utente;
-    
-            // Salvataggio degli acquisti nel file storico_acquisti.php tramite DomDocument
-            $xmlFileAcquisti = "../xml/storico_acquisti.xml";
-            $docAcquisti = new DomDocument();
-    
-            if (file_exists($xmlFileAcquisti)) {
-                $docAcquisti->load($xmlFileAcquisti);
-            } else {
-                $docAcquisti->appendChild($docAcquisti->createElement('acquisti'));
-            }
-    
-            $rootAcquisti = $docAcquisti->documentElement;
-    
-            foreach ($prodotti_acquistati as $prodotto_acquistato) {
-                $prodottoAcquistoNode = $docAcquisti->createElement('prodotto');
-                $prodottoAcquistoNode->setAttribute('id_utente', $id_utente);
-                $prodottoAcquistoNode->appendChild($docAcquisti->createElement('id_prodotto', $prodotto_acquistato['id_prodotto']));
-                $prodottoAcquistoNode->appendChild($docAcquisti->createElement('nome', $prodotto_acquistato['nome']));
-                $prodottoAcquistoNode->appendChild($docAcquisti->createElement('prezzo', $prodotto_acquistato['prezzo']));
-                $prodottoAcquistoNode->appendChild($docAcquisti->createElement('quantita', $prodotto_acquistato['quantita']));
-                $rootAcquisti->appendChild($prodottoAcquistoNode);
-            }
-    
-            $docAcquisti->save($xmlFileAcquisti);
-    
+            $_SESSION['crediti'] -= $totale_acquisto;
+
+            if (!empty($_SESSION['carrello'])) {
+                $xmlPath = '../xml/storico_acquisti.xml';
+        
+                // Carica il documento XML esistente se presente, altrimenti crea uno nuovo
+                $dom = new DomDocument('1.0', 'UTF-8');
+                if (file_exists($xmlPath)) {
+                    $dom->load($xmlPath);
+                } else {
+                    // Crea l'elemento radice "storico_acquisti" se il file non esiste
+                    $storico_acquisti = $dom->createElement('storico_acquisti');
+                    $dom->appendChild($storico_acquisti);
+                }
+        
+                foreach ($_SESSION['carrello'] as $prodotto_carrello) {
+                    // Crea l'elemento "acquisto" per ogni prodotto nel carrello
+                    $acquisto = $dom->createElement('acquisto');
+
+                    // Aggiungi l'id utente come attributo all'elemento "acquisto"
+                    $acquisto->setAttribute('id_utente', $_SESSION['id']);
+                
+                    // Aggiungi data e ora come elementi figli
+                    $acquisto->appendChild($dom->createElement('data', date('Y-m-d')));
+                    $acquisto->appendChild($dom->createElement('ora', date('H:i:s')));
+                
+                    // Aggiungi gli altri dettagli del prodotto
+                    $acquisto->appendChild($dom->createElement('id_prodotto', $prodotto_carrello['id_prodotto']));
+                    $acquisto->appendChild($dom->createElement('nome', $prodotto_carrello['nome']));
+                    $acquisto->appendChild($dom->createElement('prezzo_unitario', $prodotto_carrello['prezzo']));
+                    $acquisto->appendChild($dom->createElement('quantita', $prodotto_carrello['quantita']));
+                
+                    // Calcola e aggiungi il prezzo totale come elemento separato
+                    $prezzo_totale = $prodotto_carrello['prezzo'] * $prodotto_carrello['quantita'];
+                    $acquisto->appendChild($dom->createElement('prezzo_totale', $prezzo_totale));
+                
+                    // Aggiungi l'elemento "acquisto" all'elemento radice "storico_acquisti"
+                    $dom->documentElement->appendChild($acquisto);
+                }
+        
+                // Salva il DOM nel file storico_acquisti.xml
+                $dom->save($xmlPath);
+          
             // Svuota il carrello dopo l'acquisto
             unset($_SESSION['carrello']);
-    
+
             $query = "UPDATE utenti SET crediti = $crediti_utente WHERE id = '$id_utente'";
             $result = mysqli_query($connessione, $query);
-    
+
             if (!$result) {
                 printf("Errore nella query.\n");
                 exit();
             }
-    
+
             echo '<p>Acquisto confermato!</p>';
-        } else {
+        } 
+    }else {
             echo '<p>Non hai abbastanza crediti per effettuare l\'acquisto.</p>';
         }
-    }
-}
+}}
 ?>
+    <h1 class="titolo">Il Tuo Carrello</h1>
 
 <?php
+
 // Verifica se il carrello contiene prodotti
 if (!empty($_SESSION['carrello'])) {
     echo '<table>';
@@ -140,22 +155,24 @@ if (!empty($_SESSION['carrello'])) {
     echo '<th>Prezzo Totale</th>';
     echo '<th>Azioni</th>';
     echo '</tr>';
-  
+    
     foreach ($_SESSION['carrello'] as $index => $prodotto_carrello) {
         echo '<tr>';
         echo '<td>' . $prodotto_carrello['nome'] . '</td>';
         echo '<td>' . (isset($prodotto_carrello['quantita']) ? $prodotto_carrello['quantita'] : 'N/A') . '</td>';
         echo '<td>' . $prodotto_carrello['prezzo'] . '€</td>';
-        
+    
         $prezzoTotale = isset($prodotto_carrello['prezzo']) && isset($prodotto_carrello['quantita'])
             ? $prodotto_carrello['prezzo'] * $prodotto_carrello['quantita']
             : 'N/A';
-        
+    
         echo '<td>' . $prezzoTotale . '€</td>';
         echo '<td>';
         echo '<form action="cart.php" method="post">';
         echo '<input type="hidden" name="index" value="' . $index . '">';
-        echo '<button type="submit" name="azione" value="rimuovi_prodotto">Rimuovi Prodotto</button>';
+        echo '<button type="submit" name="azione" value="rimuovi_prodotto">Rimuovi Prodotto<span class="material-symbols-outlined">
+        delete
+        </span></button>';
         echo '</form>';
         echo '<form action="cart.php" method="post">';
         echo '<input type="hidden" name="index" value="' . $index . '">';
@@ -165,14 +182,22 @@ if (!empty($_SESSION['carrello'])) {
         echo '</td>';
         echo '</tr>';
     }
-
+    
+    // Aggiungi riga per i crediti e l'indirizzo
+    echo '<tr>';
+    echo '<td colspan="5">Crediti disponibili: ' . $_SESSION['crediti'] . '€</td>';
+    echo '</tr>';
+    echo '<tr>';
+    echo '<td colspan="5">Indirizzo di Consegna: <input class="input" type="text" id="indirizzo_consegna" name="indirizzo_consegna" value="' . ($_SESSION['indirizzo'] ?? '') . '"></td>';
+    echo '</tr>';
+    
     echo '</table>';
-
-    echo '<p>Crediti disponibili: ' . $_SESSION['crediti'] . '</p>';
-    echo '<form action="cart.php" method="post">';
-    echo '<button type="submit" name="azione" value="svuota_carrello">Svuota Carrello</button>';
-    echo '<button type="submit" name="azione" value="conferma_acquisto">Conferma Acquisto</button>';
+    
+    echo '<form action="cart.php" method="post" style="display: flex; justify-content: space-between; margin-top: 5vh;">';
+    echo '<button style="margin-bottom:10px;" class="btn" type="submit" name="azione" value="svuota_carrello">Svuota Carrello</button>';
+    echo '<button style="margin-bottom:10px;" class="btn" type="submit" name="azione" value="conferma_acquisto">Conferma Acquisto</button>';
     echo '</form>';
+    
 } else {
     echo '<p>Il carrello è vuoto.</p>';
 }

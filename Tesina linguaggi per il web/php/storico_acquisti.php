@@ -1,52 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/style_standard.css">
+    <link rel="stylesheet" href="../css/style_menu.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="../css/style_header.css">
+    <?php
+        include('../res/header.php');
+    ?>
+</head>
+<body>
 <?php
-require_once("../res/connection.php");
 
-// Controlla se la variabile di sessione 'acquisti' è definita e non è vuota
-if (isset($_SESSION['acquisti']) && !empty($_SESSION['acquisti'])) {
-    // Includi il tuo file XML
-    $xmlFile = "../xml/catalogo_prodotti.xml";
-    $doc = new DomDocument();
-    $doc->load($xmlFile);
+if (isset($_SESSION['id'])) {
+    $xmlPath = '../xml/storico_acquisti.xml';
 
-    echo '<div class="cart">';
-    echo '<h2 class="tito">ULTIMI ACQUISTI</h2>';
-    echo '<div>';
-    echo '<ul class="elenco_articoli">';
+    if (file_exists($xmlPath)) {
+        $dom = new DomDocument;
+        $dom->load($xmlPath);
 
-    // Ciclo attraverso gli acquisti nella variabile di sessione
-    foreach ($_SESSION['acquisti'] as $acquisto) {
-        $id_prodotto = $acquisto['id_prodotto'];
-        $quantita = $acquisto['quantita'];
-    
-        // Cerca il prodotto nel tuo catalogo usando l'id_prodotto
-        $xpath = new DOMXPath($doc);
-        $query = "//prodotto[id_prodotto='$id_prodotto']";
-        $result = $xpath->query($query);
-    
-        // Verifica se il prodotto è stato trovato
-        if ($result->length > 0) {
-            $prodotto = $result->item(0);
-    
-            $nome = $prodotto->getElementsByTagName('nome')->item(0)->nodeValue;
-            $prezzo = (int)$prodotto->getElementsByTagName('prezzo')->item(0)->nodeValue;
-    
-            // Mostra il prodotto con quantità, nome e prezzo
-            echo '<li>Quantità: ' . $quantita . ', Nome: ' . $nome . ', Prezzo: ' . $prezzo . ' &euro;</li>';
-        } else {
-            // Output di debug nel caso in cui il prodotto non sia stato trovato
-            echo '<li>Prodotto non trovato con ID: ' . $id_prodotto . '</li>';
+        $id_utente_sessione = $_SESSION['id'];
+        $email = $_SESSION['email'];
+
+        echo '<h2>Storico Acquisti: ' . $email . '</h2>';
+        echo '<table border="1">';
+        echo '<tr>';
+        echo '<th>Nome</th>';
+        echo '<th>Quantità</th>';
+        echo '<th>Prezzo Unitario</th>';
+        echo '<th>Prezzo Totale</th>';
+        echo '<th>Data Acquisto</th>';
+        echo '<th>Ora Acquisto</th>';
+        // Aggiungi altre colonne se necessario
+        echo '</tr>';
+
+        foreach ($dom->getElementsByTagName('acquisto') as $acquisto) {
+            $id_utente_acquisto = $acquisto->getAttribute('id_utente');
+
+            if ($id_utente_acquisto == $id_utente_sessione) {
+                $nome = $acquisto->getElementsByTagName('nome')->item(0)->nodeValue;
+                $prezzo_unitario = $acquisto->getElementsByTagName('prezzo_unitario')->item(0)->nodeValue;
+                $quantita = $acquisto->getElementsByTagName('quantita')->item(0)->nodeValue;
+                $prezzo_totale = $acquisto->getElementsByTagName('prezzo_totale')->item(0)->nodeValue;
+                $data_acquisto = $acquisto->getElementsByTagName('data')->item(0)->nodeValue;
+                $ora_acquisto = $acquisto->getElementsByTagName('ora')->item(0)->nodeValue;
+
+                echo '<tr>';
+                echo '<td>' . $nome . '</td>';
+                echo '<td>' . $quantita . '</td>';
+                echo '<td>' . $prezzo_unitario . '€</td>';
+                echo '<td>' . $prezzo_totale . '€</td>';
+                echo '<td>' . $data_acquisto . '</td>';
+                echo '<td>' . $ora_acquisto . '</td>';
+                // Aggiungi altre colonne se necessario
+                echo '</tr>';
+            }
         }
+
+        echo '</table>';
+    } else {
+        echo '<p>Il file storico_acquisti.xml non esiste ancora o è vuoto.</p>';
     }
-
-    echo '</ul>';
-    echo '</div>';
-    echo '<div>';
-    echo '<a href="../HTML/index1.html"><button class="home_acq">Torna alla Homepage</button></a>';
-    echo '</div>';
-    echo '</div>';
 } else {
-    // Nessun acquisto disponibile
-    echo '<p>Nessun acquisto effettuato.</p>';
+    echo '<p>Utente non autenticato.</p>';
 }
-
 ?>
+</body>
+</html>
