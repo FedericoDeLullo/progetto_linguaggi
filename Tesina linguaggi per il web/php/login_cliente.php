@@ -36,7 +36,7 @@
                 </div>
                 <button class="submit" type="submit">Inizia la sessione</button>
                 <p class="footer">Non hai un account? <a href="registrazione_cliente.php" class="link">Per favore, Registrati</a></p>  
-                </form>
+            </form>
             <div class="banner">
                 <h1 class="wel_text">Benvenuto<br/></h1>
                 <img src="../img/logo.PNG">

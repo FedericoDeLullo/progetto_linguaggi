@@ -25,7 +25,7 @@ if (isset($_SESSION['id'])) {
         $id_utente_sessione = $_SESSION['id'];
         $email = $_SESSION['email'];
 
-        echo '<h2>Storico Acquisti: ' . $email . '</h2>';
+        echo '<h1 class="titolo">Storico Acquisti: ' . $email . '</h1>';
         echo '<table border="1">';
         echo '<tr>';
         echo '<th>Nome</th>';
