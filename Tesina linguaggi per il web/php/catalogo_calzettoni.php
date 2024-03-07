@@ -80,6 +80,11 @@
                 $immagine = $prodotto->getElementsByTagName('immagine')->item(0)->nodeValue;
                 $id_prodotto = $prodotto->getElementsByTagName('id_prodotto')->item(0)->nodeValue;
 
+                $sconto_generico = $prodotto->getElementsByTagName('sconto_generico')->item(0)->nodeValue;
+                $bonus = $prodotto->getElementsByTagName('bonus')->item(0)->nodeValue;
+
+
+
                 // Aggiunta: verifica la tipologia
                 $tipologia = $prodotto->getElementsByTagName('tipologia')->item(0)->nodeValue;
                 if ($tipologia !== 'calzettoni') {
@@ -117,11 +122,32 @@
                             echo '<td class="td">';
                                 echo '<p class="des">' . $descrizione . '</p>';
                                 echo '<p class="prezzo">Prezzo: ' . $prezzo . '€</p>';
+                                echo '<p class="prezzo">Bonus: ' . $bonus . '€</p>';
+
+                                $xmlPath = "../xml/catalogo_prodotti.xml";
+
+                        if(isset($_SESSION['loggato']) && $_SESSION['loggato'] == true){
+                            $prezzoScontato = calcolaScontoProdotto($xmlPath, $id_prodotto, $prezzo);
+                        }
+
+                        echo "<p class='prezzo'>Sconto Generico: " . $sconto_generico . " %</p>";
+                        if(isset($_SESSION['sconto_parametrico']) && $_SESSION['sconto_parametrico'] = true){
+                            echo "<p style='color:red;' class='prezzo'>Sconti Aggiuntivi Attivati </p>";
+                            echo" <p class = 'prezzo'> Prezzo Finale: " . $prezzoScontato . " €</p>";
+                            unset($_SESSION['sconto_parametrico']);
+                        }else{
+                            echo" <p class = 'prezzo'> Prezzo Finale: " . $prezzoScontato . " €</p>";
+
+                        }
+                        echo "</div>";
                                 echo '<div class="linea">';
                                 echo '<form action="catalogo_magliette.php" method="post">';
                                 echo '<input type="hidden" name="id_prodotto" value="' . $id_prodotto . '">';
                                 echo '<input type="hidden" name="nome" value="' . $nome . '">';
                                 echo '<input type="hidden" name="prezzo" value="' . $prezzo . '">';
+                                echo '<input type="hidden" name="bonus" value="' . $bonus . '">';
+
+                                echo '<input type="hidden" name="prezzoScontato" value="' . $prezzoScontato . '">';
                                 echo ' <input class="input" type="number" name="quantita" value="0" min="1" step="1" size="3" max="99" />';
                                 echo '<button style="border:none; background:none; cursor:pointer;" type="submit" name="azione" value="aggiungi_al_carrello"><span id="cart" class="material-symbols-outlined">add_shopping_cart</span></button>';
                                 echo '</form>';
@@ -147,11 +173,31 @@
                             echo '<td class="td">';
                                 echo '<p class="des">' . $descrizione . '</p>';
                                 echo '<p class="prezzo">Prezzo: ' . $prezzo . '€</p>';
+                                echo '<p class="prezzo">Bonus: ' . $bonus . '€</p>';
+
+                                $xmlPath = "../xml/catalogo_prodotti.xml";
+
+                        if(isset($_SESSION['loggato']) && $_SESSION['loggato'] == true){
+                            $prezzoScontato = calcolaScontoProdotto($xmlPath, $id_prodotto, $prezzo);
+                        }
+
+                        echo "<p class='prezzo'>Sconto Generico: " . $sconto_generico . " %</p>";
+                        if(isset($_SESSION['sconto_parametrico']) && $_SESSION['sconto_parametrico'] = true){
+                            echo "<p style='color:red;' class='prezzo'>Sconti Aggiuntivi Attivati </p>";
+                            echo" <p class = 'prezzo'> Prezzo Finale: " . $prezzoScontato . " €</p>";
+                            unset($_SESSION['sconto_parametrico']);
+                        }else{
+                            echo" <p class = 'prezzo'> Prezzo Finale: " . $prezzoScontato . " €</p>";
+
+                        }
+                        echo "</div>";
                                 echo '<div class="linea">';
                         echo '<form action="catalogo_magliette.php" method="post">';
                         echo '<input type="hidden" name="id_prodotto" value="' . $id_prodotto . '">';
                         echo '<input type="hidden" name="nome" value="' . $nome . '">';
+                        echo '<input type="hidden" name="bonus" value="' . $bonus . '">';
                         echo '<input type="hidden" name="prezzo" value="' . $prezzo . '">';
+                        echo '<input type="hidden" name="prezzoScontato" value="' . $prezzoScontato . '">';
                         echo ' <input class="input" type="number" name="quantita" value="0" min="1" step="1" size="3" max="99" />';
                         echo '<button style="border:none; background:none; cursor:pointer;" type="submit" name="azione" value="aggiungi_al_carrello"><span id="cart" class="material-symbols-outlined">add_shopping_cart</span></button>';
                         echo '</form>';
@@ -188,12 +234,14 @@
                 }
 
             ?>
-               <?php if (isset($_POST['azione']) && $_POST['azione'] === 'aggiungi_al_carrello') {
+                <?php if (isset($_POST['azione']) && $_POST['azione'] === 'aggiungi_al_carrello') {
                         $id_prodotto = $_POST['id_prodotto'];
                         $nome = $_POST['nome'];
                         $prezzo = $_POST['prezzo'];
+                        $prezzoScontato = $_POST['prezzoScontato'];
                         $quantita = $_POST['quantita'];
-                    
+                        $bonus = $_POST['bonus'];
+
                         // Inizializza o ottieni il carrello dalla sessione
                         if (!isset($_SESSION['carrello'])) {
                             $_SESSION['carrello'] = array();
@@ -204,10 +252,12 @@
                             'id_prodotto' => $id_prodotto,
                             'nome' => $nome,
                             'prezzo' => $prezzo,
+                            'bonus' => $bonus,
                             'quantita' => $quantita,
+                            'prezzoScontato' => $prezzoScontato,
                         );
                     }
-                    ?>    
+                    ?>  
                  <script>
     // Quando il documento è caricato
     $(document).ready(function() {

@@ -45,6 +45,7 @@ $sql = "SELECT id, nome, cognome, crediti,email, reputazione, ammin, gestore FRO
   END";
 $result = $connessione->query($sql);
 
+
 // Stampa la tabella degli utenti
 echo '<table border="1">';
 echo '<tr>';
@@ -54,6 +55,7 @@ echo '<th>Cognome</th>';
 echo '<th>email</th>';
 echo '<th>Reputazione</th>';
 echo '<th>Crediti</th>';
+echo '<th>Storico Acquisti</th>';
 echo '</tr>';
 
 if ($result->num_rows > 0) {
@@ -73,6 +75,13 @@ if ($result->num_rows > 0) {
         echo '<td>' . $row['email'] . '</td>';
         echo '<td>' . $row['reputazione'] . '</td>';
         echo '<td>' . $row['crediti'] . '</td>';
+        echo '<td>';
+        echo '<form action="storico_acquisti_utenti.php" method="POST">';
+        echo '<input type="hidden" name="id" value="' . $row['id'] . '"/>';
+        echo '<input type="hidden" name="email" value="' . $row['email'] . '"/>';
+        echo '<button class="done" type="submit"><span id="done" class="material-symbols-outlined">shopping_bag</span></button>';
+        echo '</form>';
+        echo '</td>';
         echo '</tr>';
     }
 } else {

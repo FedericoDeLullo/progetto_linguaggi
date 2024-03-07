@@ -40,7 +40,8 @@ $sql = "CREATE TABLE IF NOT EXISTS utenti (
     ammin int,
     gestore int,
     reputazione int,
-    ban int
+    ban int,
+    data_registrazione date
 )";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'utenti' creata correttamente\n";
@@ -50,9 +51,9 @@ if ($connessione->query($sql) === TRUE) {
 }
 
 // Inserimento dei dati nella tabella 'utenti'
-$sql = "INSERT INTO `utenti` (`id`,`nome`,`cognome`, `email`, `passwd`,`crediti`,`data_di_nascita`,`indirizzo_di_residenza`,`codice_fiscale`,`cellulare`,`utente`,`ammin`,`gestore`,`reputazione`,`ban`) VALUES
- ('1','Lorenzo','Francescotti', 'lorenzofrancescotti@gmail.com', '" . password_hash('Lorenzo2001!', PASSWORD_DEFAULT) . "','1000', '2001-06-14', 'Via Muzio Clementi', 'FRNLNZ01H14H501Z','3339553001','0','1','0','11', '0'),
- ('2','Federico', 'De Lullo', 'federico@gmail.com', '" . password_hash('Roma1234!', PASSWORD_DEFAULT) . "','1000','2001-04-11','Via A.Stradivari 4', 'DLLFRC01D11H501P','3293321366','0','0','1','11','0')";
+$sql = "INSERT INTO `utenti` (`id`,`nome`,`cognome`, `email`, `passwd`,`crediti`,`data_di_nascita`,`indirizzo_di_residenza`,`codice_fiscale`,`cellulare`,`utente`,`ammin`,`gestore`,`reputazione`,`ban`,`data_registrazione`) VALUES
+ ('1','Lorenzo','Francescotti', 'lorenzofrancescotti@gmail.com', '" . password_hash('Lorenzo2001!', PASSWORD_DEFAULT) . "','1000', '2001-06-14', 'Via Muzio Clementi', 'FRNLNZ01H14H501Z','3339553001','0','1','0','11', '0','2022-06-14'),
+ ('2','Federico', 'De Lullo', 'federico@gmail.com', '" . password_hash('Roma1234!', PASSWORD_DEFAULT) . "','1000','2001-04-11','Via A.Stradivari 4', 'DLLFRC01D11H501P','3293321366','0','0','1','11','0','2022-06-14')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'utenti' popolata correttamente\n";
 } else {

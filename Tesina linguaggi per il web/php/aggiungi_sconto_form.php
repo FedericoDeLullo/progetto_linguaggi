@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,61 +11,93 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="../css/style_header.css">
     <?php
-        include('../res/header.php');
+    include('../res/header.php');
     ?>
 </head>
+
 <body>
-<div class="cont">
-<h1 class="titolo">Aggiungi sconto</h1>
+    <?php
+    $id_prodotto = $_GET['id_prodotto'];
+    ?>
+    <div class="cont">
+        <h1 class="titolo">Aggiungi sconto</h1>
 
-<form method="post" action="gestione_sconti.php">
-    <table>
-        <tr>
-            <th>SCONTO</th>
-            <th>PERCENTUALE</th>
-            <th>SELEZIONE</th>
-        </tr>
-        <tr>
-            <td>Clienti che hanno speso N crediti finora</td>
-            <td><input type="number" name="percentuale_sconto_spesi_n" min="0" max="100" placeholder="%">%</td>
-            <td class="checkbox-cell"><input type="checkbox" name="sconto_clienti_spesi_n"></td>
-        </tr>
-        <tr>
-            <td>Clienti che hanno speso M crediti da una certa data</td>
-            <td><input type="number" name="percentuale_sconto_spesi_da_data" min="0" max="100" placeholder="%">%</td>
-            <td class="checkbox-cell"><input type="checkbox" name="sconto_clienti_spesi_da_data"></td>
-        </tr>
-        <tr>
-            <td>Clienti che hanno acquistato una certa offerta</td>
-            <td><input type="number" name="percentuale_sconto_offerta" min="0" max="100" placeholder="%">%</td>
-            <td class="checkbox-cell"><input type="checkbox" name="sconto_clienti_offerta"></td>
-        </tr>
-        <tr>
-            <td>Clienti che hanno una certa reputazione</td>
-            <td><input type="number" name="percentuale_sconto_reputazione" min="0" max="100" placeholder="%">%</td>
-            <td class="checkbox-cell"><input type="checkbox" name="sconto_clienti_reputazione"></td>
-        </tr>
-        <tr>
-            <td>Clienti che sono con noi da X mesi</td>
-            <td><input type="number" name="percentuale_sconto_da_x_mesi" min="0" max="100" placeholder="%">%</td>
-            <td class="checkbox-cell"><input type="checkbox" name="sconto_clienti_da_x_mesi"></td>
-        </tr>
-        <tr>
-            <td>Clienti che sono con noi da Y anni</td>
-            <td><input type="number" name="percentuale_sconto_da_y_anni" min="0" max="100" placeholder="%">%</td>
-            <td class="checkbox-cell"><input type="checkbox" name="sconto_clienti_da_y_anni"></td>
-        </tr>
-        <tr>
-            <td>Sconto indiscriminato</td>
-            <td><input type="number" name="percentuale_sconto_indiscriminato" min="0" max="100" placeholder="%">%</td>
-            <td class="checkbox-cell"><input type="checkbox" name="sconto_indiscriminato"></td>
-        </tr>
-        <tr>
-            <td colspan="3"><input type="submit" value="Aggiungi Sconti"></td>
-        </tr>
-    </table>
-</form>
+        <form class="form" method="post" action="gestione_sconti.php">
+            <table>
+                <tr>
+                    <td class="input">
+                        <label for="registrazione">MINIMO MESI DI REGISTRAZIONE</label>
+                        <input class="input" type="integer" id="registrazione" name="registrazione_mesi" min="1" max="12" placeholder="1" value="<?php if(isset($_SESSION['form_off_X'])) echo $_SESSION['form_off_X']; ?>" required>
+                    </td>
+                </tr>
 
-</div>
+                <tr>
+                    <td class="input">
+                        <label for="registrazione">MINIMO ANNI DI REGISTRAZIONE</label>
+                        <input class="input" type="integer" id="registrazione" name="registrazione_anni" min="0" max="20" placeholder="1" value="<?php if(isset($_SESSION['form_off_Y'])) echo $_SESSION['form_off_Y']; ?>" required>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="input">
+                        <label for="crediti_crediti_data">CREDITI SPESI DA UNA CERTA DATA</label>
+                        <input class="input" type="integer" id="crediti_data" name="crediti_data" placeholder="100" value="<?php if(isset($_SESSION['form_off_M'])) echo $_SESSION['form_off_M']; ?>" required>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="input">
+                        <label for="crediti">DATA DA CUI PARTIRE PER LO SCONTO</label>
+                        <input class="input" type="text" id="data" name="da_data" placeholder="1999-01-01" value="<?php if(isset($_SESSION['form_off_data_M'])) echo $_SESSION['form_off_data_M']; ?>" required pattern="\d{4}-\d{2}-\d{2}">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="input">
+                        <label for="crediti">MINIMO DI CREDITI SPESI IN TOTALE</label>
+                        <input class="input" type="integer" id="crediti" name="crediti" placeholder="100" value="<?php if(isset($_SESSION['form_off_N'])) echo $_SESSION['form_off_N']; ?>" required>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="input">
+                        <label for="reputazione">MINIMO DI REPUTAZIONE</label>
+                        <input class="input" type="integer" id="reputazione" name="reputazione" placeholder="2" value="<?php if(isset($_SESSION['form_off_R'])) echo $_SESSION['form_off_R']; ?>" required>
+                    </td>
+                </tr>
+
+              
+                        <input class="input" type="hidden" name="id_prodotto" value="<?php echo $id_prodotto; ?>">
+                  
+
+                <tr>
+                    <td class="input">
+                        <h3>INFORMAZIONI SCONTO:</h3>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="input">
+                        <label for="generico">SCONTO GENERICO (%)</label>
+                        <input class="input" type="number" id="generico" name="generico" placeholder="2" min="0" max="30" value="<?php if(isset($_SESSION['form_off_generico'])) echo $_SESSION['form_off_generico']; ?>" required>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="input">
+                        <label for="bonus">BONUS CREDITI</label>
+                        <input class="input" type="number" id="bonus" name="bonus" placeholder="2" min="0" max="5" value="<?php if(isset($_SESSION['form_off_bonus'])) echo $_SESSION['form_off_bonus']; ?>" required>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="input">
+                        <button class="btn" type="submit">Invia</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
 </body>
+
 </html>

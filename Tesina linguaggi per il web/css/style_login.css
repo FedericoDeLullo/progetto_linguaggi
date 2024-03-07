@@ -2,11 +2,13 @@ body{
     background-color: #9fd3c7;
 }
 
-.wrapper{
+.wrapper {
     border-radius: 20px;
-    position:relative;
-    width: 800px;
+    position: fixed;
+    width: 60%;
     height: 65vh;
+    left: 50%;
+    transform: translateX(-50%);
     display: grid;
     grid-template-columns: 1fr 1fr;
     border: 3px solid #011050;
@@ -26,16 +28,10 @@ body{
     width: fit-content;
 }
 
-.form_plus{
-    margin-left: 5vw;
-    margin-top: 2vh;
-    width: fit-content;
-}
-
 .titolo{
-    margin-left: 4vw;
     color: #011050;
     font-size: 35px;
+    text-align: center;
 }
 
 .inp{
@@ -48,19 +44,18 @@ body{
     outline: none;
     background: none;
     width: 260px;
-    margin-top: 40px;
     padding-right: 10px;
     font-size: 17px;
     color:#011050;
+    vertical-align: middle;
 }
 
 .submit{
     color: #9fd3c7;
     border: none;
     outline: none;
-    width: 288px;
-    margin-top: 25px;
-    padding: 10px 0;
+    width: 100%;
+    padding: 10px;
     font-size: 20px;
     border-radius: 40px;
     letter-spacing: 1px;
@@ -70,9 +65,8 @@ body{
 
 .footer{
     color: #011050;
-    margin-top: 30px;
-    letter-spacing: 0.5px;
-    font-size:14px;
+    font-size:15px;
+    text-align: center;
 }
 
 .link{
@@ -106,7 +100,7 @@ body{
     color: #9fd3c7;
     font-size: 40px;
     margin-top: -50px;
-    line-height: 50px;
+    text-align: center;
 }
 
 h2{
@@ -117,4 +111,8 @@ h2{
 
 #successo{
     color: green;
+}
+
+td{
+    padding-top: 40px;
 }

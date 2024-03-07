@@ -62,6 +62,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sconto_generico = $dom->createElement('sconto_generico', '0');
         $prodotto->appendChild($sconto_generico);
 
+        $bonus = $dom->createElement('bonus', '0');
+        $prodotto->appendChild($bonus);
+
         $sconto = $dom->createElement('sconto');
         $prodotto->appendChild($sconto);
 

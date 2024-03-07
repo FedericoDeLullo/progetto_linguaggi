@@ -11,36 +11,38 @@
     <link rel="stylesheet" href="../css/style_header.css">
     <?php
         include('../res/header.php');
+        include('../res/funzioni.php');
+        require_once('../res/connection.php');  
     ?>
 </head>
 <body>
 <div class="cont">
 
 <?php
+$carrello = isset($_SESSION['carrello']) ? $_SESSION['carrello'] : array();
 
 // Verifica se l'azione è "aggiungi_al_carrello"
 if (isset($_POST['azione']) && $_POST['azione'] === 'aggiungi_al_carrello') {
     $id_prodotto = $_POST['id_prodotto'];
     $nome = $_POST['nome'];
     $prezzo = $_POST['prezzo'];
+    $prezzoScontato = $_POST['prezzoScontato'];
     $quantita = $_POST['quantita'];
     $id_utente = $_SESSION['id'];
-
-    // Inizializza o ottieni il carrello dalla sessione
-    if (!isset($_SESSION['carrello'])) {
-        $_SESSION['carrello'] = array();
-    }
+    $bonus = $_POST['bonus'];
 
     // Aggiungi il prodotto al carrello
-    $_SESSION['carrello'][] = array(
+    $carrello[] = array(
         'id_prodotto' => $id_prodotto,
         'nome' => $nome,
+        'bonus' => $bonus,
         'prezzo' => $prezzo,
         'quantita' => $quantita,
+        'prezzoScontato' => $prezzoScontato,
     );
+    $_SESSION['carrello'] = $carrello;
 }
 
-// Pagina di visualizzazione del carrello
 ?>
 
 <?php
@@ -72,15 +74,25 @@ if (isset($_POST['azione'])) {
         // Calcola il totale dell'acquisto
         $totale_acquisto = 0;
         $prodotti_acquistati = array();
-
+        $bonusDaAggiungere = calcolaBonusAcquisto();
         foreach ($_SESSION['carrello'] as $prodotto_carrello) {
-            $totale_acquisto += $prodotto_carrello['prezzo'] * $prodotto_carrello['quantita'];
+            if(isset($prodotto_carrello['prezzoScontato'])){
+            $totale_acquisto += $prodotto_carrello['prezzoScontato'] * $prodotto_carrello['quantita'];
         }
+    else{
+        $totale_acquisto += $prodotto_carrello['prezzo'] * $prodotto_carrello['quantita'];
 
-        // Verifica se i crediti sono sufficienti per l'acquisto
-        if ($_SESSION['crediti'] >= $totale_acquisto) {
-            // Sottrai i crediti dal totale dell'acquisto
-            $_SESSION['crediti'] -= $totale_acquisto;
+    }
+    
+    }
+
+    if ($_SESSION['crediti'] >= $totale_acquisto) {
+        // Sottrai i crediti dal totale dell'acquisto
+        $_SESSION['crediti'] = $_SESSION['crediti'] - $totale_acquisto + $bonusDaAggiungere;
+    
+        // Aggiorna i crediti nella tabella degli utenti
+        $queryUpdateCrediti = "UPDATE utenti SET crediti = {$_SESSION['crediti']} WHERE id = {$_SESSION['id']}";
+        $resultUpdateCrediti = mysqli_query($connessione, $queryUpdateCrediti);
 
             if (!empty($_SESSION['carrello'])) {
                 $xmlPath = '../xml/storico_acquisti.xml';
@@ -111,9 +123,10 @@ if (isset($_POST['azione'])) {
                     $acquisto->appendChild($dom->createElement('nome', $prodotto_carrello['nome']));
                     $acquisto->appendChild($dom->createElement('prezzo_unitario', $prodotto_carrello['prezzo']));
                     $acquisto->appendChild($dom->createElement('quantita', $prodotto_carrello['quantita']));
-                
+                    $acquisto->appendChild($dom->createElement('prezzo_scontato', $prodotto_carrello['prezzoScontato']));
+
                     // Calcola e aggiungi il prezzo totale come elemento separato
-                    $prezzo_totale = $prodotto_carrello['prezzo'] * $prodotto_carrello['quantita'];
+                    $prezzo_totale = $prodotto_carrello['prezzoScontato'] * $prodotto_carrello['quantita'];
                     $acquisto->appendChild($dom->createElement('prezzo_totale', $prezzo_totale));
                 
                     // Aggiungi l'elemento "acquisto" all'elemento radice "storico_acquisti"
@@ -146,13 +159,15 @@ if (isset($_POST['azione'])) {
 <?php
 
 // Verifica se il carrello contiene prodotti
-if (!empty($_SESSION['carrello'])) {
+if (!empty($carrello)) {
     echo '<table>';
     echo '<tr>';
     echo '<th>Prodotto</th>';
     echo '<th>Quantità</th>';
     echo '<th>Prezzo Unitario</th>';
+    echo '<th>Prezzo Scontato</th>';
     echo '<th>Prezzo Totale</th>';
+    echo '<th>Bonus Totale</th>';
     echo '<th>Azioni</th>';
     echo '</tr>';
     
@@ -160,13 +175,26 @@ if (!empty($_SESSION['carrello'])) {
         echo '<tr>';
         echo '<td>' . $prodotto_carrello['nome'] . '</td>';
         echo '<td>' . (isset($prodotto_carrello['quantita']) ? $prodotto_carrello['quantita'] : 'N/A') . '</td>';
-        echo '<td>' . $prodotto_carrello['prezzo'] . '€</td>';
+        echo '<td>' . $prodotto_carrello['prezzo'] . '€</td>';  // Prezzo unitario
     
-        $prezzoTotale = isset($prodotto_carrello['prezzo']) && isset($prodotto_carrello['quantita'])
-            ? $prodotto_carrello['prezzo'] * $prodotto_carrello['quantita']
+        // Check if 'prezzoScontato' key is set before accessing its value
+        echo '<td>' . (isset($prodotto_carrello['prezzoScontato']) ? $prodotto_carrello['prezzoScontato'] . '€' : 'N/A') . '</td>';
+    
+        echo '<td>';
+    
+        $prezzoTotale = isset($prodotto_carrello['prezzoScontato']) && isset($prodotto_carrello['quantita'])
+            ? $prodotto_carrello['prezzoScontato'] * $prodotto_carrello['quantita']
             : 'N/A';
     
-        echo '<td>' . $prezzoTotale . '€</td>';
+        echo $prezzoTotale . '€</td>';
+        echo '<td>';
+        
+        // Aggiunta della cella per il Bonus Totale
+        $bonusTotale = isset($prodotto_carrello['bonus']) && isset($prodotto_carrello['quantita'])
+            ? $prodotto_carrello['bonus'] * $prodotto_carrello['quantita']
+            : 'N/A';
+        echo $bonusTotale . '</td>';
+
         echo '<td>';
         echo '<form action="cart.php" method="post">';
         echo '<input type="hidden" name="index" value="' . $index . '">';
@@ -199,9 +227,9 @@ if (!empty($_SESSION['carrello'])) {
     echo '</form>';
     
 } else {
-    echo '<p>Il carrello è vuoto.</p>';
+    echo '<p style="margin-top: 50px;" class="titolo">Il carrello è vuoto.</p>';
 }
 ?>
-
+</div>
 </body>
 </html>

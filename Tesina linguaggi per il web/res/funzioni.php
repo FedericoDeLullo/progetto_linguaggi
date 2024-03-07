@@ -1,4 +1,51 @@
 <?php
+function calcolaBonusAcquisto() {
+    $somma_totale = 0;
+
+    if (isset($_SESSION['carrello'])) {
+        foreach ($_SESSION['carrello'] as $prodotto_carrello) {
+            if(isset($prodotto_carrello) && isset($prodotto_carrello['bonus']) && isset($prodotto_carrello['quantita']) && isset($prodotto_carrello['prezzo'])){
+                $somma_totale += $prodotto_carrello['bonus'] * $prodotto_carrello['quantita'];
+            }
+        }
+    }
+
+    return $somma_totale;
+}
+
+function getAcquisti($xmlFile)
+{
+    $acquisti = [];
+
+    $acquisti_doc = new DOMDocument();
+    $acquisti_doc->load($xmlFile);
+
+    $acquistiList = $acquisti_doc->getElementsByTagName('acquisto');
+
+    foreach ($acquistiList as $acquisto) {
+        $IDUtente = $acquisto->getAttribute('id_utente');
+        $data = $acquisto->getElementsByTagName('data')->item(0)->nodeValue;
+        $ora = $acquisto->getElementsByTagName('ora')->item(0)->nodeValue;
+        $idProdotto = $acquisto->getElementsByTagName('id_prodotto')->item(0)->nodeValue;
+        $nome = $acquisto->getElementsByTagName('nome')->item(0)->nodeValue;
+        $prezzoUnitario = $acquisto->getElementsByTagName('prezzo_unitario')->item(0)->nodeValue;
+        $quantita = $acquisto->getElementsByTagName('quantita')->item(0)->nodeValue;
+        $prezzoTotale = $acquisto->getElementsByTagName('prezzo_totale')->item(0)->nodeValue;
+
+        $acquisti[] = [
+            'IDUtente' => $IDUtente,
+            'data' => $data,
+            'ora' => $ora,
+            'idProdotto' => $idProdotto,
+            'nome' => $nome,
+            'prezzoUnitario' => $prezzoUnitario,
+            'quantita' => $quantita,
+            'prezzo_totale' => $prezzoTotale,
+        ];
+    }
+
+    return $acquisti;
+}
 // Funzione per caricare i prodotti dal catalogo
 function getProdotti($xmlFile) {
 
@@ -55,6 +102,9 @@ function getProdotti($xmlFile) {
 
     return $prodotti;
 }
+
+
+
 function calcolaScontoProdotto($xmlpath, $id_prodotto, $prezzo)
 {
     $prezzoFinale = 0;
@@ -111,7 +161,7 @@ function calcolaScontoProdotto($xmlpath, $id_prodotto, $prezzo)
                 // Ora devo gestirmi i parametri M e data_M
 
                 // 1) Mi preparo il necessario ovvero l'id dell'utente loggato e mi carico gli acquisti
-                $xmlpath_acquisti = "res/XML/storico_acquisti.xml";
+                $xmlpath_acquisti = "../xml/storico_acquisti.xml";
                 $acquisti = getAcquisti($xmlpath_acquisti);
 
                 $query = "SELECT utenti.id FROM utenti WHERE utenti.email = '{$_SESSION['email']}'";
@@ -126,20 +176,16 @@ function calcolaScontoProdotto($xmlpath, $id_prodotto, $prezzo)
 
                 // 2) Ora faccio il controllo se si è speso un certo ammontare di crediti entro una certa data
                 foreach ($acquisti as $acquisto) {
-
-                    if ($acquisto['IDUtente'] == $id_loggato) {
-
-                        // Ora che mi trovo nell'ordine corretto, devo vedere se è stato fatto entro una certa data
-                        if ($acquisto['data'] >= $sc_data_M) {
-
-                            foreach ($acquisto['prodotti'] as $acquisto_prodotto) {
-
-                                $spesa_totale_entro_data += $acquisto_prodotto['prezzo'];
-                            }
-                        }
+                    if ($acquisto['IDUtente'] == $id_loggato && $acquisto['data'] >= $sc_data_M) {
+                        // Considero un singolo acquisto alla volta
+                
+                        // Supponendo che $acquisto['nome'] sia il nome del prodotto
+                        $nomeProdotto = $acquisto['nome'];
+                
+                        // Aggiungo il prezzo del singolo prodotto alla spesa totale
+                        $spesa_totale_entro_data += $acquisto['prezzo_totale'];
                     }
                 }
-
                 // 3) Controllo se la quantità spesa entro una certa data è almeno uguale a quella dello sconto parametrico
                 if ($spesa_totale_entro_data >= $sc_M) {
                     $M_data_da_M_check = true;
@@ -151,13 +197,9 @@ function calcolaScontoProdotto($xmlpath, $id_prodotto, $prezzo)
 
                 // Ora mi devo occupare del parametro N, ovvero se sono stati spesi un certo ammontare di crediti in totale
                 foreach ($acquisti as $acquisto) {
-
                     if ($acquisto['IDUtente'] == $id_loggato) {
-
-                        foreach ($acquisto['prodotti'] as $acquisto_prodotto) {
-
-                            $spesa_totale += $acquisto_prodotto['prezzo'];
-                        }
+                        // Somma direttamente il prezzo totale di ogni acquisto
+                        $spesa_totale += $acquisto['prezzo_totale'];
                     }
                 }
 
@@ -182,31 +224,10 @@ function calcolaScontoProdotto($xmlpath, $id_prodotto, $prezzo)
                     $R_check = false;
                 }
 
-                // Come ultimo controllo dello sconto parametrico devo vedere se l'utente ha già comprato un certo prodotto
-                $ha_acquistato_check = false;
-
-                foreach ($acquisti as $acquisto) {
-
-                    if ($acquisto['IDUtente'] == $id_loggato) {
-
-                        if ($sc_ha_acquistato == 0) {
-                            $ha_acquistato_check = true;
-                            break;
-                        }
-
-                        foreach ($acquisto['prodotti'] as $acquisto_prodotto) {
-
-                            if ($sc_ha_acquistato == $acquisto_prodotto['id_prodotto']) {
-                                $ha_acquistato_check = true;
-                                break;
-                            }
-                        }
-                    }
-                }
 
                 // Ora ho controllato TUTTI i parametri, se tutte le variabili booleane sono a true aggiungo uno sconto percentuale
-                if ($X_Y_check && $M_data_da_M_check && $N_check && $R_check && $ha_acquistato_check) {
-                    $sconto_percentuale += 5;
+                if ($X_Y_check && $M_data_da_M_check && $N_check && $R_check) {
+                    $sconto_percentuale += 4;
                     $_SESSION['sconto_parametrico'] = true;
                 }
 

@@ -131,13 +131,6 @@ $utente = $_SESSION['utente'];
                     </a>
                 </div>
                 <div class="header_menu_item">
-                    <a href="storico_acquisti.php" class="stile">                   
-                        <div class="header_menu_link" title="Logout">
-                            <span class="material-symbols-outlined">accessible</span>Bho
-                        </div>
-                    </a>
-                </div>
-                <div class="header_menu_item">
                 <a href="../php/gestione_acquisti.php" class="stile">                   
                         <div class="header_menu_link" title="Carrello">
                             <span class="material-symbols-outlined">shopping_cart</span>

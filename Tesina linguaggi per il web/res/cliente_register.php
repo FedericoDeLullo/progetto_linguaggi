@@ -10,6 +10,8 @@
     $indirizzo_di_residenza = $connessione->real_escape_string($_POST['indirizzo_di_residenza']);
     $codice_fiscale = $connessione->real_escape_string($_POST['codice_fiscale']);
     $password = $connessione->real_escape_string($_POST['password']);
+    $data = $connessione->real_escape_string($_POST['data_registrazione']);
+
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     $utente=1;
@@ -27,6 +29,8 @@
     $_SESSION['form_indirizzo_di_residenza'] = $indirizzo_di_residenza;
     $_SESSION['form_codice_fiscale'] = $codice_fiscale;
 
+
+    
     //controllo se l'email è già esistente
     $controllo_email = "SELECT * FROM utenti u WHERE u.email = '$email'";
     $ris_email = mysqli_query($connessione, $controllo_email);
@@ -68,7 +72,7 @@
         exit(1);
     }
    
-    $sql = "INSERT INTO utenti (email, nome, cognome, data_di_nascita, cellulare, indirizzo_di_residenza, codice_fiscale, passwd, crediti, utente, ammin, gestore, reputazione, ban) VALUES ('$email','$nome','$cognome','$data_di_nascita','$cellulare','$indirizzo_di_residenza', '$codice_fiscale','$hashed_password', '$crediti', '$utente', '$admin_ok', '$gestore', '$reputazione', '$ban')";
+    $sql = "INSERT INTO utenti (email, nome, cognome, data_di_nascita, cellulare, indirizzo_di_residenza, codice_fiscale, passwd, crediti, utente, ammin, gestore, reputazione, ban, data_registrazione) VALUES ('$email','$nome','$cognome','$data_di_nascita','$cellulare','$indirizzo_di_residenza', '$codice_fiscale','$hashed_password', '$crediti', '$utente', '$admin_ok', '$gestore', '$reputazione', '$ban', '$data')";
     
     try {
         $connessione->query($sql);

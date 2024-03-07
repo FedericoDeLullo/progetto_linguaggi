@@ -26,6 +26,7 @@
                     $_SESSION['gestore'] = $row['gestore'];
                     $_SESSION['ammin'] = $row['ammin'];
                     $_SESSION['indirizzo'] = $row['indirizzo_di_residenza'];
+                    $carrello = $_SESSION['carrello'];
                     header("Location: ../php/index.php");
                 } else {
                     $_SESSION['errore_login'] = 'true';

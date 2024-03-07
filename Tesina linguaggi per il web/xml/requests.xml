@@ -48,4 +48,8 @@
     <email>federicodelullo@gmail.com</email>
     <importo>100000000</importo>
   </request>
+  <request status="Approvato">
+    <email>federicodelullo84@gmail.com</email>
+    <importo>5</importo>
+  </request>
 </requests>
