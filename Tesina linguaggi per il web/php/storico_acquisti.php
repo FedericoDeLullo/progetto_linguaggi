@@ -24,6 +24,7 @@ if (isset($_SESSION['id'])) {
 
         $id_utente_sessione = $_SESSION['id'];
         $email = $_SESSION['email'];
+        $contatore = 0;
 
         echo '<h1 class="titolo">Storico Acquisti: ' . $email . '</h1>';
         echo '<table border="1">';
@@ -34,7 +35,6 @@ if (isset($_SESSION['id'])) {
         echo '<th>Prezzo Totale</th>';
         echo '<th>Data Acquisto</th>';
         echo '<th>Ora Acquisto</th>';
-        // Aggiungi altre colonne se necessario
         echo '</tr>';
 
         foreach ($dom->getElementsByTagName('acquisto') as $acquisto) {
@@ -55,12 +55,14 @@ if (isset($_SESSION['id'])) {
                 echo '<td>' . $prezzo_totale . '€</td>';
                 echo '<td>' . $data_acquisto . '</td>';
                 echo '<td>' . $ora_acquisto . '</td>';
-                // Aggiungi altre colonne se necessario
                 echo '</tr>';
+                $contatore++;
             }
         }
-
         echo '</table>';
+        if ($contatore == 0) {
+            echo '<p class="titolo">Non hai effettuato acquisti per il momento...</p>';
+        }
     } else {
         echo '<p>Il file storico_acquisti.xml non esiste ancora o è vuoto.</p>';
     }

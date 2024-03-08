@@ -27,6 +27,7 @@
     color: #011050;
     transition: 0.5s;
 }
+
 .btn1{
     display: flex;
     justify-content: center;
@@ -96,4 +97,52 @@ input[type="text"]{
     border: none;
     background: none;
     vertical-align: middle;
+}
+
+p{
+    color: #011050;
+}
+
+#successo{
+    color: green;
+}
+
+#simbolo{
+    color: #0021b4;
+    vertical-align: middle;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  text-align: left;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  background-color: #9fd3c7;
+  color: #011050;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  z-index: 99;
+  top: 100%; 
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 15px;
+  width: 200px;
+  border: 1px solid #011050;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+li{
+    text-align: left;
 }
