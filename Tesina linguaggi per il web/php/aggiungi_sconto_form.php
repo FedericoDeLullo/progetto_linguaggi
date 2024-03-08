@@ -18,6 +18,7 @@
 <body>
     <?php
     $id_prodotto = $_GET['id_prodotto'];
+    $tipologia = $_GET['tipologia'];
     ?>
     <div class="cont">
         <h1 class="titolo">Aggiungi sconto</h1>
@@ -26,6 +27,7 @@
             <table>
                 <tr>
                     <td class="input">
+                    <input type="hidden" name="tipologia" value="<?php echo $tipologia; ?>">
                         <label for="registrazione">MINIMO MESI DI REGISTRAZIONE</label>
                         <input class="input" type="integer" id="registrazione" name="registrazione_mesi" min="1" max="12" placeholder="1" value="<?php if(isset($_SESSION['form_off_X'])) echo $_SESSION['form_off_X']; ?>" required>
                     </td>

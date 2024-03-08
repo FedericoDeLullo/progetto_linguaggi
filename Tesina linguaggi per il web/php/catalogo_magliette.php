@@ -112,8 +112,8 @@
                         echo '<a class="btn1"style="margin-left:10vw;" title="Lascia una domanda" href="domande_prodotti.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">Scrivi una domanda</a>';
                         echo '<a class="btn1"style="margin-left:10vw;"  title="Lascia una recensione" href="recensione_cliente.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">Scrivi una recensione</a>';
                         echo '<a class="btn1" style="margin-left:10vw;"title="Lista delle recensioni" href="lista_recensioni.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">Liste delle recensioni</a>';
-                        echo '<a class="btn1" style="margin-left:10vw;" href="modifica_prodotti_form.php?id_prodotto=' . $id_prodotto . '">Modifica prodotto</a>';
-                        echo '<a class="btn1" style="margin-left:10vw;" href="aggiungi_sconto_form.php?id_prodotto=' . $id_prodotto . '">Aggiungi Sconto</a>';
+                        echo '<a class="btn1" style="margin-left:10vw;" href="modifica_prodotti_form.php?id_prodotto=' . $id_prodotto . '&tipologia=' . $tipologia . '">Modifica prodotto</a>';
+                        echo '<a class="btn1" style="margin-left:10vw;" href="aggiungi_sconto_form.php?id_prodotto=' . $id_prodotto . '&tipologia=' . $tipologia . '">Aggiungi Sconto</a>';
                         echo '</td>';
                         echo '<td class="td">';
                         echo '<div class="box">';
@@ -186,22 +186,35 @@
                         echo '</td>';
                         echo '<td class="td">';
                         echo '<p class="des">' . $descrizione . '</p>';
-                        echo '<p>Prezzo: ' . $prezzo . '€</p>';
-                        echo '<p>Bonus: ' . $bonus . '€</p>';
-                        $xmlPath = "../xml/catalogo_prodotti.xml";
+                       $xmlPath = "../xml/catalogo_prodotti.xml";
 
                         if(isset($_SESSION['loggato']) && $_SESSION['loggato'] == true){
                             $prezzoScontato = calcolaScontoProdotto($xmlPath, $id_prodotto, $prezzo);
                         }
-                        echo "<p>Sconto Generico: " . $sconto_generico . " %</p>";
-                        if(isset($_SESSION['sconto_parametrico']) && $_SESSION['sconto_parametrico'] = true){
-                            echo "<p id='successo'>Sconti Aggiuntivi Attivati </p>";
-                            echo" <p class = 'prezzo'> Prezzo Finale: " . $prezzoScontato . " €</p>";
-                            unset($_SESSION['sconto_parametrico']);
-                        }else{
-                            echo" <p class = 'prezzo'> Prezzo Finale: " . $prezzoScontato . " €</p>";
 
+                        if(isset($_SESSION['sconto_parametrico']) && $_SESSION['sconto_parametrico'] = true){
+                            echo "<p id='successo'>Sconti Aggiuntivi Attivati</p>";
+                            unset($_SESSION['sconto_parametrico']);
                         }
+                        echo '<table>';
+                            echo '<tr>';
+                                echo '<td>';
+                                    echo "<div class='tooltip'>";
+                                        echo "<span class='tooltiptext'>";
+                                            echo "<ul>";
+                                                echo "<li>Prezzo Base: $prezzo €</li>";
+                                                echo "<li>Bonus Crediti: $bonus €</li>";
+                                                echo "<li>Sconto Generico: " . $sconto_generico . " %</li>";
+                                            echo "</ul>";
+                                        echo "</span>";
+                                        echo "<i id='simbolo' class='material-symbols-outlined'>info</i>";
+                                    echo "</div>";
+                                echo '</td>';
+                                echo '<td>';
+                                    echo "<p class = 'prezzo'>Prezzo Finale: " . $prezzoScontato . " €</p>";
+                                echo '</td>';
+                            echo '</tr>';
+                        echo '</table>';
                         echo "</div>";
                         echo '<div class="linea">';
                         echo '<form action="catalogo_magliette.php" method="post">';
@@ -232,7 +245,6 @@
                     echo '<td class="td">';
                     echo '<p class="des">' . $descrizione . '</p>';
                     echo '<p class="prezzo">Prezzo: ' . $prezzo . '€</p>';
-                    echo '<input class="input" type="number" name="quantita" value="0" min="1" step="1" size="3" max="99" />';
                     echo '<a href="login_cliente.php"><span id="cart" class="material-symbols-outlined">add_shopping_cart</span></a>';
                     echo '</tr>';
                     echo '</table>';

@@ -2,7 +2,7 @@
 // Configurazione del database
 $host = "127.0.0.1";
 $username = "root";
-$password = "";
+$password = "password";
 $db = "Rugby_World";
 
 // Creazione della connessione
@@ -31,7 +31,7 @@ $sql = "CREATE TABLE IF NOT EXISTS utenti (
     cognome varchar(50),
     email VARCHAR(100),
     passwd VARCHAR(255),
-    crediti INT,
+    crediti FLOAT,
     data_di_nascita DATE,
     indirizzo_di_residenza VARCHAR(255),
     codice_fiscale VARCHAR(255),

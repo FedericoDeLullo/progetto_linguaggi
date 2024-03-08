@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Se l'email e il numero di cellulare non sono già presenti nel database, procedi con l'aggiornamento dei dati dell'utente
     $query_aggiornamento = "UPDATE utenti SET nome = ?, cognome = ?, indirizzo_di_residenza = ?, email = ?, cellulare = ?, crediti = ? WHERE id = ?";
     $stmt_aggiornamento = $connessione->prepare($query_aggiornamento);
-    $stmt_aggiornamento->bind_param("ssssssi", $nome, $cognome, $indirizzo, $email, $cellulare, $crediti, $id_utente);
+    $stmt_aggiornamento->bind_param("sssssii", $nome, $cognome, $indirizzo, $email, $cellulare, $crediti, $id_utente);
  // Carica il tuo file XML con DOMDocument
  $dom = new DOMDocument;
  $dom->load('../xml/catalogo_prodotti.xml');

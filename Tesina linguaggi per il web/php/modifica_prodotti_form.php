@@ -3,7 +3,7 @@
 if (isset($_GET['id_prodotto'])) {
     // Recupera l'id del prodotto dalla query string
     $id_prodotto = $_GET['id_prodotto'];
-
+$tipologia = $_GET['tipologia'];
     // Puoi ora utilizzare $id_prodotto per recuperare le informazioni del prodotto dal tuo file XML
 
     // Esempio: leggi il file XML
@@ -64,6 +64,8 @@ if (isset($_GET['id_prodotto'])) {
                 <td>
                     <label for="nome">Nome:</label></td>
                 <td>
+                <input type="hidden"  name="tipologia" value="<?php echo $tipologia; ?>" >
+
                     <input class="input" type="text" name="nome" value="<?php echo $nome; ?>" required></td>
             </tr>
             <tr>

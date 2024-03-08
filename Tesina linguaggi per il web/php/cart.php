@@ -11,13 +11,22 @@
     <?php
         include('../res/header.php');
         include('../res/funzioni.php');
-        require_once('../res/connection.php');  
     ?>
 </head>
 <body>
 <div class="cont">
 
-<?php
+<?php        
+require_once('../res/connection.php');  
+
+$sql_select = "SELECT * FROM utenti WHERE id = '$id_utente'";
+if($result = $connessione->query($sql_select)){
+    if($result->num_rows === 1){
+        $row = $result->fetch_array(MYSQLI_ASSOC);
+    }
+    $_SESSION['crediti'] = $row['crediti'];
+    }
+
 $carrello = isset($_SESSION['carrello']) ? $_SESSION['carrello'] : array();
 
 // Verifica se l'azione è "aggiungi_al_carrello"
@@ -44,15 +53,20 @@ if (isset($_POST['azione']) && $_POST['azione'] === 'aggiungi_al_carrello') {
 
 // Gestisci le azioni di rimuovere il prodotto o modificare la quantità
 if (isset($_POST['azione'])) {
+    
     if ($_POST['azione'] === 'svuota_carrello') {
         // Azione per svuotare il carrello
         unset($_SESSION['carrello']);
+        unset($carrello);
     } elseif ($_POST['azione'] === 'rimuovi_prodotto') {
         // Azione per rimuovere singolarmente un prodotto
         $index = $_POST['index'];
-        if (isset($_SESSION['carrello'][$index])) {
+        if (isset($carrello[$index])) {
             unset($_SESSION['carrello'][$index]);
+            unset($carrello[$index]);
             $_SESSION['carrello'] = array_values($_SESSION['carrello']); // Resetta gli indici dell'array
+            $carrello = array_values($carrello); // Resetta gli indici dell'array
+
         }
     } elseif ($_POST['azione'] === 'modifica_quantita') {
         // Azione per modificare la quantità di un prodotto
@@ -61,11 +75,12 @@ if (isset($_POST['azione'])) {
 
         if (isset($_SESSION['carrello'][$index]) && $nuova_quantita >= 1) {
             $_SESSION['carrello'][$index]['quantita'] = $nuova_quantita;
+            $carrello[$index]['quantita'] = $nuova_quantita;
         }
+        
     } elseif (isset($_POST['azione']) && $_POST['azione'] === 'conferma_acquisto') {
-        // Gestisci l'azione di conferma acquisto
-        $crediti_utente = isset($_SESSION['crediti']) ? $_SESSION['crediti'] : 0;
-
+        $email = $_SESSION['email'];
+    
         // Calcola il totale dell'acquisto
         $totale_acquisto = 0;
         $prodotti_acquistati = array();
@@ -78,6 +93,8 @@ if (isset($_POST['azione'])) {
                 $totale_acquisto += $prodotto_carrello['prezzo'] * $prodotto_carrello['quantita'];
             }
         }
+
+
 
         if ($_SESSION['crediti'] >= $totale_acquisto) {
             // Sottrai i crediti dal totale dell'acquisto
@@ -131,9 +148,8 @@ if (isset($_POST['azione'])) {
             
                 // Svuota il carrello dopo l'acquisto
                 unset($_SESSION['carrello']);
+                unset($carrello);
 
-                $query = "UPDATE utenti SET crediti = $crediti_utente WHERE id = '$id_utente'";
-                $result = mysqli_query($connessione, $query);
 
                 if (!$result) {
                     printf("Errore nella query.\n");
@@ -164,7 +180,7 @@ if (!empty($carrello)) {
     echo '<th>Rimuovi Prodotto</th>';
     echo '</tr>';
     
-    foreach ($_SESSION['carrello'] as $index => $prodotto_carrello) {
+    foreach ($carrello as $index => $prodotto_carrello) {
         echo '<tr>';
         echo '<td>' . $prodotto_carrello['nome'] . '</td>';
         echo '<td>' . (isset($prodotto_carrello['quantita']) ? $prodotto_carrello['quantita'] : 'N/A') . '</td>';
@@ -189,7 +205,7 @@ if (!empty($carrello)) {
         echo '<td>';
         echo '<form action="cart.php" method="post">';
         echo '<input type="hidden" name="index" value="' . $index . '">';
-        echo '<input class="input" style="width:50px;margin-bottom:0px;" type="number" name="nuova_quantita" value="' . $prodotto_carrello['quantita'] . '" min="1">';
+        echo '<input class="input" style="width:50px;margin-bottom:0px;" type="number" name="nuova_quantita" value="' . $prodotto_carrello['quantita'] . '" min="1" max="99">';
         echo '<button class="done" type="submit" name="azione" value="modifica_quantita">CONFERMA<span class="material-symbols-outlined" id="done">done_outline</span></button>';
         echo '</form>';
         echo '</td>';
@@ -213,9 +229,10 @@ if (!empty($carrello)) {
     echo '<button style="margin-bottom:10px;" class="btn" type="submit" name="azione" value="svuota_carrello">Svuota Carrello</button>';
     echo '<button style="margin-bottom:10px;" class="btn" type="submit" name="azione" value="conferma_acquisto">Acquista</button>';
     echo '</form>';
-    
-} else {
+ 
+    } else {
     echo '<p style="margin-top: 50px;" class="titolo">Il carrello è vuoto.</p>';
+    
 }
 ?>
 </div>

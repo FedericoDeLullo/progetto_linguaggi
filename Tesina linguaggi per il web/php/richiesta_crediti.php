@@ -42,7 +42,7 @@
                 <td colspan="2">
                     <form class="form" action="../res/esito_richiesta_crediti.php" method="post">
                         <label for="importo">Importo richiesto:</label>
-                        <input class="input" type="number" name="importo" min="0" required>
+                        <input class="input" type="number" name="importo" min="1" max="10000" required>
                         <br><br><br>
                         <input class="btn" type="submit" value="Invia richiesta">
                     </form>

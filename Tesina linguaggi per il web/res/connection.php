@@ -1,7 +1,7 @@
 <?php
     $host = "127.0.0.1";
     $username = "root";
-    $password = "";
+    $password = "password";
     $db = "Rugby_World";
 
     $connessione = new mysqli($host, $username, $password, $db);

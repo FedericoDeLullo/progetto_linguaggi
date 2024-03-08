@@ -11,6 +11,7 @@ $sc_data_M = $_POST['da_data'];
 $sc_N = $_POST['crediti'];
 $sc_R = $_POST['reputazione'];
 $sc_bonus = $_POST['bonus'];
+$tipologia = $_POST['tipologia'];
 $sc_generico = $_POST['generico'];
 
 $xmlPath = "../xml/catalogo_prodotti.xml";
@@ -53,6 +54,6 @@ $_SESSION['form_off_R'] = $sc_R;
 
 $_SESSION['form_off_generico'] = $sc_generico;
 $_SESSION['form_off_bonus'] = $sc_bonus;
-header('Location: aggiungi_sconto_form.php?id_prodotto=' . $id_prodotto);
+header('Location: catalogo_' . $tipologia . '.php');
 
 ?>
