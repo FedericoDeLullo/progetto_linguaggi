@@ -167,6 +167,17 @@ if (isset($_POST['azione'])) {
     <h1 class="titolo">Il Tuo Carrello</h1>
 <?php
 
+            // Leggi il file XML del catalogo
+            $xmlFile = '../xml/catalogo_prodotti.xml'; 
+            $dom = new DOMDocument();
+            $dom->load($xmlFile);
+
+            // Ottieni la lista di prodotti
+            $prodottiCatalogo = $dom->getElementsByTagName('prodotto');
+
+            // Converte la NodeList in un array per semplificare l'ordinamento
+            $prodottiCatalogoArray = iterator_to_array($prodottiCatalogo);
+
 // Verifica se il carrello contiene prodotti
 if (!empty($carrello)) {
     echo '<table>';
@@ -185,6 +196,25 @@ if (!empty($carrello)) {
         // Controlla se l'id del prodotto esiste
         if (!isset($prodotto_carrello['id_prodotto'])) {
             continue; // Salta l'iterazione se l'id del prodotto non esiste
+        }
+        // Cerca il valore nella lista XML
+        $trovato = false;
+        foreach ($prodottiCatalogoArray as $prodottoCatalogo) {
+            $id_prodotto = $prodottoCatalogo->getElementsByTagName('id_prodotto')->item(0)->nodeValue;
+            if ($id_prodotto == $prodotto_carrello['id_prodotto']) {
+                $trovato = true;
+                break;
+            }
+        }
+
+        // Output del risultato
+        if (!$trovato) {
+            echo "Il valore $id_prodotto non esiste nella lista XML di catalogo.";
+            unset($_SESSION['carrello'][$index]);
+            unset($carrello[$index]);
+            $_SESSION['carrello'] = array_values($_SESSION['carrello']); // Resetta gli indici dell'array
+            $carrello = array_values($carrello); // Resetta gli indici dell'array
+            continue;
         }
         echo '<tr>';
         echo '<td>' . $prodotto_carrello['nome'] . '</td>';
