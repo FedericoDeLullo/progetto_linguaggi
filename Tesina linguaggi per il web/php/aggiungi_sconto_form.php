@@ -27,71 +27,69 @@
             <table>
                 <tr>
                     <td class="input">
+                        <h3>- INFORMAZIONI GENERICHE SCONTO -</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="input">
+                        <label for="generico">SCONTO INDISCRIMINATO (%):</label>
+                        <input class="input" style="margin-bottom:0; width: 80px;" type="number" id="generico" name="generico" placeholder="2" min="0" max="30" value="<?php if(isset($_SESSION['form_off_generico'])) echo $_SESSION['form_off_generico']; ?>" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="input">
+                        <label for="bonus">BONUS CREDITI:</label>
+                        <input class="input" style="margin-bottom:0; width: 80px;" type="number" id="bonus" name="bonus" placeholder="2" min="0" max="5" value="<?php if(isset($_SESSION['form_off_bonus'])) echo $_SESSION['form_off_bonus']; ?>" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="input">
+                        <h3>- INFORMAZIONI SCONTO PARAMETRICO -</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="input">
                     <input type="hidden" name="tipologia" value="<?php echo $tipologia; ?>">
-                        <label for="registrazione">MINIMO MESI DI REGISTRAZIONE</label>
-                        <input class="input" type="integer" id="registrazione" name="registrazione_mesi" min="1" max="12" placeholder="1" value="<?php if(isset($_SESSION['form_off_X'])) echo $_SESSION['form_off_X']; ?>" required>
+                        <label for="registrazione">MINIMO MESI DI REGISTRAZIONE:</label>
+                        <input class="input" style="margin-bottom:0; width: 80px;" type="integer" id="registrazione" name="registrazione_mesi" min="1" max="12" placeholder="1" value="<?php if(isset($_SESSION['form_off_X'])) echo $_SESSION['form_off_X']; ?>" required>
                     </td>
                 </tr>
 
                 <tr>
                     <td class="input">
-                        <label for="registrazione">MINIMO ANNI DI REGISTRAZIONE</label>
-                        <input class="input" type="integer" id="registrazione" name="registrazione_anni" min="0" max="20" placeholder="1" value="<?php if(isset($_SESSION['form_off_Y'])) echo $_SESSION['form_off_Y']; ?>" required>
+                        <label for="registrazione">MINIMO ANNI DI REGISTRAZIONE:</label>
+                        <input class="input" style="margin-bottom:0; width: 80px;" type="integer" id="registrazione" name="registrazione_anni" min="0" max="20" placeholder="1" value="<?php if(isset($_SESSION['form_off_Y'])) echo $_SESSION['form_off_Y']; ?>" required>
                     </td>
                 </tr>
 
                 <tr>
                     <td class="input">
-                        <label for="crediti_crediti_data">CREDITI SPESI DA UNA CERTA DATA</label>
-                        <input class="input" type="integer" id="crediti_data" name="crediti_data" placeholder="100" value="<?php if(isset($_SESSION['form_off_M'])) echo $_SESSION['form_off_M']; ?>" required>
+                        <label for="crediti_crediti_data">CREDITI SPESI DA UNA CERTA DATA:</label>
+                        <input class="input" style="margin-bottom:0; width: 80px;" type="integer" id="crediti_data" name="crediti_data" placeholder="100" value="<?php if(isset($_SESSION['form_off_M'])) echo $_SESSION['form_off_M']; ?>" required>
                     </td>
                 </tr>
 
                 <tr>
                     <td class="input">
-                        <label for="crediti">DATA DA CUI PARTIRE PER LO SCONTO</label>
-                        <input class="input" type="text" id="data" name="da_data" placeholder="1999-01-01" value="<?php if(isset($_SESSION['form_off_data_M'])) echo $_SESSION['form_off_data_M']; ?>" required pattern="\d{4}-\d{2}-\d{2}">
+                        <label for="crediti">DATA DA CUI PARTIRE PER LO SCONTO:</label>
+                        <input class="input" style="margin-bottom:0; width: 80px;" type="text" id="data" name="da_data" placeholder="1999-01-01" value="<?php if(isset($_SESSION['form_off_data_M'])) echo $_SESSION['form_off_data_M']; ?>" required pattern="\d{4}-\d{2}-\d{2}">
                     </td>
                 </tr>
 
                 <tr>
                     <td class="input">
-                        <label for="crediti">MINIMO DI CREDITI SPESI IN TOTALE</label>
-                        <input class="input" type="integer" id="crediti" name="crediti" placeholder="100" value="<?php if(isset($_SESSION['form_off_N'])) echo $_SESSION['form_off_N']; ?>" required>
+                        <label for="crediti">MINIMO DI CREDITI SPESI IN TOTALE:</label>
+                        <input class="input" style="margin-bottom:0; width: 80px;" type="integer" id="crediti" name="crediti" placeholder="100" value="<?php if(isset($_SESSION['form_off_N'])) echo $_SESSION['form_off_N']; ?>" required>
                     </td>
                 </tr>
 
                 <tr>
                     <td class="input">
-                        <label for="reputazione">MINIMO DI REPUTAZIONE</label>
-                        <input class="input" type="integer" id="reputazione" name="reputazione" placeholder="2" value="<?php if(isset($_SESSION['form_off_R'])) echo $_SESSION['form_off_R']; ?>" required>
+                        <label for="reputazione">MINIMO DI REPUTAZIONE:</label>
+                        <input class="input" style="margin-bottom:0; width: 80px;" type="integer" id="reputazione" name="reputazione" placeholder="2" value="<?php if(isset($_SESSION['form_off_R'])) echo $_SESSION['form_off_R']; ?>" required>
                     </td>
                 </tr>
-
-              
-                        <input class="input" type="hidden" name="id_prodotto" value="<?php echo $id_prodotto; ?>">
-                  
-
-                <tr>
-                    <td class="input">
-                        <h3>INFORMAZIONI SCONTO:</h3>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="input">
-                        <label for="generico">SCONTO GENERICO (%)</label>
-                        <input class="input" type="number" id="generico" name="generico" placeholder="2" min="0" max="30" value="<?php if(isset($_SESSION['form_off_generico'])) echo $_SESSION['form_off_generico']; ?>" required>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="input">
-                        <label for="bonus">BONUS CREDITI</label>
-                        <input class="input" type="number" id="bonus" name="bonus" placeholder="2" min="0" max="5" value="<?php if(isset($_SESSION['form_off_bonus'])) echo $_SESSION['form_off_bonus']; ?>" required>
-                    </td>
-                </tr>
-
+                <input class="input" type="hidden" name="id_prodotto" value="<?php echo $id_prodotto; ?>">
                 <tr>
                     <td class="input">
                         <button class="btn" type="submit">Invia</button>

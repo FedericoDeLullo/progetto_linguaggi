@@ -40,32 +40,35 @@ $email = $_POST['email'];
         echo '<h1 class="titolo">Storico Acquisti per l\'utente ID: ' . $email . '</h1>';
         echo '<table border="1">';
         echo '<tr>';
-        echo '<th>Data</th>';
-        echo '<th>Ora</th>';
         echo '<th>ID Prodotto</th>';
         echo '<th>Nome Prodotto</th>';
         echo '<th>Prezzo Unitario</th>';
         echo '<th>Quantità</th>';
         echo '<th>Prezzo Totale</th>';
+        echo '<th>Bonus Crediti</th>';
+        echo '<th>Data Acquisto</th>';
+        echo '<th>Ora Acquisto</th>';
         echo '</tr>';
 
         foreach ($acquistiUtente as $acquisto) {
-            $data = $acquisto->getElementsByTagName('data')->item(0)->nodeValue;
-            $ora = $acquisto->getElementsByTagName('ora')->item(0)->nodeValue;
             $idProdotto = $acquisto->getElementsByTagName('id_prodotto')->item(0)->nodeValue;
             $nome = $acquisto->getElementsByTagName('nome')->item(0)->nodeValue;
             $prezzoUnitario = $acquisto->getElementsByTagName('prezzo_unitario')->item(0)->nodeValue;
             $quantita = $acquisto->getElementsByTagName('quantita')->item(0)->nodeValue;
             $prezzoTotale = $acquisto->getElementsByTagName('prezzo_totale')->item(0)->nodeValue;
+            $bonusTotale = $acquisto->getElementsByTagName('bonus')->item(0)->nodeValue;
+            $data = $acquisto->getElementsByTagName('data')->item(0)->nodeValue;
+            $ora = $acquisto->getElementsByTagName('ora')->item(0)->nodeValue;
 
             echo '<tr>';
-            echo '<td>' . $data . '</td>';
-            echo '<td>' . $ora . '</td>';
             echo '<td>' . $idProdotto . '</td>';
             echo '<td>' . $nome . '</td>';
-            echo '<td>' . $prezzoUnitario . '</td>';
+            echo '<td>' . $prezzoUnitario . '€</td>';
             echo '<td>' . $quantita . '</td>';
-            echo '<td>' . $prezzoTotale . '</td>';
+            echo '<td>' . $prezzoTotale . '€</td>';
+            echo '<td>' . $bonusTotale . '€</td>';
+            echo '<td>' . $data . '</td>';
+            echo '<td>' . $ora . '</td>';
             echo '</tr>';
         }
 

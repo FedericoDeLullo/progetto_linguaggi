@@ -181,6 +181,10 @@ if (!empty($carrello)) {
     echo '</tr>';
     
     foreach ($carrello as $index => $prodotto_carrello) {
+        // Controlla se l'id del prodotto esiste
+        if (!isset($prodotto_carrello['id_prodotto'])) {
+            continue; // Salta l'iterazione se l'id del prodotto non esiste
+        }
         echo '<tr>';
         echo '<td>' . $prodotto_carrello['nome'] . '</td>';
         echo '<td>' . (isset($prodotto_carrello['quantita']) ? $prodotto_carrello['quantita'] : 'N/A') . '</td>';

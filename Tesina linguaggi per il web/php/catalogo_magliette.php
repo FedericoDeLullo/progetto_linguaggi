@@ -155,10 +155,11 @@
 
                         echo "</div>";
                         echo '<div class="linea">';
-                        echo '<form action="catalogo_magliette.php" method="post">';
+                        echo '<form action="catalogo_' . $tipologia . '.php" method="post">';
                         echo '<input type="hidden" name="id_prodotto" value="' . $id_prodotto . '">';
                         echo '<input type="hidden" name="nome" value="' . $nome . '">';
                         echo '<input type="hidden" name="bonus" value="' . $bonus . '">';
+                        echo '<input type="hidden" name="tipologia" value="' . $tipologia . '">';
                         echo '<input type="hidden" name="prezzo" value="' . $prezzo . '">';
                         echo '<input type="hidden" name="prezzoScontato" value="' . $prezzoScontato . '">';
                         echo '<input class="input" type="number" name="quantita" value="0" min="1" step="1" size="3" max="99" />';
@@ -217,10 +218,12 @@
                         echo '</table>';
                         echo "</div>";
                         echo '<div class="linea">';
-                        echo '<form action="catalogo_magliette.php" method="post">';
+                        echo '<form action="catalogo_' . $tipologia . '.php" method="post">';
                         echo '<input type="hidden" name="id_prodotto" value="' . $id_prodotto . '">';
                         echo '<input type="hidden" name="nome" value="' . $nome . '">';
                         echo '<input type="hidden" name="bonus" value="' . $bonus . '">';
+                        echo '<input type="hidden" name="tipologia" value="' . $tipologia . '">';
+
                         echo '<input type="hidden" name="prezzo" value="' . $prezzo . '">';
                         echo '<input type="hidden" name="prezzoScontato" value="' . $prezzoScontato . '">';
                         echo '<input class="input" type="number" name="quantita" value="0" min="1" step="1" size="3" max="99" />';

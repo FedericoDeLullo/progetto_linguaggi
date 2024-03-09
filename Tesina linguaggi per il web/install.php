@@ -2,7 +2,7 @@
 // Configurazione del database
 $host = "127.0.0.1";
 $username = "root";
-$password = "password";
+$password = "";
 $db = "Rugby_World";
 
 // Creazione della connessione

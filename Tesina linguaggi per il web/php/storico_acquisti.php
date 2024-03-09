@@ -29,10 +29,11 @@ if (isset($_SESSION['id'])) {
         echo '<h1 class="titolo">Storico Acquisti: ' . $email . '</h1>';
         echo '<table border="1">';
         echo '<tr>';
-        echo '<th>Nome</th>';
-        echo '<th>Quantità</th>';
+        echo '<th>Nome Prodotto</th>';
         echo '<th>Prezzo Unitario</th>';
+        echo '<th>Quantità</th>';
         echo '<th>Prezzo Totale</th>';
+        echo '<th>Bonus Crediti</th>';
         echo '<th>Data Acquisto</th>';
         echo '<th>Ora Acquisto</th>';
         echo '</tr>';
@@ -45,14 +46,16 @@ if (isset($_SESSION['id'])) {
                 $prezzo_unitario = $acquisto->getElementsByTagName('prezzo_unitario')->item(0)->nodeValue;
                 $quantita = $acquisto->getElementsByTagName('quantita')->item(0)->nodeValue;
                 $prezzo_totale = $acquisto->getElementsByTagName('prezzo_totale')->item(0)->nodeValue;
+                $bonusTotale = $acquisto->getElementsByTagName('bonus')->item(0)->nodeValue;
                 $data_acquisto = $acquisto->getElementsByTagName('data')->item(0)->nodeValue;
                 $ora_acquisto = $acquisto->getElementsByTagName('ora')->item(0)->nodeValue;
 
                 echo '<tr>';
                 echo '<td>' . $nome . '</td>';
-                echo '<td>' . $quantita . '</td>';
                 echo '<td>' . $prezzo_unitario . '€</td>';
+                echo '<td>' . $quantita . '</td>';
                 echo '<td>' . $prezzo_totale . '€</td>';
+                echo '<td>' . $bonusTotale . '€</td>';
                 echo '<td>' . $data_acquisto . '</td>';
                 echo '<td>' . $ora_acquisto . '</td>';
                 echo '</tr>';

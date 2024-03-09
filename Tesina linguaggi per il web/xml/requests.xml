@@ -76,4 +76,8 @@
     <email>danielesici9@gmail.com</email>
     <importo>10000</importo>
   </request>
+  <request status="Approvato">
+    <email>federicodelullo84@gmail.com</email>
+    <importo>4554</importo>
+  </request>
 </requests>
