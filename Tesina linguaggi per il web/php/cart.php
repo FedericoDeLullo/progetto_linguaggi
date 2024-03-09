@@ -134,6 +134,7 @@ if (isset($_POST['azione'])) {
                     $acquisto->appendChild($dom->createElement('prezzo_unitario', $prodotto_carrello['prezzo']));
                     $acquisto->appendChild($dom->createElement('quantita', $prodotto_carrello['quantita']));
                     $acquisto->appendChild($dom->createElement('prezzo_scontato', $prodotto_carrello['prezzoScontato']));
+                    $acquisto->appendChild($dom->createElement('bonus', $prodotto_carrello['bonus']));
 
                     // Calcola e aggiungi il prezzo totale come elemento separato
                     $prezzo_totale = $prodotto_carrello['prezzoScontato'] * $prodotto_carrello['quantita'];

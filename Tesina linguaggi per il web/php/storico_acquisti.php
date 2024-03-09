@@ -46,7 +46,7 @@ if (isset($_SESSION['id'])) {
                 $prezzo_unitario = $acquisto->getElementsByTagName('prezzo_unitario')->item(0)->nodeValue;
                 $quantita = $acquisto->getElementsByTagName('quantita')->item(0)->nodeValue;
                 $prezzo_totale = $acquisto->getElementsByTagName('prezzo_totale')->item(0)->nodeValue;
-                $bonusTotale = $acquisto->getElementsByTagName('bonus')->item(0)->nodeValue;
+                $bonus = $acquisto->getElementsByTagName('bonus')->item(0)->nodeValue;
                 $data_acquisto = $acquisto->getElementsByTagName('data')->item(0)->nodeValue;
                 $ora_acquisto = $acquisto->getElementsByTagName('ora')->item(0)->nodeValue;
 
@@ -55,7 +55,7 @@ if (isset($_SESSION['id'])) {
                 echo '<td>' . $prezzo_unitario . '€</td>';
                 echo '<td>' . $quantita . '</td>';
                 echo '<td>' . $prezzo_totale . '€</td>';
-                echo '<td>' . $bonusTotale . '€</td>';
+                echo '<td>' . $bonus . '€</td>';
                 echo '<td>' . $data_acquisto . '</td>';
                 echo '<td>' . $ora_acquisto . '</td>';
                 echo '</tr>';

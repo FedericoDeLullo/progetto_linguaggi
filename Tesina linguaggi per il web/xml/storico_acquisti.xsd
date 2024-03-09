@@ -27,6 +27,7 @@
               <xs:element name="nome" type="xs:string"/>
               <xs:element name="prezzo" type="tipoPrezzo"/>
               <xs:element name="quantita" type="tipoQuantita"/>
+              <xs:element name="bonus" type="tipoBonus"/>
             </xs:sequence>
             <xs:attribute name="id_utente" type="tipoIdUtente"/>
           </xs:complexType>
