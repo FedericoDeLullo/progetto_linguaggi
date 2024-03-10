@@ -17,7 +17,7 @@
 
 <div class="cont">
     <div>
-        <h1 class="titolo">Utente Bannato...</h1>
+        <h1 class="titolo"><span class="material-symbols-outlined">disabled_visible</span> Utente Bannato...</h1>
     </div>
 </div>
 

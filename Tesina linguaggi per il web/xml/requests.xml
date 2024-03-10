@@ -4,80 +4,16 @@
     <email>federicodelullo84@gmail.com</email>
     <importo>50</importo>
   </request>
-  <request status="Rifiutato">
-    <email>lorenzo@gmail.com</email>
-    <importo>200</importo>
-  </request>
-  <request status="Approvato">
-    <email>immobile@gmail.com</email>
-    <importo>1</importo>
-  </request>
-  <request status="Rifiutato">
-    <email>immobile@gmail.com</email>
-    <importo>2</importo>
-  </request>
-  <request status="Rifiutato">
-    <email>frendrup@gmail.com</email>
-    <importo>1</importo>
-  </request>
-  <request status="Approvato">
-    <email>frendrup@gmail.com</email>
-    <importo>2</importo>
-  </request>
   <request status="Approvato">
     <email>federicodelullo84@gmail.com</email>
-    <importo>100</importo>
-  </request>
-  <request status="Approvato">
-    <email>federicodelullo84@gmail.com</email>
-    <importo>120</importo>
+    <importo>20</importo>
   </request>
   <request status="Rifiutato">
     <email>federicodelullo84@gmail.com</email>
-    <importo>54</importo>
+    <importo>26</importo>
   </request>
-  <request status="Rifiutato">
+  <request status="In Attesa">
     <email>federicodelullo84@gmail.com</email>
-    <importo>55</importo>
-  </request>
-  <request status="Approvato">
-    <email>federicodelullo84@gmail.com</email>
-    <importo>1000</importo>
-  </request>
-  <request status="Approvato">
-    <email>federicodelullo@gmail.com</email>
-    <importo>100000000</importo>
-  </request>
-  <request status="Approvato">
-    <email>federicodelullo84@gmail.com</email>
-    <importo>5</importo>
-  </request>
-  <request status="Approvato">
-    <email>federicodelullo84@gmail.com</email>
-    <importo>1111111111111</importo>
-  </request>
-  <request status="Approvato">
-    <email>federicodelullo84@gmail.com</email>
-    <importo>2</importo>
-  </request>
-  <request status="Approvato">
-    <email>federicodelullo84@gmail.com</email>
-    <importo>3</importo>
-  </request>
-  <request status="Approvato">
-    <email>federicodelullo@gmail.com</email>
-    <importo>11111111111111</importo>
-  </request>
-  <request status="Approvato">
-    <email>federicodelullo@gmail.com</email>
-    <importo>500</importo>
-  </request>
-  <request status="Approvato">
-    <email>danielesici9@gmail.com</email>
-    <importo>10000</importo>
-  </request>
-  <request status="Approvato">
-    <email>federicodelullo84@gmail.com</email>
-    <importo>4554</importo>
+    <importo>50</importo>
   </request>
 </requests>

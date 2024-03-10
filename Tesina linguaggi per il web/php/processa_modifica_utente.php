@@ -51,6 +51,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt_aggiornamento->bind_param("sssssii", $nome, $cognome, $indirizzo, $email, $cellulare, $crediti, $id_utente);
  // Carica il tuo file XML con DOMDocument
  $dom = new DOMDocument;
+ $dom->preserveWhiteSpace = false;
+
  $dom->load('../xml/catalogo_prodotti.xml');
  
  // Cerca tutti gli elementi <autore> che sono uguali a $email_vecchia
@@ -61,12 +63,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
  foreach ($autoriDaAggiornare as $autoreDaAggiornare) {
      $autoreDaAggiornare->nodeValue = $email;
  }
- 
+ $dom->normalizeDocument();
+ $dom->formatOutput = true; 
  // Salva il documento XML aggiornato
  $dom->save('../xml/catalogo_prodotti.xml');
  }
  
  $dom1 = new DOMDocument;
+ $dom1->preserveWhiteSpace = false;
+
  $dom1->load('../xml/requests.xml');
  
  // Cerca tutti gli elementi <autore> che sono uguali a $email_vecchia
@@ -77,7 +82,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
  foreach ($emailsDaAggiornare as $emailDaAggiornare) {
      $emailDaAggiornare->nodeValue = $email;
  }
- 
+ $dom1->normalizeDocument();
+ $dom1->formatOutput = true; 
  // Salva il documento XML aggiornato
  $dom1->save('../xml/requests.xml');
  }
@@ -85,6 +91,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
  $dom2 = new DOMDocument;
+ $dom2->preserveWhiteSpace = false;
+
  $dom2->load('../xml/segnalazioni.xml');
  
  // Cerca tutti gli elementi <autore> che sono uguali a $email_vecchia
@@ -95,7 +103,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
  foreach ($domandeDaAggiornare as $domandaDaAggiornare) {
      $domandaDaAggiornare->nodeValue = $email;
  }
- 
+ $dom2->normalizeDocument();
+ $dom2->formatOutput = true; 
  // Salva il documento XML aggiornato
  $dom2->save('../xml/segnalazioni.xml');
  }

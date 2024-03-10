@@ -7,8 +7,11 @@
             // Percorso del file XML
             $xmlFile = '../xml/catalogo_prodotti.xml';
 
+            
             // Carica il file XML
             $dom = new DOMDocument();
+            $dom->preserveWhiteSpace = false;
+
             $dom->load($xmlFile);
 
             // Identifica il prodotto da modificare
@@ -62,6 +65,8 @@
                         exit();
                     }
                 }
+                $dom->normalizeDocument();
+                $dom->formatOutput = true; 
                 // Salva le modifiche
                 $dom->save($xmlFile);
                 header('Location: catalogo_' . $tipologia . '.php');

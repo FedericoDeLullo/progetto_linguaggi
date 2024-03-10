@@ -27,7 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Verifica se il nodo del prodotto esiste prima di procedere
         if ($prodottoNode) {
-            // Trova la domanda nel file XML
           // Trova la domanda nel file XML
 $domandaNode = $xpath->query("//domande/domanda[id_domanda='$id_domanda']")->item(0);
 

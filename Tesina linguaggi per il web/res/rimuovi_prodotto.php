@@ -7,6 +7,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Carica il file XML
     $dom = new DOMDocument();
+    $dom->preserveWhiteSpace = false;
+
     $dom->load($xmlFile);
 
     $prodottoTrovato = false;
@@ -22,6 +24,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Salva le modifiche solo se il prodotto è stato trovato
     if ($prodottoTrovato) {
+        $dom->normalizeDocument();
+                $dom->formatOutput = true;
         $dom->save($xmlFile);
         $_SESSION['successo_rimozione_prodotto'] = 'true';
         header("Location: ../php/menu_rimuovi_prodotto.php");

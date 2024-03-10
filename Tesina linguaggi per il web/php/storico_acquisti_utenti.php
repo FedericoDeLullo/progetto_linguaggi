@@ -17,9 +17,10 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id'])) {
     $userId = $_POST['id'];
-$email = $_POST['email'];
-    $xmlFile = '../xml/storico_acquisti.xml'; // Sostituisci con il percorso reale del tuo file XML
+    $email = $_POST['email'];
+    $xmlFile = '../xml/storico_acquisti.xml'; 
     $dom = new DOMDocument();
+    
     $dom->load($xmlFile);
 
     $acquisti = $dom->getElementsByTagName('acquisto');

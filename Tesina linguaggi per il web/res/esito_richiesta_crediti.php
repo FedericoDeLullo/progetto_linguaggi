@@ -11,6 +11,8 @@ $importo = $_POST['importo'];
 
 $xmlFile = '../xml/requests.xml';
 $dom = new DOMDocument();
+$dom->preserveWhiteSpace = false;
+
 
 try {
     $dom->load($xmlFile);
@@ -28,7 +30,8 @@ $request->appendChild($emailElement);
 
 $importoElement = $dom->createElement('importo', $importo);
 $request->appendChild($importoElement);
-
+$dom->normalizeDocument();
+                $dom->formatOutput = true; 
 $root->appendChild($request);
 
 try {

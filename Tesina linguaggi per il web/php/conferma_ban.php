@@ -21,6 +21,12 @@
             <td>
                 <form action="../res/ban.php" method="post">
                     <?php
+                    // Verifica se l'utente è autenticato e se è un amministratore
+                    if (!isset($_SESSION['id']) || $_SESSION['ammin'] != 1) {
+                        // Reindirizza l'utente a una pagina di accesso negato
+                        header("Location: accesso_negato.php");
+                        exit();
+                    }
                     if(isset($_GET['ban'])) {
                         $banValue = $_GET['ban'];
                         $id_utente = $_GET['id'];

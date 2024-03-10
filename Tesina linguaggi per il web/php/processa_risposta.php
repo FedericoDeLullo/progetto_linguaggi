@@ -7,6 +7,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if (file_exists($xmlFile)) {
         $xml = new DOMDocument();
+        $xml->preserveWhiteSpace = false;
+
         $xml->load($xmlFile);
         $xpath = new DOMXPath($xml);
 
@@ -23,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 // Se non esiste, crealo e aggiungi la nuova risposta
                 $answers = $entry->appendChild($xml->createElement('answers'));
                 $newAnswer = $answers->appendChild($xml->createElement('answer', $answer_text));
-                $newAnswer->setAttribute('id', uniqid());
+                $answers->setAttribute('id', uniqid());
             } else {
                 // Se esiste già, rimuovi le risposte esistenti
                 foreach ($answers[0]->childNodes as $childNode) {
@@ -32,9 +34,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 // Aggiungi la nuova risposta all'elemento <answers>
                 $newAnswer = $answers[0]->appendChild($xml->createElement('answer', $answer_text));
-                $newAnswer->setAttribute('id', uniqid());
+                $answers[0]->setAttribute('id', uniqid());
             }
-
+            $xml->normalizeDocument();
+            $xml->formatOutput = true; 
             // Salva le modifiche nel file XML
             $xml->save($xmlFile);
             header('Location: faq.php');

@@ -17,7 +17,7 @@ $sc_generico = $_POST['generico'];
 $xmlPath = "../xml/catalogo_prodotti.xml";
 
 $document = new DOMDocument();
-$document->load($xmlPath);    //Carico il contenuto del file XML dentro $documento per poterlo manipolare tramite DOM
+$document->load($xmlPath);    
 
 $prodotti = $document->getElementsByTagName("prodotto");
 

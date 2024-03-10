@@ -17,6 +17,12 @@
 
 <?php
 require_once('../res/connection.php');
+// Verifica se l'utente è loggato
+if (!isset($_SESSION['id'])) {
+    // Reindirizza l'utente alla pagina di accesso se non è loggato
+    header("Location: login_cliente.php");
+    exit();
+}
 
 // Verifica se è stato fornito un ID utente valido
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {

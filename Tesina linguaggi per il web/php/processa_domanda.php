@@ -9,6 +9,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if (file_exists($xmlFile)) {
             // Carica il file XML
             $dom = new DOMDocument();
+            $dom->preserveWhiteSpace = false;
+
             $dom->load($xmlFile);
 
             // Genera un ID univoco per la FAQ
@@ -24,7 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             // Aggiungi la nuova FAQ al documento XML
             $dom->documentElement->appendChild($newFaq);
-
+            $dom->normalizeDocument();
+            $dom->formatOutput = true; 
             // Salva le modifiche nel file XML
             $dom->save($xmlFile);
 

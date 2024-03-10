@@ -7,6 +7,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if (file_exists($xmlFile)) {
         $dom = new DOMDocument();
+        $dom->preserveWhiteSpace = false;
+
         $dom->load($xmlFile);
 
         $xpath = new DOMXPath($dom);
@@ -21,7 +23,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             if ($questions->length > 0) {
                 $question = $questions->item(0);
                 $question->nodeValue = $new_question;
-
+               
+                $dom->normalizeDocument();
+                $dom->formatOutput = true; 
                 // Salva le modifiche nel file XML
                 $dom->save($xmlFile);
                 header('Location: faq.php');

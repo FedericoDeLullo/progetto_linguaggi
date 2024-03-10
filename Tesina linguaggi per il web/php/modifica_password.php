@@ -15,6 +15,12 @@
 
 <?php
 require_once('../res/connection.php');
+// Verifica se l'utente è loggato
+if (!isset($_SESSION['id'])) {
+    // Reindirizza l'utente alla pagina di accesso se non è loggato
+    header("Location: login_cliente.php");
+    exit();
+}
 
 $admin = $_SESSION['ammin'];
 
@@ -80,7 +86,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id']) && ($admin == 0)) {
         $email = $utente['email']; // Ottieni l'email dall'array dell'utente
         ?>
  
- <h1 class="titolo"> <div class="tooltip">
+    <h1 class="titolo"> <div class="tooltip">
                     <span class="tooltiptext">LA PASSWORD DEVE SODDISFARE I SEGUENTI REQUISITI:
                         <ol>
                             <li>Deve essere lunga almeno 7 caratteri;</li>
@@ -91,7 +97,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id']) && ($admin == 0)) {
                     </span>
                     <i id="simbolo" class="material-symbols-outlined">info</i>
                 </div>
-    Modifica Password dell'account '<?php echo $email ?>'</h1>
+        Modifica Password dell'account '<?php echo $email ?>'</h1>
         <table>
             <tr>
                 <td colspan="2">

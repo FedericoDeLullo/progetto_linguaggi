@@ -7,12 +7,13 @@
         <xs:element name="segnalazione" maxOccurs="unbounded">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="id_prodotto" type="xs:integer"/>
-              <xs:element name="id_domanda" type="xs:integer"/>
               <xs:element name="testo_domanda" type="xs:string"/>
-              <xs:element name="status" type="xs:string"/>                          
-              <xs:element name="testo_segnalazione" type="xs:string"/>
+              <xs:element name="autoreDomanda" type="xs:string"/>
+              <xs:element name="testo_segnalazione_dom" type="xs:string"/>
             </xs:sequence>
+            <xs:attribute name="status" type="xs:string" use="required"/>
+            <xs:attribute name="id_domanda" type="xs:string" use="required"/>
+            <xs:attribute name="id_prodotto" type="xs:string" use="required"/>
           </xs:complexType>
         </xs:element>
       </xs:sequence>

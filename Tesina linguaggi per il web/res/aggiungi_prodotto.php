@@ -9,6 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['nome'], $_POST['descrizione'], $_POST['prezzo'], $_FILES['immagine'], $_POST['tipologia'])) {
         // Carica il file XML
         $dom = new DOMDocument();
+        $dom->preserveWhiteSpace = false;
         $dom->load($xmlFile);
     
         // Trova l'ultimo ID nel catalogo
@@ -94,6 +95,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $immagine = $dom->createElement('immagine', $immaginePath);
             $prodotto->appendChild($immagine);
 
+            $dom->normalizeDocument();
+            $dom->formatOutput = true; 
             // Salva le modifiche
             $dom->save($xmlFile);
 

@@ -178,7 +178,7 @@
                         echo '<a class="btn1"style="margin-left:10vw;" title="Lista delle domande" href="domande.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">Lista delle domande</a>';
                         echo '<a class="btn1"style="margin-left:10vw;" title="Lascia una domanda" href="domande_prodotti.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">Scrivi una domanda</a>';
                         echo '<a class="btn1"style="margin-left:10vw;"  title="Lascia una recensione" href="recensione_cliente.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">Scrivi una recensione</a>';
-                        echo '<a class="btn1" style="margin-left:10vw;"title="Lista delle recensioni" href="lista_recensioni.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">lista delle recensioni</a>';
+                        echo '<a class="btn1" style="margin-left:10vw;"title="Lista delle recensioni" href="lista_recensioni.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">Lista delle recensioni</a>';
                         echo '</td>';
                             echo '<td class="td">';
                                   echo '<div class="box">';

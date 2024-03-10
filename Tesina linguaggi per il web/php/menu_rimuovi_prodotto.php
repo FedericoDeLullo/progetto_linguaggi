@@ -12,7 +12,21 @@
     ?>
 </head>
 <body>
-    <?php
+<?php
+// Include il file di connessione al database
+require_once('../res/connection.php');
+if (!isset($_SESSION['id'])) {
+    // Reindirizza l'utente alla pagina di accesso se non è loggato
+    header("Location: login_cliente.php");
+    exit();
+}
+    
+// Controlla se l'utente è un amministratore
+$id_utente = $_SESSION['id'];
+$sql_select = "SELECT gestore FROM utenti WHERE id = '$id_utente' AND gestore = 1";
+    
+if ($result = $connessione->query($sql_select)) {
+    if ($result->num_rows === 1) {
         if(isset($_SESSION['successo_rimozione_prodotto']) && $_SESSION['successo_rimozione_prodotto'] == 'true'){
             echo '<h2 id="successo">Prodotto rimosso con successo!!!</h2>';
             unset($_SESSION['successo_rimozione_prodotto']);
@@ -37,5 +51,15 @@
             </tr>
         </table>
     </div>
+    <?php
+    } else {
+        // Se l'utente non è un amministratore, reindirizzalo a una pagina di accesso negato
+        header("Location: accesso_negato.php");
+        exit();
+    }
+} else {
+echo "Errore nella query: " . $connessione->error;
+}
+?>
 </body>
 </html>

@@ -20,90 +20,110 @@
 <?php
 // Include il file di connessione al database
 require_once('../res/connection.php');
-// Query per ottenere gli utenti
-$sql = "SELECT id, nome, cognome, email, passwd, crediti, indirizzo_di_residenza, cellulare, ban, reputazione, ammin, gestore FROM utenti ORDER BY 
-  CASE 
-    WHEN ammin = 1 THEN 1
-    WHEN gestore = 1 THEN 2
-    ELSE 3
-  END;";
-$result = $connessione->query($sql);
 
-// Stampa la tabella degli utenti
-echo '<table border="1">';
-echo '<tr>';
-echo '<th>Ruolo</th>';
-echo '<th>Nome</th>';
-echo '<th>Cognome</th>';
-echo '<th>Email</th>';
-echo '<th>Crediti</th>';
-echo '<th>Reputazione</th>';
-echo '<th>Indirizzo di residenza</th>';
-echo '<th>Cellulare</th>';
-echo '<th>Modifica Dati</th>';
-echo '<th>Modifica Password</th>';
-echo '<th>Gestisci</th>';
-echo '</tr>';
-
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $ruolo = '';
-        if ($row['ammin'] == 1) {
-            $ruolo = 'Admin';
-        } elseif ($row['gestore'] == 1) {
-            $ruolo = 'Gestore';
-        } else {
-            $ruolo = 'Cliente';
-        }
-        
-        echo '<tr>';
-        echo '<td><strong>' . $ruolo . '</strong></td>';
-        echo '<td>' . $row['nome'] . '</td>';
-        echo '<td>' . $row['cognome'] . '</td>';
-        echo '<td>' . $row['email'] . '</td>';
-        echo '<td>' . $row['crediti'] . '</td>';
-        echo '<td>' . $row['reputazione'] . '</td>';
-        echo '<td>' . $row['indirizzo_di_residenza'] . '</td>';
-        echo '<td>' . $row['cellulare'] . '</td>';
-        echo '<td><a href="modifica_utente.php?id=' . $row['id'] . '"><span id="edit" class="material-symbols-outlined">edit</span></a></td>';
-        echo '<td><a href="modifica_password.php?id=' . $row['id'] . '&admin=' . $row['ammin'] . '"><span id="edit" class="material-symbols-outlined">key</span></a></td>';
-
-        if ($row['id'] == $_SESSION['id']) {
-            // questo è l'utente attuale
-            echo '<td><span id="done" class="material-symbols-outlined">ar_on_you</span></a></td>';
-        } elseif ($row['ammin'] == 1) {
-            echo '<td><a id="minus" href="../res/retrocedi.php?id=' . $row['id'] . '&ban=' . $row['ban'] . '"><span id="minus" class="material-symbols-outlined">keyboard_double_arrow_down</span> Retrocedi</a></td>';
-        } elseif ($row['gestore'] == 1) {
-            echo '<td>
-                <a id="plus" href="../res/promuovi.php?id=' . $row['id'] . '&ban=' . $row['ban'] . '"><span id="plus" class="material-symbols-outlined">keyboard_double_arrow_up</span> Promuovi</a><br>
-                <a id="minus" href="../res/retrocedi.php?id=' . $row['id'] . '&ban=' . $row['ban'] . '"><span id="minus" class="material-symbols-outlined">keyboard_double_arrow_down</span> Retrocedi</a>
-            </td>';
-        } else {
-            if ($row['ban'] == 1) {
-                // Utente disattivato
-                echo '<td><a class="done" href="conferma_ban.php?id=' . $row['id'] . '&ban=' . $row['ban'] . '"><span id="done" class="material-symbols-outlined">visibility_off</span> Attiva</a></td>';
-            } else {
-                // Utente attivato
-                echo '<td>
-                    <a id="plus" href="../res/promuovi.php?id=' . $row['id'] . '&ban=' . $row['ban'] . '"><span id="plus" class="material-symbols-outlined">keyboard_double_arrow_up</span> Promuovi</a><br>
-                    <a class="done" href="conferma_ban.php?id=' . $row['id'] . '&ban=' . $row['ban'] . '"><span id="done" class="material-symbols-outlined">visibility</span> Disattiva</a>
-                </td>';
-            }
-        }
-        echo '</tr>';
-    }
-} else {
-    echo '<tr><td colspan="3">Nessun utente trovato</td></tr>';
+// Verifica se l'utente è loggato
+if (!isset($_SESSION['id'])) {
+    // Reindirizza l'utente alla pagina di accesso se non è loggato
+    header("Location: login_cliente.php");
+    exit();
 }
 
-echo '</table>';
+// Controlla se l'utente è un amministratore
+$id_utente = $_SESSION['id'];
+$sql_select = "SELECT ammin FROM utenti WHERE id = '$id_utente' AND ammin = 1";
 
-?>
-</div>
+if ($result = $connessione->query($sql_select)) {
+    if ($result->num_rows === 1) {
+        // Query per ottenere gli utenti
+        $sql = "SELECT id, nome, cognome, email, passwd, crediti, indirizzo_di_residenza, cellulare, ban, reputazione, ammin, gestore FROM utenti ORDER BY 
+        CASE 
+            WHEN ammin = 1 THEN 1
+            WHEN gestore = 1 THEN 2
+            ELSE 3
+        END;";
+        $result = $connessione->query($sql);
+
+        // Stampa la tabella degli utenti
+        echo '<table border="1">';
+        echo '<tr>';
+        echo '<th>Ruolo</th>';
+        echo '<th>Nome</th>';
+        echo '<th>Cognome</th>';
+        echo '<th>Email</th>';
+        echo '<th>Crediti</th>';
+        echo '<th>Reputazione</th>';
+        echo '<th>Indirizzo di residenza</th>';
+        echo '<th>Cellulare</th>';
+        echo '<th>Modifica Dati</th>';
+        echo '<th>Modifica Password</th>';
+        echo '<th>Gestisci</th>';
+        echo '</tr>';
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $ruolo = '';
+                if ($row['ammin'] == 1) {
+                    $ruolo = 'Admin';
+                } elseif ($row['gestore'] == 1) {
+                    $ruolo = 'Gestore';
+                } else {
+                    $ruolo = 'Cliente';
+                }
                 
-<?php
-// Chiudi la connessione al database
-$connessione->close();
+                echo '<tr>';
+                echo '<td><strong>' . $ruolo . '</strong></td>';
+                echo '<td>' . $row['nome'] . '</td>';
+                echo '<td>' . $row['cognome'] . '</td>';
+                echo '<td>' . $row['email'] . '</td>';
+                echo '<td>' . $row['crediti'] . '</td>';
+                echo '<td>' . $row['reputazione'] . '</td>';
+                echo '<td>' . $row['indirizzo_di_residenza'] . '</td>';
+                echo '<td>' . $row['cellulare'] . '</td>';
+                echo '<td><a href="modifica_utente.php?id=' . $row['id'] . '"><span id="edit" class="material-symbols-outlined">edit</span></a></td>';
+                echo '<td><a href="modifica_password.php?id=' . $row['id'] . '&admin=' . $row['ammin'] . '"><span id="edit" class="material-symbols-outlined">key</span></a></td>';
+
+                if ($row['id'] == $_SESSION['id']) {
+                    // questo è l'utente attuale
+                    echo '<td><span id="done" class="material-symbols-outlined">ar_on_you</span></a></td>';
+                } elseif ($row['ammin'] == 1) {
+                    echo '<td><a id="minus" href="../res/retrocedi.php?id=' . $row['id'] . '&ban=' . $row['ban'] . '"><span id="minus" class="material-symbols-outlined">keyboard_double_arrow_down</span> Retrocedi</a></td>';
+                } elseif ($row['gestore'] == 1) {
+                    echo '<td>
+                        <a id="plus" href="../res/promuovi.php?id=' . $row['id'] . '&ban=' . $row['ban'] . '"><span id="plus" class="material-symbols-outlined">keyboard_double_arrow_up</span> Promuovi</a><br>
+                        <a id="minus" href="../res/retrocedi.php?id=' . $row['id'] . '&ban=' . $row['ban'] . '"><span id="minus" class="material-symbols-outlined">keyboard_double_arrow_down</span> Retrocedi</a>
+                    </td>';
+                } else {
+                    if ($row['ban'] == 1) {
+                        // Utente disattivato
+                        echo '<td><a class="done" href="conferma_ban.php?id=' . $row['id'] . '&ban=' . $row['ban'] . '"><span id="done" class="material-symbols-outlined">visibility_off</span> Attiva</a></td>';
+                    } else {
+                        // Utente attivato
+                        echo '<td>
+                            <a id="plus" href="../res/promuovi.php?id=' . $row['id'] . '&ban=' . $row['ban'] . '"><span id="plus" class="material-symbols-outlined">keyboard_double_arrow_up</span> Promuovi</a><br>
+                            <a class="done" href="conferma_ban.php?id=' . $row['id'] . '&ban=' . $row['ban'] . '"><span id="done" class="material-symbols-outlined">visibility</span> Disattiva</a>
+                        </td>';
+                    }
+                }
+                echo '</tr>';
+            }
+        } else {
+            echo '<tr><td colspan="3">Nessun utente trovato</td></tr>';
+        }
+        echo '</table>';
+        ?>
+        </div>
+                        
+        <?php
+        // Chiudi la connessione al database
+        $connessione->close();
+    } else {
+        // Se l'utente non è un amministratore, reindirizzalo a una pagina di accesso negato
+        header("Location: accesso_negato.php");
+        exit();
+    }
+} else {
+echo "Errore nella query: " . $connessione->error;
+}
 ?>
 
 </body>

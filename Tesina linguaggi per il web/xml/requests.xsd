@@ -9,8 +9,8 @@
             <xs:sequence>
               <xs:element name="email" type="xs:string"/>
               <xs:element name="importo" type="xs:decimal"/>
-              <xs:element name="status" type="xs:string"/>
             </xs:sequence>
+            <xs:attribute name="status" type="xs:string"/>
           </xs:complexType>
         </xs:element>
       </xs:sequence>

@@ -27,6 +27,7 @@
                 $xmlFile = '../xml/faq.xml';
                 if (file_exists($xmlFile)) {
                     $dom = new DOMDocument();
+                    $dom->preserveWhiteSpace = false;
                     $dom->load($xmlFile);
                     $entries = $dom->getElementsByTagName('entry');
                 ?>

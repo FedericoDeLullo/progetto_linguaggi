@@ -42,59 +42,83 @@ $tipologia = $_GET['tipologia'];
         include('../res/header.php');
         ?>
     </head>
-    <body><?php
-    if(isset($_SESSION['errore_nome_esistente']) && $_SESSION['errore_nome_esistente'] == 'true'){
-    echo '<h2>Nome prodotto già esistente...</h2>';
-    unset($_SESSION['errore_nome_esistente']);
-    }
-    if(isset($_SESSION['errore_immagine']) && $_SESSION['errore_immagine'] == 'true'){
-        echo '<h2>Tipo file non supportato!!!</h2>';
-        unset($_SESSION['errore_immagine']);
-    }
-    $_SESSION['nome_prodotto_attuale'] = $nome;
-?>
-        <div class="cont">
-
-    <h1 class="titolo" >Modifica Prodotto</h1>
-    
-    <form class="form" action="modifica_prodotti.php" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="id_prodotto" value="<?php echo $id_prodotto; ?>">
-        <table class="table">
-            <tr>
-                <td>
-                    <label for="nome">Nome:</label></td>
-                <td>
-                <input type="hidden"  name="tipologia" value="<?php echo $tipologia; ?>" >
-
-                    <input class="input" type="text" name="nome" value="<?php echo $nome; ?>" required></td>
-            </tr>
-            <tr>
-                <td><label for="descrizione">Descrizione:</label></td>
-                <td><textarea style="width:250px; height:100px; resize:none;" class="input" name="descrizione" required><?php echo $descrizione; ?></textarea></td>
-            </tr>
-            <tr>
-                <td><label for="prezzo">Prezzo:</label></td>
-                <td><input class="input" type="number" name="prezzo" value="<?php echo $prezzo; ?>" min="1" required></td>
-            </tr>
-            <tr>
-               <td><label for="immagine">Immagine:</label></td>
-                <td><input type="file" class="input" name="immagine" accept="image/*" ></td>
-                <input type="hidden" name="immagine_esistente" value="<?php echo $immagine; ?>">
-
-           </tr>
-        </table>
-        <button class="btn" style="margin-left:40vw;" type="submit">Salva Modifiche</button>
-    </form>
-    </div>
-</body>
-</html>
+    <body>
 <?php
+// Include il file di connessione al database
+require_once('../res/connection.php');
+if (!isset($_SESSION['id'])) {
+    // Reindirizza l'utente alla pagina di accesso se non è loggato
+    header("Location: login_cliente.php");
+    exit();
+}
+
+// Controlla se l'utente è un amministratore
+$id_utente = $_SESSION['id'];
+$sql_select = "SELECT gestore FROM utenti WHERE id = '$id_utente' AND gestore = 1";
+
+if ($result = $connessione->query($sql_select)) {
+    if ($result->num_rows === 1) {
+        
+            if(isset($_SESSION['errore_nome_esistente']) && $_SESSION['errore_nome_esistente'] == 'true'){
+            echo '<h2>Nome prodotto già esistente...</h2>';
+            unset($_SESSION['errore_nome_esistente']);
+            }
+            if(isset($_SESSION['errore_immagine']) && $_SESSION['errore_immagine'] == 'true'){
+                echo '<h2>Tipo file non supportato!!!</h2>';
+                unset($_SESSION['errore_immagine']);
+            }
+            $_SESSION['nome_prodotto_attuale'] = $nome;
+        ?>
+                <div class="cont">
+
+            <h1 class="titolo" >Modifica Prodotto</h1>
+            
+            <form class="form" action="modifica_prodotti.php" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="id_prodotto" value="<?php echo $id_prodotto; ?>">
+                <table class="table">
+                    <tr>
+                        <td>
+                            <label for="nome">Nome:</label></td>
+                        <td>
+                        <input type="hidden"  name="tipologia" value="<?php echo $tipologia; ?>" >
+
+                            <input class="input" type="text" name="nome" value="<?php echo $nome; ?>" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="descrizione">Descrizione:</label></td>
+                        <td><textarea style="width:250px; height:100px; resize:none;" class="input" name="descrizione" required><?php echo $descrizione; ?></textarea></td>
+                    </tr>
+                    <tr>
+                        <td><label for="prezzo">Prezzo:</label></td>
+                        <td><input class="input" type="number" name="prezzo" value="<?php echo $prezzo; ?>" min="1" required></td>
+                    </tr>
+                    <tr>
+                    <td><label for="immagine">Immagine:</label></td>
+                        <td><input type="file" class="input" name="immagine" accept="image/*" ></td>
+                        <input type="hidden" name="immagine_esistente" value="<?php echo $immagine; ?>">
+
+                </tr>
+                </table>
+                <button class="btn" style="margin-left:40vw;" type="submit">Salva Modifiche</button>
+            </form>
+            </div>
+        </body>
+        </html>
+        <?php
+            } else {
+                // Prodotto non trovato con l'id specificato
+                echo "Prodotto non trovato.";
+            }
+        } else {
+            // Id non fornito nella query string
+            echo "ID del prodotto non fornito.";
+        }
     } else {
-        // Prodotto non trovato con l'id specificato
-        echo "Prodotto non trovato.";
+        // Se l'utente non è un amministratore, reindirizzalo a una pagina di accesso negato
+        header("Location: accesso_negato.php");
+        exit();
     }
 } else {
-    // Id non fornito nella query string
-    echo "ID del prodotto non fornito.";
+echo "Errore nella query: " . $connessione->error;
 }
 ?>

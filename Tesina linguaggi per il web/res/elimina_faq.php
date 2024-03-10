@@ -10,6 +10,8 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
         if (file_exists($xmlFile)) {
             // Carica il file XML
             $dom = new DOMDocument();
+            $dom->preserveWhiteSpace = false;
+
             $dom->load($xmlFile);
 
             // Cerca l'elemento con l'ID corrispondente
@@ -20,7 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
             if ($faq_entry->length > 0) {
                 // Rimuovi l'elemento dal file XML
                 $faq_entry->item(0)->parentNode->removeChild($faq_entry->item(0));
-
+                $dom->normalizeDocument();
+                $dom->formatOutput = true; 
                 // Salva le modifiche nel file XML
                 $dom->save($xmlFile);
 

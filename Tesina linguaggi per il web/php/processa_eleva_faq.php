@@ -10,6 +10,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         // Verifica se il file XML esiste
         if (file_exists($xmlFile)) {
             $dom = new DOMDocument();
+            $dom->preserveWhiteSpace = false;
+
             $dom->load($xmlFile);
 
             $entry = $dom->createElement('entry');
@@ -20,12 +22,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             $answers = $dom->createElement('answers');
             $answer = $dom->createElement('answer', $faq_answer);
-            $answer->setAttribute('id', uniqid());
+            $answers->setAttribute('id', uniqid());
             $answers->appendChild($answer);
             $entry->appendChild($answers);
 
             $dom->documentElement->appendChild($entry);
-
+            $dom->normalizeDocument();
+            $dom->formatOutput = true; 
             // Salva le modifiche nel file XML
             $dom->save($xmlFile);
 

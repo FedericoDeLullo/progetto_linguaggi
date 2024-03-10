@@ -1,35 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-  <!-- Definizione del tipo di dato per il prezzo -->
-  <xs:simpleType name="tipoPrezzo">
-    <xs:restriction base="xs:decimal"/>
-  </xs:simpleType>
-
-  <!-- Definizione del tipo di dato per la quantità -->
-  <xs:simpleType name="tipoQuantita">
-    <xs:restriction base="xs:positiveInteger"/>
-  </xs:simpleType>
-
-  <!-- Definizione del tipo di dato per l'ID utente -->
-  <xs:simpleType name="tipoIdUtente">
-    <xs:restriction base="xs:string"/>
-  </xs:simpleType>
-
-  <!-- Elemento root -->
   <xs:element name="acquisti">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="prodotto" maxOccurs="unbounded">
+        <xs:element name="acquisto" maxOccurs="unbounded">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="id_prodotto" type="xs:positiveInteger"/>
+              <xs:element name="data" type="xs:date"/>
+              <xs:element name="ora" type="xs:time"/>
+              <xs:element name="id_prodotto" type="xs:integer"/>
               <xs:element name="nome" type="xs:string"/>
-              <xs:element name="prezzo" type="tipoPrezzo"/>
-              <xs:element name="quantita" type="tipoQuantita"/>
-              <xs:element name="bonus" type="tipoBonus"/>
+              <xs:element name="prezzo_unitario" type="xs:decimal"/>
+              <xs:element name="quantita" type="xs:integer"/>
+              <xs:element name="prezzo_scontato" type="xs:decimal"/>
+              <xs:element name="bonus" type="xs:integer" minOccurs="0"/>
+              <xs:element name="prezzo_totale" type="xs:decimal"/>
             </xs:sequence>
-            <xs:attribute name="id_utente" type="tipoIdUtente"/>
+            <xs:attribute name="id_utente" type="xs:integer" use="required"/>
           </xs:complexType>
         </xs:element>
       </xs:sequence>
