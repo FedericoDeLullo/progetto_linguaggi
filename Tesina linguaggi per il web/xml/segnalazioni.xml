@@ -1,14 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <segnalazioni xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="segnalazioni.xsd">
-  <segnalazione status="Approvata" id_domanda="65df3e861c66b" id_prodotto="1">
-    <testo_domanda>Brutto</testo_domanda>
-    <autoreDomanda>lorenzofrancescotti@gmail.com</autoreDomanda>
-    <testo_segnalazione_dom>Bruttissimo</testo_segnalazione_dom>
-  </segnalazione>
-  <segnalazione status="Approvata" id_risposta="65ecf2c552c85" id_prodotto="2" autore_segnalazione="federicodelullo84@gmail.com">
-    <id_domanda>65ecf1ae5376c</id_domanda>
-    <testo_risposta> osap</testo_risposta>
-    <autoreRisposta>federico@gmail.com</autoreRisposta>
-    <testo_segnalazione_ris>offensiva</testo_segnalazione_ris>
-  </segnalazione>
+
 </segnalazioni>

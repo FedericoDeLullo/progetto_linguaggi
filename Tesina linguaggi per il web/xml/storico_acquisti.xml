@@ -1,15 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <acquisti xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="storico_acquisti.xsd">
-  <acquisto id_utente="3">
-    <data>2024-03-10</data>
-    <ora>01:07:21</ora>
-    <id_prodotto>3</id_prodotto>
-    <nome>d</nome>
-    <prezzo_unitario>963</prezzo_unitario>
-    <quantita>2</quantita>
-    <prezzo_scontato>924.48</prezzo_scontato>
-    <bonus>0</bonus>
-    <prezzo_totale>1848.96</prezzo_totale>
-  </acquisto>
-</acquisti>
-
+  
+<acquisto id_utente="5"><data>2024-03-11</data><ora>20:39:14</ora><id_prodotto>7</id_prodotto><nome>Maglia Rugby Australia 2022-2023</nome><prezzo_unitario>60</prezzo_unitario><quantita>1</quantita><prezzo_scontato>57.60</prezzo_scontato><bonus>0</bonus><prezzo_totale>57.6</prezzo_totale></acquisto><acquisto id_utente="5"><data>2024-03-11</data><ora>20:39:14</ora><id_prodotto>5</id_prodotto><nome>Pantaloncini Rugby Italia 2022-2023</nome><prezzo_unitario>30</prezzo_unitario><quantita>1</quantita><prezzo_scontato>28.80</prezzo_scontato><bonus>0</bonus><prezzo_totale>28.8</prezzo_totale></acquisto></acquisti>

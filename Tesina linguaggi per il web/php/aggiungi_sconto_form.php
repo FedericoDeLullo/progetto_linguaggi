@@ -27,7 +27,7 @@ if (!isset($_SESSION['id'])) {
 
 // Controlla se l'utente è un amministratore
 $id_utente = $_SESSION['id'];
-$sql_select = "SELECT gestore FROM utenti WHERE id = '$id_utente' AND gestore = 1";
+$sql_select = "SELECT gestore, ammin FROM utenti WHERE id = '$id_utente' AND (gestore = 1 OR ammin = 1)";
 
 if ($result = $connessione->query($sql_select)) {
     if ($result->num_rows === 1) {

@@ -53,7 +53,10 @@ if ($connessione->query($sql) === TRUE) {
 // Inserimento dei dati nella tabella 'utenti'
 $sql = "INSERT INTO `utenti` (`id`,`nome`,`cognome`, `email`, `passwd`,`crediti`,`data_di_nascita`,`indirizzo_di_residenza`,`codice_fiscale`,`cellulare`,`utente`,`ammin`,`gestore`,`reputazione`,`ban`,`data_registrazione`) VALUES
  ('1','Lorenzo','Francescotti', 'lorenzofrancescotti@gmail.com', '" . password_hash('Lorenzo2001!', PASSWORD_DEFAULT) . "','1000', '2001-06-14', 'Via Muzio Clementi', 'FRNLNZ01H14H501Z','3339553001','0','1','0','11', '0','2022-06-14'),
- ('2','Federico', 'De Lullo', 'federico@gmail.com', '" . password_hash('Roma1234!', PASSWORD_DEFAULT) . "','1000','2001-04-11','Via A.Stradivari 4', 'DLLFRC01D11H501P','3293321366','0','0','1','11','0','2022-06-14')";
+ ('2','Federico', 'De Lullo', 'federico@gmail.com', '" . password_hash('Roma1234!', PASSWORD_DEFAULT) . "','1000','2001-04-11','Via A.Stradivari 4', 'DLLFRC01D11H501P','3293321366','0','0','1','11','0','2022-06-14'),
+ ('3','Federico','Gatti', 'federicodelullo84@gmail.com', '" . password_hash('Roma1234!', PASSWORD_DEFAULT) . "','0', '2001-06-14', 'Via Ugo La Malfa 4', 'FRNLNZ01H14H456D','3339553256','1','0','0','1', '0','2022-06-14'),
+ ('4','Lorenzo','Insigne', 'lorenzo@gmail.com', '" . password_hash('Lorenzo2001!', PASSWORD_DEFAULT) . "','0', '2001-06-14', 'Via Caligola', 'FRNLNZ01H14H159L','3339553789','1','0','0','1', '0','2022-09-14'),
+ ('5','Luca','Sintoni', 'luca@gmail.com', '" . password_hash('Luca1234!', PASSWORD_DEFAULT) . "','0', '2001-06-14', 'Via Andrea Doria', 'FRNLNZ01H14H753P','3339553123','1','0','0','1', '0','2023-04-14')";
 if ($connessione->query($sql) === TRUE) {
     echo "Tabella 'utenti' popolata correttamente\n";
 } else {

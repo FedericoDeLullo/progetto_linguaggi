@@ -174,10 +174,13 @@
                     echo '<table class="table">';
                         echo '<tr>';
                         echo '<td>';
-                        echo '<a class="btn1"style="margin-left:8vw;" title="Lista delle domande" href="domande.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">Lista delle domande</a>';
-                        echo '<a class="btn1"style="margin-left:8vw;" title="Lascia una domanda" href="domande_prodotti.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">Scrivi una domanda</a>';
-                        echo '<a class="btn1"style="margin-left:8vw;"  title="Lascia una recensione" href="recensione_cliente.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">Scrivi una recensione</a>';
-                        echo '<a class="btn1" style="margin-left:8vw;"title="Lista delle recensioni" href="lista_recensioni.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">Lista delle recensioni</a>';
+                        echo '<a class="btn1"style="margin-left:10vw;" title="Lista delle domande" href="domande.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">Lista delle domande</a>';
+                        echo '<a class="btn1"style="margin-left:10vw;" title="Lascia una domanda" href="domande_prodotti.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">Scrivi una domanda</a>';
+                        echo '<a class="btn1"style="margin-left:10vw;"  title="Lascia una recensione" href="recensione_cliente.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">Scrivi una recensione</a>';
+                        echo '<a class="btn1" style="margin-left:10vw;"title="Lista delle recensioni" href="lista_recensioni.php?id_prodotto=' . $id_prodotto . '&nome=' . $nome .'&tipologia='. $tipologia .'&id='. $id_utente .'">Lista delle recensioni</a>';
+                        if ($admin == 1) {
+                            echo '<a class="btn1" style="margin-left:10vw;" href="aggiungi_sconto_form.php?id_prodotto=' . $id_prodotto . '&tipologia=' . $tipologia . '">Aggiungi Sconto</a>';
+                        }
                         echo '</td>';
                             echo '<td class="td">';
                                   echo '<div class="box">';
@@ -319,41 +322,49 @@
         });
 
         // Ordino i prodotti in base alla richiesta
-        // Ordino i prodotti in base alla richiesta
+       
         $('#ordina').on('change', function() {
-            var selectedOption = $(this).val();
+    var selectedOption = $(this).val();
 
-            if (selectedOption === 'prezzoCrescente' || selectedOption === 'prezzoDecrescente' || 
-                selectedOption === 'nomeCrescente' || selectedOption === 'nomeDecrescente') {
-                // Se l'opzione selezionata è prezzo o nome, ordina direttamente lato client
-                var prodottiArray = $('.prodotto').toArray();
+    if (selectedOption === 'prezzoCrescente' || selectedOption === 'prezzoDecrescente' || 
+        selectedOption === 'nomeCrescente' || selectedOption === 'nomeDecrescente') {
+        // Se l'opzione selezionata è prezzo o nome, ordina direttamente lato client
+        var prodottiArray = $('.prodotto').toArray();
 
-                prodottiArray.sort(function(a, b) {
-                    if (selectedOption.includes('prezzo')) {
-                        var prezzoA = parseFloat($(a).find('.prezzo').text().replace('Prezzo: ', '').replace('€', '').trim());
-                        var prezzoB = parseFloat($(b).find('.prezzo').text().replace('Prezzo: ', '').replace('€', '').trim());
+        prodottiArray.sort(function(a, b) {
+            if (selectedOption.includes('prezzo')) {
+                var prezzoA = parseFloat($(a).find('.prezzo').text().replace('Prezzo Finale: ', '').replace('€', '').trim());
+                var prezzoB = parseFloat($(b).find('.prezzo').text().replace('Prezzo Finale: ', '').replace('€', '').trim());
 
-                        return selectedOption === 'prezzoCrescente' ? prezzoA - prezzoB : prezzoB - prezzoA;
-                    } else if (selectedOption.includes('nome')) {
-                        var nomeA = $(a).find('.nome').text().toLowerCase();
-                        var nomeB = $(b).find('.nome').text().toLowerCase();
-
-                        return selectedOption === 'nomeCrescente' ? nomeA.localeCompare(nomeB) : nomeB.localeCompare(nomeA);
-                    }
-                });
-
-                // Rimuovi tutti i prodotti attualmente visualizzati
-                $('.prodotto').remove();
-
-                // Itera attraverso i prodotti ordinati e stampali
-                for (var i = 0; i < prodottiArray.length; i++) {
-                    $('.cont').append(prodottiArray[i]);
+                // Controlla se il prezzo è scontato
+                if ($(a).find('.prezzoScontato').length > 0) {
+                    prezzoA = parseFloat($(a).find('.prezzoScontato').text().replace('Prezzo Finale: ', '').replace('€', '').trim());
                 }
-            } else {
-                // Se l'opzione selezionata non è prezzo o nome, gestisci l'ordinamento lato server con il normale ricaricamento della pagina
-                window.location.href = 'catalogo_magliette.php?ordina=' + selectedOption;
+                if ($(b).find('.prezzoScontato').length > 0) {
+                    prezzoB = parseFloat($(b).find('.prezzoScontato').text().replace('Prezzo Finale: ', '').replace('€', '').trim());
+                }
+
+                return selectedOption === 'prezzoCrescente' ? prezzoA - prezzoB : prezzoB - prezzoA;
+            } else if (selectedOption.includes('nome')) {
+                var nomeA = $(a).find('.nome').text().toLowerCase();
+                var nomeB = $(b).find('.nome').text().toLowerCase();
+
+                return selectedOption === 'nomeCrescente' ? nomeA.localeCompare(nomeB) : nomeB.localeCompare(nomeA);
             }
         });
+
+        // Rimuovi tutti i prodotti attualmente visualizzati
+        $('.prodotto').remove();
+
+        // Itera attraverso i prodotti ordinati e stampali
+        for (var i = 0; i < prodottiArray.length; i++) {
+            $('.cont').append(prodottiArray[i]);
+        }
+    } else {
+        // Se l'opzione selezionata non è prezzo o nome, gestisci l'ordinamento lato server con il normale ricaricamento della pagina
+        window.location.href = 'catalogo_calzettoni.php?ordina=' + selectedOption;
+    }
+});
     });
 </script>
         </div>
