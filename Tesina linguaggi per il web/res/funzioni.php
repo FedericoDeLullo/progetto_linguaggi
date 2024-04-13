@@ -77,7 +77,6 @@ function getProdotti($xmlFile) {
         $sconto_data_M = $sconto->getElementsByTagName('data_m')->item(0)->nodeValue;
         $sconto_N = $sconto->getElementsByTagName('n')->item(0)->nodeValue;
         $sconto_R = $sconto->getElementsByTagName('r')->item(0)->nodeValue;
-        $sconto_ha_acquistato = $sconto->getElementsByTagName('ha_acquistato')->item(0)->nodeValue;
 
         $prodotti[] = [
             'id_prodotto' => $id_prodotto,
@@ -95,7 +94,6 @@ function getProdotti($xmlFile) {
                 'data_m' => $sconto_data_M,
                 'n' => $sconto_N,
                 'r' => $sconto_R,
-                'ha_acquistato' => $sconto_ha_acquistato,
             ]
         ];
     }

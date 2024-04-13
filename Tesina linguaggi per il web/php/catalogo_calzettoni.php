@@ -129,7 +129,7 @@
                                     $prezzoScontato = calcolaScontoProdotto($xmlPath, $id_prodotto, $prezzo);
                                 }
         
-                                if(isset($_SESSION['sconto_parametrico']) && $_SESSION['sconto_parametrico'] = true){
+                                if(isset($_SESSION['sconto_parametrico']) && $_SESSION['sconto_parametrico'] == true){
                                     echo "<p id='successo'>Sconti Aggiuntivi Attivati</p>";
                                     unset($_SESSION['sconto_parametrico']);
                                 }
