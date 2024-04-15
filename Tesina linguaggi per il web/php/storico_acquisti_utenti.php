@@ -25,7 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id'])) {
 
     $acquisti = $dom->getElementsByTagName('acquisto');
 
-    // Verifica se ci sono acquisti per l'utente specificato
     $acquistiUtente = [];
     foreach ($acquisti as $acquisto) {
         $idUtente = $acquisto->getAttribute('id_utente');

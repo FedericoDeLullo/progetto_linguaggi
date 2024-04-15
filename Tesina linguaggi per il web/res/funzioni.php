@@ -68,7 +68,6 @@ function getProdotti($xmlFile) {
         $sconto_generico = $prodotto->getElementsByTagName('sconto_generico')->item(0)->nodeValue;
         $immagine = $prodotto->getElementsByTagName('immagine')->item(0)->nodeValue;
 
-        // Mi prendo i parametri dello sconto
         $sconto = $prodotto->getElementsByTagName('sconto')->item(0);
 
         $sconto_X = $sconto->getElementsByTagName('x')->item(0)->nodeValue;
@@ -130,15 +129,11 @@ function calcolaScontoProdotto($xmlpath, $id_prodotto, $prezzo)
 
                 $sc_generico = $prodotto_documento['sconto_generico'];
 
-                // Parto con i parametri X e Y
-
-                // 1) Inizio calcolandomi la data completa X mesi + Y anni
                 $XY = $sc_Y * 12 + $sc_X;
 
                 $dataMinimaRegistrazione = new DateTime();
                 $dataMinimaRegistrazione->sub(new DateInterval("P{$XY}M"));
 
-                // 2) Ora devo prendere la data di registrazione e controllare se la data di registrazione > di $data rispetto a quella attuale
                 $query = "SELECT utenti.data_registrazione FROM utenti WHERE utenti.email = '{$_SESSION['email']}'";
                 $ris = $connessione->query($query);
 
@@ -147,7 +142,6 @@ function calcolaScontoProdotto($xmlpath, $id_prodotto, $prezzo)
                     $data_registrazione = $row['data_registrazione'];
                 }
 
-                // Converto la data in formato DateTime per poter fare la differenza
                 $data_formattata_registrazione = DateTime::createFromFormat('Y-m-d', $data_registrazione);
 
                 if ($data_formattata_registrazione <= $dataMinimaRegistrazione) {
@@ -156,9 +150,7 @@ function calcolaScontoProdotto($xmlpath, $id_prodotto, $prezzo)
                     $X_Y_check = false;
                 }
 
-                // Ora devo gestirmi i parametri M e data_M
 
-                // 1) Mi preparo il necessario ovvero l'id dell'utente loggato e mi carico gli acquisti
                 $xmlpath_acquisti = "../xml/storico_acquisti.xml";
                 $acquisti = getAcquisti($xmlpath_acquisti);
 
@@ -172,19 +164,14 @@ function calcolaScontoProdotto($xmlpath, $id_prodotto, $prezzo)
 
                 $spesa_totale_entro_data = 0;
 
-                // 2) Ora faccio il controllo se si è speso un certo ammontare di crediti entro una certa data
                 foreach ($acquisti as $acquisto) {
                     if ($acquisto['IDUtente'] == $id_loggato && $acquisto['data'] >= $sc_data_M) {
-                        // Considero un singolo acquisto alla volta
                 
-                        // Supponendo che $acquisto['nome'] sia il nome del prodotto
                         $nomeProdotto = $acquisto['nome'];
                 
-                        // Aggiungo il prezzo del singolo prodotto alla spesa totale
                         $spesa_totale_entro_data += $acquisto['prezzo_totale'];
                     }
                 }
-                // 3) Controllo se la quantità spesa entro una certa data è almeno uguale a quella dello sconto parametrico
                 if ($spesa_totale_entro_data >= $sc_M) {
                     $M_data_da_M_check = true;
                 } else {
@@ -193,10 +180,8 @@ function calcolaScontoProdotto($xmlpath, $id_prodotto, $prezzo)
 
                 $spesa_totale = 0;
 
-                // Ora mi devo occupare del parametro N, ovvero se sono stati spesi un certo ammontare di crediti in totale
                 foreach ($acquisti as $acquisto) {
                     if ($acquisto['IDUtente'] == $id_loggato) {
-                        // Somma direttamente il prezzo totale di ogni acquisto
                         $spesa_totale += $acquisto['prezzo_totale'];
                     }
                 }
@@ -207,7 +192,6 @@ function calcolaScontoProdotto($xmlpath, $id_prodotto, $prezzo)
                     $N_check = false;
                 }
 
-                // Ora controllo che il cliente loggato abbia una certa reputazione, ovvero il parametro R
                 $query = "SELECT utenti.reputazione FROM utenti WHERE utenti.email = '{$_SESSION['email']}'";
                 $ris = $connessione->query($query);
 
@@ -229,7 +213,6 @@ function calcolaScontoProdotto($xmlpath, $id_prodotto, $prezzo)
                     $_SESSION['sconto_parametrico'] = true;
                 }
 
-                // Ora ci sommo anche lo sconto generico se diverso da 0
                 if ($sc_generico > 0) {
                     $sconto_percentuale += $sc_generico;
                     $_SESSION['sconto_generico'] = true;
@@ -244,7 +227,6 @@ function calcolaScontoProdotto($xmlpath, $id_prodotto, $prezzo)
         // In questo modo non mi approssima i numeri => ex 19.1 in 19.13
         $prezzoFinale = number_format($prezzoFinale, 2, '.', '');
 
-        // Se non mi è stato modificato il prezzo con quello scontato metto quello originale
         if ($prezzoFinale == 0) {
             $prezzoFinale = $prezzo;
         }

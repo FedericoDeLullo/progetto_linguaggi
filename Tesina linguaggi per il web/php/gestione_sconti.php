@@ -27,7 +27,6 @@ foreach($prodotti as $prodotto){
 
     if($id_prodotto_pp == $id_prodotto){
 
-        //ci troviamo nel fumetto da modificare
         $sconto = $prodotto->getElementsByTagName('sconto')->item(0);
         $sconto->getElementsByTagName('x')->item(0)->nodeValue = $sc_X;
         $sconto->getElementsByTagName('y')->item(0)->nodeValue = $sc_Y;

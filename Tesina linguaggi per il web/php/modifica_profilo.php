@@ -17,18 +17,14 @@
 
 <?php
 require_once('../res/connection.php');
-// Verifica se l'utente è loggato
 if (!isset($_SESSION['id'])) {
-    // Reindirizza l'utente alla pagina di accesso se non è loggato
     header("Location: login_cliente.php");
     exit();
 }
 
-// Verifica se è stato fornito un ID utente valido
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $id_utente = $_GET['id'];
 
-    // Esegui una query per ottenere i dati dell'utente
     $query = "SELECT * FROM utenti WHERE id = $id_utente";
     $result = $connessione->query($query);
 
@@ -40,10 +36,10 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             unset($_SESSION['errore_query']);
         }
 
-        if(isset($_SESSION['errore_email_ex']) && $_SESSION['errore_email_ex'] == 'true'){//isset verifica se errore è settata
+        if(isset($_SESSION['errore_email_ex']) && $_SESSION['errore_email_ex'] == 'true'){
             echo "<h2>L'email '" . $_SESSION['email_errata'] . "' è già in uso!</h2>";
-            unset($_SESSION['errore_email_ex']); //la unsetto altrimenti rimarrebbe la scritta
-            unset($_SESSION['mod_mail']); //pulisco il form del campo email perché è errato
+            unset($_SESSION['errore_email_ex']);
+            unset($_SESSION['mod_mail']); 
         }
 
         if(isset($_SESSION['errore_cellulare_ex']) && $_SESSION['errore_cellulare_ex'] == 'true'){

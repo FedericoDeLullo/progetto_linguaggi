@@ -45,7 +45,6 @@
                 $id_utente = $_SESSION['id'];
             }
 
-            // Inizializza la variabile booleana per verificare se ci sono prodotti di tipo 'pantaloncini'
             $pantalonciniPresenti = false;
 
             $ordinaPer = isset($_GET['ordina']) ? $_GET['ordina'] : 'nome';
@@ -55,26 +54,21 @@
             $dom = new DOMDocument();
             $dom->load($xmlFile);
 
-            // Ottieni la lista di prodotti
             $prodotti = $dom->getElementsByTagName('prodotto');
 
-            // Converte la NodeList in un array per semplificare l'ordinamento
             $prodottiArray = iterator_to_array($prodotti);
 
-            // Definisci una funzione di confronto per l'ordinamento
             function compare($a, $b) {
                 global $ordinaPer;
 
                 $valueA = $a->getElementsByTagName($ordinaPer)->item(0)->nodeValue;
                 $valueB = $b->getElementsByTagName($ordinaPer)->item(0)->nodeValue;
 
-                return strnatcasecmp($valueA, $valueB); // Ordinamento insensibile alle maiuscole
+                return strnatcasecmp($valueA, $valueB); 
             }
 
-            // Ordina l'array di prodotti
             usort($prodottiArray, 'compare');
 
-            // Itera attraverso i prodotti e stampali
             foreach ($prodottiArray as $prodotto) {
                 $nome = $prodotto->getElementsByTagName('nome')->item(0)->nodeValue;
                 $descrizione = $prodotto->getElementsByTagName('descrizione')->item(0)->nodeValue;
@@ -84,16 +78,13 @@
                 $sconto_generico = $prodotto->getElementsByTagName('sconto_generico')->item(0)->nodeValue;
                 $bonus = $prodotto->getElementsByTagName('bonus')->item(0)->nodeValue;
 
-                // Aggiunta: verifica la tipologia
                 $tipologia = $prodotto->getElementsByTagName('tipologia')->item(0)->nodeValue;
                 if ($tipologia !== 'pantaloncini') {
-                    continue; // Salta il prodotto se la tipologia non è 'maglietta'
+                    continue;
                 }
 
-                // Imposta la variabile booleana a true se almeno un prodotto è di tipo 'pantaloncini'
                 $pantalonciniPresenti = true;
 
-                // Stampa le informazioni del prodotto
                 echo '<div class="prodotto">';
                 echo '<h1 class="nome">';
                 require_once('../res/connection.php');
@@ -240,8 +231,6 @@
                     echo '</div>';
                 } 
 
-
-
             }else{
                     echo $nome;
                      echo '</h1>';
@@ -275,12 +264,10 @@
                         $quantita = $_POST['quantita'];
                         $bonus = $_POST['bonus'];
 
-                        // Inizializza o ottieni il carrello dalla sessione
                         if (!isset($_SESSION['carrello'])) {
                             $_SESSION['carrello'] = array();
                         }
                     
-                        // Aggiungi il prodotto al carrello
                         $_SESSION['carrello'][] = array(
                             'id_prodotto' => $id_prodotto,
                             'nome' => $nome,
@@ -292,9 +279,7 @@
                     }
                     ?>  
             <script>
-    // Quando il documento è caricato
     $(document).ready(function() {
-        // Associo un'azione al bottone di ricerca "btn_stilizzato"
         $('.btn_stilizzato').on('click', function() {
             var searchText = $('.search-input').val().toLowerCase();
 
@@ -309,7 +294,6 @@
             });
         });
 
-        // Associo un'azione alla barra di ricerca quando scrivo qualcosa sulla tastiera
         $('.search-input').on('keyup', function() {
             var searchText = $(this).val().toLowerCase();
 
@@ -324,14 +308,12 @@
             });
         });
 
-        // Ordino i prodotti in base alla richiesta
        
         $('#ordina').on('change', function() {
     var selectedOption = $(this).val();
 
     if (selectedOption === 'prezzoCrescente' || selectedOption === 'prezzoDecrescente' || 
         selectedOption === 'nomeCrescente' || selectedOption === 'nomeDecrescente') {
-        // Se l'opzione selezionata è prezzo o nome, ordina direttamente lato client
         var prodottiArray = $('.prodotto').toArray();
 
         prodottiArray.sort(function(a, b) {
@@ -339,7 +321,6 @@
                 var prezzoA = parseFloat($(a).find('.prezzo').text().replace('Prezzo Finale: ', '').replace('€', '').trim());
                 var prezzoB = parseFloat($(b).find('.prezzo').text().replace('Prezzo Finale: ', '').replace('€', '').trim());
 
-                // Controlla se il prezzo è scontato
                 if ($(a).find('.prezzoScontato').length > 0) {
                     prezzoA = parseFloat($(a).find('.prezzoScontato').text().replace('Prezzo Finale: ', '').replace('€', '').trim());
                 }
@@ -356,10 +337,8 @@
             }
         });
 
-        // Rimuovi tutti i prodotti attualmente visualizzati
         $('.prodotto').remove();
 
-        // Itera attraverso i prodotti ordinati e stampali
         for (var i = 0; i < prodottiArray.length; i++) {
             $('.cont').append(prodottiArray[i]);
         }

@@ -18,23 +18,18 @@
 <h1 class="titolo">GESTIONE UTENTI</h1>
 
 <?php
-// Include il file di connessione al database
 require_once('../res/connection.php');
 
-// Verifica se l'utente è loggato
 if (!isset($_SESSION['id'])) {
-    // Reindirizza l'utente alla pagina di accesso se non è loggato
     header("Location: login_cliente.php");
     exit();
 }
 
-// Controlla se l'utente è un amministratore
 $id_utente = $_SESSION['id'];
 $sql_select = "SELECT ammin FROM utenti WHERE id = '$id_utente' AND ammin = 1";
 
 if ($result = $connessione->query($sql_select)) {
     if ($result->num_rows === 1) {
-        // Query per ottenere gli utenti
         $sql = "SELECT id, nome, cognome, email, passwd, crediti, indirizzo_di_residenza, cellulare, ban, reputazione, ammin, gestore FROM utenti ORDER BY 
         CASE 
             WHEN ammin = 1 THEN 1
@@ -43,7 +38,6 @@ if ($result = $connessione->query($sql_select)) {
         END;";
         $result = $connessione->query($sql);
 
-        // Stampa la tabella degli utenti
         echo '<table border="1">';
         echo '<tr>';
         echo '<th>Ruolo</th>';
@@ -83,7 +77,6 @@ if ($result = $connessione->query($sql_select)) {
                 echo '<td><a href="modifica_password.php?id=' . $row['id'] . '&admin=' . $row['ammin'] . '"><span id="edit" class="material-symbols-outlined">key</span></a></td>';
 
                 if ($row['id'] == $_SESSION['id']) {
-                    // questo è l'utente attuale
                     echo '<td><span id="done" class="material-symbols-outlined">ar_on_you</span></a></td>';
                 } elseif ($row['ammin'] == 1) {
                     echo '<td><a id="minus" href="../res/retrocedi.php?id=' . $row['id'] . '&ban=' . $row['ban'] . '"><span id="minus" class="material-symbols-outlined">keyboard_double_arrow_down</span> Retrocedi</a></td>';
@@ -94,10 +87,8 @@ if ($result = $connessione->query($sql_select)) {
                     </td>';
                 } else {
                     if ($row['ban'] == 1) {
-                        // Utente disattivato
                         echo '<td><a class="done" href="conferma_ban.php?id=' . $row['id'] . '&ban=' . $row['ban'] . '"><span id="done" class="material-symbols-outlined">visibility_off</span> Attiva</a></td>';
                     } else {
-                        // Utente attivato
                         echo '<td>
                             <a id="plus" href="../res/promuovi.php?id=' . $row['id'] . '&ban=' . $row['ban'] . '"><span id="plus" class="material-symbols-outlined">keyboard_double_arrow_up</span> Promuovi</a><br>
                             <a class="done" href="conferma_ban.php?id=' . $row['id'] . '&ban=' . $row['ban'] . '"><span id="done" class="material-symbols-outlined">visibility</span> Disattiva</a>
@@ -114,10 +105,8 @@ if ($result = $connessione->query($sql_select)) {
         </div>
                         
         <?php
-        // Chiudi la connessione al database
         $connessione->close();
     } else {
-        // Se l'utente non è un amministratore, reindirizzalo a una pagina di accesso negato
         header("Location: accesso_negato.php");
         exit();
     }

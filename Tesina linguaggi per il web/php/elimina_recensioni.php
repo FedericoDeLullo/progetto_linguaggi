@@ -25,7 +25,6 @@
             $dom->load($xmlFile);
 
             if (isset($_GET['id_recensione'])) {
-                // Specifica l'id_recensione che si desidera eliminare
                 $id_recensione = $_GET['id_recensione'];
                 $id_prodotto = $_GET['id_prodotto'];
                 $nome = $_GET['nome'];
@@ -36,7 +35,6 @@
                 $query = "//recensione[id_recensione='{$id_recensione}']";
                 $recensioneNodes = $xpath->query($query);
 
-                // Verifica se il nodo è stato trovato
                 if ($recensioneNodes->length > 0) {
                     // Rimuovi il nodo trovato
                     $recensioneNode = $recensioneNodes->item(0);
@@ -45,7 +43,6 @@
                     // Salva le modifiche nel file XML
                     $dom->save($xmlFile);
 
-                    // Reindirizza alla pagina delle recensioni aggiornata
                     header("Location: lista_recensioni.php?id_prodotto=" . $id_prodotto . "&nome=" . urlencode($nome) . "&tipologia=" . urlencode($tipologia));
                 }
             }

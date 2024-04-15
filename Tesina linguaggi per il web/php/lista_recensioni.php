@@ -49,7 +49,6 @@ $dom->load($xmlFile);
 $xpath = new DOMXPath($dom);
 $recensioni = $xpath->query("//recensioni/recensione[@id_prodotto='$id_prodotto']");
 
-// Mostra le recensioni in una tabella
 if ($recensioni->length > 0) {
     echo '<h1 class="titolo">Recensioni del prodotto: ' . $nome . '</h1>';
     echo '<table>';
@@ -70,7 +69,6 @@ if ($recensioni->length > 0) {
         $utilitaNode = $xpath->query("utilita/valore[@id_utente='$idUtenteSessione']", $recensione)->item(0);
         $supportoNode = $xpath->query("supporto/valore[@id_utente='$idUtenteSessione']", $recensione)->item(0);
 
-          // Recupera attributi e valori da utilita e supporto
         $utilitaValue = $utilitaNode ? $utilitaNode->nodeValue : "N/A";
         $supportoValue = $supportoNode ? $supportoNode->nodeValue : "N/A";
 
@@ -109,7 +107,6 @@ if ($recensioni->length > 0) {
         $utilitaNode = $xpath->query("utilita/valore[@id_utente='$idUtenteSessione']", $recensione)->item(0);
         $supportoNode = $xpath->query("supporto/valore[@id_utente='$idUtenteSessione']", $recensione)->item(0);
 
-          // Recupera attributi e valori da utilita e supporto
         $utilitaValue = $utilitaNode ? $utilitaNode->nodeValue : "N/A";
         $supportoValue = $supportoNode ? $supportoNode->nodeValue : "N/A";
 
@@ -139,11 +136,9 @@ if ($recensioni->length > 0) {
         $supportoIdUtente = $supportoNode ? $supportoNode->getAttribute("id_utente") : "N/A";
 
 
-        // Verifica se l'utente ha già votato questa recensione
         if ($utilitaIdUtente == $_SESSION['id'] || $supportoIdUtente == $_SESSION['id']) {
             echo '<p class="nome"><span class="material-symbols-outlined">verified</span></p>';
         } else {
-            // Se l'utente non ha ancora votato, mostra i pulsanti per il voto
             echo '<form action="../res/utilita_supporto.php" method="post">';
             echo '<input type="hidden" name="id_recensione" value="' . $id_recensione . '"/>';
             echo '<input type="hidden" name="id_prodotto" value="' . $id_prodotto . '"/>';
@@ -151,11 +146,9 @@ if ($recensioni->length > 0) {
             echo '<input type="hidden" name="id_utente" value="' . $id_utente . '"/>';
 
             
-            // Pulsanti per il voto di utilità
             echo '<label class="nome" for="votoUtilita">Utilità (da 1 a 5): </label>';
             echo '<input class="input" style="width: 50px;" type="number" name="votoUtilita" min="1" max="5" required/><br>';
 
-            // Pulsanti per il voto di supporto
             echo '<label class="nome" for="votoSupporto">Supporto (da 1 a 3): </label>';
             echo '<input class="input" style="width: 50px;" type="number" name="votoSupporto" min="1" max="3" required/><br>';
 
@@ -170,7 +163,6 @@ if ($recensioni->length > 0) {
 
 
   } }if (!$almenoUnPostSenzaSegnalazione) {
-    // Nessun post trovato con "segnalato" a 0, stampa un errore
     echo '<p style="margin-top:10vh;" class="titolo">Nessuna recensione disponibile.</p>';
 }     echo '</table>';
 
@@ -196,7 +188,6 @@ elseif($utente = 1){
     $xpath = new DOMXPath($dom);
     $recensioni = $xpath->query("//recensioni/recensione[@id_prodotto='$id_prodotto']");
     
-    // Mostra le recensioni in una tabella
     if ($recensioni->length > 0) {
         echo '<h1 class="titolo">Recensioni del prodotto: ' . $nome . '</h1>';
         echo '<table>';
@@ -218,7 +209,6 @@ elseif($utente = 1){
             $utilitaNode = $xpath->query("utilita/valore[@id_utente='$idUtenteSessione']", $recensione)->item(0);
             $supportoNode = $xpath->query("supporto/valore[@id_utente='$idUtenteSessione']", $recensione)->item(0);
     
-              // Recupera attributi e valori da utilita e supporto
             $utilitaValue = $utilitaNode ? $utilitaNode->nodeValue : "N/A";
             $supportoValue = $supportoNode ? $supportoNode->nodeValue : "N/A";
     
@@ -257,7 +247,6 @@ elseif($utente = 1){
             $utilitaNode = $xpath->query("utilita/valore[@id_utente='$idUtenteSessione']", $recensione)->item(0);
             $supportoNode = $xpath->query("supporto/valore[@id_utente='$idUtenteSessione']", $recensione)->item(0);
     
-              // Recupera attributi e valori da utilita e supporto
             $utilitaValue = $utilitaNode ? $utilitaNode->nodeValue : "N/A";
             $supportoValue = $supportoNode ? $supportoNode->nodeValue : "N/A";
     
@@ -291,7 +280,6 @@ elseif($utente = 1){
             if ($utilitaIdUtente == $_SESSION['id'] || $supportoIdUtente == $_SESSION['id']) {
                 echo '<p class="nome"><span class="material-symbols-outlined">verified</span></p>';
             } else {
-                // Se l'utente non ha ancora votato, mostra i pulsanti per il voto
                 echo '<form action="../res/utilita_supporto.php" method="post">';
                 echo '<input type="hidden" name="id_recensione" value="' . $id_recensione . '"/>';
                 echo '<input type="hidden" name="id_prodotto" value="' . $id_prodotto . '"/>';
@@ -300,11 +288,9 @@ elseif($utente = 1){
                 echo '<input type="hidden" name="nome" value="' . $nome . '"/>';
 
                 
-                // Pulsanti per il voto di utilità
                 echo '<label class="nome" for="votoUtilita">Utilità (da 1 a 5): </label>';
                 echo '<input class="input" style="width: 50px;" type="number" name="votoUtilita" min="1" max="5" required/><br>';
     
-                // Pulsanti per il voto di supporto
                 echo '<label class="nome" for="votoSupporto">Supporto (da 1 a 3): </label>';
                 echo '<input class="input" style="width: 50px;" type="number" name="votoSupporto" min="1" max="3" required/><br>';
     
@@ -318,7 +304,6 @@ elseif($utente = 1){
     
     
          } }if (!$almenoUnPostSenzaSegnalazione) {
-            // Nessun post trovato con "segnalato" a 0, stampa un errore
             echo '<p style="margin-top:10vh;" class="titolo">Nessuna recensione disponibile.</p>';
         }      echo '</table>';
     

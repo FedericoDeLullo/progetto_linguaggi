@@ -13,16 +13,13 @@
 </head>
 <body>
     <?php
-    // Controlla se l'utente è un amministratore
     require_once('../res/connection.php');
 
     if (!isset($_SESSION['id'])) {
-        // Reindirizza l'utente alla pagina di accesso se non è loggato
         header("Location: login_cliente.php");
         exit();
     }
 
-    // Controlla se l'utente è un amministratore
     $id_utente = $_SESSION['id'];
     $sql_select = "SELECT gestore FROM utenti WHERE id = '$id_utente' AND gestore = 1";
 
@@ -314,13 +311,11 @@
             echo '</tbody>';
             echo '</table>';
 
-            // Verifica il flag per determinare se ci sono richieste pendenti
             if (!$hasPendingRequests) {
                 echo '<p class="titolo">Nessuna segnalazione attualmente in sospeso.</p>';
             }
             echo '</div>';
         } else {
-            // Se l'utente non è un amministratore, reindirizzalo a una pagina di accesso negato
             header("Location: accesso_negato.php");
             exit();
         }

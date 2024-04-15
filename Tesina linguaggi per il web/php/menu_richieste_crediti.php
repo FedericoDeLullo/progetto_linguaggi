@@ -14,22 +14,18 @@
 <body>
 
 <?php
-// Controlla se l'utente è un amministratore
 require_once('../res/connection.php');
 
 if (!isset($_SESSION['id'])) {
-    // Reindirizza l'utente alla pagina di accesso se non è loggato
     header("Location: login_cliente.php");
     exit();
 }
 
-// Controlla se l'utente è un amministratore
 $id_utente = $_SESSION['id'];
 $sql_select = "SELECT ammin FROM utenti WHERE id = '$id_utente' AND ammin = 1";
 
 if ($result = $connessione->query($sql_select)) {
     if ($result->num_rows === 1) {
-        // Se l'utente è un amministratore, esegui lo script per la gestione delle richieste di ricarica crediti
         include('../res/funzioni.php');
         
         $xmlFile = '../xml/requests.xml';
@@ -37,7 +33,6 @@ if ($result = $connessione->query($sql_select)) {
         $dom->load($xmlFile);
         $requests = $dom->getElementsByTagName('request');
 
-        // Visualizza i messaggi di successo o errore
         if (isset($_SESSION['successo_richiesta_approvata']) && $_SESSION['successo_richiesta_approvata'] == 'true') {
             echo '<h2 id="successo">Richiesta approvata con successo... I crediti sono stati aggiunti all\'account di "' . $_SESSION['email'] . '"</h2>';
             unset($_SESSION['successo_richiesta_approvata']);
@@ -93,13 +88,11 @@ if ($result = $connessione->query($sql_select)) {
         echo '</tbody>';
         echo '</table>';
 
-        // Verifica il flag per determinare se ci sono richieste pendenti
         if (!$hasPendingRequests) {
             echo '<p class="titolo">Nessuna richiesta di ricarica attualmente in sospeso.</p>';
         }
         echo '</div>';
     } else {
-        // Se l'utente non è un amministratore, reindirizzalo a una pagina di accesso negato
         header("Location: accesso_negato.php");
         exit();
     }

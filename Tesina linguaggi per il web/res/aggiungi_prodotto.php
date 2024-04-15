@@ -1,33 +1,28 @@
 <?php
 session_start();
-// Verifica che il form sia stato inviato
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Percorso del file XML
     $xmlFile = '../xml/catalogo_prodotti.xml';
 
-    // Verifica che tutti i campi necessari siano stati compilati
     if (isset($_POST['nome'], $_POST['descrizione'], $_POST['prezzo'], $_FILES['immagine'], $_POST['tipologia'])) {
         // Carica il file XML
         $dom = new DOMDocument();
         $dom->preserveWhiteSpace = false;
         $dom->load($xmlFile);
     
-        // Trova l'ultimo ID nel catalogo
         $ultimoID = 0;
         $prodottoList = $dom->getElementsByTagName('prodotto');
     
-        // Flag per verificare se il nome è già presente
         $nomePresente = false;
     
         foreach ($prodottoList as $prodottoNode) {
             $nomeNode = $prodottoNode->getElementsByTagName('nome')->item(0);
             $nomeEsistente = $nomeNode->nodeValue;
     
-            // Verifica se il nome è già presente
             if ($_POST['nome'] == $nomeEsistente) {
                 $_SESSION['errore_nome_esistente'] = 'true';
                 header('Location:../php/menu_aggiungi_prodotto.php');
-                exit(); // Esce dal ciclo se il nome è già presente
+                exit(); 
             }else{
     
             $idNode = $prodottoNode->getElementsByTagName('id_prodotto')->item(0);
@@ -38,10 +33,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           }
         }
 
-        // Calcola il prossimo ID disponibile
         $prossimoID = $ultimoID + 1;
 
-        // Aggiungi un nuovo prodotto con l'ID incrementato
         $prodotto = $dom->createElement('prodotto');
         $dom->documentElement->appendChild($prodotto);
                 
@@ -83,10 +76,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sconto->appendChild($r);
         $ha_acqu = $dom->createElement('ha_acquistato', '0');
         $sconto->appendChild($ha_acqu);
-        // Gestione dell'immagine
         $immaginePath = '../img/' . basename($_FILES['immagine']['name']);
 
-        // Verifica che l'upload dell'immagine sia avvenuto con successo
         if (move_uploaded_file($_FILES['immagine']['tmp_name'], $immaginePath)) {
             $immagineInfo = getimagesize($immaginePath);
 

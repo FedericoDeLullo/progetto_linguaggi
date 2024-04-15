@@ -16,7 +16,6 @@
 <?php
 require_once('../res/connection.php');
 
-// Verifica se è stato fornito un ID del prodotto nella query string o nel corpo della richiesta POST
 if (isset($_REQUEST['id_prodotto'])) {
     $id_prodotto = $_REQUEST['id_prodotto'];
     $nome_prodotto = $_REQUEST['nome'];

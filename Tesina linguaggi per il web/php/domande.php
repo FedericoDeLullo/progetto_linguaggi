@@ -46,7 +46,6 @@ if(isset($_SESSION['creazione_domanda']) && $_SESSION['creazione_domanda'] == 't
             if($utente == 1){ 
 
 if (!isset($_SESSION['email'])) {
-    // L'utente non è autenticato, puoi reindirizzarlo alla pagina di login o fare altre azioni
     header("Location: login_cliente.php");
     exit();
 }else{
@@ -66,9 +65,6 @@ if(isset($_SESSION['id'])){
     // Trova tutti gli elementi 'domande' nel file XML relativi all'id_prodotto desiderato
     $xpath = new DOMXPath($dom);
     $domande = $xpath->query("//domande/domanda[@id_prodotto='$id_prodotto']");
-
-// Mostra le domande e i form di risposta in una tabella
-
 
 if ($domande->length > 0) {
     echo '<h1 class="titolo">Domande Prodotto: ' . $nome . '</h1>';
@@ -92,7 +88,6 @@ if ($domande->length > 0) {
         $utilitaNode = $xpath->query("utilita/valore[@id_utente='$idUtenteSessione']", $domanda)->item(0);
         $supportoNode = $xpath->query("supporto/valore[@id_utente='$idUtenteSessione']", $domanda)->item(0);
 
-        // Ottieni i valori di utilità e supporto o imposta "N/A" se non presenti
         $utilitaValue = $utilitaNode ? $utilitaNode->nodeValue : "N/A";
         $supportoValue = $supportoNode ? $supportoNode->nodeValue : "N/A";
 
@@ -129,7 +124,6 @@ if ($domande->length > 0) {
         $utilitaNode = $xpath->query("utilita/valore[@id_utente='$idUtenteSessione']", $domanda)->item(0);
         $supportoNode = $xpath->query("supporto/valore[@id_utente='$idUtenteSessione']", $domanda)->item(0);
 
-        // Ottieni i valori di utilità e supporto o imposta "N/A" se non presenti
         $utilitaValue = $utilitaNode ? $utilitaNode->nodeValue : "N/A";
         $supportoValue = $supportoNode ? $supportoNode->nodeValue : "N/A";
 
@@ -148,14 +142,12 @@ if ($domande->length > 0) {
         echo '<td>' . $utilitaValue . '</td>';
         echo '<td>' . $supportoValue . '</td>';
         
-        // Ottieni l'id_utente dai nodi "valore" all'interno degli elementi "utilita" e "supporto"
         $utilitaIdUtente = $utilitaNode ? $utilitaNode->getAttribute("id_utente") : "N/A";
         $supportoIdUtente = $supportoNode ? $supportoNode->getAttribute("id_utente") : "N/A";
 
         if ($utilitaIdUtente == $_SESSION['id'] || $supportoIdUtente == $_SESSION['id']) {
             echo '<td><p><span id="ver" class="material-symbols-outlined">verified</span></p></td>';
         }  else {
-         // Colonna per i pulsanti di voto delle domande
         echo '<td>';
         echo '<form action="../res/domande_utilita_supporto.php" method="post">';
         echo '<input type="hidden" name="id_domanda" value="' . $id_domanda . '"/>';
@@ -175,7 +167,6 @@ if ($domande->length > 0) {
         echo '</td>';
         }
         echo '<td>';
-        // Form per rispondere alla domanda
         echo '<form action="../res/risposte.php" method="post">';
         echo '<input type="hidden" name="id_prodotto" value="' . $id_prodotto . '"/>';
         echo '<input type="hidden" name="tipologia" value="' . $tipologia . '"/>';
@@ -190,7 +181,6 @@ if ($domande->length > 0) {
         echo '</tr>';
  }
  
-        // Mostra le risposte
         $risposte = $domanda->getElementsByTagName('risposta');
         if ($risposte->length > 0) {
         
@@ -204,7 +194,6 @@ if ($domande->length > 0) {
                 $utilitaNode = $xpath->query("utilita_risposta/valore[@id_utente='$idUtenteSessione']", $risposta)->item(0);
                 $supportoNode = $xpath->query("supporto_risposta/valore[@id_utente='$idUtenteSessione']", $risposta)->item(0);
             
-                // Ottieni i valori di utilità e supporto o imposta "N/A" se non presenti
                 $utilitaValue = $utilitaNode ? $utilitaNode->nodeValue : "N/A";
                 $supportoValue = $supportoNode ? $supportoNode->nodeValue : "N/A";
             
@@ -214,9 +203,7 @@ if ($domande->length > 0) {
                 $dataRisposta = $risposta->getElementsByTagName("data")->item(0)->nodeValue;
                 $oraRisposta = $risposta->getElementsByTagName("ora")->item(0)->nodeValue;
                 $testoRisposta = $risposta->getElementsByTagName("testo")->item(0)->nodeValue;
-        
                 
-              // Nuova riga per ogni risposta
                 echo '<tr>';
                 echo '<td>';
                 echo '<p>';
@@ -241,7 +228,6 @@ if ($domande->length > 0) {
                 $utilitaNode = $xpath->query("utilita_risposta/valore[@id_utente='$idUtenteSessione']", $risposta)->item(0);
                 $supportoNode = $xpath->query("supporto_risposta/valore[@id_utente='$idUtenteSessione']", $risposta)->item(0);
             
-                // Ottieni i valori di utilità e supporto o imposta "N/A" se non presenti
                 $utilitaValue = $utilitaNode ? $utilitaNode->nodeValue : "N/A";
                 $supportoValue = $supportoNode ? $supportoNode->nodeValue : "N/A";
             
@@ -252,7 +238,6 @@ if ($domande->length > 0) {
                 $testoRisposta = $risposta->getElementsByTagName("testo")->item(0)->nodeValue;
         
                 
-              // Nuova riga per ogni risposta
                 echo '<tr>';
                 echo '<td>';
                 echo '<p>';
@@ -270,7 +255,6 @@ if ($domande->length > 0) {
                 echo '<td>';
 
                 
-        // Ottieni l'id_utente dai nodi "valore" all'interno degli elementi "utilita" e "supporto"
         $utilitaIdUtente = $utilitaNode ? $utilitaNode->getAttribute("id_utente") : "N/A";
         $supportoIdUtente = $supportoNode ? $supportoNode->getAttribute("id_utente") : "N/A";
 
@@ -278,7 +262,6 @@ if ($domande->length > 0) {
         if ($utilitaIdUtente == $_SESSION['id'] || $supportoIdUtente == $_SESSION['id']) {
             echo '<p><span id="ver" class="material-symbols-outlined">verified</span></p>';
         }  else {
-                // Colonna per i pulsanti di voto delle risposte
                 echo '<div>';
                 echo '<form action="../res/risposte_utilita_supporto.php" method="post">';
                 echo '<input type="hidden" name="id_domanda" value="' . $id_domanda . '"/>';
@@ -307,7 +290,6 @@ if ($domande->length > 0) {
         }
        }
       } if (!$almenoUnPostSenzaSegnalazione) {
-        // Nessun post trovato con "segnalato" a 0, stampa un errore
         echo '<p style="margin-top:10vh;" class="titolo">Nessuna domanda disponibile.</p>';
     }
       
@@ -318,7 +300,6 @@ if ($domande->length > 0) {
      elseif($gestore == 1 || $admin == 1){
         
 if (!isset($_SESSION['email'])) {
-    // L'utente non è autenticato, puoi reindirizzarlo alla pagina di login o fare altre azioni
     header("Location: login_cliente.php");
     exit();
 }else{
@@ -344,7 +325,6 @@ if(isset($_GET['id_prodotto'])){
     $xpath = new DOMXPath($dom);
     $domande = $xpath->query("//domande/domanda[@id_prodotto='$id_prodotto']");
 
-// Mostra le domande e i form di risposta in una tabella
 
 
 if(isset($_GET['nome']) && isset($_GET['tipologia'])){
@@ -375,7 +355,6 @@ if ($domande->length > 0) {
         $utilitaNode = $xpath->query("utilita/valore[@id_utente='$idUtenteSessione']", $domanda)->item(0);
         $supportoNode = $xpath->query("supporto/valore[@id_utente='$idUtenteSessione']", $domanda)->item(0);
 
-        // Ottieni i valori di utilità e supporto o imposta "N/A" se non presenti
         $utilitaValue = $utilitaNode ? $utilitaNode->nodeValue : "N/A";
         $supportoValue = $supportoNode ? $supportoNode->nodeValue : "N/A";
 
@@ -412,7 +391,6 @@ if ($domande->length > 0) {
         $utilitaNode = $xpath->query("utilita/valore[@id_utente='$idUtenteSessione']", $domanda)->item(0);
         $supportoNode = $xpath->query("supporto/valore[@id_utente='$idUtenteSessione']", $domanda)->item(0);
 
-        // Ottieni i valori di utilità e supporto o imposta "N/A" se non presenti
         $utilitaValue = $utilitaNode ? $utilitaNode->nodeValue : "N/A";
         $supportoValue = $supportoNode ? $supportoNode->nodeValue : "N/A";
 
@@ -434,14 +412,12 @@ if ($domande->length > 0) {
         echo '<td>' . $testoDomanda . '</td>'; 
         echo '<td>' . $utilitaValue . '</td>';
         echo '<td>' . $supportoValue . '</td>';
-        // Ottieni l'id_utente dai nodi "valore" all'interno degli elementi "utilita" e "supporto"
         $utilitaIdUtente = $utilitaNode ? $utilitaNode->getAttribute("id_utente") : "N/A";
         $supportoIdUtente = $supportoNode ? $supportoNode->getAttribute("id_utente") : "N/A";
 
         if ($utilitaIdUtente == $_SESSION['id'] || $supportoIdUtente == $_SESSION['id']) {
             echo '<td><p><span id="ver" class="material-symbols-outlined">verified</span></p></td>';
         }  else {
-         // Colonna per i pulsanti di voto delle domande
         echo '<td>';
         echo '<form action="../res/domande_utilita_supporto.php" method="post">';
         echo '<input type="hidden" name="id_domanda" value="' . $id_domanda . '"/>';
@@ -461,7 +437,6 @@ if ($domande->length > 0) {
         echo '</td>';
         }
         echo '<td>';
-        // Form per rispondere alla domanda
         echo '<form action="../res/risposte.php" method="post">';
         echo '<input type="hidden" name="id_prodotto" value="' . $id_prodotto . '"/>';
         echo '<input type="hidden" name="tipologia" value="' . $tipologia . '"/>';
@@ -476,7 +451,6 @@ if ($domande->length > 0) {
         echo '</tr>';
  }
  
-        // Mostra le risposte
         $risposte = $domanda->getElementsByTagName('risposta');
         if ($risposte->length > 0) {
         
@@ -490,7 +464,6 @@ if ($domande->length > 0) {
                 $utilitaNode = $xpath->query("utilita_risposta/valore[@id_utente='$idUtenteSessione']", $risposta)->item(0);
                 $supportoNode = $xpath->query("supporto_risposta/valore[@id_utente='$idUtenteSessione']", $risposta)->item(0);
             
-                // Ottieni i valori di utilità e supporto o imposta "N/A" se non presenti
                 $utilitaValue = $utilitaNode ? $utilitaNode->nodeValue : "N/A";
                 $supportoValue = $supportoNode ? $supportoNode->nodeValue : "N/A";
             
@@ -501,7 +474,6 @@ if ($domande->length > 0) {
                 $testoRisposta = $risposta->getElementsByTagName("testo")->item(0)->nodeValue;
         
                 
-              // Nuova riga per ogni risposta
                 echo '<tr>';
                 echo '<td>';
                 echo '<p>';
@@ -526,7 +498,6 @@ if ($domande->length > 0) {
                 $utilitaNode = $xpath->query("utilita_risposta/valore[@id_utente='$idUtenteSessione']", $risposta)->item(0);
                 $supportoNode = $xpath->query("supporto_risposta/valore[@id_utente='$idUtenteSessione']", $risposta)->item(0);
             
-                // Ottieni i valori di utilità e supporto o imposta "N/A" se non presenti
                 $utilitaValue = $utilitaNode ? $utilitaNode->nodeValue : "N/A";
                 $supportoValue = $supportoNode ? $supportoNode->nodeValue : "N/A";
             
@@ -537,7 +508,6 @@ if ($domande->length > 0) {
                 $testoRisposta = $risposta->getElementsByTagName("testo")->item(0)->nodeValue;
         
                 
-                // Nuova riga per ogni risposta
                 echo '<tr>';
                 echo '<td>';
                 echo '<form action="eleva_faq.php" method="post">';
@@ -565,7 +535,6 @@ if ($domande->length > 0) {
                   echo '<td>';
   
                 
-        // Ottieni l'id_utente dai nodi "valore" all'interno degli elementi "utilita" e "supporto"
         $utilitaIdUtente = $utilitaNode ? $utilitaNode->getAttribute("id_utente") : "N/A";
         $supportoIdUtente = $supportoNode ? $supportoNode->getAttribute("id_utente") : "N/A";
 
@@ -573,7 +542,6 @@ if ($domande->length > 0) {
         if ($utilitaIdUtente == $_SESSION['id'] || $supportoIdUtente == $_SESSION['id']) {
             echo '<p><span id="ver" class="material-symbols-outlined">verified</span></p>';
         }  else {
-                // Colonna per i pulsanti di voto delle risposte
                 echo '<div>';
                 echo '<form action="../res/risposte_utilita_supporto.php" method="post">';
                 echo '<input type="hidden" name="id_domanda" value="' . $id_domanda . '"/>';
@@ -602,7 +570,6 @@ if ($domande->length > 0) {
          }
       }
    }if (!$almenoUnPostSenzaSegnalazione) {
-    // Nessun post trovato con "segnalato" a 0, stampa un errore
     echo '<p style="margin-top:10vh;" class="titolo">Nessuna domanda disponibile.</p>';
 }
 }  else {

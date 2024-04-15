@@ -18,7 +18,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if ($entries->length > 0) {
             $entry = $entries->item(0);
 
-            // Trova l'elemento question e aggiorna il suo testo
             $questions = $xpath->query("question", $entry);
             if ($questions->length > 0) {
                 $question = $questions->item(0);

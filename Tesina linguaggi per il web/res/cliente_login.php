@@ -13,9 +13,8 @@
                 
                 // Confronto diretto delle password (senza hashing)
                 if(password_verify($password, $row['passwd'])){
-                    // Verifica il campo 'ban'
                     if($row['ban'] == 1){
-                        header("Location: ../php/utente_bannato.php"); // Reindirizza a pagina di errore ban
+                        header("Location: ../php/utente_bannato.php"); 
                         exit;
                     }
                     $_SESSION['loggato'] = true;

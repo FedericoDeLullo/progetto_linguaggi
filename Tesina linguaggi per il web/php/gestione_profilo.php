@@ -16,15 +16,12 @@
 <div class="cont">
 
 <?php
-// Include il file di connessione al database
 require_once('../res/connection.php');
  
 
-// Verifica se l'utente è loggato
 if (isset($_SESSION['id'])) {
     $id_utente = $_SESSION['id'];
 
-    // Esegui la query per ottenere i dati dell'utente
     $query = "SELECT * FROM utenti WHERE id = $id_utente";
     $result = $connessione->query($query);
 
@@ -88,7 +85,6 @@ if (isset($_SESSION['id'])) {
 }
 echo '</div>';
 
-// Chiudi la connessione al database
 $connessione->close();
 ?>
 

@@ -46,7 +46,6 @@ $requests = $dom->getElementsByTagName('request');
                 $dom->formatOutput = true; 
                 $dom->save($xmlFile);
 
-                // Aggiorna i crediti dell'utente nel database
                 $sql_credit_update = "UPDATE utenti SET crediti = crediti + $importo WHERE email = '$email'";
                 if ($connessione->query($sql_credit_update) === TRUE) {
                     $_SESSION['successo_richiesta_approvata'] = 'true';

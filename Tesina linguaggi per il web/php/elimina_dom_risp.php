@@ -24,24 +24,19 @@
             $dom->load($xmlFile);
 
             if (isset($_GET['id_domanda']) && !isset($_GET['id_risposta'])) {
-                // Specify the id_domanda you want to delete
                 $id_domanda = $_GET['id_domanda'];
                 $id_prodotto = $_GET['id_prodotto'];
                 $nome = $_GET['nome'];
                 $tipologia = $_GET['tipologia'];
 
-                // Use XPath to find the node to delete
                 $xpath = new DOMXPath($dom);
                 $query = "//domanda[id_domanda='{$id_domanda}']";
                 $domandaNodes = $xpath->query($query);
 
-                // Check if the node was found
                 if ($domandaNodes->length > 0) {
-                    // Remove the found node
                     $domandaNode = $domandaNodes->item(0);
                     $domandaNode->parentNode->removeChild($domandaNode);
 
-                    // Save the changes back to the XML file
                     $dom->save($xmlFile);
                     header("Location: domande.php?id_prodotto=" . $id_prodotto . "&nome=" . urlencode($nome) . "&tipologia=" . urlencode($tipologia));
                 }

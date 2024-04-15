@@ -9,7 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    //controllo se la password rispetta i parametri
     //~ è il carattere delimitatore dell'espressione regolare
     if (!preg_match('~^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[0-9]).{8,}$~', $password)){
         $_SESSION['errore_preg'] = 'true';
@@ -20,7 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $query = "UPDATE utenti SET passwd = ? WHERE id = ?";
 
-    // Utilizza statement preparati per evitare SQL injection
     $stmt = $connessione->prepare($query);
     $stmt->bind_param("si", $hashed_password, $id_utente);
 

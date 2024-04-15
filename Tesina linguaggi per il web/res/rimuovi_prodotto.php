@@ -1,6 +1,5 @@
 <?php
 session_start();
-// Verifica che il form sia stato inviato
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Percorso del file XML
     $xmlFile = '../xml/catalogo_prodotti.xml';
@@ -13,16 +12,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $prodottoTrovato = false;
 
-    // Cerca e rimuovi il prodotto
     $xpath = new DOMXPath($dom);
     $prodottoNodes = $xpath->query("/catalogo_prodotti/prodotto[nome='{$_POST['nome']}']");
     foreach ($prodottoNodes as $prodottoNode) {
         $prodottoNode->parentNode->removeChild($prodottoNode);
         $prodottoTrovato = true;
-        break; // Interrompi dopo aver trovato e rimosso il primo prodotto con lo stesso nome
+        break; 
     }
 
-    // Salva le modifiche solo se il prodotto è stato trovato
     if ($prodottoTrovato) {
         $dom->normalizeDocument();
                 $dom->formatOutput = true;

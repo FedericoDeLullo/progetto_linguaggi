@@ -1,7 +1,6 @@
 <?php
 session_start();
 if ($_SERVER["REQUEST_METHOD"] === "GET") {
-    // Verifica se è stato fornito un parametro "id" nell'URL
     if (isset($_GET['id'])) {
         $faq_id = htmlspecialchars($_GET['id']);
 
@@ -14,11 +13,9 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
 
             $dom->load($xmlFile);
 
-            // Cerca l'elemento con l'ID corrispondente
             $xpath = new DOMXPath($dom);
             $faq_entry = $xpath->query("//entry[@id='$faq_id']");
 
-            // Verifica se è stato trovato un elemento
             if ($faq_entry->length > 0) {
                 // Rimuovi l'elemento dal file XML
                 $faq_entry->item(0)->parentNode->removeChild($faq_entry->item(0));
@@ -27,7 +24,6 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
                 // Salva le modifiche nel file XML
                 $dom->save($xmlFile);
 
-                // Reindirizza alla pagina delle FAQ
                 header('Location: ../php/faq.php');
                 exit();
             } else {

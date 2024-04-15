@@ -31,7 +31,7 @@ $nome = $_POST['nome'];
 $tipologia = $_POST['tipologia'];
 $id_segnalatore = $_POST['segnalatore'];
 
-$xmlFile = '../xml/segnalazioni.xml';  // Utilizzo di un percorso relativo
+$xmlFile = '../xml/segnalazioni.xml';
 $dom = new DOMDocument();
 
 try {
@@ -135,7 +135,7 @@ $id_segnalatore = $_POST['segnalatore'];
 
 
 
-$xmlFile = '../xml/segnalazioni.xml';  // Utilizzo di un percorso relativo
+$xmlFile = '../xml/segnalazioni.xml';
 $dom = new DOMDocument();
 
 try {

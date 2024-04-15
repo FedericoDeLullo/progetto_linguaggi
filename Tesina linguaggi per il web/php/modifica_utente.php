@@ -16,28 +16,22 @@
 <div class="cont">
 
 <?php
-// Include il file di connessione al database
 require_once('../res/connection.php');
 
-// Verifica se l'utente è loggato
 if (!isset($_SESSION['id'])) {
-    // Reindirizza l'utente alla pagina di accesso se non è loggato
     header("Location: login_cliente.php");
     exit();
 }
 
-// Controlla se l'utente è un amministratore
 $id_utente = $_SESSION['id'];
 $sql_select = "SELECT ammin FROM utenti WHERE id = '$id_utente' AND ammin = 1";
 
 if ($result = $connessione->query($sql_select)) {
     if ($result->num_rows === 1) {
 
-        // Verifica se è stato fornito un ID utente valido
         if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             $id_utente = $_GET['id'];
 
-            // Esegui una query per ottenere i dati dell'utente
             $query = "SELECT * FROM utenti WHERE id = $id_utente";
             $result = $connessione->query($query);
 
@@ -49,10 +43,10 @@ if ($result = $connessione->query($sql_select)) {
                     unset($_SESSION['errore_query']);
                 }
 
-                if(isset($_SESSION['errore_email_ex']) && $_SESSION['errore_email_ex'] == 'true'){//isset verifica se errore è settata
+                if(isset($_SESSION['errore_email_ex']) && $_SESSION['errore_email_ex'] == 'true'){
                     echo "<h2>L'email '" . $_SESSION['email_errata'] . "' è già in uso!</h2>";
-                    unset($_SESSION['errore_email_ex']); //la unsetto altrimenti rimarrebbe la scritta
-                    unset($_SESSION['mod_mail']); //pulisco il form del campo email perché è errato
+                    unset($_SESSION['errore_email_ex']); 
+                    unset($_SESSION['mod_mail']); 
                 }
 
                 if(isset($_SESSION['errore_cellulare_ex']) && $_SESSION['errore_cellulare_ex'] == 'true'){
@@ -106,7 +100,6 @@ if ($result = $connessione->query($sql_select)) {
 
         $connessione->close();
     } else {
-        // Se l'utente non è un amministratore, reindirizzalo a una pagina di accesso negato
         header("Location: accesso_negato.php");
         exit();
     }

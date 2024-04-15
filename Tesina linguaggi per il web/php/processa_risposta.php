@@ -17,7 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if ($entries->length > 0) {
             $entry = $entries[0];
 
-            // Cerca l'elemento <answers> se esiste già
             $answers = $xpath->query('answers', $entry);
 
             // Verifica se l'elemento <answers> esiste già

@@ -1,6 +1,5 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Verifica se 'domanda' e 'risposta' sono impostati
     if (isset($_POST['domanda']) && isset($_POST['risposta'])) {
         $faq_question = htmlspecialchars($_POST['domanda']);
         $faq_answer = htmlspecialchars($_POST['risposta']);

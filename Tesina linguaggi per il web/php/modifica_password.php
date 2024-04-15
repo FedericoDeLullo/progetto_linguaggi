@@ -15,9 +15,7 @@
 
 <?php
 require_once('../res/connection.php');
-// Verifica se l'utente è loggato
 if (!isset($_SESSION['id'])) {
-    // Reindirizza l'utente alla pagina di accesso se non è loggato
     header("Location: login_cliente.php");
     exit();
 }
@@ -31,11 +29,9 @@ if(isset($_SESSION['errore_preg']) && $_SESSION['errore_preg'] == 'true'){
 ?>
 <div class="cont">
 <?php
-// Verifica se è stato fornito un ID utente valido
 if (isset($_GET['id']) && is_numeric($_GET['id']) && ($admin == 0)) {
     $id_utente = $_GET['id'];
 
-    // Esegui una query per ottenere i dati dell'utente
     $query = "SELECT * FROM utenti WHERE id = $id_utente";
     $result = $connessione->query($query);
 
@@ -77,13 +73,12 @@ if (isset($_GET['id']) && is_numeric($_GET['id']) && ($admin == 0)) {
     $id_utente = $_GET['id'];
     $admin = $_SESSION['ammin'];
 
-    // Esegui una query per ottenere i dati dell'utente
     $query = "SELECT * FROM utenti WHERE id = $id_utente";
     $result = $connessione->query($query);
 
     if ($result->num_rows == 1) {
         $utente = $result->fetch_assoc();
-        $email = $utente['email']; // Ottieni l'email dall'array dell'utente
+        $email = $utente['email'];
         ?>
  
     <h1 class="titolo"> <div class="tooltip">

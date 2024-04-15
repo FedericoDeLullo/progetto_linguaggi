@@ -31,7 +31,6 @@
 
 
     
-    //controllo se l'email è già esistente
     $controllo_email = "SELECT * FROM utenti u WHERE u.email = '$email'";
     $ris_email = mysqli_query($connessione, $controllo_email);
 
@@ -42,7 +41,6 @@
         exit(1);
     }
 
-    //controllo se il numero di cellulare è già esistente
     $controllo_cellulare = "SELECT* FROM utenti u WHERE u.cellulare = '$cellulare'";
     $ris_cellulare = mysqli_query($connessione, $controllo_cellulare);
 
@@ -53,7 +51,6 @@
         exit(1);
     }
 
-    //controllo se il codice fiscale è già esistente
     $controllo_codice_fiscale = "SELECT* FROM utenti u WHERE u.codice_fiscale = '$codice_fiscale'";
     $ris_codice_fiscale = mysqli_query($connessione, $controllo_codice_fiscale);
 
@@ -64,7 +61,6 @@
         exit(1);
     }
       
-    //controllo se la password rispetta i parametri
     //~ è il carattere delimitatore dell'espressione regolare
     if (!preg_match('~^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[0-9]).{8,}$~', $password)){
         $_SESSION['errore_preg'] = 'true';
@@ -77,7 +73,6 @@
     try {
         $connessione->query($sql);
 
-        //unsetto tutte le variabili di sessione utilizzate prima visto che il form è andato a buon fine
         unset($_SESSION['form_email']);
         unset($_SESSION['form_nome']);
         unset($_SESSION['form_cognome']);

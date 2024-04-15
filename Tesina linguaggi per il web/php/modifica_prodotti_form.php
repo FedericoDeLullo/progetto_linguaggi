@@ -1,32 +1,25 @@
 <?php
 
 if (isset($_GET['id_prodotto'])) {
-    // Recupera l'id del prodotto dalla query string
     $id_prodotto = $_GET['id_prodotto'];
 $tipologia = $_GET['tipologia'];
-    // Puoi ora utilizzare $id_prodotto per recuperare le informazioni del prodotto dal tuo file XML
 
-    // Esempio: leggi il file XML
     $xmlFile = '../xml/catalogo_prodotti.xml';
     $dom = new DOMDocument();
     $dom->load($xmlFile);
 
-    // Trova il nodo del prodotto con l'id corrispondente
     $xpath = new DOMXPath($dom);
     $query = "//prodotto[id_prodotto='$id_prodotto']";
     $prodottoNodeList = $xpath->query($query);
 
-    // Se esiste un prodotto con l'id corrispondente
     if ($prodottoNodeList->length > 0) {
         $prodottoNode = $prodottoNodeList->item(0);
 
-        // Recupera le informazioni del prodotto
         $nome = $prodottoNode->getElementsByTagName('nome')->item(0)->nodeValue;
         $descrizione = $prodottoNode->getElementsByTagName('descrizione')->item(0)->nodeValue;
         $prezzo = $prodottoNode->getElementsByTagName('prezzo')->item(0)->nodeValue;
         $immagine = $prodottoNode->getElementsByTagName('immagine')->item(0)->nodeValue;
 
-        // Ora puoi utilizzare queste informazioni per popolare un modulo di modifica
 ?>
 <!DOCTYPE html>
     <html lang="en">
@@ -44,15 +37,12 @@ $tipologia = $_GET['tipologia'];
     </head>
     <body>
 <?php
-// Include il file di connessione al database
 require_once('../res/connection.php');
 if (!isset($_SESSION['id'])) {
-    // Reindirizza l'utente alla pagina di accesso se non è loggato
     header("Location: login_cliente.php");
     exit();
 }
 
-// Controlla se l'utente è un amministratore
 $id_utente = $_SESSION['id'];
 $sql_select = "SELECT gestore FROM utenti WHERE id = '$id_utente' AND gestore = 1";
 
@@ -106,15 +96,12 @@ if ($result = $connessione->query($sql_select)) {
         </html>
         <?php
             } else {
-                // Prodotto non trovato con l'id specificato
                 echo "Prodotto non trovato.";
             }
         } else {
-            // Id non fornito nella query string
             echo "ID del prodotto non fornito.";
         }
     } else {
-        // Se l'utente non è un amministratore, reindirizzalo a una pagina di accesso negato
         header("Location: accesso_negato.php");
         exit();
     }

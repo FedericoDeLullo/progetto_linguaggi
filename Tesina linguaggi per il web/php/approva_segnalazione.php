@@ -226,7 +226,6 @@ if(isset($_POST['id_domanda'])){
                 $requestTesto = $testo_element->nodeValue;
 
                 if ($requestRisposta == $risposta && $requestTesto == $testo_segnalazione_ris) {
-                    // Aggiorna lo stato della richiesta nel file XML
                     $segnalazione->setAttribute('status', 'Rifiutata');
                     
                     $dom->normalizeDocument();
@@ -277,7 +276,6 @@ if(isset($_POST['id_domanda'])){
                 $requestTesto = $testo_element->nodeValue;
 
                 if ($requestRecensione == $recensione && $requestTesto == $testo_segnalazione_rec) {
-                    // Aggiorna lo stato della richiesta nel file XML
                     $segnalazione->setAttribute('status', 'Approvata');
                     
                     $dom->normalizeDocument();
@@ -327,7 +325,6 @@ if(isset($_POST['id_domanda'])){
                 $requestTesto = $testo_element->nodeValue;
 
                 if ($requestRecensione == $recensione && $requestTesto == $testo_segnalazione_rec) {
-                    // Aggiorna lo stato della richiesta nel file XML
                     $segnalazione->setAttribute('status', 'Rifiutata');
                     
                     $dom->normalizeDocument();

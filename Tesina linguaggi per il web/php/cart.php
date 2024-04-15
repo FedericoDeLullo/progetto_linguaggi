@@ -29,7 +29,6 @@ if($result = $connessione->query($sql_select)){
 
 $carrello = isset($_SESSION['carrello']) ? $_SESSION['carrello'] : array();
 
-// Verifica se l'azione è "aggiungi_al_carrello"
 if (isset($_POST['azione']) && $_POST['azione'] === 'aggiungi_al_carrello') {
     $id_prodotto = $_POST['id_prodotto'];
     $nome = $_POST['nome'];
@@ -39,7 +38,6 @@ if (isset($_POST['azione']) && $_POST['azione'] === 'aggiungi_al_carrello') {
     $id_utente = $_SESSION['id'];
     $bonus = $_POST['bonus'];
 
-    // Aggiungi il prodotto al carrello
     $carrello[] = array(
         'id_prodotto' => $id_prodotto,
         'nome' => $nome,
@@ -51,25 +49,21 @@ if (isset($_POST['azione']) && $_POST['azione'] === 'aggiungi_al_carrello') {
     $_SESSION['carrello'] = $carrello;
 }
 
-// Gestisci le azioni di rimuovere il prodotto o modificare la quantità
 if (isset($_POST['azione'])) {
     
     if ($_POST['azione'] === 'svuota_carrello') {
-        // Azione per svuotare il carrello
         unset($_SESSION['carrello']);
         unset($carrello);
     } elseif ($_POST['azione'] === 'rimuovi_prodotto') {
-        // Azione per rimuovere singolarmente un prodotto
         $index = $_POST['index'];
         if (isset($carrello[$index])) {
             unset($_SESSION['carrello'][$index]);
             unset($carrello[$index]);
-            $_SESSION['carrello'] = array_values($_SESSION['carrello']); // Resetta gli indici dell'array
-            $carrello = array_values($carrello); // Resetta gli indici dell'array
+            $_SESSION['carrello'] = array_values($_SESSION['carrello']); 
+            $carrello = array_values($carrello);
 
         }
     } elseif ($_POST['azione'] === 'modifica_quantita') {
-        // Azione per modificare la quantità di un prodotto
         $index = $_POST['index'];
         $nuova_quantita = $_POST['nuova_quantita'];
 
@@ -81,7 +75,6 @@ if (isset($_POST['azione'])) {
     } elseif (isset($_POST['azione']) && $_POST['azione'] === 'conferma_acquisto') {
         $email = $_SESSION['email'];
     
-        // Calcola il totale dell'acquisto
         $totale_acquisto = 0;
         $prodotti_acquistati = array();
         $bonusDaAggiungere = calcolaBonusAcquisto();
@@ -97,38 +90,30 @@ if (isset($_POST['azione'])) {
 
 
         if ($_SESSION['crediti'] >= $totale_acquisto) {
-            // Sottrai i crediti dal totale dell'acquisto
             $_SESSION['crediti'] = $_SESSION['crediti'] - $totale_acquisto + $bonusDaAggiungere;
         
-            // Aggiorna i crediti nella tabella degli utenti
             $queryUpdateCrediti = "UPDATE utenti SET crediti = {$_SESSION['crediti']} WHERE id = {$_SESSION['id']}";
             $resultUpdateCrediti = mysqli_query($connessione, $queryUpdateCrediti);
 
             if (!empty($_SESSION['carrello'])) {
                 $xmlPath = '../xml/storico_acquisti.xml';
             
-                // Carica il documento XML esistente se presente, altrimenti crea uno nuovo
                 $dom = new DomDocument('1.0', 'UTF-8');
                 if (file_exists($xmlPath)) {
                     $dom->load($xmlPath);
                 } else {
-                    // Crea l'elemento radice "storico_acquisti" se il file non esiste
                     $storico_acquisti = $dom->createElement('storico_acquisti');
                     $dom->appendChild($storico_acquisti);
                 }
             
                 foreach ($_SESSION['carrello'] as $prodotto_carrello) {
-                    // Crea l'elemento "acquisto" per ogni prodotto nel carrello
                     $acquisto = $dom->createElement('acquisto');
 
-                    // Aggiungi l'id utente come attributo all'elemento "acquisto"
                     $acquisto->setAttribute('id_utente', $_SESSION['id']);
                     
-                    // Aggiungi data e ora come elementi figli
                     $acquisto->appendChild($dom->createElement('data', date('Y-m-d')));
                     $acquisto->appendChild($dom->createElement('ora', date('H:i:s')));
                     
-                    // Aggiungi gli altri dettagli del prodotto
                     $acquisto->appendChild($dom->createElement('id_prodotto', $prodotto_carrello['id_prodotto']));
                     $acquisto->appendChild($dom->createElement('nome', $prodotto_carrello['nome']));
                     $acquisto->appendChild($dom->createElement('prezzo_unitario', $prodotto_carrello['prezzo']));
@@ -136,18 +121,15 @@ if (isset($_POST['azione'])) {
                     $acquisto->appendChild($dom->createElement('prezzo_scontato', $prodotto_carrello['prezzoScontato']));
                     $acquisto->appendChild($dom->createElement('bonus', $prodotto_carrello['bonus']));
 
-                    // Calcola e aggiungi il prezzo totale come elemento separato
                     $prezzo_totale = $prodotto_carrello['prezzoScontato'] * $prodotto_carrello['quantita'];
                     $acquisto->appendChild($dom->createElement('prezzo_totale', $prezzo_totale));
                     
-                    // Aggiungi l'elemento "acquisto" all'elemento radice "storico_acquisti"
                     $dom->documentElement->appendChild($acquisto);
                 }
             
                 // Salva il DOM nel file storico_acquisti.xml
                 $dom->save($xmlPath);
             
-                // Svuota il carrello dopo l'acquisto
                 unset($_SESSION['carrello']);
                 unset($carrello);
 
@@ -167,18 +149,14 @@ if (isset($_POST['azione'])) {
     <h1 class="titolo">Il Tuo Carrello</h1>
 <?php
 
-            // Leggi il file XML del catalogo
             $xmlFile = '../xml/catalogo_prodotti.xml'; 
             $dom = new DOMDocument();
             $dom->load($xmlFile);
 
-            // Ottieni la lista di prodotti
             $prodottiCatalogo = $dom->getElementsByTagName('prodotto');
 
-            // Converte la NodeList in un array per semplificare l'ordinamento
             $prodottiCatalogoArray = iterator_to_array($prodottiCatalogo);
 
-// Verifica se il carrello contiene prodotti
 if (!empty($carrello)) {
     echo '<table>';
     echo '<tr>';
@@ -193,11 +171,9 @@ if (!empty($carrello)) {
     echo '</tr>';
     
     foreach ($carrello as $index => $prodotto_carrello) {
-        // Controlla se l'id del prodotto esiste
         if (!isset($prodotto_carrello['id_prodotto'])) {
-            continue; // Salta l'iterazione se l'id del prodotto non esiste
+            continue; 
         }
-        // Cerca il valore nella lista XML
         $trovato = false;
         foreach ($prodottiCatalogoArray as $prodottoCatalogo) {
             $id_prodotto = $prodottoCatalogo->getElementsByTagName('id_prodotto')->item(0)->nodeValue;
@@ -207,19 +183,18 @@ if (!empty($carrello)) {
             }
         }
 
-        // Output del risultato
         if (!$trovato) {
             echo "Il valore $id_prodotto non esiste nella lista XML di catalogo.";
             unset($_SESSION['carrello'][$index]);
             unset($carrello[$index]);
-            $_SESSION['carrello'] = array_values($_SESSION['carrello']); // Resetta gli indici dell'array
-            $carrello = array_values($carrello); // Resetta gli indici dell'array
+            $_SESSION['carrello'] = array_values($_SESSION['carrello']); 
+            $carrello = array_values($carrello); 
             continue;
         }
         echo '<tr>';
         echo '<td>' . $prodotto_carrello['nome'] . '</td>';
         echo '<td>' . (isset($prodotto_carrello['quantita']) ? $prodotto_carrello['quantita'] : 'N/A') . '</td>';
-        echo '<td>' . $prodotto_carrello['prezzo'] . '€</td>';  // Prezzo unitario
+        echo '<td>' . $prodotto_carrello['prezzo'] . '€</td>';  
     
         echo '<td>' . (isset($prodotto_carrello['prezzoScontato']) ? $prodotto_carrello['prezzoScontato'] . '€' : 'N/A') . '</td>';
         echo '<td>';
@@ -231,7 +206,6 @@ if (!empty($carrello)) {
         echo $prezzoTotale . '€</td>';
         echo '<td>';
         
-        // Aggiunta della cella per il Bonus Totale
         $bonusTotale = isset($prodotto_carrello['bonus']) && isset($prodotto_carrello['quantita'])
             ? $prodotto_carrello['bonus'] * $prodotto_carrello['quantita']
             : 'N/A';

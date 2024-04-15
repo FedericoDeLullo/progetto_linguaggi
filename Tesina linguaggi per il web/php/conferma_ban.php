@@ -21,9 +21,7 @@
             <td>
                 <form action="../res/ban.php" method="post">
                     <?php
-                    // Verifica se l'utente è autenticato e se è un amministratore
                     if (!isset($_SESSION['id']) || $_SESSION['ammin'] != 1) {
-                        // Reindirizza l'utente a una pagina di accesso negato
                         header("Location: accesso_negato.php");
                         exit();
                     }
@@ -31,7 +29,6 @@
                         $banValue = $_GET['ban'];
                         $id_utente = $_GET['id'];
                         
-                        // Aggiungi un campo hidden per inviare il valore GET nel form
                         echo '<input type="hidden" name="ban" value="' . htmlspecialchars($banValue) . '">';
                         echo '<input type="hidden" name="id" value="' . htmlspecialchars($id_utente) . '">';
 
