@@ -35,7 +35,7 @@ body{
     height: 75%;
     top: 55%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Traslazione per centrare l'elemento, spostandolo di -50% della sua larghezza e -50% della sua altezza rispetto al suo punto di origine (il 50% della larghezza e altezza dell'elemento) */
+    transform: translate(-50%, -50%);
 }
 
 table {

@@ -45,15 +45,15 @@ body{
 
 .table {
     width: 95%;
-    border-collapse: collapse; /* Unisce i bordi delle celle */
-    table-layout: fixed; /* Imposta la larghezza delle colonne come uniforme */
+    border-collapse: collapse;
+    table-layout: fixed;
     margin-bottom: 5vh;
 }
 
 td {
     padding: 10px;
     text-align: center;
-    box-sizing: border-box; /* Include padding e bordo nella larghezza totale */
+    box-sizing: border-box;
 }
 
 .des{

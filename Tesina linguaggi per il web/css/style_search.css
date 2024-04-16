@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     padding: 30px;
-    gap: 100px; /* Aggiungi la distanza desiderata tra gli oggetti interni */
+    gap: 100px;
     margin-bottom: 8vh;
 }
 
@@ -71,7 +71,7 @@ select {
     box-shadow: 0 0 5px 0 #0021b4;
     border-radius: 5px;
     padding: 5px;
-    outline: none; /* Rimuove l'outline quando l'elemento è selezionato */
+    outline: none;
 }
 
 input::placeholder{
